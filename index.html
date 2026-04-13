@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ayurgreen Hospital - India's leading integrated ortho-neuro rehabilitation hospital combining robotic technology, advanced therapy, and Ayurveda.">
+    <title>Ayurgreen Hospital | Advanced Neuro Rehabilitation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Inline styles for custom sections to keep it manageable -->
+    <style>
+        /* Pixel-level replication rules */
+        body { margin: 0; padding: 0; background: #eaecf0; font-family: var(--font-body); }
+
+        .hero-canvas-wrapper {
+            padding: 16px;
+            width: 100%; height: 100vh; min-height: 800px; box-sizing: border-box; display: flex;
+        }
+
+        .hero-canvas-card {
+            position: relative; width: 100%; flex-grow: 1; border-radius: 36px;
+            background: #fff;
+            overflow: hidden; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .hero-img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+            opacity: 0; transition: opacity 0.8s ease-in-out;
+        }
+        .hero-img.active {
+            opacity: 1;
+        }
+
+        .hero-overlay-gradient {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+            z-index: 2; pointer-events: none;
+        }
+
+        .hero-slider-nav {
+            position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); z-index: 10;
+            display: flex; gap: 12px;
+        }
+        .slider-nav-btn {
+            background: #fff; color: #000; width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; border: none; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.2s, background 0.2s;
+        }
+        .slider-nav-btn:hover { background: #f0f0f0; transform: scale(1.05); }
+
+        /* Top Header */
+        .hero-header {
+            position: absolute; top: 32px; left: 48px; right: 48px;
+            display: flex; justify-content: space-between; align-items: center; z-index: 20;
+        }
+
+        /* Nav Pills - Individual Capsules */
+        .nav-pills-container { display: flex; gap: 12px; }
+        .individual-pill {
+            background: rgba(255,255,255,0.1); 
+            border: 1px solid rgba(255,255,255,0.25); padding: 10px 20px; border-radius: 40px;
+            color: #fff; font-size: 14px; font-weight: 500; text-decoration: none;
+            transition: all 0.2s;
+        }
+        .individual-pill:hover {
+            background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Center Logo */
+        .header-center-link {
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+            display: block; transition: transform 0.2s; z-index: 10;
+        }
+        .header-center-link:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        .header-center-link img { height: 52px; filter: brightness(0) invert(1); display: block; margin: 0 auto; }
+
+        /* Right Header Controls */
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .header-cta-pill {
+            background: #fff; color: #000; padding: 6px 6px 6px 20px; border-radius: 40px;
+            display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 11px; letter-spacing: 0.5px; text-decoration: none; text-transform: uppercase;
+        }
+        .header-cta-pill .arrow-btn {
+            background: #000; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s;
+        }
+        .header-cta-pill:hover .arrow-btn { transform: translateX(2px); }
+        .menu-btn {
+            background: #fff; color: #000; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer;
+        }
+
+        /* Main Content Block */
+        .main-content-block {
+            position: absolute; top: 40%; left: 48px; transform: translateY(-50%);
+            width: 50%; max-width: 800px; z-index: 10; text-align: left;
+        }
+        .main-title {
+            color: #fff; font-size: 52px; font-weight: 500; line-height: 1.05; margin-bottom: 24px;
+            font-family: var(--font-heading); letter-spacing: -0.01em; text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .main-sub {
+            color: #fff; font-size: 16px; line-height: 1.5; margin-bottom: 0px; font-weight: 400; max-width: 500px; text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        .main-cta {
+            background: #fff; color: #000; padding: 6px 6px 6px 20px; border-radius: 40px;
+            display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 11px; letter-spacing: 0.5px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-transform: uppercase;
+        }
+        .main-cta .arrow-btn {
+            background: #000; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s;
+        }
+        .main-cta:hover .arrow-btn { transform: translateX(2px); }
+
+        /* Bottom Right Main CTA */
+        .bottom-right-action {
+            position: absolute; bottom: 48px; right: 48px; z-index: 10;
+        }
+        /* Bottom Left Badge */
+        .bottom-left-badge {
+            position: absolute; bottom: 48px; left: 48px; z-index: 10;
+            background: #fff; padding: 6px 20px 6px 6px; border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .badge-avatars { display: flex; align-items: center; }
+        .badge-avatars img { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #fff; margin-left: -10px; object-fit: cover; }
+        .badge-avatars img:first-child { margin-left: 0; }
+        .badge-avatars .plus-icon { width: 32px; height: 32px; border-radius: 50%; background: #000; color: #fff; border: 2px solid #fff; margin-left: -10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .bottom-left-badge span { font-size: 11px; font-weight: 600; color: #333; letter-spacing: 0.5px; }
+
+        @media (max-width: 1024px) {
+            .bottom-right-action { bottom: 24px; right: 50%; transform: translateX(50%); }
+            .bottom-left-badge { bottom: 84px; left: 50%; transform: translateX(-50%); display: none; }
+            .hero-canvas-wrapper { padding: 0; }
+            .hero-canvas-card { border-radius: 0; border: none; }
+            .main-content-block { left: 50%; transform: translate(-50%, -50%); width: 90%; text-align: center; }
+            .main-sub { max-width: 100%; margin: 0 auto; }
+            .hero-header { flex-direction: column; gap: 16px; }
+        }
+
+        /* General Sections */
+        .section-header { text-align: center; margin-bottom: var(--space-medium); max-width: 800px; margin-inline: auto; }
+        .section-header h2 { margin-bottom: 16px; }
+        
+        .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* Intro Section */
+        .intro-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-large); align-items: center;}
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .intro-grid img { border-radius: var(--radius-soft); object-fit: cover; width: 100%; height: 250px; }
+        .intro-grid img:first-child { grid-row: span 2; height: 100%; }
+        .icon-list-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+        .icon-box { min-width: 48px; height: 48px; background: var(--secondary); color: var(--primary);
+            display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+
+        /* Cards */
+        .admire-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+        .admire-card { text-align: center; padding: 40px 24px; border: none; background: #fafafa; }
+        .admire-card .icon-box { margin: 0 auto 24px auto; width: 64px; height: 64px; }
+        
+        .therapy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+        .therapy-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border); }
+        .therapy-card-content { padding: 24px; position: relative; }
+        .therapy-card-icon { position: absolute; top: -20px; right: 24px; background: var(--primary); color: white; padding: 10px; border-radius: 50%; border: 4px solid var(--bg-white);}
+
+        /* Carousel/Horizontal Scroll */
+        .horizontal-scroll { display: flex; overflow-x: auto; gap: 24px; padding-bottom: 24px; scroll-snap-type: x mandatory; }
+        .horizontal-scroll::-webkit-scrollbar { height: 8px; }
+        .horizontal-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px;}
+        .scroll-card { min-width: 320px; scroll-snap-align: start; flex-shrink: 0; }
+        .dark-section { background: var(--text-main); color: white; }
+        .dark-section h2, .dark-section h3, .dark-section p { color: white; }
+        
+        /* Footer */
+        .global-footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: var(--space-large) 0 32px 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;}
+        .footer-col h4 { color: white; margin-bottom: 24px; font-size: 16px; }
+        .footer-col a { display: block; margin-bottom: 12px; transition: color 0.3s; }
+        .footer-col a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; display: flex; justify-content: space-between; font-size: 14px;}
+    </style>
+</head>
+<body>
+
+    <!-- Pixel-Level Match Hero Section -->
+    <div class="hero-canvas-wrapper">
+        <div class="hero-canvas-card">
+            <img src="Assets/ayurgreen-hospital.webp" alt="Ayurgreen Hospital" class="hero-img active">
+            <img src="Assets/Rehab Stories Banner.webp" alt="Stories of Relearning" class="hero-img">
+            <div class="hero-overlay-gradient"></div>
+
+            <header class="hero-header">
+                <div class="header-left">
+                    <nav class="nav-pills-container">
+                        <a href="#" class="individual-pill">About Us</a>
+                        <a href="#" class="individual-pill">Programs</a>
+                        <a href="#" class="individual-pill">Therapies</a>
+                        <a href="#" class="individual-pill">Membership</a>
+                    </nav>
+                </div>
+                
+                <a href="/" class="header-center-link">
+                    <img src="Assets/Ayurgreen Logo.webp" alt="Ayurgreen Logo">
+                </a>
+
+                <div class="header-right">
+                    <a href="#" class="header-cta-pill">Book Consultation <span class="arrow-btn"><i data-lucide="arrow-up-right" size="14"></i></span></a>
+                    <button class="menu-btn"><i data-lucide="menu" size="18"></i></button>
+                </div>
+            </header>
+
+            <div class="main-content-block fade-up" style="transition-delay: 0.1s;">
+                <h1 class="main-title" id="hero-title">India’s First Robotic Integrated Neuro Rehabilitation Hospital</h1>
+                <div class="main-sub" id="hero-sub" style="margin-top: 16px;">
+                    Advanced robotic rehab, Ayurveda, and multidisciplinary care designed to restore independence and quality of life.
+                </div>
+            </div>
+
+            <div class="bottom-left-badge fade-up" style="transition-delay: 0.2s;">
+                  <div class="badge-avatars">
+                      <img src="https://flagcdn.com/w80/ae.png" alt="UAE">
+                      <img src="https://flagcdn.com/w80/sa.png" alt="Saudi Arabia">
+                      <img src="https://flagcdn.com/w80/om.png" alt="Oman">
+                      <img src="https://flagcdn.com/w80/qa.png" alt="Qatar">
+                      <div class="plus-icon"><i data-lucide="check" size="14"></i></div>
+                  </div>
+                  <span>PATIENTS FROM 50+ COUNTRIES</span>
+            </div>
+            
+            <div class="bottom-right-action fade-up" style="transition-delay: 0.3s;">
+                <a href="#" class="main-cta"><span class="cta-text" id="hero-cta-text">Start Recovery</span> <span class="arrow-btn"><i data-lucide="arrow-up-right" size="14"></i></span></a>
+            </div>
+
+            <div class="hero-slider-nav fade-up" style="transition-delay: 0.3s;">
+                <button class="slider-nav-btn" id="hero-prev"><i data-lucide="arrow-left" size="18"></i></button>
+                <button class="slider-nav-btn" id="hero-next"><i data-lucide="arrow-right" size="18"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <main>
+
+        <!-- Intro Section -->
+        <section class="container fade-up" style="margin-top: var(--space-large);">
+            <div class="intro-split">
+                <div>
+                    <div class="section-header" style="text-align: left; margin: 0;">
+                        <h2>A rehabilitation hospital built around recovery, not just treatment.</h2>
+                        <p style="margin: 24px 0;">We specialize in ortho-neuro rehabilitation, helping patients regain mobility, rebuild strength, and return to independent living after neurological and orthopedic conditions.</p>
+                        <p style="margin-bottom: 32px;">Every recovery journey here is structured, intensive, and goal-oriented — designed around neuroplasticity and functional restoration.</p>
+                    </div>
+                    <div class="icon-list-item">
+                        <div class="icon-box"><i data-lucide="cpu"></i></div>
+                        <div>
+                            <h3 style="font-size: 18px;">Advanced Robotic Rehabilitation</h3>
+                            <p style="font-size: 14px;">Accelerate recovery with cutting edge technology.</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <div class="icon-box"><i data-lucide="activity"></i></div>
+                        <div>
+                            <h3 style="font-size: 18px;">Evidence-Based Physiotherapy</h3>
+                            <p style="font-size: 14px;">Expert multidisciplinary clinical care.</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <div class="icon-box"><i data-lucide="leaf"></i></div>
+                        <div>
+                            <h3 style="font-size: 18px;">Ayurveda & Holistic Healing</h3>
+                            <p style="font-size: 14px;">Integrative approach for long-term health.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-grid">
+                    <img src="Assets/generated/hero.webp" alt="Robotics">
+                    <img src="Assets/generated/therapist.webp" alt="Therapy">
+                    <img src="Assets/generated/ayurveda.webp" alt="Ayurveda">
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Ayurgreen -->
+        <section class="container fade-up" style="background-color: var(--secondary); border-radius: 32px; padding: 64px 40px; margin-top: 80px;">
+            <div class="section-header">
+                <h2>Advanced, Integrated Rehabilitation That Goes Beyond Treatment</h2>
+            </div>
+            <div class="admire-grid">
+                <div class="card admire-card">
+                    <div class="icon-box"><i data-lucide="layers" size="32"></i></div>
+                    <h3>Multidisciplinary Healing</h3>
+                    <p style="margin-top:12px">Combining physiotherapy, occupational therapy, Ayurveda, and modern medicine.</p>
+                </div>
+                <div class="card admire-card">
+                    <div class="icon-box"><i data-lucide="bot" size="32"></i></div>
+                    <h3>Robotic Technology</h3>
+                    <p style="margin-top:12px">Advanced tools for intensive, guided movement restoration and neuroplasticity.</p>
+                </div>
+                <div class="card admire-card">
+                    <div class="icon-box"><i data-lucide="brain" size="32"></i></div>
+                    <h3>Neuro Specialists</h3>
+                    <p style="margin-top:12px">Dedicated care for Stroke, Parkinson's, spinal injuries, and neurological disorders.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Pillars -->
+        <section class="container fade-up" style="margin-top: 80px;">
+            <div class="section-header">
+                <h2>Built on four foundational pillars</h2>
+                <p>Ayurgreen delivers a complete healing ecosystem.</p>
+            </div>
+            <div class="grid grid-4 gap-medium">
+                <div class="card" style="padding: 32px; text-align: center; border-top: 4px solid var(--primary);">
+                    <i data-lucide="plus-circle" style="color: var(--primary); margin-bottom: 16px;" size="40"></i>
+                    <h3 style="font-size: 20px;">Therapy</h3>
+                    <p style="margin-top: 8px;">Targeted rehabilitation programs designed to restore movement and function.</p>
+                </div>
+                <div class="card" style="padding: 32px; text-align: center;">
+                    <i data-lucide="activity" style="color: var(--primary); margin-bottom: 16px;" size="40"></i>
+                    <h3 style="font-size: 20px;">Fitness</h3>
+                    <p style="margin-top: 8px;">Strength, endurance, and mobility training to support long-term recovery.</p>
+                </div>
+                <div class="card" style="padding: 32px; text-align: center;">
+                    <i data-lucide="flower-2" style="color: var(--primary); margin-bottom: 16px;" size="40"></i>
+                    <h3 style="font-size: 20px;">Aesthetics</h3>
+                    <p style="margin-top: 8px;">Healing therapies that promote physical comfort, confidence, and well-being.</p>
+                </div>
+                <div class="card" style="padding: 32px; text-align: center;">
+                    <i data-lucide="user-plus" style="color: var(--primary); margin-bottom: 16px;" size="40"></i>
+                    <h3 style="font-size: 20px;">Active Ageing</h3>
+                    <p style="margin-top: 8px;">Programs focused on maintaining independence and quality of life over time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conditions We Treat -->
+        <section class="container fade-up">
+            <div class="section-header" style="text-align: left; max-width: 100%;">
+                <h2>Conditions We Treat</h2>
+                <p>We specialize in complex neurological and orthopedic conditions.</p>
+            </div>
+            <div class="grid grid-4 gap-medium" style="margin-top: 32px;">
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="brain"></i></div><h3 style="font-size: 16px; align-self: center;">Stroke recovery</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="zap"></i></div><h3 style="font-size: 16px; align-self: center;">Traumatic brain injury</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="activity"></i></div><h3 style="font-size: 16px; align-self: center;">Parkinson's disease</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="shield"></i></div><h3 style="font-size: 16px; align-self: center;">Multiple sclerosis</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="user"></i></div><h3 style="font-size: 16px; align-self: center;">Cerebral palsy</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="layers"></i></div><h3 style="font-size: 16px; align-self: center;">Spinal cord injuries</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="bone"></i></div><h3 style="font-size: 16px; align-self: center;">Post-polio syndrome</h3></div>
+                <div class="icon-list-item"><div class="icon-box" style="background:#f1f5f9;"><i data-lucide="activity-square"></i></div><h3 style="font-size: 16px; align-self: center;">Orthopedic injuries & post-surgical rehab</h3></div>
+            </div>
+        </section>
+
+        <!-- Rehabilitation Services -->
+        <section class="container fade-up">
+            <div class="section-header">
+                <span style="color:var(--primary); font-weight:600;">Rehabilitation Services</span>
+                <h2>A Complete, Integrated Recovery System</h2>
+            </div>
+            <div class="therapy-grid">
+                <div class="card therapy-card">
+                    <img src="Assets/generated/therapist.webp" alt="Physiotherapy">
+                    <div class="therapy-card-content">
+                        <i data-lucide="activity" class="therapy-card-icon"></i>
+                        <h3>Physiotherapy</h3>
+                        <p style="margin-top:8px; font-size:14px;">Restores movement, strength, and coordination using evidence-based techniques.</p>
+                    </div>
+                </div>
+                <div class="card therapy-card">
+                    <img src="Assets/generated/hero.webp" alt="Robotic Rehab">
+                    <div class="therapy-card-content">
+                        <i data-lucide="bot" class="therapy-card-icon"></i>
+                        <h3>Robotic Rehabilitation</h3>
+                        <p style="margin-top:8px; font-size:14px;">Advanced robotic gait and arm training systems that retrain movement patterns.</p>
+                    </div>
+                </div>
+                <div class="card therapy-card">
+                    <img src="Assets/generated/ayurveda.webp" alt="Ayurveda">
+                    <div class="therapy-card-content">
+                        <i data-lucide="leaf" class="therapy-card-icon"></i>
+                        <h3>Ayurveda & Panchakarma</h3>
+                        <p style="margin-top:8px; font-size:14px;">Detoxification, pain management, and neurological support through traditional therapies.</p>
+                    </div>
+                </div>
+                <!-- Adding placeholders for the rest to keep it balanced visually -->
+                <div class="card therapy-card" style="padding: 24px; display: flex; align-items: center; justify-content: center; background: #fafafa;">
+                    <div style="text-align:center;">
+                        <i data-lucide="hand" size="40" style="color:var(--primary); margin-bottom:16px;"></i>
+                        <h3>Occupational Therapy</h3>
+                        <p style="margin-top:8px; font-size:14px;">Helps patients regain independence in daily activities like eating, dressing, and mobility.</p>
+                    </div>
+                </div>
+                <div class="card therapy-card" style="padding: 24px; display: flex; align-items: center; justify-content: center; background: #fafafa;">
+                    <div style="text-align:center;">
+                        <i data-lucide="message-circle" size="40" style="color:var(--primary); margin-bottom:16px;"></i>
+                        <h3>Speech & Swallow</h3>
+                        <p style="margin-top:8px; font-size:14px;">Improves communication, cognition, and swallowing functions.</p>
+                    </div>
+                </div>
+                 <div class="card therapy-card" style="padding: 24px; display: flex; align-items: center; justify-content: center; background: #fafafa;">
+                    <div style="text-align:center;">
+                        <i data-lucide="droplets" size="40" style="color:var(--primary); margin-bottom:16px;"></i>
+                        <h3>Aquatic Hydrotherapy</h3>
+                        <p style="margin-top:8px; font-size:14px;">Low-impact rehabilitation in water to improve mobility, balance, and strength.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top: 40px;">
+                 <a href="#" class="btn btn-secondary">View All Therapies</a>
+            </div>
+        </section>
+
+        <!-- Advanced Technology (Dark Section) -->
+        <section class="dark-section fade-up" style="padding: 80px 0; margin-top: 40px; border-radius: 40px; margin-inline: 24px;">
+            <div class="container">
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <h2>Advanced Rehabilitation Technology</h2>
+                    <p style="opacity: 0.8; max-width: 600px;">We combine human expertise with cutting-edge rehabilitation technology to help retrain the brain and body faster.</p>
+                </div>
+                <div class="horizontal-scroll">
+                    <div class="card scroll-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 24px;">
+                        <i data-lucide="monitor" style="color:var(--secondary); margin-bottom:16px;" size="40"></i>
+                        <h3>Robotic Gait Training Systems</h3>
+                    </div>
+                    <div class="card scroll-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 24px;">
+                        <i data-lucide="cpu" style="color:var(--secondary); margin-bottom:16px;" size="40"></i>
+                        <h3>Robotic Arm Rehabilitation</h3>
+                    </div>
+                    <div class="card scroll-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 24px;">
+                        <i data-lucide="zap" style="color:var(--secondary); margin-bottom:16px;" size="40"></i>
+                        <h3>Functional Electrical Stimulation</h3>
+                    </div>
+                    <div class="card scroll-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 24px;">
+                        <i data-lucide="headset" style="color:var(--secondary); margin-bottom:16px;" size="40"></i>
+                        <h3>Virtual Reality Therapy</h3>
+                    </div>
+                    <div class="card scroll-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 24px;">
+                        <i data-lucide="waves" style="color:var(--secondary); margin-bottom:16px;" size="40"></i>
+                        <h3>Underwater Treadmill</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Rehab Works -->
+        <section class="container fade-up" style="margin-top: 80px;">
+            <div class="section-header">
+                <h2>A Structured Path to Recovery</h2>
+                <p>How Rehabilitation Works at Ayurgreen</p>
+            </div>
+            <div class="grid grid-2 gap-medium" style="margin-top: 40px;">
+                 <div class="icon-list-item">
+                    <div class="icon-box" style="background:var(--primary); color:white; font-size:24px; font-weight:700;">1</div>
+                    <div>
+                        <h3 style="font-size: 20px;">Comprehensive Assessment</h3>
+                        <p style="font-size: 15px; margin-top:8px;">Detailed evaluation of physical, cognitive, and functional limitations.</p>
+                    </div>
+                </div>
+                 <div class="icon-list-item">
+                    <div class="icon-box" style="background:var(--primary); color:white; font-size:24px; font-weight:700;">2</div>
+                    <div>
+                        <h3 style="font-size: 20px;">Personalized Treatment Plan</h3>
+                        <p style="font-size: 15px; margin-top:8px;">Goal-based therapy programs designed for each patient.</p>
+                    </div>
+                </div>
+                 <div class="icon-list-item">
+                    <div class="icon-box" style="background:var(--primary); color:white; font-size:24px; font-weight:700;">3</div>
+                    <div>
+                        <h3 style="font-size: 20px;">Intensive Therapy Sessions</h3>
+                        <p style="font-size: 15px; margin-top:8px;">Multiple sessions per day across disciplines to accelerate recovery.</p>
+                    </div>
+                </div>
+                 <div class="icon-list-item">
+                    <div class="icon-box" style="background:var(--primary); color:white; font-size:24px; font-weight:700;">4</div>
+                    <div>
+                        <h3 style="font-size: 20px;">Progress Tracking & Optimization</h3>
+                        <p style="font-size: 15px; margin-top:8px;">Continuous evaluation and adjustment of treatment plans.</p>
+                    </div>
+                </div>
+                 <div class="icon-list-item" style="grid-column: span 2; justify-content: center; text-align:center; max-width: 600px; margin: 24px auto;">
+                    <div class="icon-box" style="background:var(--primary); color:white; font-size:24px; font-weight:700; margin:0 auto 16px;">5</div>
+                    <div>
+                        <h3 style="font-size: 20px;">Functional Reintegration</h3>
+                        <p style="font-size: 15px; margin-top:8px;">Training focused on real-life activities and independence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rehab Village -->
+        <section class="container fade-up" style="margin-top: 40px; margin-bottom: 80px;">
+            <div class="intro-split" style="background: var(--secondary); border-radius: 32px; overflow:hidden;">
+                <div style="padding: 60px;">
+                    <span style="color:var(--primary); font-weight:600; text-transform:uppercase; font-size:14px; letter-spacing:1px;">Rehab Village</span>
+                    <h2 style="margin: 16px 0;">Recovery Beyond the Hospital</h2>
+                    <p style="margin-bottom: 24px;">Rehab Village is a unique extension of Ayurgreen's rehabilitation model. Patients recover in a setting that feels like home — improving motivation, comfort, and long-term outcomes.</p>
+                    <ul style="list-style:none; margin-bottom: 32px;">
+                        <li style="margin-bottom:12px; display:flex; gap:12px;"><i data-lucide="check-circle" style="color:var(--primary);"></i> Long-term accommodation (villas, homestays, apartments)</li>
+                        <li style="margin-bottom:12px; display:flex; gap:12px;"><i data-lucide="check-circle" style="color:var(--primary);"></i> Daily doctor visits and support</li>
+                        <li style="margin-bottom:12px; display:flex; gap:12px;"><i data-lucide="check-circle" style="color:var(--primary);"></i> Community-based healing environment</li>
+                        <li style="margin-bottom:12px; display:flex; gap:12px;"><i data-lucide="check-circle" style="color:var(--primary);"></i> Seamless integration with hospital treatments</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Explore Rehab Village</a>
+                </div>
+                <img src="Assets/generated/ayurveda.webp" alt="Rehab Village" style="width: 100%; height: 100%; object-fit: cover; min-height: 400px;">
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section style="background: linear-gradient(135deg, var(--secondary) 0%, rgba(255,255,255,1) 100%); text-align: center; padding: 120px 24px; margin-bottom: 0;">
+            <div class="container fade-up">
+                <i data-lucide="heart-handshake" size="64" style="color: var(--primary); margin-bottom:24px;"></i>
+                <h2 style="margin-bottom: 24px; font-size:48px;">Start Your Recovery Journey Today</h2>
+                <p style="max-width: 600px; margin: 0 auto 40px auto; font-size: 18px;">Whether you are recovering from stroke, injury, or a neurological condition — the right rehabilitation can change everything.</p>
+                <div class="flex justify-center gap-small">
+                    <a href="#" class="btn btn-primary">Book a Consultation</a>
+                    <a href="#" class="btn btn-secondary">Speak to Our Rehab Experts</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+        <div class="container footer-grid">
+            <div class="footer-col" style="grid-column: span 2;">
+                <img src="Assets/Ayurgreen Logo.webp" alt="Ayurgreen" style="height: 48px; filter: brightness(0) invert(1); margin-bottom: 24px;">
+                <p style="max-width: 300px; color: rgba(255,255,255,0.7);">India's leading integrated ortho-neuro rehabilitation hospital combining robotic technology, advanced therapy, and Ayurveda.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Rehab Village</a>
+                <a href="#">International Patients</a>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <a href="#">Stroke Rehab</a>
+                <a href="#">Spinal Cord Injury</a>
+                <a href="#">Cerebral Palsy</a>
+                <a href="#">View All</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>+91 8080 808080</p>
+                <p>info@ayurgreen.com</p>
+                <p style="margin-top:16px;"><strong>Emergency Line:</strong><br>+91 9000 900000</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 Ayurgreen Hospital. All Rights Reserved.</div>
+            <div><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -64,7 +64,7 @@
 
         /* Nav Pills - Individual Capsules & Dropdowns */
         .nav-pills-container { display: flex; gap: 12px; }
-        .nav-item-wrapper { position: relative; padding-bottom: 24px; margin-bottom: -24px; }
+        .nav-item-wrapper { position: relative; }
         
         .individual-pill {
             background: rgba(255,255,255,0.1); 
@@ -88,13 +88,18 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); z-index: 100;
             display: flex; flex-direction: column; gap: 6px;
         }
+        .nav-dropdown::before {
+            content: ''; position: absolute; top: -16px; left: 0; width: 100%; height: 16px;
+        }
         .nav-item-wrapper:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
         
         .nav-dropdown a {
-            display: flex; align-items: center; color: rgba(255, 255, 255, 0.9); text-decoration: none;
+            display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, 0.9); text-decoration: none;
             padding: 10px 20px; font-size: 14px; font-weight: 500; border-radius: 40px;
-            transition: all 0.2s ease; border: 1px solid transparent; background: transparent;
+            transition: all 0.2s ease; border: 1px solid transparent; background: transparent; white-space: nowrap;
         }
+        .nav-dropdown a .lucide { opacity: 0.8; transition: opacity 0.2s ease; }
+        .nav-dropdown a:hover .lucide { opacity: 1; }
         .nav-dropdown a:hover { 
             background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.5); 
             color: #fff; transform: translateX(6px); 
@@ -231,58 +236,58 @@
                         <div class="nav-item-wrapper">
                             <a href="#" class="individual-pill">About Us <i data-lucide="chevron-down" size="14"></i></a>
                             <div class="nav-dropdown">
-                                <a href="#">Our Legacy</a>
-                                <a href="#">Ayurgreen Ecosystem</a>
-                                <a href="#">Facilities</a>
+                                <a href="#"><i data-lucide="award" size="14"></i> Our Legacy</a>
+                                <a href="#"><i data-lucide="globe" size="14"></i> Ayurgreen Ecosystem</a>
+                                <a href="#"><i data-lucide="building" size="14"></i> Facilities</a>
                             </div>
                         </div>
 
                         <div class="nav-item-wrapper">
                             <a href="#" class="individual-pill">Programs <i data-lucide="chevron-down" size="14"></i></a>
                             <div class="nav-dropdown mega-menu-3-col">
-                                <a href="#">Stroke</a>
-                                <a href="#">Spinal Cord Injury</a>
-                                <a href="#">Traumatic Brain Injury</a>
-                                <a href="#">Hemiplegia</a>
-                                <a href="#">Quadriplegia & Paraplegia</a>
-                                <a href="#">Post-Surgical Complications</a>
-                                <a href="#">Motor Neuron Diseases</a>
-                                <a href="#">Cerebral Palsy</a>
-                                <a href="#">Parkinson's Disease</a>
-                                <a href="#">Myopathy</a>
-                                <a href="#">Disc & Spine Problems</a>
-                                <a href="#">Sciatica</a>
-                                <a href="#">Obesity</a>
-                                <a href="#">Post-Covid Complications</a>
-                                <a href="#">Muscular Dystrophy</a>
-                                <a href="#">Osteoarthritis</a>
-                                <a href="#">Rheumatoid Arthritis</a>
-                                <a href="#">Developmental Delay</a>
-                                <a href="#">Psychological Problems</a>
+                                <a href="#"><i data-lucide="activity" size="14"></i> Stroke</a>
+                                <a href="#"><i data-lucide="bone" size="14"></i> Spinal Cord Injury</a>
+                                <a href="#"><i data-lucide="brain" size="14"></i> Traumatic Brain Injury</a>
+                                <a href="#"><i data-lucide="person-standing" size="14"></i> Hemiplegia</a>
+                                <a href="#"><i data-lucide="accessibility" size="14"></i> Quadriplegia & Paraplegia</a>
+                                <a href="#"><i data-lucide="stethoscope" size="14"></i> Post-Surgical Complications</a>
+                                <a href="#"><i data-lucide="network" size="14"></i> Motor Neuron Diseases</a>
+                                <a href="#"><i data-lucide="flower-2" size="14"></i> Cerebral Palsy</a>
+                                <a href="#"><i data-lucide="activity" size="14"></i> Parkinson's Disease</a>
+                                <a href="#"><i data-lucide="activity" size="14"></i> Myopathy</a>
+                                <a href="#"><i data-lucide="bone" size="14"></i> Disc & Spine Problems</a>
+                                <a href="#"><i data-lucide="activity" size="14"></i> Sciatica</a>
+                                <a href="#"><i data-lucide="scale" size="14"></i> Obesity</a>
+                                <a href="#"><i data-lucide="shield-alert" size="14"></i> Post-Covid Complications</a>
+                                <a href="#"><i data-lucide="activity" size="14"></i> Muscular Dystrophy</a>
+                                <a href="#"><i data-lucide="bone" size="14"></i> Osteoarthritis</a>
+                                <a href="#"><i data-lucide="bone" size="14"></i> Rheumatoid Arthritis</a>
+                                <a href="#"><i data-lucide="sprout" size="14"></i> Developmental Delay</a>
+                                <a href="#"><i data-lucide="brain" size="14"></i> Psychological Problems</a>
                             </div>
                         </div>
 
                         <div class="nav-item-wrapper">
                             <a href="#" class="individual-pill">Therapies <i data-lucide="chevron-down" size="14"></i></a>
                             <div class="nav-dropdown mega-menu-3-col">
-                                <a href="#">Ayurveda</a>
-                                <a href="#">Physiotherapy</a>
-                                <a href="#">Robotic Rehabilitation</a>
-                                <a href="#">Occupational Therapy</a>
-                                <a href="#">Speech Therapy</a>
-                                <a href="#">Virtual Reality</a>
-                                <a href="#">Yoga</a>
-                                <a href="#">Acupuncture</a>
-                                <a href="#">Reflexology</a>
-                                <a href="#">Hydro / Aquatic Therapy</a>
-                                <a href="#">Pediatric Physiotherapy</a>
-                                <a href="#">Slimming Treatment</a>
-                                <a href="#">Pain Management</a>
-                                <a href="#">Diet & Nutrition</a>
-                                <a href="#">Counseling</a>
-                                <a href="#">Dentistry</a>
-                                <a href="#">Modern Medicine</a>
-                                <a href="#">Assistive Devices</a>
+                                <a href="#"><i data-lucide="leaf" size="14"></i> Ayurveda</a>
+                                <a href="#"><i data-lucide="dumbbell" size="14"></i> Physiotherapy</a>
+                                <a href="#"><i data-lucide="bot" size="14"></i> Robotic Rehabilitation</a>
+                                <a href="#"><i data-lucide="puzzle" size="14"></i> Occupational Therapy</a>
+                                <a href="#"><i data-lucide="message-circle" size="14"></i> Speech Therapy</a>
+                                <a href="#"><i data-lucide="headset" size="14"></i> Virtual Reality</a>
+                                <a href="#"><i data-lucide="sun" size="14"></i> Yoga</a>
+                                <a href="#"><i data-lucide="map-pin" size="14"></i> Acupuncture</a>
+                                <a href="#"><i data-lucide="footprints" size="14"></i> Reflexology</a>
+                                <a href="#"><i data-lucide="waves" size="14"></i> Hydro / Aquatic Therapy</a>
+                                <a href="#"><i data-lucide="baby" size="14"></i> Pediatric Physiotherapy</a>
+                                <a href="#"><i data-lucide="scale" size="14"></i> Slimming Treatment</a>
+                                <a href="#"><i data-lucide="shield-plus" size="14"></i> Pain Management</a>
+                                <a href="#"><i data-lucide="utensils" size="14"></i> Diet & Nutrition</a>
+                                <a href="#"><i data-lucide="heart-handshake" size="14"></i> Counseling</a>
+                                <a href="#"><i data-lucide="smile" size="14"></i> Dentistry</a>
+                                <a href="#"><i data-lucide="pill" size="14"></i> Modern Medicine</a>
+                                <a href="#"><i data-lucide="accessibility" size="14"></i> Assistive Devices</a>
                             </div>
                         </div>
 
@@ -297,6 +302,18 @@
                 </a>
 
                 <div class="header-right">
+                    <div class="nav-item-wrapper">
+                        <a href="#" class="individual-pill">Specializations <i data-lucide="chevron-down" size="14"></i></a>
+                        <div class="nav-dropdown">
+                            <a href="#"><i data-lucide="brain" size="14"></i> Neurology</a>
+                            <a href="#"><i data-lucide="microscope" size="14"></i> Neurosurgery</a>
+                            <a href="#"><i data-lucide="bone" size="14"></i> Orthopedic</a>
+                            <a href="#"><i data-lucide="ear" size="14"></i> ENT</a>
+                            <a href="#"><i data-lucide="stethoscope" size="14"></i> General Medicine</a>
+                            <a href="#"><i data-lucide="droplet" size="14"></i> Urology</a>
+                            <a href="#"><i data-lucide="heart" size="14"></i> Cardiology</a>
+                        </div>
+                    </div>
                     <a href="#" class="individual-pill">International Patients</a>
                     <a href="#" class="header-cta-pill">Book Consultation <span class="arrow-btn"><i data-lucide="arrow-up-right" size="14"></i></span></a>
                     <button class="menu-btn"><i data-lucide="menu" size="18"></i></button>

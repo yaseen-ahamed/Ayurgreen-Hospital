@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // Sticky Header Logic
-    const header = document.querySelector('.global-header');
+    const header = document.querySelector('.hero-header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header.classList.add('scrolled');
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         const subContents = [
             "Advanced robotic rehab, Ayurveda, and multidisciplinary care designed to restore independence and quality of life.",
-            `<img src="Assets/Rehab Process Transparent.webp" alt="Rehab Process Steps" style="max-width: 100%; height: auto; display: block; margin-top: 24px;">`
+            `<img src="assets/Rehab_Process_Transparent.webp" alt="Rehab Process Steps" style="max-width: 100%; height: auto; display: block; margin-top: 24px;">`
         ];
         
         function showSlide(index) {

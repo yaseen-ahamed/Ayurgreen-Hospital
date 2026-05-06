@@ -42,7 +42,7 @@ replacements = {
     "Counseling": ('heart-handshake', '#E91E63'),
     "Dentistry": ('smile', '#00BCD4'),
     "Modern Medicine": ('pill', '#9C27B0'),
-    "Assistive Devices": ('wheelchair', '#3F51B5'),
+    "Assistive Devices": ('accessibility', '#3F51B5'),
     "Neurology": ('brain-circuit', '#607D8B'),
     "Neurosurgery": ('microscope', '#009688'),
     "Orthopedic": ('hammer', '#795548'),

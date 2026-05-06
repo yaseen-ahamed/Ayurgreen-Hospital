@@ -264,6 +264,34 @@
         .footer-col a { display: block; margin-bottom: 12px; transition: color 0.3s; }
         .footer-col a:hover { color: white; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; display: flex; justify-content: space-between; font-size: 14px;}
+        /* Spark Overlay Animation */
+        .spark-overlay {
+            position: absolute;
+            pointer-events: none;
+            z-index: 30;
+            border-radius: inherit;
+            padding: 2px; 
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            overflow: hidden;
+        }
+
+        .spark-overlay::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 0%, transparent 80%, var(--spark-color, #ffeb3b) 95%, #ffffff 100%);
+            animation: spinSpark 4s linear infinite;
+        }
+
+        @keyframes spinSpark {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -449,6 +477,7 @@
                 <div style="display: flex; flex-wrap: wrap; gap: var(--space-large); align-items: center;">
                     <!-- Left: Video (2.8/4 width) -->
                     <div style="flex: 2.8; min-width: 320px; border-radius: var(--radius-large); background: linear-gradient(135deg, #ef4444 0%, #ffffff 100%); padding: 2px; display: block; box-shadow: var(--shadow-hover); position: relative;">
+                        <div class="spark-overlay" style="inset: 0; --spark-color: #ff4d4f;"></div>
                         <div style="position: relative; width: 100%; border-radius: calc(var(--radius-large) - 2px); overflow: hidden; display: block; aspect-ratio: 16/9;">
                             <video id="ayurgreen-promo-video" src="Assets/Ayurgreen%20Hospitals.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
                             
@@ -486,6 +515,7 @@
                     
                     <!-- Right: Text with Dot Pattern UI (1.2/4 width) -->
                     <div style="flex: 1.2; min-width: 300px; justify-content: center; position: relative; display: flex; flex-direction: column; border: 1px solid #10b981; padding: 40px; background-color: #fff;">
+                        <div class="spark-overlay" style="inset: -1px; border-radius: inherit; --spark-color: #34d399;"></div>
                         <!-- Dot Pattern Background -->
                         <svg aria-hidden="true" style="pointer-events: none; position: absolute; inset: 0; height: 100%; width: 100%; fill: rgba(16, 185, 129, 0.1);">
                             <defs>

@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -212,8 +212,53 @@
         .dark-section { background: var(--text-main); color: white; }
         .dark-section h2, .dark-section h3, .dark-section p { color: white; }
         
+        /* International Destination Section */
+        .intl-dest-wrapper { padding: 80px 0; width: 100%; box-sizing: border-box; background: #fff; }
+        .intl-dest-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
+        .intl-dest-heading { font-size: 46px; color: #2a5d9a; text-align: left; font-family: 'Cinzel', serif; font-weight: 400; font-variant: small-caps; letter-spacing: 0.02em; line-height: 1.2; margin: 0; }
+        .intl-dest-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; align-items: stretch; }
+        .intl-dest-badge { padding: 32px 24px; border-radius: 24px; text-align: center; border: 1px solid transparent; display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .intl-dest-badge:hover { transform: translateY(-6px); }
+        .intl-dest-icon-box { border-radius: 50%; margin-bottom: 16px; padding: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.4s ease; }
+        
+        .badge-primary { background: #eef2ff; color: #4338ca; border-color: rgba(67, 56, 202, 0.2); }
+        .badge-primary:hover { border-color: rgba(67, 56, 202, 0.6); box-shadow: 0 16px 30px rgba(67, 56, 202, 0.15); }
+        .badge-primary .intl-dest-badge-num { color: #4338ca; }
+        .badge-primary .intl-dest-badge-label { color: #4338ca; opacity: 0.8; }
+        .badge-primary .intl-dest-icon-box { background: rgba(67, 56, 202, 0.15); color: #4338ca; }
+        .badge-primary:hover .intl-dest-icon-box { background: #4338ca; color: #fff; transform: scale(1.1) rotate(5deg); }
+
+        .badge-success { background: #ecfdf5; color: #059669; border-color: rgba(5, 150, 105, 0.2); }
+        .badge-success:hover { border-color: rgba(5, 150, 105, 0.6); box-shadow: 0 16px 30px rgba(5, 150, 105, 0.15); }
+        .badge-success .intl-dest-badge-num { color: #059669; }
+        .badge-success .intl-dest-badge-label { color: #059669; opacity: 0.8; }
+        .badge-success .intl-dest-icon-box { background: rgba(5, 150, 105, 0.15); color: #059669; }
+        .badge-success:hover .intl-dest-icon-box { background: #059669; color: #fff; transform: scale(1.1) rotate(-5deg); }
+
+        .badge-warning { background: #fffbeb; color: #b45309; border-color: rgba(180, 83, 9, 0.2); }
+        .badge-warning:hover { border-color: rgba(180, 83, 9, 0.6); box-shadow: 0 16px 30px rgba(180, 83, 9, 0.15); }
+        .badge-warning .intl-dest-badge-label { color: #b45309; opacity: 0.8; }
+
+        .badge-info { background: #faf5ff; color: #7e22ce; border-color: rgba(126, 34, 206, 0.2); }
+        .badge-info:hover { border-color: rgba(126, 34, 206, 0.6); box-shadow: 0 16px 30px rgba(126, 34, 206, 0.15); }
+        .badge-info .intl-dest-badge-label { color: #7e22ce; opacity: 0.8; }
+
+        .intl-dest-badge-num { font-size: 48px; font-weight: 600; line-height: 1; font-family: var(--font-heading); letter-spacing: -0.02em; }
+        .intl-dest-badge-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; }
+        .intl-dest-img-wrapper { display: flex; align-items: center; justify-content: center; }
+        .intl-dest-img-wrapper img { width: 100%; height: auto; object-fit: contain; }
+        .intl-pill-btn { display: inline-flex; align-items: center; background: #fff; color: #000; padding: 6px 6px 6px 24px; border-radius: 40px; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
+        .intl-pill-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .intl-pill-icon { background: #000; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 16px; }
+
+        @media (max-width: 1024px) {
+            .intl-dest-grid { grid-template-columns: 1fr; }
+            .intl-dest-header { flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+            .intl-dest-heading { font-size: 36px; text-align: center; }
+            .intl-dest-wrapper { padding: 40px 0; }
+        }
+        
         /* Footer */
-        .global-footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: var(--space-large) 0 32px 0; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;}
         .footer-col h4 { color: white; margin-bottom: 24px; font-size: 16px; }
         .footer-col a { display: block; margin-bottom: 12px; transition: color 0.3s; }
@@ -236,58 +281,58 @@
                         <div class="nav-item-wrapper">
                             <a href="about.html" class="individual-pill">About Us <i data-lucide="chevron-down" size="14"></i></a>
                             <div class="nav-dropdown">
-                                <a href="about.html"><i data-lucide="award" size="14"></i> Our Legacy</a>
-                                <a href="about.html"><i data-lucide="users" size="14"></i> Multidisciplinary Team</a>
-                                <a href="about.html"><i data-lucide="building" size="14"></i> Facilities</a>
+                                <a href="about.html"><i data-lucide="award" size="14" style="color: #FFD700;"></i> Our Legacy</a>
+                                <a href="about.html"><i data-lucide="users" size="14" style="color: #4CAF50;"></i> Multidisciplinary Team</a>
+                                <a href="about.html"><i data-lucide="building" size="14" style="color: #2196F3;"></i> Facilities</a>
                             </div>
                         </div>
 
                         <div class="nav-item-wrapper">
                             <a href="programs.html" class="individual-pill">Programs <i data-lucide="chevron-down" size="14"></i></a>
                             <div class="nav-dropdown mega-menu-3-col">
-                                <a href="stroke-rehab.html"><i data-lucide="activity" size="14"></i> Stroke</a>
-                                <a href="programs.html"><i data-lucide="bone" size="14"></i> Spinal Cord Injury</a>
-                                <a href="programs.html"><i data-lucide="brain" size="14"></i> Traumatic Brain Injury</a>
-                                <a href="programs.html"><i data-lucide="person-standing" size="14"></i> Hemiplegia</a>
-                                <a href="programs.html"><i data-lucide="accessibility" size="14"></i> Quadriplegia & Paraplegia</a>
-                                <a href="programs.html"><i data-lucide="stethoscope" size="14"></i> Post-Surgical Complications</a>
-                                <a href="programs.html"><i data-lucide="network" size="14"></i> Motor Neuron Diseases</a>
-                                <a href="programs.html"><i data-lucide="flower-2" size="14"></i> Cerebral Palsy</a>
-                                <a href="programs.html"><i data-lucide="activity" size="14"></i> Parkinson's Disease</a>
-                                <a href="programs.html"><i data-lucide="activity" size="14"></i> Myopathy</a>
-                                <a href="programs.html"><i data-lucide="bone" size="14"></i> Disc & Spine Problems</a>
-                                <a href="programs.html"><i data-lucide="activity" size="14"></i> Sciatica</a>
-                                <a href="programs.html"><i data-lucide="scale" size="14"></i> Obesity</a>
-                                <a href="programs.html"><i data-lucide="shield-alert" size="14"></i> Post-Covid Complications</a>
-                                <a href="programs.html"><i data-lucide="activity" size="14"></i> Muscular Dystrophy</a>
-                                <a href="programs.html"><i data-lucide="bone" size="14"></i> Osteoarthritis</a>
-                                <a href="programs.html"><i data-lucide="bone" size="14"></i> Rheumatoid Arthritis</a>
-                                <a href="programs.html"><i data-lucide="sprout" size="14"></i> Developmental Delay</a>
-                                <a href="programs.html"><i data-lucide="brain" size="14"></i> Psychological Problems</a>
+                                <a href="stroke-rehab.html"><i data-lucide="activity" size="14" style="color: #E91E63;"></i> Stroke</a>
+                                <a href="programs.html"><i data-lucide="bone" size="14" style="color: #9C27B0;"></i> Spinal Cord Injury</a>
+                                <a href="programs.html"><i data-lucide="brain" size="14" style="color: #FF9800;"></i> Traumatic Brain Injury</a>
+                                <a href="programs.html"><i data-lucide="person-standing" size="14" style="color: #00BCD4;"></i> Hemiplegia</a>
+                                <a href="programs.html"><i data-lucide="accessibility" size="14" style="color: #3F51B5;"></i> Quadriplegia & Paraplegia</a>
+                                <a href="programs.html"><i data-lucide="stethoscope" size="14" style="color: #009688;"></i> Post-Surgical Complications</a>
+                                <a href="programs.html"><i data-lucide="network" size="14" style="color: #607D8B;"></i> Motor Neuron Diseases</a>
+                                <a href="programs.html"><i data-lucide="flower-2" size="14" style="color: #E040FB;"></i> Cerebral Palsy</a>
+                                <a href="programs.html"><i data-lucide="zap" size="14" style="color: #FFEB3B;"></i> Parkinson's Disease</a>
+                                <a href="programs.html"><i data-lucide="dna" size="14" style="color: #8BC34A;"></i> Myopathy</a>
+                                <a href="programs.html"><i data-lucide="git-commit" size="14" style="color: #FF5722;"></i> Disc & Spine Problems</a>
+                                <a href="programs.html"><i data-lucide="zap-off" size="14" style="color: #795548;"></i> Sciatica</a>
+                                <a href="programs.html"><i data-lucide="scale" size="14" style="color: #F44336;"></i> Obesity</a>
+                                <a href="programs.html"><i data-lucide="shield-alert" size="14" style="color: #FFC107;"></i> Post-Covid Complications</a>
+                                <a href="programs.html"><i data-lucide="heart-pulse" size="14" style="color: #E91E63;"></i> Muscular Dystrophy</a>
+                                <a href="programs.html"><i data-lucide="target" size="14" style="color: #9E9E9E;"></i> Osteoarthritis</a>
+                                <a href="programs.html"><i data-lucide="flame" size="14" style="color: #FF5722;"></i> Rheumatoid Arthritis</a>
+                                <a href="programs.html"><i data-lucide="sprout" size="14" style="color: #8BC34A;"></i> Developmental Delay</a>
+                                <a href="programs.html"><i data-lucide="lightbulb" size="14" style="color: #FFEB3B;"></i> Psychological Problems</a>
                             </div>
                         </div>
 
                         <div class="nav-item-wrapper">
                             <a href="therapies.html" class="individual-pill">Therapies <i data-lucide="chevron-down" size="14"></i></a>
                             <div class="nav-dropdown mega-menu-3-col">
-                                <a href="ayurveda.html"><i data-lucide="leaf" size="14"></i> Ayurveda</a>
-                                <a href="therapies.html"><i data-lucide="dumbbell" size="14"></i> Physiotherapy</a>
-                                <a href="robotic-rehab.html"><i data-lucide="bot" size="14"></i> Robotic Rehabilitation</a>
-                                <a href="therapies.html"><i data-lucide="puzzle" size="14"></i> Occupational Therapy</a>
-                                <a href="therapies.html"><i data-lucide="message-circle" size="14"></i> Speech Therapy</a>
-                                <a href="therapies.html"><i data-lucide="headset" size="14"></i> Virtual Reality</a>
-                                <a href="therapies.html"><i data-lucide="sun" size="14"></i> Yoga</a>
-                                <a href="therapies.html"><i data-lucide="map-pin" size="14"></i> Acupuncture</a>
-                                <a href="therapies.html"><i data-lucide="footprints" size="14"></i> Reflexology</a>
-                                <a href="therapies.html"><i data-lucide="waves" size="14"></i> Hydro / Aquatic Therapy</a>
-                                <a href="therapies.html"><i data-lucide="baby" size="14"></i> Pediatric Physiotherapy</a>
-                                <a href="therapies.html"><i data-lucide="scale" size="14"></i> Slimming Treatment</a>
-                                <a href="therapies.html"><i data-lucide="shield-plus" size="14"></i> Pain Management</a>
-                                <a href="therapies.html"><i data-lucide="utensils" size="14"></i> Diet & Nutrition</a>
-                                <a href="therapies.html"><i data-lucide="heart-handshake" size="14"></i> Counseling</a>
-                                <a href="therapies.html"><i data-lucide="smile" size="14"></i> Dentistry</a>
-                                <a href="therapies.html"><i data-lucide="pill" size="14"></i> Modern Medicine</a>
-                                <a href="therapies.html"><i data-lucide="accessibility" size="14"></i> Assistive Devices</a>
+                                <a href="ayurveda.html"><i data-lucide="leaf" size="14" style="color: #4CAF50;"></i> Ayurveda</a>
+                                <a href="therapies.html"><i data-lucide="dumbbell" size="14" style="color: #FF9800;"></i> Physiotherapy</a>
+                                <a href="robotic-rehab.html"><i data-lucide="bot" size="14" style="color: #00BCD4;"></i> Robotic Rehabilitation</a>
+                                <a href="therapies.html"><i data-lucide="puzzle" size="14" style="color: #9C27B0;"></i> Occupational Therapy</a>
+                                <a href="therapies.html"><i data-lucide="message-circle" size="14" style="color: #2196F3;"></i> Speech Therapy</a>
+                                <a href="therapies.html"><i data-lucide="headset" size="14" style="color: #E91E63;"></i> Virtual Reality</a>
+                                <a href="therapies.html"><i data-lucide="sun" size="14" style="color: #FFC107;"></i> Yoga</a>
+                                <a href="therapies.html"><i data-lucide="map-pin" size="14" style="color: #F44336;"></i> Acupuncture</a>
+                                <a href="therapies.html"><i data-lucide="footprints" size="14" style="color: #795548;"></i> Reflexology</a>
+                                <a href="therapies.html"><i data-lucide="waves" size="14" style="color: #03A9F4;"></i> Hydro / Aquatic Therapy</a>
+                                <a href="therapies.html"><i data-lucide="baby" size="14" style="color: #E040FB;"></i> Pediatric Physiotherapy</a>
+                                <a href="therapies.html"><i data-lucide="ruler" size="14" style="color: #009688;"></i> Slimming Treatment</a>
+                                <a href="therapies.html"><i data-lucide="shield-plus" size="14" style="color: #4CAF50;"></i> Pain Management</a>
+                                <a href="therapies.html"><i data-lucide="utensils" size="14" style="color: #FF5722;"></i> Diet & Nutrition</a>
+                                <a href="therapies.html"><i data-lucide="heart-handshake" size="14" style="color: #E91E63;"></i> Counseling</a>
+                                <a href="therapies.html"><i data-lucide="smile" size="14" style="color: #00BCD4;"></i> Dentistry</a>
+                                <a href="therapies.html"><i data-lucide="pill" size="14" style="color: #9C27B0;"></i> Modern Medicine</a>
+                                <a href="therapies.html"><i data-lucide="wheelchair" size="14" style="color: #3F51B5;"></i> Assistive Devices</a>
                             </div>
                         </div>
 
@@ -305,13 +350,13 @@
                     <div class="nav-item-wrapper">
                         <a href="programs.html" class="individual-pill">Specializations <i data-lucide="chevron-down" size="14"></i></a>
                         <div class="nav-dropdown">
-                            <a href="programs.html"><i data-lucide="brain" size="14"></i> Neurology</a>
-                            <a href="programs.html"><i data-lucide="microscope" size="14"></i> Neurosurgery</a>
-                            <a href="programs.html"><i data-lucide="bone" size="14"></i> Orthopedic</a>
-                            <a href="programs.html"><i data-lucide="ear" size="14"></i> ENT</a>
-                            <a href="programs.html"><i data-lucide="stethoscope" size="14"></i> General Medicine</a>
-                            <a href="programs.html"><i data-lucide="droplet" size="14"></i> Urology</a>
-                            <a href="programs.html"><i data-lucide="heart" size="14"></i> Cardiology</a>
+                            <a href="programs.html"><i data-lucide="brain-circuit" size="14" style="color: #607D8B;"></i> Neurology</a>
+                            <a href="programs.html"><i data-lucide="microscope" size="14" style="color: #009688;"></i> Neurosurgery</a>
+                            <a href="programs.html"><i data-lucide="hammer" size="14" style="color: #795548;"></i> Orthopedic</a>
+                            <a href="programs.html"><i data-lucide="ear" size="14" style="color: #FF9800;"></i> ENT</a>
+                            <a href="programs.html"><i data-lucide="syringe" size="14" style="color: #F44336;"></i> General Medicine</a>
+                            <a href="programs.html"><i data-lucide="droplet" size="14" style="color: #03A9F4;"></i> Urology</a>
+                            <a href="programs.html"><i data-lucide="heart" size="14" style="color: #E91E63;"></i> Cardiology</a>
                         </div>
                     </div>
                     <a href="international-patients.html" class="individual-pill">International Patients</a>
@@ -350,6 +395,51 @@
     </div>
     
     <main>
+
+        <!-- International Destination Section -->
+        <section class="intl-dest-wrapper">
+            <div class="container">
+                <div class="intl-dest-header">
+                    <h2 class="intl-dest-heading">Different Nations, One Destination</h2>
+                    <a href="international-patients.html" class="intl-pill-btn">INTERNATIONAL PATIENTS <div class="intl-pill-icon"><i data-lucide="arrow-up-right" size="18"></i></div></a>
+                </div>
+                
+                <div class="intl-dest-grid">
+                    
+                    <!-- Left Badges -->
+                    <div class="flex-col gap-medium" style="height: 100%;">
+                        <div class="intl-dest-badge badge-primary">
+                            <div class="intl-dest-icon-box"><i data-lucide="award" size="28"></i></div>
+                            <div class="intl-dest-badge-num">25+</div>
+                            <div class="intl-dest-badge-label">Years of Legacy</div>
+                        </div>
+                        <div class="intl-dest-badge badge-success">
+                            <div class="intl-dest-icon-box"><i data-lucide="users" size="28"></i></div>
+                            <div class="intl-dest-badge-num">20k+</div>
+                            <div class="intl-dest-badge-label">Patients Recovered</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Center Image -->
+                    <div class="intl-dest-img-wrapper">
+                        <img src="Assets/international_patients.webp" alt="International Patients">
+                    </div>
+                    
+                    <!-- Right Badges -->
+                    <div class="flex-col gap-medium" style="height: 100%;">
+                        <div class="intl-dest-badge badge-warning">
+                            <img src="Assets/nabh-seeklogo.webp" alt="NABH Accreditation" style="max-height: 60px; width: auto;">
+                            <div class="intl-dest-badge-label">NABH Accreditation</div>
+                        </div>
+                        <div class="intl-dest-badge badge-info">
+                            <img src="Assets/ayur-diamond.webp" alt="Ayur Diamond" style="max-height: 60px; width: auto;">
+                            <div class="intl-dest-badge-label">Ayur Diamond</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
 
         <!-- Philosophy / About Preview -->
         <section class="container" style="padding-top: 120px;">

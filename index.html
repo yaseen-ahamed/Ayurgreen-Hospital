@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -81,7 +81,7 @@
 
         .nav-dropdown {
             position: absolute; top: 100%; left: 0; margin-top: 16px;
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 32px;
             padding: 16px; min-width: 240px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             opacity: 0; visibility: hidden; transform: translateY(10px);
@@ -214,8 +214,8 @@
         
         /* International Destination Section */
         .intl-dest-wrapper { padding: 80px 0; width: 100%; box-sizing: border-box; background: #fff; }
-        .intl-dest-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
-        .intl-dest-heading { font-size: 46px; color: #2a5d9a; text-align: left; font-family: 'Cinzel', serif; font-weight: 400; font-variant: small-caps; letter-spacing: 0.02em; line-height: 1.2; margin: 0; }
+        .intl-dest-header { display: flex; justify-content: center; align-items: center; margin-bottom: 48px; }
+        .intl-dest-heading { font-size: 46px; color: #000; text-align: center; font-family: var(--font-heading); font-weight: 600; font-variant: normal; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
         .intl-dest-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; align-items: stretch; }
         .intl-dest-badge { padding: 32px 24px; border-radius: 24px; text-align: center; border: 1px solid transparent; display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .intl-dest-badge:hover { transform: translateY(-6px); }
@@ -235,18 +235,18 @@
         .badge-success .intl-dest-icon-box { background: rgba(5, 150, 105, 0.15); color: #059669; }
         .badge-success:hover .intl-dest-icon-box { background: #059669; color: #fff; transform: scale(1.1) rotate(-5deg); }
 
-        .badge-warning { background: #fffbeb; color: #b45309; border-color: rgba(180, 83, 9, 0.2); }
-        .badge-warning:hover { border-color: rgba(180, 83, 9, 0.6); box-shadow: 0 16px 30px rgba(180, 83, 9, 0.15); }
-        .badge-warning .intl-dest-badge-label { color: #b45309; opacity: 0.8; }
+        .badge-warning { background: #eef2ff; color: #4338ca; border-color: rgba(67, 56, 202, 0.2); }
+        .badge-warning:hover { border-color: rgba(67, 56, 202, 0.6); box-shadow: 0 16px 30px rgba(67, 56, 202, 0.15); }
+        .badge-warning .intl-dest-badge-label { color: #4338ca; opacity: 0.8; }
 
-        .badge-info { background: #faf5ff; color: #7e22ce; border-color: rgba(126, 34, 206, 0.2); }
-        .badge-info:hover { border-color: rgba(126, 34, 206, 0.6); box-shadow: 0 16px 30px rgba(126, 34, 206, 0.15); }
-        .badge-info .intl-dest-badge-label { color: #7e22ce; opacity: 0.8; }
+        .badge-info { background: #ecfdf5; color: #059669; border-color: rgba(5, 150, 105, 0.2); }
+        .badge-info:hover { border-color: rgba(5, 150, 105, 0.6); box-shadow: 0 16px 30px rgba(5, 150, 105, 0.15); }
+        .badge-info .intl-dest-badge-label { color: #059669; opacity: 0.8; }
 
         .intl-dest-badge-num { font-size: 48px; font-weight: 600; line-height: 1; font-family: var(--font-heading); letter-spacing: -0.02em; }
         .intl-dest-badge-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; }
-        .intl-dest-img-wrapper { display: flex; align-items: center; justify-content: center; }
-        .intl-dest-img-wrapper img { width: 100%; height: auto; object-fit: contain; }
+        .intl-dest-img-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+        .intl-dest-img-wrapper img { width: 85%; height: auto; object-fit: contain; }
         .intl-pill-btn { display: inline-flex; align-items: center; background: #fff; color: #000; padding: 6px 6px 6px 24px; border-radius: 40px; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
         .intl-pill-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
         .intl-pill-icon { background: #000; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 16px; }
@@ -291,6 +291,150 @@
         @keyframes spinSpark {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* Rehab Journey Section Title */
+        .rehab-journey-title {
+            font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 48px;
+            color: #0f1f13;
+            margin: 0;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+
+        /* Rehab Journey Tabs */
+        .rehab-tab-btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 9px 22px; border-radius: 9999px; border: none;
+            background: transparent; color: #6b7280; font-size: 14px;
+            font-weight: 600; cursor: pointer; font-family: var(--font-body);
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1); letter-spacing: 0.01em;
+        }
+        .rehab-tab-btn.active-tab {
+            background: #111827; color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+        }
+        .rehab-tab-btn:not(.active-tab):hover { color: #111827; background: rgba(0,0,0,0.05); }
+        .rehab-tab-btn svg { width: 15px; height: 15px; opacity: 0.65; }
+
+        /* Tab content - hidden by default */
+        .rehab-tab-content {
+            display: none;
+        }
+        .rehab-tab-content.tab-visible {
+            display: block;
+            animation: tabFadeIn 0.45s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        @keyframes tabFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card stagger keyframe */
+        @keyframes cardSlideIn {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .rehab-tab-content.tab-visible .rehab-card {
+            animation: cardSlideIn 0.45s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(1) { animation-delay: 0.04s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(2) { animation-delay: 0.09s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(3) { animation-delay: 0.14s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(4) { animation-delay: 0.19s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(5) { animation-delay: 0.24s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(6) { animation-delay: 0.29s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(7) { animation-delay: 0.34s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(8) { animation-delay: 0.39s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(9) { animation-delay: 0.44s; }
+        .rehab-tab-content.tab-visible .rehab-card:nth-child(10) { animation-delay: 0.49s; }
+
+        /* Rehab Slider Clip (overflow hidden wrapper) */
+        .rehab-slider-clip {
+            overflow: hidden;
+            width: 100%;
+        }
+        /* Rehab Cards Scroll */
+        .rehab-cards-scroll {
+            display: flex; gap: 18px;
+            will-change: transform;
+        }
+
+        /* Slider nav arrows */
+        .rehab-slider-nav {
+            display: flex; justify-content: center; gap: 12px; margin-top: 24px;
+        }
+        .rehab-slider-btn {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: #fff; border: 1.5px solid #e5e7eb;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.25s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            color: #374151;
+        }
+        .rehab-slider-btn:hover { background: #111827; border-color: #111827; color: #fff; }
+        .rehab-slider-btn:hover svg { stroke: #fff; }
+        .rehab-slider-btn:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+
+
+        /* Rehab Card */
+        .rehab-card {
+            flex: 0 0 auto; height: 370px;
+            border-radius: 20px; overflow: hidden; position: relative;
+            cursor: pointer;
+        }
+        .rehab-card img {
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; inset: 0;
+            transition: filter 0.45s ease, transform 0.45s ease;
+        }
+        .rehab-card:hover img {
+            filter: blur(4px) brightness(0.6);
+            transform: scale(1.04);
+        }
+        .rehab-card-gradient {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.5) 42%, rgba(0,0,0,0.05) 70%, transparent 100%);
+        }
+        /* Arrow pill - always visible top-right */
+        .rehab-card-arrow {
+            position: absolute; top: 14px; right: 14px;
+            width: 34px; height: 34px; border-radius: 50%;
+            background: rgba(255,255,255,0.88);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+        .rehab-card:hover .rehab-card-arrow { opacity: 0; }
+        /* Know More pill - appears on hover */
+        .rehab-card-know-more {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.82);
+            opacity: 0;
+            background: rgba(255,255,255,0.95);
+            color: #111; font-size: 13px; font-weight: 700;
+            padding: 10px 22px; border-radius: 9999px;
+            white-space: nowrap; pointer-events: none;
+            transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+            display: flex; align-items: center; gap: 7px;
+            letter-spacing: 0.02em; z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        .rehab-card:hover .rehab-card-know-more {
+            opacity: 1; transform: translate(-50%, -50%) scale(1);
+        }
+        .rehab-card-body {
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 18px;
+        }
+        .rehab-card-title {
+            color: #fff; font-size: 16px; font-weight: 700;
+            margin: 0 0 5px 0; line-height: 1.3;
+        }
+        .rehab-card-desc {
+            color: rgba(255,255,255,0.70); font-size: 11.5px;
+            line-height: 1.5; margin: 0;
         }
     </style>
 </head>
@@ -337,6 +481,8 @@
                                 <a href="programs.html"><i data-lucide="flame" size="14" style="color: #FF5722;"></i> Rheumatoid Arthritis</a>
                                 <a href="programs.html"><i data-lucide="sprout" size="14" style="color: #8BC34A;"></i> Developmental Delay</a>
                                 <a href="programs.html"><i data-lucide="lightbulb" size="14" style="color: #FFEB3B;"></i> Psychological Problems</a>
+                                <a href="programs.html"><i data-lucide="heart" size="14" style="color: #E91E63;"></i> Autism</a>
+                                <a href="programs.html"><i data-lucide="brain" size="14" style="color: #9C27B0;"></i> Psychiatry</a>
                             </div>
                         </div>
 
@@ -349,11 +495,11 @@
                                 <a href="therapies.html"><i data-lucide="puzzle" size="14" style="color: #9C27B0;"></i> Occupational Therapy</a>
                                 <a href="therapies.html"><i data-lucide="message-circle" size="14" style="color: #2196F3;"></i> Speech Therapy</a>
                                 <a href="therapies.html"><i data-lucide="headset" size="14" style="color: #E91E63;"></i> Virtual Reality</a>
-                                <a href="therapies.html"><i data-lucide="sun" size="14" style="color: #FFC107;"></i> Yoga</a>
+                                <a href="therapies.html"><i data-lucide="sun" size="14" style="color: #FFC107;"></i> Yoga and Meditation</a>
                                 <a href="therapies.html"><i data-lucide="map-pin" size="14" style="color: #F44336;"></i> Acupuncture</a>
                                 <a href="therapies.html"><i data-lucide="footprints" size="14" style="color: #795548;"></i> Reflexology</a>
                                 <a href="therapies.html"><i data-lucide="waves" size="14" style="color: #03A9F4;"></i> Hydro / Aquatic Therapy</a>
-                                <a href="therapies.html"><i data-lucide="baby" size="14" style="color: #E040FB;"></i> Pediatric Physiotherapy</a>
+                                <a href="therapies.html"><i data-lucide="baby" size="14" style="color: #E040FB;"></i> Pediatrics</a>
                                 <a href="therapies.html"><i data-lucide="ruler" size="14" style="color: #009688;"></i> Slimming Treatment</a>
                                 <a href="therapies.html"><i data-lucide="shield-plus" size="14" style="color: #4CAF50;"></i> Pain Management</a>
                                 <a href="therapies.html"><i data-lucide="utensils" size="14" style="color: #FF5722;"></i> Diet & Nutrition</a>
@@ -385,6 +531,8 @@
                             <a href="programs.html"><i data-lucide="syringe" size="14" style="color: #F44336;"></i> General Medicine</a>
                             <a href="programs.html"><i data-lucide="droplet" size="14" style="color: #03A9F4;"></i> Urology</a>
                             <a href="programs.html"><i data-lucide="heart" size="14" style="color: #E91E63;"></i> Cardiology</a>
+                            <a href="programs.html"><i data-lucide="wind" size="14" style="color: #00BCD4;"></i> Respiratory Therapy</a>
+                            <a href="programs.html"><i data-lucide="brain" size="14" style="color: #9C27B0;"></i> Neuro Psychology</a>
                         </div>
                     </div>
                     <a href="international-patients.html" class="individual-pill">International Patients</a>
@@ -429,7 +577,6 @@
             <div class="container">
                 <div class="intl-dest-header">
                     <h2 class="intl-dest-heading">Different Nations, One Destination</h2>
-                    <a href="international-patients.html" class="intl-pill-btn">INTERNATIONAL PATIENTS <div class="intl-pill-icon"><i data-lucide="arrow-up-right" size="18"></i></div></a>
                 </div>
                 
                 <div class="intl-dest-grid">
@@ -448,9 +595,10 @@
                         </div>
                     </div>
                     
-                    <!-- Center Image -->
+                    <!-- Center Image + Button -->
                     <div class="intl-dest-img-wrapper">
                         <img src="Assets/international_patients.webp" alt="International Patients">
+                        <a href="international-patients.html" class="intl-pill-btn" style="font-size: 12px; padding: 5px 5px 5px 20px;">INTERNATIONAL PATIENTS <div class="intl-pill-icon" style="width: 30px; height: 30px; margin-left: 12px;"><i data-lucide="arrow-up-right" size="16"></i></div></a>
                     </div>
                     
                     <!-- Right Badges -->
@@ -460,8 +608,8 @@
                             <div class="intl-dest-badge-label">NABH Accreditation</div>
                         </div>
                         <div class="intl-dest-badge badge-info">
-                            <img src="Assets/ayur-diamond.webp" alt="Ayur Diamond" style="max-height: 60px; width: auto;">
-                            <div class="intl-dest-badge-label">Ayur Diamond</div>
+                            <img src="Assets/ayur-diamond.webp" alt="Ayur Diamond Classification" style="max-height: 60px; width: auto;">
+                            <div class="intl-dest-badge-label">Ayur Diamond Classification</div>
                         </div>
                 </div>
             </div>
@@ -555,140 +703,452 @@
             </div>
         </section>
 
-        <!-- Philosophy / About Preview -->
-        <section class="container" style="padding-top: 120px;">
-            <div class="grid grid-2 gap-large items-center">
-                <div>
-                    <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--secondary);">The Ayurgreen Philosophy</span>
-                    <h2 style="margin-top: 16px; margin-bottom: 24px;">Restore Potential. Reclaim Life.</h2>
-                    <p class="text-large" style="margin-bottom: 32px;">We seamlessly fuse the precision of state-of-the-art robotic neuroplasticity training with the profound systemic healing of authentic Kerala Ayurveda. Our highly specialized multidisciplinary focus ensures that you receive the absolute highest standard of rehabilitative care designed to systematically restore your independence.</p>
-                    <a href="about.html" class="btn btn-primary">Discover Our Legacy <i data-lucide="arrow-right" size="18"></i></a>
-                </div>
-                <div style="position: relative;">
-                    <img src="assets/generated/robotic_rehab_exo_1776281782213.png" alt="Robotic Rehabilitation" style="width: 100%; border-radius: var(--radius-large); object-fit: cover; height: 500px; box-shadow: var(--shadow-hover);">
-                    <div style="position: absolute; bottom: -24px; left: -24px; background: var(--bg-white); padding: 24px; border-radius: var(--radius-card); box-shadow: var(--shadow-hover); display: flex; align-items: center; gap: 16px;">
-                        <div style="background: var(--accent); padding: 12px; border-radius: 50%; color: var(--primary);"><i data-lucide="bot" size="24"></i></div>
-                        <div>
-                            <div style="font-weight: 600; font-size: 14px;">Robotic Precision</div>
-                            <div class="text-micro">Accelerated Motor Recovery</div>
+        <!-- ADMIRE Section -->
+        <section style="padding: 80px 0; background: #fff;">
+            <div style="width: 100%; max-width: 1800px; padding: 0 48px; margin: 0 auto; box-sizing: border-box;">
+
+                <!-- Section Header -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 56px;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 24px;">
+                        <img src="Assets/ADMIRE Logo.png" alt="ADMIRE Logo" style="height: 90px; width: auto; object-fit: contain;">
+                        <div style="text-align: left; border-left: 2px solid #10b981; padding-left: 20px;">
+                            <p style="font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #10b981; margin: 0; line-height: 1.3;">Advanced Modalities in<br>Rehabilitative Engineering</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card -->
+                <div style="
+                    max-width: 1100px;
+                    margin: 0 auto;
+                    border-radius: 24px;
+                    background: #fff;
+                    border: 1px solid #d1fae5;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: stretch;
+                    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+                    transition: box-shadow 0.35s ease, transform 0.35s ease;
+                "
+                onmouseenter="this.style.boxShadow='0 12px 48px rgba(16,185,129,0.18), 0 4px 16px rgba(0,0,0,0.08)'; this.style.transform='translateY(-4px)';"
+                onmouseleave="this.style.boxShadow='0 4px 24px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)';"
+                >
+                    <!-- Left: Image (~60%) -->
+                    <div style="flex: 1.6; min-width: 0; position: relative; overflow: hidden;">
+                        <img src="Assets/Virtual Reality.jpeg" alt="ADMIRE - Virtual Reality Rehabilitation" style="
+                            width: 100%;
+                            height: 100%;
+                            min-height: 400px;
+                            object-fit: cover;
+                            display: block;
+                        ">
+                        <!-- Subtle green overlay on right edge (blending into text panel) -->
+                        <div style="
+                            position: absolute;
+                            top: 0; right: 0; bottom: 0;
+                            width: 80px;
+                            background: linear-gradient(to right, transparent, rgba(236,253,245,0.7));
+                            pointer-events: none;
+                        "></div>
+                    </div>
+
+                    <!-- Right: Text Panel (~40%) -->
+                    <div style="
+                        flex: 1;
+                        min-width: 280px;
+                        padding: 40px 36px;
+                        background: #fff;
+                        border-left: 2px solid #d1fae5;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        position: relative;
+                    ">
+                        <!-- Green accent bar at top -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 36px;
+                            width: 48px; height: 3px;
+                            background: #10b981;
+                            border-radius: 0 0 4px 4px;
+                        "></div>
+
+                        <p style="font-size: 13.5px; line-height: 1.7; color: #374151; margin: 0 0 16px 0;">
+                            <strong style="color: #065f46;">ADMIRE</strong> represents Ayurgreen Hospital's 25 years of experience in neuro-rehabilitation, bringing together Ayurveda, Physiotherapy, Occupational Therapy, Speech Therapy, Robotics, Yoga, Acupuncture, Reflexology, Counseling, Diet Management, and modern medicine under one integrated approach.
+                        </p>
+                        <p style="font-size: 13.5px; line-height: 1.7; color: #374151; margin: 0 0 28px 0;">
+                            Built around teamwork, personalized care, and a supportive healing environment, ADMIRE focuses on helping patients recover better, improve independence, and experience a smoother rehabilitation journey.
+                        </p>
+
+                        <!-- CTA Button -->
+                        <div style="display: flex; justify-content: flex-start;">
+                            <a href="#" class="intl-pill-btn" style="font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 4px 4px 4px 16px; border-color: #d1fae5;">
+                                REHABILITATION PROCESS
+                                <div class="intl-pill-icon" style="background: #000; width: 28px; height: 28px; margin-left: 12px;">
+                                    <i data-lucide="arrow-up-right" size="14"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Core Approach Matrix -->
-        <section class="section-soft">
-            <div class="container">
-                <div class="text-center" style="max-width: 800px; margin: 0 auto 64px auto;">
-                    <h2 style="margin-bottom: 16px;">An Integrated Ecosystem of Healing</h2>
-                    <p class="text-large">Complete neurological and orthopedic recovery demands a 360-degree approach. We unite the world's most effective modalities under one roof.</p>
-                </div>
-                <div class="grid grid-3 gap-large">
-                    <a href="robotic-rehab.html" class="card card-large-radius" style="padding: 0; display: block;">
-                        <img src="assets/generated/robotic_rehab_exo_1776281782213.png" alt="Robotic Recovery" style="width:100%; height: 260px; object-fit: cover; display: block;">
-                        <div style="padding: 32px;">
-                            <h3 style="margin-bottom: 12px;">Robotic Recovery</h3>
-                            <p>Advanced exoskeletons actively retrain neural pathways through high-intensity, repetitive therapeutic movements.</p>
-                        </div>
-                    </a>
-                    <a href="ayurveda.html" class="card card-large-radius" style="padding: 0; display: block;">
-                        <img src="assets/generated/ayurveda_premium_room_1776281797515.png" alt="Ayurvedic Healing" style="width:100%; height: 260px; object-fit: cover; display: block;">
-                        <div style="padding: 32px;">
-                            <h3 style="margin-bottom: 12px;">Ayurvedic Healing</h3>
-                            <p>Deep systemic detoxification and neurological nourishment mapped precisely to your personal recovery protocol.</p>
-                        </div>
-                    </a>
-                    <a href="stroke-rehab.html" class="card card-large-radius" style="padding: 0; display: block;">
-                        <img src="assets/generated/stroke_rehab_focus_1776281836789.png" alt="Multidisciplinary Therapy" style="width:100%; height: 260px; object-fit: cover; display: block;">
-                        <div style="padding: 32px;">
-                            <h3 style="margin-bottom: 12px;">Multidisciplinary Therapy</h3>
-                            <p>Physiotherapy, Occupational Therapy, and Cognitive retraining guided one-on-one by expert specialists.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="text-center" style="margin-top: 64px;">
-                    <a href="therapies.html" class="btn btn-secondary">Explore All Therapies <i data-lucide="arrow-right" size="18"></i></a>
-                </div>
-            </div>
-        </section>
+        <!-- Your Journey to Rehabilitation -->
+        <section style="padding: 80px 0; background: #fff;">
+            <div style="max-width: 1800px; padding: 0 48px; margin: 0 auto; box-sizing: border-box;">
 
-        <!-- Complex Conditions Bento Grid -->
-        <section class="container">
-            <div class="text-center" style="margin-bottom: 64px;">
-                <h2 style="margin-bottom: 16px;">Core Specializations</h2>
-                <p class="text-large">We provide intensive, specialized care for complex conditions and catastrophic injuries.</p>
-            </div>
-            
-            <div class="grid grid-4 gap-small">
-                <!-- Condition Items -->
-                <a href="stroke-rehab.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="brain" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Stroke Recovery</h3>
-                </a>
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="zap" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Traumatic Brain Injury</h3>
-                </a>
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="layers" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Spinal Cord Injury</h3>
-                </a>
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="activity" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Parkinson's Disease</h3>
-                </a>
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="baby" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Cerebral Palsy</h3>
-                </a>
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="shield" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Multiple Sclerosis</h3>
-                </a>
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px;">
-                    <div style="background: var(--accent); padding: 16px; border-radius: 50%; color: var(--primary);"><i data-lucide="bone" size="32"></i></div>
-                    <h3 style="font-size: 18px;">Post-Surgical Rehab</h3>
-                </a>
-                
-                <a href="programs.html" class="card flex-col items-center text-center justify-center" style="gap: 16px; background: var(--primary); color: var(--bg-white); border: none;">
-                    <div style="padding: 16px; border-radius: 50%; color: var(--bg-white); background: rgba(255,255,255,0.1);"><i data-lucide="arrow-up-right" size="32"></i></div>
-                    <h3 style="font-size: 18px; color: white;">View All Programs</h3>
-                </a>
-            </div>
-        </section>
+                <!-- Title -->
+                <div style="text-align: center; margin-bottom: 48px;">
+                    <h2 class="rehab-journey-title">Rehabilitation Journey</h2>
+                </div>
 
-        <!-- Rehab Village / Int Patient Banner -->
-        <section class="section-dark">
-            <div class="container">
-                <div class="grid grid-2 gap-large items-center">
-                    <div>
-                        <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: rgba(255,255,255,0.6);">Rehab Village</span>
-                        <h2 style="margin-top: 16px; margin-bottom: 24px; color: white;">A Sanctuary for Global Healing</h2>
-                        <p style="margin-bottom: 32px; color: rgba(255,255,255,0.8); font-size: 18px;">Experience rehabilitation wrapped in the tranquility of nature. Our Rehab Village offers state-of-the-art facilities and ultra-premium patient suites, drawing medical tourists from over 50+ countries worldwide.</p>
-                        <div class="flex gap-small" style="margin-bottom: 32px;">
-                            <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: var(--radius-soft); flex: 1;">
-                                <div style="font-size: 32px; font-weight: 600; color: white; margin-bottom: 4px;">50+</div>
-                                <div style="font-size: 14px; color: rgba(255,255,255,0.7);">Countries Served</div>
+                <!-- Tab List -->
+                <div style="display: flex; justify-content: center; margin-bottom: 36px;">
+                    <div style="display: inline-flex; background: #fff; border: 1px solid #e5e7eb; border-radius: 9999px; padding: 4px; gap: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+                        <button id="tab-btn-programs" class="rehab-tab-btn active-tab" onclick="switchRehabTab('programs')">
+                            <i data-lucide="activity"></i> Programs
+                        </button>
+                        <button id="tab-btn-therapies" class="rehab-tab-btn" onclick="switchRehabTab('therapies')">
+                            <i data-lucide="leaf"></i> Therapies
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Programs Tab -->
+                <div id="tab-content-programs" class="rehab-tab-content tab-visible">
+                    <div class="rehab-slider-clip" id="clip-programs">
+                    <div class="rehab-cards-scroll" id="scroll-programs">
+
+                        <div class="rehab-card">
+                            <img src="assets/generated/stroke_rehab_focus_1776281836789.png" alt="Stroke Recovery">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Stroke Recovery</p>
+                                <p class="rehab-card-desc">Robotic-assisted therapy to restore movement and independence after stroke.</p>
                             </div>
-                            <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: var(--radius-soft); flex: 1;">
-                                <div style="font-size: 32px; font-weight: 600; color: white; margin-bottom: 4px;">10k+</div>
-                                <div style="font-size: 14px; color: rgba(255,255,255,0.7);">Recoveries</div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/spinal_cord_rehab.png" alt="Spinal Cord Injury">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Spinal Cord Injury</p>
+                                <p class="rehab-card-desc">Comprehensive rehab for SCI patients targeting motor and sensory recovery.</p>
                             </div>
                         </div>
-                        <div class="flex gap-small">
-                            <a href="rehab-village.html" class="btn" style="background: var(--bg-white); color: var(--primary);">Explore Village</a>
-                            <a href="international-patients.html" class="btn" style="border: 1px solid rgba(255,255,255,0.3); color: white;">International Desk</a>
+
+                        <div class="rehab-card">
+                            <img src="Assets/tbi_rehab.png" alt="Traumatic Brain Injury">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Traumatic Brain Injury</p>
+                                <p class="rehab-card-desc">Cognitive and physical rehabilitation for TBI survivors.</p>
+                            </div>
                         </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/parkinsons_therapy.png" alt="Parkinson's Disease">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Parkinson's Disease</p>
+                                <p class="rehab-card-desc">Targeted movement therapy to improve gait, balance and daily function.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="assets/generated/robotic_rehab_exo_1776281782213.png" alt="Hemiplegia">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Hemiplegia</p>
+                                <p class="rehab-card-desc">Exoskeleton-assisted gait training to regain one-sided body control.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/physiotherapy_session.png" alt="Quadriplegia & Paraplegia">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Quadriplegia & Paraplegia</p>
+                                <p class="rehab-card-desc">Multi-disciplinary care for complete and incomplete paralysis conditions.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/occupational_therapy.png" alt="Cerebral Palsy">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Cerebral Palsy</p>
+                                <p class="rehab-card-desc">Paediatric neuro-rehabilitation improving function and quality of life.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/spinal_cord_rehab.png" alt="Motor Neuron Diseases">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Motor Neuron Diseases</p>
+                                <p class="rehab-card-desc">Slowing progression and optimising function through integrated therapy.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/post_surgical_rehab.png" alt="Post-Surgical Rehab">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Post-Surgical Rehab</p>
+                                <p class="rehab-card-desc">Structured recovery programs to regain strength and function after major surgery.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/physiotherapy_session.png" alt="Muscular Dystrophy">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Muscular Dystrophy</p>
+                                <p class="rehab-card-desc">Preserving mobility and independence through targeted neuromuscular therapy.</p>
+                            </div>
+                        </div>
+
                     </div>
-                    <div>
-                        <img src="assets/generated/rehab_village_exterior_1776281820189.png" alt="Ayurgreen Rehab Village" style="width: 100%; border-radius: var(--radius-large); max-height: 500px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                    </div><!-- /clip-programs -->
+                    <!-- Slide nav -->
+                    <div class="rehab-slider-nav">
+                        <button class="rehab-slider-btn" onclick="slideCards('scroll-programs',-1)" id="btn-prev-programs"><i data-lucide="chevron-left" size="20"></i></button>
+                        <button class="rehab-slider-btn" onclick="slideCards('scroll-programs', 1)" id="btn-next-programs"><i data-lucide="chevron-right" size="20"></i></button>
                     </div>
                 </div>
+
+                <!-- Therapies Tab -->
+                <div id="tab-content-therapies" class="rehab-tab-content">
+                    <div class="rehab-slider-clip" id="clip-therapies">
+                    <div class="rehab-cards-scroll" id="scroll-therapies">
+
+                        <div class="rehab-card">
+                            <img src="assets/generated/ayurveda_premium_room_1776281797515.png" alt="Ayurveda">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Ayurveda</p>
+                                <p class="rehab-card-desc">Authentic Kerala Ayurveda for deep systemic healing and detoxification.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/physiotherapy_session.png" alt="Physiotherapy">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Physiotherapy</p>
+                                <p class="rehab-card-desc">Expert-guided physical rehabilitation for strength, mobility and function.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="assets/generated/robotic_rehab_exo_1776281782213.png" alt="Robotic Rehabilitation">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Robotic Rehabilitation</p>
+                                <p class="rehab-card-desc">Advanced exoskeletons retraining neural pathways through precision movement.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/occupational_therapy.png" alt="Occupational Therapy">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Occupational Therapy</p>
+                                <p class="rehab-card-desc">Restoring independence in daily living activities and work skills.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/speech_therapy.png" alt="Speech Therapy">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Speech Therapy</p>
+                                <p class="rehab-card-desc">Communication and swallowing rehabilitation by certified specialists.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/Virtual Reality.jpeg" alt="Virtual Reality">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Virtual Reality</p>
+                                <p class="rehab-card-desc">Immersive VR environments for engaging, gamified neurological recovery.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/yoga_therapy.png" alt="Yoga">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Yoga</p>
+                                <p class="rehab-card-desc">Therapeutic yoga improving flexibility, breath control and mental wellness.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/aquatic_therapy.png" alt="Hydro / Aquatic Therapy">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Hydro / Aquatic Therapy</p>
+                                <p class="rehab-card-desc">Water-based therapy easing pain and rebuilding strength with minimal stress.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/spinal_cord_rehab.png" alt="Acupuncture">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Acupuncture</p>
+                                <p class="rehab-card-desc">Ancient meridian therapy relieving pain, spasticity, and neurological symptoms.</p>
+                            </div>
+                        </div>
+
+                        <div class="rehab-card">
+                            <img src="Assets/occupational_therapy.png" alt="Reflexology">
+                            <div class="rehab-card-gradient"></div>
+                            <div class="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16" style="color:#111;"></i></div>
+                            <div class="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"></i> Know more</div>
+                            <div class="rehab-card-body">
+                                <p class="rehab-card-title">Reflexology</p>
+                                <p class="rehab-card-desc">Therapeutic pressure points on feet and hands to stimulate systemic healing.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div><!-- /clip-therapies -->
+                    <!-- Slide nav -->
+                    <div class="rehab-slider-nav">
+                        <button class="rehab-slider-btn" onclick="slideCards('scroll-therapies',-1)" id="btn-prev-therapies"><i data-lucide="chevron-left" size="20"></i></button>
+                        <button class="rehab-slider-btn" onclick="slideCards('scroll-therapies', 1)" id="btn-next-therapies"><i data-lucide="chevron-right" size="20"></i></button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
+
+    <script>
+        // ── Card width: exactly 5 visible ────────────────────────────
+        function initSliderWidth(scrollId) {
+            const container = document.getElementById(scrollId);
+            const clipId = 'clip-' + scrollId.replace('scroll-', '');
+            const clip = document.getElementById(clipId);
+            if (!container || !clip) return;
+            const gap = 18;
+            const n = 5;
+            const totalWidth = clip.clientWidth;
+            const cardWidth = (totalWidth - gap * (n - 1)) / n;
+            container.querySelectorAll('.rehab-card').forEach(card => {
+                card.style.width = cardWidth + 'px';
+                card.style.minWidth = cardWidth + 'px';
+            });
+            container._cardWidth = cardWidth;
+            container._gap = gap;
+            // Always reset position when (re-)initialising
+            container._offset = 0;
+            container.style.transition = 'none';
+            container.style.transform = 'translateX(0px)';
+            updateSliderNav(scrollId);
+        }
+
+        // ── Move cards left/right ─────────────────────────────────────
+        function slideCards(scrollId, dir) {
+            const container = document.getElementById(scrollId);
+            if (!container) return;
+            const cardWidth = container._cardWidth || 255;
+            const gap = container._gap || 18;
+            const total = container.querySelectorAll('.rehab-card').length;
+            const maxOffset = Math.max(0, total - 5);
+            container._offset = Math.min(Math.max((container._offset || 0) + dir, 0), maxOffset);
+            const translateX = -(container._offset * (cardWidth + gap));
+            container.style.transform = 'translateX(' + translateX + 'px)';
+            container.style.transition = 'transform 0.45s cubic-bezier(0.16,1,0.3,1)';
+            updateSliderNav(scrollId);
+        }
+
+        function updateSliderNav(scrollId) {
+            const tabName = scrollId.replace('scroll-', '');
+            const container = document.getElementById(scrollId);
+            if (!container) return;
+            const total = container.querySelectorAll('.rehab-card').length;
+            const offset = container._offset || 0;
+            const prevBtn = document.getElementById('btn-prev-' + tabName);
+            const nextBtn = document.getElementById('btn-next-' + tabName);
+            if (prevBtn) prevBtn.disabled = offset <= 0;
+            if (nextBtn) nextBtn.disabled = offset >= total - 5;
+        }
+
+        // ── Tab switching ─────────────────────────────────────────────
+        function switchRehabTab(tab) {
+            const next = document.getElementById('tab-content-' + tab);
+            const current = document.querySelector('.rehab-tab-content.tab-visible');
+            if (current === next) return;
+            document.querySelectorAll('.rehab-tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+            document.getElementById('tab-btn-' + tab).classList.add('active-tab');
+            if (current) current.classList.remove('tab-visible');
+            next.classList.add('tab-visible');
+            if (window.lucide) window.lucide.createIcons();
+            initSliderWidth('scroll-' + tab);
+        }
+
+        // ── Init on load ──────────────────────────────────────────────
+        window.addEventListener('DOMContentLoaded', () => {
+            initSliderWidth('scroll-programs');
+            initSliderWidth('scroll-therapies');
+            // Disable prev on load (both at position 0)
+            ['programs','therapies'].forEach(t => {
+                const btn = document.getElementById('btn-prev-' + t);
+                if (btn) btn.disabled = true;
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            ['programs','therapies'].forEach(t => initSliderWidth('scroll-' + t));
+        });
+    </script>
+
 
     <!-- Unified UI Footer -->
     <footer style="background: var(--bg-main); padding: 80px 0 32px 0; border-top: 1px solid var(--border);">

@@ -1121,12 +1121,29 @@ section {
 }
 
 @media (max-width: 640px) {
-  .nations-badge-card {
-    width: 100%;
-    max-width: 280px;
+  .nations-col {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
+  
+  .nations-badge-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 90px !important;
+    padding: 12px 10px !important;
+    align-self: auto !important;
+  }
+  
+  .nations-badge-card:last-child {
+    grid-column: span 2 !important;
+    justify-self: center !important;
+    max-width: 240px !important;
+  }
+
   .nations-container {
-    padding: 0 24px;
+    padding: 0 16px !important;
   }
 }
 

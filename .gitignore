@@ -1,0 +1,12 @@
+node_modules/
+dist/
+venv/
+.DS_Store
+*.log
+.env
+
+# Large media files
+Assets/AYURGREEN HOSPITALS FHD.MP4
+Assets/Ayurgreen Hospitals.webm
+Assets/Patients/
+Assets/Therapies/OT/passive training.MP4

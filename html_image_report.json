@@ -1,0 +1,372 @@
+[
+  {
+    "src": "Assets/ayurgreen-hospital.webp",
+    "realPath": "Assets\\ayurgreen-hospital.webp",
+    "width": 2726,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Rehab_Stories_Banner.webp",
+    "realPath": "Assets\\Rehab_Stories_Banner.webp",
+    "width": 2612,
+    "height": 1469,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen_Logo.webp",
+    "realPath": "Assets\\Ayurgreen_Logo.webp",
+    "width": 1656,
+    "height": 1344,
+    "status": "exists"
+  },
+  {
+    "src": "https://flagcdn.com/w80/ae.png",
+    "status": "external"
+  },
+  {
+    "src": "https://flagcdn.com/w80/sa.png",
+    "status": "external"
+  },
+  {
+    "src": "https://flagcdn.com/w80/om.png",
+    "status": "external"
+  },
+  {
+    "src": "https://flagcdn.com/w80/qa.png",
+    "status": "external"
+  },
+  {
+    "src": "Assets/ADMIRE Logo.png",
+    "realPath": "Assets\\Logo\\ADMIRE Logo.png",
+    "width": 281,
+    "height": 155,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Programs/Virtual Reality.jpeg",
+    "realPath": "Assets\\Programs\\Virtual Reality.jpeg",
+    "width": 1024,
+    "height": 576,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_stroke.webp",
+    "realPath": "Assets\\rehab\\prog_stroke.webp",
+    "width": 5066,
+    "height": 3800,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_spinal_cord.webp",
+    "realPath": "Assets\\rehab\\prog_spinal_cord.webp",
+    "width": 822,
+    "height": 617,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_tbi.webp",
+    "realPath": "Assets\\rehab\\prog_tbi.webp",
+    "width": 810,
+    "height": 608,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_hemiplegia.webp",
+    "realPath": "Assets\\rehab\\prog_hemiplegia.webp",
+    "width": 3607,
+    "height": 2705,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_paraplegia.webp",
+    "realPath": "Assets\\rehab\\prog_paraplegia.webp",
+    "width": 2048,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_cerebral_palsy.webp",
+    "realPath": "Assets\\rehab\\prog_cerebral_palsy.webp",
+    "width": 2048,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_motor_neuron.webp",
+    "realPath": "Assets\\rehab\\prog_motor_neuron.webp",
+    "width": 2048,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_post_surgical.webp",
+    "realPath": "Assets\\rehab\\prog_post_surgical.webp",
+    "width": 2048,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_parkinsons.webp",
+    "realPath": "Assets\\rehab\\prog_parkinsons.webp",
+    "width": 2048,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/prog_sciatica.webp",
+    "realPath": "Assets\\rehab\\prog_sciatica.webp",
+    "width": 2048,
+    "height": 1536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_ayurveda.webp",
+    "realPath": "Assets\\rehab\\th_ayurveda.webp",
+    "width": 768,
+    "height": 576,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_physiotherapy.webp",
+    "realPath": "Assets\\rehab\\th_physiotherapy.webp",
+    "width": 6048,
+    "height": 4536,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_robotic.webp",
+    "realPath": "Assets\\rehab\\th_robotic.webp",
+    "width": 5333,
+    "height": 4000,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_ot.webp",
+    "realPath": "Assets\\rehab\\th_ot.webp",
+    "width": 5333,
+    "height": 4000,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_speech.webp",
+    "realPath": "Assets\\rehab\\th_speech.webp",
+    "width": 5333,
+    "height": 4000,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_vr.webp",
+    "realPath": "Assets\\rehab\\th_vr.webp",
+    "width": 1066,
+    "height": 799,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_aquatic.webp",
+    "realPath": "Assets\\rehab\\th_aquatic.webp",
+    "width": 768,
+    "height": 576,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/rehab/th_cycle.webp",
+    "realPath": "Assets\\rehab\\th_cycle.webp",
+    "width": 4480,
+    "height": 3360,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Logo/Rehab Village.jpg",
+    "realPath": "Assets\\Logo\\Rehab Village.jpg",
+    "width": 1600,
+    "height": 1600,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Rehab_Process_Transparent.webp",
+    "realPath": "Assets\\Rehab_Process_Transparent.webp",
+    "width": 1408,
+    "height": 156,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_0265.JPG",
+    "realPath": "Assets\\Patients\\IMG_0265.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_0279.JPG",
+    "realPath": "Assets\\Patients\\IMG_0279.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_0463.JPG",
+    "realPath": "Assets\\Patients\\IMG_0463.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_1479.JPG",
+    "realPath": "Assets\\Patients\\IMG_1479.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_1518.JPG",
+    "realPath": "Assets\\Patients\\IMG_1518.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_1525.JPG",
+    "realPath": "Assets\\Patients\\IMG_1525.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_1555.JPG",
+    "realPath": "Assets\\Patients\\IMG_1555.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Patients/IMG_1690.JPG",
+    "realPath": "Assets\\Patients\\IMG_1690.JPG",
+    "width": 2976,
+    "height": 1984,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/AMAI Logo.png",
+    "realPath": "Assets\\Our Associations\\AMAI Logo.png",
+    "width": 954,
+    "height": 974,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/Ahma-Logo.png",
+    "realPath": "Assets\\Our Associations\\Ahma-Logo.png",
+    "width": 600,
+    "height": 600,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/Aura-Malabar-Logo.webp",
+    "realPath": "Assets\\Our Associations\\Aura-Malabar-Logo.webp",
+    "width": 1024,
+    "height": 315,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/Blood Bank Perinthalmanna Logo.jpg",
+    "realPath": "Assets\\Our Associations\\Blood Bank Perinthalmanna Logo.jpg",
+    "width": 150,
+    "height": 150,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/CII Logo.png",
+    "realPath": "Assets\\Our Associations\\CII Logo.png",
+    "width": 209,
+    "height": 65,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/ILA Foundation Logo.jpg",
+    "realPath": "Assets\\Our Associations\\ILA Foundation Logo.jpg",
+    "width": 150,
+    "height": 150,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/National Ayurvedic Medical Association.webp",
+    "realPath": "Assets\\Our Associations\\National Ayurvedic Medical Association.webp",
+    "width": 941,
+    "height": 363,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Our Associations/ayurveda promotion society logo.jpg",
+    "realPath": "Assets\\Our Associations\\ayurveda promotion society logo.jpg",
+    "width": 253,
+    "height": 90,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/Logomark Ayurgreen.png",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\Logomark Ayurgreen.png",
+    "width": 379,
+    "height": 401,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/Getwell Logo.jpg",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\Getwell Logo.jpg",
+    "width": 150,
+    "height": 150,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/logo Niramaya.png",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\logo Niramaya.png",
+    "width": 2364,
+    "height": 524,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/Green Health Logo.jpg",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\Green Health Logo.jpg",
+    "width": 150,
+    "height": 38,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/Ayurgreen College.png",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\Ayurgreen College.png",
+    "width": 250,
+    "height": 250,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/ayurgreen Scientifica Logo.png",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\ayurgreen Scientifica Logo.png",
+    "width": 173,
+    "height": 300,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/Shadrasa Logo.jpg",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\Shadrasa Logo.jpg",
+    "width": 150,
+    "height": 120,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/AG Foundation Logo.jpg",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\AG Foundation Logo.jpg",
+    "width": 150,
+    "height": 72,
+    "status": "exists"
+  },
+  {
+    "src": "Assets/Ayurgreen Ecosystem/ACFHE Logo.png",
+    "realPath": "Assets\\Ayurgreen Ecosystem\\ACFHE Logo.png",
+    "width": 1563,
+    "height": 648,
+    "status": "exists"
+  },
+  {
+    "src": "${src}",
+    "status": "missing"
+  }
+]

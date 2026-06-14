@@ -1,0 +1,2 @@
+#!/bin/sh
+/Users/Yasin/Library/Caches/ms-playwright-go/1.57.0/node /Users/Yasin/Documents/Antigravity/Ayurgreen/npm-portable/package/bin/npm-cli.js "$@"

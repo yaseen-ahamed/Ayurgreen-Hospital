@@ -662,21 +662,25 @@
             }
 
             .hero-header {
-                justify-content: space-between !important;
+                display: flex !important;
+                justify-content: flex-end !important;
                 left: clamp(16px, 4vw, 32px) !important;
                 right: clamp(16px, 4vw, 32px) !important;
                 top: clamp(16px, 4vw, 24px) !important;
+                position: absolute !important;
+                align-items: center !important;
             }
 
             .header-center-link {
-                position: relative !important;
-                left: auto !important;
-                top: auto !important;
-                transform: none !important;
+                position: absolute !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                margin: 0 !important;
             }
 
             .header-center-link:hover {
-                transform: scale(1.05) !important;
+                transform: translate(-50%, -50%) scale(1.05) !important;
             }
 
             .bw-nav-dropdown {
@@ -2801,19 +2805,51 @@
             }
         }
 
-        @media (max-width: 576px) {
+        @media (max-width: 640px) {
             .eco-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
             }
             .eco-card {
-                padding: 24px 20px;
+                padding: 20px 14px !important;
+                min-height: 240px !important;
+                border-radius: 18px !important;
+            }
+            .eco-card-title {
+                font-size: clamp(13px, 3.5vw, 15px) !important;
+                margin-bottom: 6px !important;
+                padding-right: 0 !important;
+            }
+            .eco-card-desc {
+                font-size: clamp(10.5px, 2.8vw, 11.5px) !important;
+                line-height: 1.4 !important;
+                margin-bottom: 16px !important;
+            }
+            .eco-cta-btn {
+                font-size: 10px !important;
+                padding: 6px 6px 6px 12px !important;
+                letter-spacing: 0.5px !important;
+            }
+            .eco-cta-btn .btn-icon-circle {
+                width: 24px !important;
+                height: 24px !important;
+                margin-left: 6px !important;
+            }
+            .eco-card-logo-badge {
+                width: 50px !important;
+                height: 50px !important;
+                top: -8px !important;
+                right: -8px !important;
+            }
+            .eco-card-logo-badge img {
+                width: 36px !important;
+                height: 36px !important;
             }
             .eco-section {
                 padding: 60px 0;
             }
             .eco-container {
-                padding: 0 24px;
+                padding: 0 16px;
             }
         }
 
@@ -5695,7 +5731,11 @@
             menuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                openMenu();
+                if (drawer.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
 
             if (closeBtn) closeBtn.addEventListener('click', closeMenu);

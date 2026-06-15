@@ -822,28 +822,47 @@
 
             .bottom-left-badge {
                 position: absolute !important;
-                bottom: 120px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
+                bottom: 20px !important;
+                left: 16px !important;
+                transform: none !important;
                 display: inline-flex !important;
                 margin: 0 !important;
-                background: rgba(255, 255, 255, 0.15) !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                box-shadow: none !important;
+                background: #ffffff !important;
+                border: 1px solid rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
                 z-index: 10 !important;
+                padding: 4px 12px 4px 4px !important;
+                height: 36px !important;
+                gap: 8px !important;
             }
             
             .bottom-left-badge span {
-                color: #fff !important;
+                color: #000000 !important;
+                font-size: 8px !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.5px !important;
+            }
+
+            .badge-avatars img {
+                width: 26px !important;
+                height: 26px !important;
+                margin-left: -8px !important;
+            }
+            .badge-avatars img:first-child {
+                margin-left: 0 !important;
+            }
+            .badge-avatars .plus-icon {
+                width: 26px !important;
+                height: 26px !important;
+                margin-left: -8px !important;
+                font-size: 10px !important;
             }
 
             .bottom-right-action {
                 position: absolute !important;
-                bottom: 68px !important;
-                right: 50% !important;
-                transform: translateX(50%) !important;
+                bottom: 20px !important;
+                right: 16px !important;
+                transform: none !important;
                 display: flex !important;
                 margin: 0 !important;
                 width: auto !important;
@@ -854,9 +873,11 @@
                 width: auto !important;
                 justify-content: center !important;
                 padding: 4px 4px 4px 14px !important;
-                font-size: 10px !important;
+                font-size: 9px !important;
                 letter-spacing: 0.5px !important;
                 height: 36px !important;
+                background: #ffffff !important;
+                color: #000000 !important;
             }
             
             .bottom-right-action .main-cta .arrow-btn {
@@ -3426,6 +3447,21 @@
                                         updateVolumeIcon();
                                     });
 
+                                    // Autoplay/Pause video as it enters/leaves the viewport
+                                    if ('IntersectionObserver' in window) {
+                                        const videoObserver = new IntersectionObserver((entries) => {
+                                            entries.forEach(entry => {
+                                                if (entry.isIntersecting) {
+                                                    video.play().catch(err => console.log("Autoplay blocked:", err));
+                                                } else {
+                                                    video.pause();
+                                                }
+                                                updatePlayIcon();
+                                            });
+                                        }, { threshold: 0.25 });
+                                        videoObserver.observe(video);
+                                    }
+
                                     // Volume Click
                                     volumeContainer.addEventListener('click', (e) => {
                                         e.stopPropagation();
@@ -4994,60 +5030,60 @@
                 <div class="mobile-nav-group">
                     <button class="mobile-nav-trigger">About Us <i data-lucide="chevron-down" size="16"></i></button>
                     <div class="mobile-nav-dropdown-content">
-                        <a href="about.html">Our Legacy</a>
-                        <a href="about.html">Multidisciplinary Team</a>
-                        <a href="about.html#facilities">Facilities</a>
+                        <a href="about.html"><i data-lucide="award" size="16" style="color: #FFD700;"></i> Our Legacy</a>
+                        <a href="about.html"><i data-lucide="users" size="16" style="color: #4CAF50;"></i> Multidisciplinary Team</a>
+                        <a href="about.html#facilities"><i data-lucide="building" size="16" style="color: #2196F3;"></i> Facilities</a>
                     </div>
                 </div>
                 
                 <div class="mobile-nav-group">
                     <button class="mobile-nav-trigger">Therapies <i data-lucide="chevron-down" size="16"></i></button>
                     <div class="mobile-nav-dropdown-content">
-                        <a href="stroke-rehab.html">Stroke Rehabilitation</a>
-                        <a href="programs.html">Spinal Cord Injury</a>
-                        <a href="programs.html">Traumatic Brain Injury</a>
-                        <a href="programs.html">Hemiplegia</a>
-                        <a href="programs.html">Quadriplegia & Paraplegia</a>
-                        <a href="programs.html">Post-Surgical Complications</a>
-                        <a href="programs.html">Motor Neuron Diseases</a>
-                        <a href="programs.html">Cerebral Palsy</a>
-                        <a href="programs.html">Parkinson's Disease</a>
-                        <a href="programs.html">Myopathy</a>
-                        <a href="programs.html">Disc & Spine Problems</a>
-                        <a href="programs.html">Sciatica</a>
-                        <a href="programs.html">Obesity</a>
-                        <a href="programs.html">Post-Covid Complications</a>
-                        <a href="programs.html">Muscular Dystrophy</a>
-                        <a href="programs.html">Osteoarthritis</a>
-                        <a href="programs.html">Rheumatoid Arthritis</a>
-                        <a href="programs.html">Developmental Delay</a>
-                        <a href="programs.html">Psychological Problems</a>
-                        <a href="programs.html">Autism</a>
-                        <a href="programs.html">Psychiatry</a>
+                        <a href="stroke-rehab.html"><i data-lucide="activity" size="16" style="color: #E91E63;"></i> Stroke Rehabilitation</a>
+                        <a href="programs.html"><i data-lucide="bone" size="16" style="color: #9C27B0;"></i> Spinal Cord Injury</a>
+                        <a href="programs.html"><i data-lucide="brain" size="16" style="color: #FF9800;"></i> Traumatic Brain Injury</a>
+                        <a href="programs.html"><i data-lucide="person-standing" size="16" style="color: #00BCD4;"></i> Hemiplegia</a>
+                        <a href="programs.html"><i data-lucide="accessibility" size="16" style="color: #3F51B5;"></i> Quadriplegia & Paraplegia</a>
+                        <a href="programs.html"><i data-lucide="stethoscope" size="16" style="color: #009688;"></i> Post-Surgical Complications</a>
+                        <a href="programs.html"><i data-lucide="network" size="16" style="color: #607D8B;"></i> Motor Neuron Diseases</a>
+                        <a href="programs.html"><i data-lucide="flower-2" size="16" style="color: #E040FB;"></i> Cerebral Palsy</a>
+                        <a href="programs.html"><i data-lucide="zap" size="16" style="color: #FFEB3B;"></i> Parkinson's Disease</a>
+                        <a href="programs.html"><i data-lucide="dna" size="16" style="color: #8BC34A;"></i> Myopathy</a>
+                        <a href="programs.html"><i data-lucide="git-commit" size="16" style="color: #FF5722;"></i> Disc & Spine Problems</a>
+                        <a href="programs.html"><i data-lucide="zap-off" size="16" style="color: #795548;"></i> Sciatica</a>
+                        <a href="programs.html"><i data-lucide="scale" size="16" style="color: #F44336;"></i> Obesity</a>
+                        <a href="programs.html"><i data-lucide="shield-alert" size="16" style="color: #FFC107;"></i> Post-Covid Complications</a>
+                        <a href="programs.html"><i data-lucide="heart-pulse" size="16" style="color: #E91E63;"></i> Muscular Dystrophy</a>
+                        <a href="programs.html"><i data-lucide="target" size="16" style="color: #9E9E9E;"></i> Osteoarthritis</a>
+                        <a href="programs.html"><i data-lucide="flame" size="16" style="color: #FF5722;"></i> Rheumatoid Arthritis</a>
+                        <a href="programs.html"><i data-lucide="sprout" size="16" style="color: #8BC34A;"></i> Developmental Delay</a>
+                        <a href="programs.html"><i data-lucide="lightbulb" size="16" style="color: #FFEB3B;"></i> Psychological Problems</a>
+                        <a href="programs.html"><i data-lucide="heart" size="16" style="color: #E91E63;"></i> Autism</a>
+                        <a href="programs.html"><i data-lucide="brain" size="16" style="color: #9C27B0;"></i> Psychiatry</a>
                     </div>
                 </div>
 
                 <div class="mobile-nav-group">
                     <button class="mobile-nav-trigger">Departments <i data-lucide="chevron-down" size="16"></i></button>
                     <div class="mobile-nav-dropdown-content">
-                        <a href="ayurveda.html">Ayurveda</a>
-                        <a href="therapies.html">Physiotherapy</a>
-                        <a href="robotic-rehab.html">Robotic Rehabilitation</a>
-                        <a href="therapies.html">Occupational Therapy</a>
-                        <a href="therapies.html">Speech Therapy</a>
-                        <a href="therapies.html">Virtual Reality</a>
-                        <a href="therapies.html">Yoga and Meditation</a>
-                        <a href="therapies.html">Acupuncture</a>
-                        <a href="therapies.html">Reflexology</a>
-                        <a href="therapies.html">Hydro / Aquatic Therapy</a>
-                        <a href="therapies.html">Pediatrics</a>
-                        <a href="therapies.html">Slimming Treatment</a>
-                        <a href="therapies.html">Pain Management</a>
-                        <a href="therapies.html">Diet & Nutrition</a>
-                        <a href="therapies.html">Counseling</a>
-                        <a href="therapies.html">Dentistry</a>
-                        <a href="therapies.html">Modern Medicine</a>
-                        <a href="therapies.html">Assistive Devices</a>
+                        <a href="ayurveda.html"><i data-lucide="leaf" size="16" style="color: #4CAF50;"></i> Ayurveda</a>
+                        <a href="therapies.html"><i data-lucide="dumbbell" size="16" style="color: #FF9800;"></i> Physiotherapy</a>
+                        <a href="robotic-rehab.html"><i data-lucide="bot" size="16" style="color: #00BCD4;"></i> Robotic Rehabilitation</a>
+                        <a href="therapies.html"><i data-lucide="puzzle" size="16" style="color: #9C27B0;"></i> Occupational Therapy</a>
+                        <a href="therapies.html"><i data-lucide="message-circle" size="16" style="color: #2196F3;"></i> Speech Therapy</a>
+                        <a href="therapies.html"><i data-lucide="headset" size="16" style="color: #E91E63;"></i> Virtual Reality</a>
+                        <a href="therapies.html"><i data-lucide="sun" size="16" style="color: #FFC107;"></i> Yoga and Meditation</a>
+                        <a href="therapies.html"><i data-lucide="map-pin" size="16" style="color: #F44336;"></i> Acupuncture</a>
+                        <a href="therapies.html"><i data-lucide="footprints" size="16" style="color: #795548;"></i> Reflexology</a>
+                        <a href="therapies.html"><i data-lucide="waves" size="16" style="color: #03A9F4;"></i> Hydro / Aquatic Therapy</a>
+                        <a href="therapies.html"><i data-lucide="baby" size="16" style="color: #E040FB;"></i> Pediatrics</a>
+                        <a href="therapies.html"><i data-lucide="ruler" size="16" style="color: #009688;"></i> Slimming Treatment</a>
+                        <a href="therapies.html"><i data-lucide="shield-plus" size="16" style="color: #4CAF50;"></i> Pain Management</a>
+                        <a href="therapies.html"><i data-lucide="utensils" size="16" style="color: #FF5722;"></i> Diet & Nutrition</a>
+                        <a href="therapies.html"><i data-lucide="heart-handshake" size="16" style="color: #E91E63;"></i> Counseling</a>
+                        <a href="therapies.html"><i data-lucide="smile" size="16" style="color: #00BCD4;"></i> Dentistry</a>
+                        <a href="therapies.html"><i data-lucide="pill" size="16" style="color: #9C27B0;"></i> Modern Medicine</a>
+                        <a href="therapies.html"><i data-lucide="accessibility" size="16" style="color: #3F51B5;"></i> Assistive Devices</a>
                     </div>
                 </div>
 
@@ -5056,15 +5092,15 @@
                 <div class="mobile-nav-group">
                     <button class="mobile-nav-trigger">Specializations <i data-lucide="chevron-down" size="16"></i></button>
                     <div class="mobile-nav-dropdown-content">
-                        <a href="programs.html">Neurology</a>
-                        <a href="programs.html">Neurosurgery</a>
-                        <a href="programs.html">Orthopedic</a>
-                        <a href="programs.html">ENT</a>
-                        <a href="programs.html">General Medicine</a>
-                        <a href="programs.html">Urology</a>
-                        <a href="programs.html">Cardiology</a>
-                        <a href="programs.html">Respiratory Therapy</a>
-                        <a href="programs.html">Neuro Psychology</a>
+                        <a href="programs.html"><i data-lucide="brain-circuit" size="16" style="color: #607D8B;"></i> Neurology</a>
+                        <a href="programs.html"><i data-lucide="microscope" size="16" style="color: #009688;"></i> Neurosurgery</a>
+                        <a href="programs.html"><i data-lucide="hammer" size="16" style="color: #795548;"></i> Orthopedic</a>
+                        <a href="programs.html"><i data-lucide="ear" size="16" style="color: #FF9800;"></i> ENT</a>
+                        <a href="programs.html"><i data-lucide="syringe" size="16" style="color: #F44336;"></i> General Medicine</a>
+                        <a href="programs.html"><i data-lucide="droplet" size="16" style="color: #03A9F4;"></i> Urology</a>
+                        <a href="programs.html"><i data-lucide="heart" size="16" style="color: #E91E63;"></i> Cardiology</a>
+                        <a href="programs.html"><i data-lucide="wind" size="16" style="color: #00BCD4;"></i> Respiratory Therapy</a>
+                        <a href="programs.html"><i data-lucide="brain" size="16" style="color: #9C27B0;"></i> Neuro Psychology</a>
                     </div>
                 </div>
 
@@ -5459,6 +5495,9 @@
 
             // Constant speed — never changes regardless of scroll
             const BASE_SPEED = 60; // pixels per second
+
+            let trackTopWidth = 0;
+            let trackBottomWidth = 0;
 
             let xTop = 0;
             let xBottom = 0;

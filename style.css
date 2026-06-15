@@ -987,6 +987,12 @@ section {
   text-decoration: none;
 }
 
+.mobile-nav-dropdown-content a .lucide {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+}
+
 .mobile-nav-dropdown-content a:last-child {
   border-bottom: none !important;
 }

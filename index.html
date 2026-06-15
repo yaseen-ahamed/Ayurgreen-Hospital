@@ -561,12 +561,12 @@
 
         /* Center Logo */
         .header-center-link {
-            position: relative;
-            left: auto;
-            top: auto;
-            transform: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             flex-shrink: 0;
-            margin: 0 clamp(16px, 2.5vw, 32px);
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -575,11 +575,11 @@
         }
 
         .header-center-link:hover {
-            transform: scale(1.05);
+            transform: translate(-50%, -50%) scale(1.05);
         }
 
         .header-center-link img {
-            height: clamp(32px, 2.5vw, 44px);
+            height: clamp(48px, 4vw, 64px);
             width: auto;
             filter: brightness(0) invert(1);
             display: block;
@@ -5986,9 +5986,48 @@
             }
         }
 
+        function addSwipeSupport(clipId, onSwipeLeft, onSwipeRight) {
+            const clip = document.getElementById(clipId);
+            if (!clip) return;
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const threshold = 40; // Swipe distance threshold
+
+            clip.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            clip.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diffX = touchEndX - touchStartX;
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX < 0) {
+                        if (onSwipeLeft) onSwipeLeft();
+                    } else {
+                        if (onSwipeRight) onSwipeRight();
+                    }
+                }
+            }, { passive: true });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             initMobileMenu();
             initEcosystemRedirection();
+
+            // Register touch swipe gesture support for sliders
+            addSwipeSupport('clip-programs',
+                () => { if (typeof slideCards === 'function') slideCards('scroll-programs', 1); },
+                () => { if (typeof slideCards === 'function') slideCards('scroll-programs', -1); }
+            );
+            addSwipeSupport('clip-therapies',
+                () => { if (typeof slideCards === 'function') slideCards('scroll-therapies', 1); },
+                () => { if (typeof slideCards === 'function') slideCards('scroll-therapies', -1); }
+            );
+            addSwipeSupport('clip-videos',
+                () => { if (typeof window.slideVideos === 'function') window.slideVideos(1); },
+                () => { if (typeof window.slideVideos === 'function') window.slideVideos(-1); }
+            );
         });
     </script>
     <script type="module" src="main.js"></script>

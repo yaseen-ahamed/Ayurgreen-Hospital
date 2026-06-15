@@ -273,7 +273,7 @@ export default function DifferentNationsSection() {
 
                             {/* CTA Button - Lowered and aligned properly below centerpiece */}
                             <motion.a
-                                href="#"
+                                href="international-patients.html"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.97 }}
                                 style={{

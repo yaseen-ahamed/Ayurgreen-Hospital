@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://ayurgreenhospital.com/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -19,19 +19,115 @@
       <image:title>Stories of Relearning</image:title>
       <image:caption>Ayurgreen Hospital patient recovery success stories and integrated rehabilitation journey</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://ayurgreenhospital.com/Assets/Ayurgreen_Logo.webp</image:loc>
+      <image:title>Ayurgreen Hospital Logo</image:title>
+      <image:caption>Official logo of Ayurgreen Hospital – Integrated Ortho-Neuro Rehabilitation &amp; Ayurveda Hospital</image:caption>
+    </image:image>
     <video:video>
       <video:thumbnail_loc>https://ayurgreenhospital.com/Assets/ayurgreen-hospital.webp</video:thumbnail_loc>
       <video:title>Ayurgreen Hospital – Integrated Rehabilitation &amp; Ayurveda</video:title>
       <video:description>An introduction to India's leading integrated ortho-neuro rehabilitation hospital combining robotics and authentic Kerala Ayurveda.</video:description>
       <video:content_loc>https://ayurgreenhospital.com/Assets/Logo/Ayurgreen%20Hospitals.webm</video:content_loc>
-      <video:publication_date>2026-06-12T00:00:00+05:30</video:publication_date>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DUfjDAYAYyj/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 1 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%201.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DUqTXCjCLf9/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 2 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%202.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DVKpXc8CI2O/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 3 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%203.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DVNhzc7CI4s/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 4 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%204.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DVa26Hvgddv/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 5 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%205.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DVnPsqkAQv2/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 6 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%206.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DVnoVftAYsW/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 7 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%207.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DWT3WNMAU8_/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 8 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%208.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DWgAjJhgUty/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 9 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%209.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DWjEZG6Aaj3/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 10 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%2010.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DWlhRvEAf59/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 11 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%2011.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DXvaUWyzm3i/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 12 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%2012.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://images.weserv.nl/?url=https://www.instagram.com/p/DX4Knwshg8V/media/?size=l</video:thumbnail_loc>
+      <video:title>Patient Recovery Story 13 | Ayurgreen Hospital</video:title>
+      <video:description>Watch the inspiring patient recovery and integrated ortho-neuro rehabilitation journey at Ayurgreen Hospital.</video:description>
+      <video:content_loc>https://ayurgreenhospital.com/Assets/Patients/Stories%20of%20Relearning/Stories%20of%20Relearning%2013.mp4</video:content_loc>
+      <video:publication_date>2026-06-15T00:00:00+05:30</video:publication_date>
     </video:video>
   </url>
 
   <!-- About Us -->
   <url>
     <loc>https://ayurgreenhospital.com/about.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,7 +135,7 @@
   <!-- Clinical Programs -->
   <url>
     <loc>https://ayurgreenhospital.com/programs.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -47,7 +143,7 @@
   <!-- Therapies and Modalities -->
   <url>
     <loc>https://ayurgreenhospital.com/therapies.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -55,11 +151,11 @@
   <!-- Rehab Village -->
   <url>
     <loc>https://ayurgreenhospital.com/rehab-village.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://ayurgreenhospital.com/Assets/Logo/Rehab%20Village.jpg</image:loc>
+      <image:loc>https://ayurgreenhospital.com/Assets/Logo/Rehab%20Village.webp</image:loc>
       <image:title>Rehab Village Logo</image:title>
       <image:caption>Rehab Village at Ayurgreen Hospital – Community living for long-term patient rehabilitation stay</image:caption>
     </image:image>
@@ -68,7 +164,7 @@
   <!-- International Patients -->
   <url>
     <loc>https://ayurgreenhospital.com/international-patients.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -76,7 +172,7 @@
   <!-- Stroke Rehabilitation -->
   <url>
     <loc>https://ayurgreenhospital.com/stroke-rehab.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -84,7 +180,7 @@
   <!-- Robotic Rehabilitation -->
   <url>
     <loc>https://ayurgreenhospital.com/robotic-rehab.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -92,7 +188,7 @@
   <!-- Ayurveda -->
   <url>
     <loc>https://ayurgreenhospital.com/ayurveda.html</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

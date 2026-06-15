@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide Icons
     lucide.createIcons({
-      strokeWidth: 1.5
+      strokeWidth: 1.5,
+      attrs: {
+        'aria-hidden': 'true'
+      }
     });
   
     // Sticky Header Logic

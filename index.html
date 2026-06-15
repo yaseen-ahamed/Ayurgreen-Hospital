@@ -612,10 +612,10 @@
             z-index: 10;
         }
 
-        /* Bottom Left Badge */
+        /* Top Left Badge */
         .bottom-left-badge {
             position: absolute;
-            bottom: 48px;
+            top: 130px;
             left: 48px;
             z-index: 10;
             background: #fff;
@@ -821,18 +821,54 @@
             }
 
             .bottom-left-badge {
-                display: none !important;
+                display: flex !important;
+                position: absolute !important;
+                top: 90px !important;
+                bottom: auto !important;
+                left: 16px !important;
+                transform: none !important;
+                margin: 0 !important;
+                background: #ffffff !important;
+                border: 1px solid rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+                z-index: 10 !important;
+                padding: 4px 12px 4px 4px !important;
+                height: 36px !important;
+                gap: 8px !important;
+                border-radius: 40px !important;
+                align-items: center !important;
             }
             
             .bottom-left-badge span {
-                display: none !important;
+                display: inline !important;
+                color: #000000 !important;
+                font-size: 8px !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.5px !important;
+            }
+
+            .badge-avatars {
+                display: flex !important;
+                align-items: center !important;
             }
 
             .badge-avatars img {
-                display: none !important;
+                display: block !important;
+                width: 26px !important;
+                height: 26px !important;
+                margin-left: -8px !important;
+            }
+            .badge-avatars img:first-child {
+                margin-left: 0 !important;
             }
             .badge-avatars .plus-icon {
-                display: none !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 26px !important;
+                height: 26px !important;
+                margin-left: -8px !important;
+                font-size: 10px !important;
             }
 
             .bottom-right-action {

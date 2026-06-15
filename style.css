@@ -1051,26 +1051,50 @@ section {
 }
 
 .mobile-menu-cta-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #10b981;
-  color: #ffffff;
-  padding: 14px 24px;
-  border-radius: 99px;
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  padding: 6px 6px 6px 24px !important;
+  border-radius: 99px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+}
+
+.mobile-menu-cta-btn svg.lucide,
+.mobile-menu-cta-btn i {
+  background: #000000 !important;
+  color: #ffffff !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
 }
 
 .mobile-menu-cta-btn:hover {
-  background: #059669;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  background: #f8fafc !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mobile-menu-cta-btn:hover svg.lucide,
+.mobile-menu-cta-btn:hover i {
+  transform: scale(1.05) !important;
 }
 
 /* ==========================================================================

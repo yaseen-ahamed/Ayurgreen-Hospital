@@ -822,7 +822,7 @@
 
             .bottom-left-badge {
                 position: absolute !important;
-                bottom: 144px !important;
+                bottom: 120px !important;
                 left: 50% !important;
                 transform: translateX(-50%) !important;
                 display: inline-flex !important;
@@ -841,7 +841,7 @@
 
             .bottom-right-action {
                 position: absolute !important;
-                bottom: 80px !important;
+                bottom: 68px !important;
                 right: 50% !important;
                 transform: translateX(50%) !important;
                 display: flex !important;
@@ -853,6 +853,20 @@
             .bottom-right-action .main-cta {
                 width: auto !important;
                 justify-content: center !important;
+                padding: 4px 4px 4px 14px !important;
+                font-size: 10px !important;
+                letter-spacing: 0.5px !important;
+                height: 36px !important;
+            }
+            
+            .bottom-right-action .main-cta .arrow-btn {
+                width: 28px !important;
+                height: 28px !important;
+            }
+            
+            .bottom-right-action .main-cta .arrow-btn svg {
+                width: 12px !important;
+                height: 12px !important;
             }
 
             .hero-slider-nav {
@@ -863,6 +877,18 @@
                 display: flex !important;
                 margin: 0 !important;
                 z-index: 10 !important;
+                gap: 8px !important;
+            }
+
+            .slider-nav-btn {
+                width: 36px !important;
+                height: 36px !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            }
+
+            .slider-nav-btn svg {
+                width: 14px !important;
+                height: 14px !important;
             }
         }
 
@@ -5530,6 +5556,16 @@
 
             // Re-measure on resize
             window.addEventListener('resize', measureTracks, { passive: true });
+
+            // Re-measure when images load to ensure correct widths are used for animation
+            const imgs = trigger.querySelectorAll('.gallery-img');
+            imgs.forEach(img => {
+                if (img.complete) {
+                    measureTracks();
+                } else {
+                    img.addEventListener('load', measureTracks, { passive: true });
+                }
+            });
         }
 
         // Render stories dynamically from Instagram links
@@ -5755,6 +5791,7 @@
             menuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                if (window.innerWidth > 1024) return;
                 if (drawer.classList.contains('active')) {
                     closeMenu();
                 } else {

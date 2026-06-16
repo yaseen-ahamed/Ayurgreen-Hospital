@@ -339,7 +339,16 @@ pages = [
     ('ayurveda.html', ayurveda_main)
 ]
 
-def replace_main(filepath, new_main_html):
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+def replace_main(filename, new_main_html):
+    filepath = os.path.join(current_dir, filename)
+    
+    # Copy index.html as the template to ensure header/footer synchronization
+    import shutil
+    shutil.copyfile(os.path.join(current_dir, 'index.html'), filepath)
+    print(f"Synchronized {filename} with index.html template")
+        
     with open(filepath, 'r') as f:
         content = f.read()
     
@@ -350,7 +359,7 @@ def replace_main(filepath, new_main_html):
         new_content = content[:start_idx] + new_main_html + content[end_idx:]
         with open(filepath, 'w') as f:
             f.write(new_content)
+        print(f"Populated main content for {filename}")
 
 for filename, main_content in pages:
-    file_path = os.path.join('/Users/shahadrk/Desktop/Yaseen/Antigravity/Ayurgreen-Hospital', filename)
-    replace_main(file_path, main_content)
+    replace_main(filename, main_content)

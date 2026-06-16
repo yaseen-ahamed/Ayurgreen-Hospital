@@ -293,826 +293,1203 @@ robotic_main = """    <main>
         </section>
     </main>"""
 
-ayurveda_main = """    <main class="ayur-page-container">
+json_ld_ayurveda = """{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://ayurgreenhospital.com/#organization",
+      "name": "Ayurgreen Hospital",
+      "url": "https://ayurgreenhospital.com/",
+      "logo": "https://ayurgreenhospital.com/Assets/Ayurgreen_Logo.webp",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-8080-808080",
+        "contactType": "customer service",
+        "email": "info@ayurgreen.com",
+        "availableLanguage": ["en", "ar"]
+      }
+    },
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://ayurgreenhospital.com/ayurveda.html#webpage",
+      "url": "https://ayurgreenhospital.com/ayurveda.html",
+      "name": "Kerala Ayurveda Rehabilitation & Panchakarma | Ayurgreen Hospital",
+      "description": "Experience authentic Kerala Ayurveda rehabilitation integrated with modern recovery techniques at Ayurgreen Hospital. Specialized Panchakarma and nerve regeneration therapies.",
+      "about": {
+        "@type": "MedicalSpecialty",
+        "name": "Ayurvedic Neuro Rehabilitation"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ayurgreenhospital.com/ayurveda.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ayurgreenhospital.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Departments",
+          "item": "https://ayurgreenhospital.com/therapies.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ayurveda",
+          "item": "https://ayurgreenhospital.com/ayurveda.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ayurgreenhospital.com/ayurveda.html#service",
+      "name": "Ayurvedic Neuro Rehabilitation & Panchakarma",
+      "provider": {
+        "@type": "Hospital",
+        "name": "Ayurgreen Hospital"
+      },
+      "serviceType": "Rehabilitation Service",
+      "description": "Integrated neuro-rehabilitation using authentic Kerala Ayurveda, Panchakarma detox, and specialized therapies for stroke, Parkinson's, and spinal injuries."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ayurgreenhospital.com/ayurveda.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Integrated Ayurveda Rehabilitation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Integrated Ayurveda Rehabilitation is a unique care model that combines traditional Kerala Ayurvedic therapies (like Panchakarma, Abhyanga) with modern neuro-rehabilitation techniques, such as robotic gait trainers and advanced physiotherapy. This dual approach accelerates physical recovery while enhancing nerve regeneration and biological vitality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Ayurveda help in post-stroke recovery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Post-stroke, Ayurveda helps by pacifying Vata dosha, which regulates the nervous system. Specialized therapies improve blood circulation to the brain, stimulate dormant motor nerves, reduce muscular spasticity, and prevent secondary muscle wasting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the Ayurvedic treatments safe and quality-tested?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All Ayurvedic medicines and oils used at Ayurgreen Hospital are sourced from GMP-certified traditional pharmacies and undergo rigorous quality tests. Every treatment is prescribed and monitored by qualified Ayurvedic physicians."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is robotic therapy combined with Ayurveda on the same day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, for patients who qualify. Our multidisciplinary panel designs a daily schedule where active therapies like robotic gait training or physiotherapy are scheduled in the morning, followed by relaxing and nourishing Ayurvedic treatments in the afternoon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the typical duration of an inpatient recovery program?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typical inpatient programs last between 14 to 28 days, depending on the severity of the neurological deficit. A detailed assessment is done upon admission to set realistic recovery goals and timelines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the treatments customized for each patient?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. No two stroke or Parkinson's patients are identical. Treatments are customized based on the patient's constitution (Prakruti), current imbalance (Vikruti), age, and muscle tolerance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can international patients receive treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we serve patients from over 50 countries. We provide full international patient support, including medical visa invitation letters, airport transfers, translators, and customized dietary menu options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I book a consultation or check-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can book a consultation by clicking 'Book Assessment' on our website, calling our direct helpline, or messaging us via WhatsApp. Our clinical liaisons will review your medical reports and guide you."
+          }
+        }
+      ]
+    }
+  ]
+}"""
+
+ayurveda_main = """    <main class="ayur-page-main">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
-            .ayur-page-container {
-                /* Design System Theme Variables from DESIGN.md */
-                --ayur-primary: #059669;
-                --ayur-primary-hover: #047857;
-                --ayur-secondary: #10B981;
-                --ayur-neutral-core: #111827;
-                --ayur-surface-bg: #f9f9ff;
-                --ayur-surface-subtle: #EAECF0;
-                --ayur-surface-white: #FFFFFF;
-                --ayur-mint-light: #D1FAE5;
-                --ayur-forest-dark: #064E3B;
+            .ayur-page-main {
+                --ayur-primary: #0F3D2E;
+                --ayur-secondary: #1F5A44;
+                --ayur-accent: #EAF4F0;
+                --ayur-text-main: #111111;
+                --ayur-text-muted: #6B7280;
+                --ayur-bg-main: #F7F8F7;
+                --ayur-border: #E5E7EB;
                 
-                --ayur-font-heading: 'Manrope', 'Plus Jakarta Sans', sans-serif;
-                --ayur-font-body: 'Inter', sans-serif;
-                
-                --ayur-radius-sm: 0.25rem;
-                --ayur-radius-default: 0.5rem;
-                --ayur-radius-md: 0.75rem;
-                --ayur-radius-lg: 1rem;
-                --ayur-radius-xl: 1.5rem;
-                
-                --ayur-shadow-soft: 0 4px 20px rgba(5, 150, 105, 0.05);
-                --ayur-shadow-hover: 0 12px 30px rgba(5, 150, 105, 0.1);
-                
-                font-family: var(--ayur-font-body);
-                color: var(--ayur-neutral-core);
-                background-color: var(--ayur-surface-bg);
+                font-family: 'Inter', sans-serif;
+                color: var(--ayur-text-main);
+                background-color: var(--ayur-bg-main);
                 line-height: 1.7;
             }
 
-            /* Typography classes mapping directly to DESIGN.md */
-            .ayur-display-lg {
-                font-family: var(--ayur-font-heading);
-                font-size: 48px;
-                font-weight: 700;
-                line-height: 56px;
-                letter-spacing: -0.02em;
-                color: var(--ayur-neutral-core);
-            }
-            .ayur-headline-lg {
-                font-family: var(--ayur-font-heading);
-                font-size: 32px;
-                font-weight: 600;
-                line-height: 40px;
-                color: var(--ayur-neutral-core);
-            }
-            .ayur-headline-md {
-                font-family: var(--ayur-font-heading);
-                font-size: 24px;
-                font-weight: 600;
-                line-height: 32px;
-                color: var(--ayur-neutral-core);
-            }
-            .ayur-body-lg {
-                font-family: var(--ayur-font-body);
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 28px;
-                color: #3d4a42;
-            }
-            .ayur-body-md {
-                font-family: var(--ayur-font-body);
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 24px;
-                color: #3d4a42;
-            }
-            .ayur-label-md {
-                font-family: var(--ayur-font-body);
-                font-size: 14px;
-                font-weight: 500;
-                line-height: 20px;
-                letter-spacing: 0.01em;
-            }
-            .ayur-label-sm {
-                font-family: var(--ayur-font-body);
-                font-size: 12px;
-                font-weight: 600;
-                line-height: 16px;
-            }
-
-            /* Responsive Typography overrides */
-            @media (max-width: 1024px) {
-                .ayur-display-lg {
-                    font-size: 40px;
-                    line-height: 48px;
-                }
-            }
-            @media (max-width: 768px) {
-                .ayur-display-lg {
-                    font-size: 32px;
-                    line-height: 40px;
-                }
-                .ayur-headline-lg {
-                    font-size: 28px;
-                    line-height: 36px;
-                }
-            }
-
-            /* Layout Grid & Containers */
-            .ayur-container {
-                max-width: 1280px;
-                margin: 0 auto;
-                padding: 0 24px;
-                box-sizing: border-box;
-            }
-            
-            /* High-level section rhythm */
-            .ayur-section {
-                padding: 80px 0;
-            }
-            .ayur-section-soft {
-                background-color: var(--ayur-surface-subtle);
-            }
-
-            /* Hero Section Styling */
-            .ayur-hero {
-                padding: 160px 0 80px 0;
-                background: linear-gradient(180deg, var(--ayur-surface-subtle) 0%, var(--ayur-surface-bg) 100%);
-                position: relative;
-            }
-            .ayur-hero-grid {
+            /* Main grid layout */
+            .ayur-layout-grid {
                 display: grid;
-                grid-template-columns: 1.1fr 0.9fr;
+                grid-template-columns: 320px 1fr;
                 gap: 48px;
-                align-items: center;
+                align-items: start;
             }
-            .ayur-hero-content {
-                max-width: 640px;
+
+            /* Desktop Sidebar */
+            .ayur-sidebar-wrapper {
+                background: #020C22;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 28px;
+                padding: 32px;
+                position: sticky;
+                top: 120px;
+                z-index: 100;
             }
-            .ayur-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                padding: 6px 16px;
-                background-color: var(--ayur-mint-light);
-                color: var(--ayur-forest-dark);
-                font-weight: 600;
-                font-size: 12px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border-radius: var(--ayur-radius-sm);
-                margin-bottom: 24px;
-            }
-            .ayur-hero-image-wrapper {
-                position: relative;
-            }
-            .ayur-hero-image {
-                width: 100%;
-                height: 480px;
-                object-fit: cover;
-                border-radius: var(--ayur-radius-xl);
-                box-shadow: var(--ayur-shadow-hover);
-                border: 1px solid rgba(255, 255, 255, 0.5);
-            }
-            .ayur-btn-group {
+
+            .ayur-sidebar-nav {
                 display: flex;
-                gap: 16px;
-                margin-top: 32px;
+                flex-direction: column;
+                gap: 4px;
             }
-            .ayur-btn {
-                padding: 14px 28px;
-                border-radius: var(--ayur-radius-default);
-                font-weight: 600;
-                font-size: 16px;
-                display: inline-flex;
+
+            .ayur-sidebar-link {
+                display: flex;
                 align-items: center;
-                gap: 8px;
+                gap: 12px;
+                padding: 10px 14px;
+                color: #94A3B8;
+                font-size: 15px;
+                font-weight: 500;
+                border-radius: 8px;
                 transition: all 0.3s ease;
-                cursor: pointer;
+                border-left: 3px solid transparent;
                 text-decoration: none;
             }
-            .ayur-btn-primary {
-                background-color: var(--ayur-primary);
+
+            .ayur-sidebar-link:hover {
+                transform: translateX(5px);
                 color: #ffffff;
-                border: none;
-                box-shadow: 0 4px 14px rgba(5, 150, 105, 0.2);
-            }
-            .ayur-btn-primary:hover {
-                background-color: var(--ayur-primary-hover);
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
-            }
-            .ayur-btn-secondary {
-                background-color: transparent;
-                color: var(--ayur-primary);
-                border: 1px solid var(--ayur-primary);
-            }
-            .ayur-btn-secondary:hover {
-                background-color: var(--ayur-mint-light);
-                transform: translateY(-2px);
             }
 
-            /* Section Headers */
-            .ayur-section-header {
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto 56px auto;
-            }
-            .ayur-section-header h2 {
-                margin-top: 16px;
-                margin-bottom: 16px;
+            .ayur-sidebar-link.active {
+                background: linear-gradient(90deg, rgba(39, 174, 96, 0.15), transparent);
+                border-left: 3px solid #27ae60;
+                color: #ffffff;
+                font-weight: 600;
             }
 
-            /* Pathway Grid */
-            .ayur-pathway-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 56px;
-                align-items: center;
-            }
-            .ayur-pathway-list {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-            .ayur-pathway-card {
-                background: var(--ayur-surface-white);
-                border: 1px solid var(--ayur-surface-subtle);
-                border-radius: var(--ayur-radius-lg);
-                padding: 24px;
-                transition: all 0.3s ease;
-                box-shadow: var(--ayur-shadow-soft);
-            }
-            .ayur-pathway-card:hover {
-                transform: translateY(-4px);
-                box-shadow: var(--ayur-shadow-hover);
-                border-color: var(--ayur-primary);
-            }
-            .ayur-card-icon {
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background-color: var(--ayur-mint-light);
-                color: var(--ayur-primary);
+            /* Timeline */
+            .ayur-timeline-item {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                margin-bottom: 16px;
-            }
-            .ayur-pathway-card h3 {
-                margin-bottom: 8px;
-            }
-
-            /* Therapies Grid & Cards */
-            .ayur-therapies-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-            }
-            .ayur-therapy-card {
-                background: var(--ayur-surface-white);
-                border: 1px solid var(--ayur-surface-subtle);
-                border-radius: var(--ayur-radius-lg);
-                overflow: hidden;
-                box-shadow: var(--ayur-shadow-soft);
-                transition: all 0.3s ease;
-                display: flex;
-                flex-direction: column;
-            }
-            .ayur-therapy-card:hover {
-                transform: translateY(-8px);
-                box-shadow: var(--ayur-shadow-hover);
-                border-color: var(--ayur-primary);
-            }
-            .ayur-therapy-img-wrapper {
-                height: 240px;
-                overflow: hidden;
+                gap: 48px;
+                margin-bottom: 56px;
                 position: relative;
-            }
-            .ayur-therapy-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.5s ease;
-            }
-            .ayur-therapy-card:hover .ayur-therapy-img {
-                transform: scale(1.06);
-            }
-            .ayur-therapy-content {
-                padding: 24px;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-            }
-            .ayur-therapy-num {
-                position: absolute;
-                top: 16px;
-                left: 16px;
-                background: var(--ayur-primary);
-                color: #ffffff;
-                width: 28px;
-                height: 28px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 700;
-                font-size: 13px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
                 z-index: 2;
             }
-            .ayur-therapy-card h3 {
-                margin-bottom: 12px;
+
+            .ayur-timeline-item:nth-child(even) {
+                flex-direction: row-reverse;
             }
 
-            /* Integration Section */
-            .ayur-integration-banner {
-                background: linear-gradient(135deg, var(--ayur-forest-dark) 0%, #004D34 100%);
-                border-radius: var(--ayur-radius-xl);
-                padding: 56px;
-                color: #ffffff;
-                box-shadow: var(--ayur-shadow-hover);
-            }
-            .ayur-integration-banner h2 {
-                color: #ffffff;
-                margin-bottom: 20px;
-            }
-            .ayur-integration-banner p {
-                color: rgba(255, 255, 255, 0.85);
-                margin-bottom: 28px;
-            }
-            .ayur-integration-grid {
-                display: grid;
-                grid-template-columns: 1.1fr 0.9fr;
-                gap: 48px;
-                align-items: center;
-            }
-            .ayur-integration-list {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
-            .ayur-integration-item {
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                border-radius: var(--ayur-radius-default);
-                padding: 16px;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                font-weight: 500;
-                transition: all 0.3s ease;
-            }
-            .ayur-integration-item:hover {
-                background: rgba(255, 255, 255, 0.15);
-                border-color: rgba(255, 255, 255, 0.3);
+            .ayur-timeline-col-img {
+                flex: 1;
             }
 
-            /* Benefits Matrix */
-            .ayur-benefits-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-            }
-            .ayur-benefit-card {
-                background: var(--ayur-surface-white);
-                border: 1px solid var(--ayur-surface-subtle);
-                border-radius: var(--ayur-radius-lg);
-                padding: 32px;
-                box-shadow: var(--ayur-shadow-soft);
-                transition: all 0.3s ease;
-            }
-            .ayur-benefit-card:hover {
-                transform: translateY(-4px);
-                box-shadow: var(--ayur-shadow-hover);
-                border-color: var(--ayur-primary);
-            }
-            .ayur-benefit-card h3 {
-                margin-bottom: 24px;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .ayur-benefit-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-            }
-            .ayur-benefit-list li {
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .ayur-benefit-list li strong {
-                color: var(--ayur-neutral-core);
-                display: block;
-            }
-            .ayur-benefit-list li svg {
-                margin-top: 4px;
-                flex-shrink: 0;
+            .ayur-timeline-col-img img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 20px;
+                box-shadow: var(--shadow-soft);
             }
 
-            /* Trust / Why Choose Section */
-            .ayur-trust-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 56px;
-                align-items: center;
+            .ayur-timeline-col-content {
+                flex: 1;
             }
-            .ayur-trust-stats {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-            .ayur-stat-card {
-                background: var(--ayur-surface-white);
-                border: 1px solid var(--ayur-surface-subtle);
-                border-radius: var(--ayur-radius-lg);
-                padding: 32px;
-                text-align: center;
-                box-shadow: var(--ayur-shadow-soft);
-            }
-            .ayur-stat-num {
-                font-size: 40px;
-                font-weight: 800;
-                color: var(--ayur-primary);
-                margin-bottom: 8px;
-                font-family: var(--ayur-font-heading);
-            }
-            .ayur-stat-label {
+
+            .ayur-timeline-badge {
+                background: var(--ayur-accent);
+                color: #27ae60;
+                font-weight: 700;
                 font-size: 14px;
-                color: #3d4a42;
-                font-weight: 500;
-            }
-            .ayur-trust-points {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-            }
-            .ayur-trust-item {
-                display: flex;
-                gap: 16px;
-            }
-            .ayur-trust-item-icon {
-                width: 40px;
-                height: 40px;
+                width: 36px;
+                height: 36px;
                 border-radius: 50%;
-                background: var(--ayur-mint-light);
-                color: var(--ayur-primary);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex-shrink: 0;
-            }
-            .ayur-trust-item h4 {
-                margin-bottom: 4px;
+                margin-bottom: 16px;
+                border: 2px solid #27ae60;
             }
 
-            /* Responsive Breakpoints */
+            /* why cards */
+            .ayur-why-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 16px;
+                padding: 24px;
+                transition: all 0.3s ease;
+            }
+
+            .ayur-why-card:hover {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(39, 174, 96, 0.4);
+                transform: translateY(-4px);
+            }
+
+            /* FAQ Accordion */
+            .ayur-faq-container {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .ayur-faq-item {
+                background: #ffffff;
+                border: 1px solid var(--ayur-border);
+                border-radius: 12px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .ayur-faq-item:hover {
+                border-color: #27ae60;
+                box-shadow: 0 4px 12px rgba(39, 174, 96, 0.05);
+            }
+
+            .ayur-faq-trigger {
+                width: 100%;
+                padding: 20px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: none;
+                border: none;
+                font-size: 16px;
+                font-weight: 600;
+                text-align: left;
+                color: var(--ayur-text-main);
+                cursor: pointer;
+            }
+
+            .ayur-faq-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            }
+
+            .ayur-faq-item.active .ayur-faq-content {
+                max-height: 1000px;
+                transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            }
+
+            .ayur-faq-content-inner {
+                padding: 0 24px 20px 24px;
+                font-size: 14.5px;
+                color: var(--ayur-text-muted);
+                line-height: 1.6;
+            }
+
+            .ayur-faq-item .faq-icon {
+                transition: transform 0.3s ease;
+                color: #27ae60;
+            }
+
+            .ayur-faq-item.active .faq-icon {
+                transform: rotate(45deg);
+            }
+
+            /* Mobile styles */
+            .ayur-mobile-sidebar-toggle-wrapper {
+                display: none;
+            }
+            .ayur-mobile-drawer {
+                display: none;
+            }
+            .ayur-sticky-bottom-cta {
+                display: none;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+                z-index: 1999;
+                padding: 12px 24px;
+            }
+
+            .ayur-sticky-bottom-cta-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .ayur-bottom-cta-btn {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                padding: 8px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--ayur-primary);
+                background: var(--ayur-accent);
+                transition: all 0.2s ease;
+                text-decoration: none;
+            }
+
+            .ayur-bottom-cta-btn.primary {
+                background: #27ae60;
+                color: #ffffff;
+            }
+
             @media (max-width: 1024px) {
-                .ayur-hero-grid,
-                .ayur-pathway-grid,
-                .ayur-integration-grid,
-                .ayur-trust-grid {
-                    grid-template-columns: 1fr;
-                    gap: 40px;
+                .ayur-layout-grid {
+                    grid-template-columns: 280px 1fr;
+                    gap: 32px;
                 }
-                .ayur-therapies-grid,
-                .ayur-benefits-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                .ayur-hero-image {
-                    height: 360px;
+                .ayur-sidebar-wrapper {
+                    padding: 24px;
                 }
             }
+
             @media (max-width: 768px) {
-                .ayur-therapies-grid,
-                .ayur-benefits-grid,
-                .ayur-pathway-list,
-                .ayur-trust-stats {
+                .ayur-layout-grid {
                     grid-template-columns: 1fr;
+                    gap: 32px;
                 }
-                .ayur-integration-banner {
-                    padding: 32px 24px;
+                .ayur-sidebar-wrapper {
+                    display: none;
                 }
-                .ayur-integration-list {
-                    grid-template-columns: 1fr;
+                .ayur-mobile-sidebar-toggle-wrapper {
+                    display: block;
+                    position: fixed;
+                    bottom: 84px; /* above the sticky bottom cta */
+                    right: 24px;
+                    z-index: 1998;
                 }
-                .ayur-btn-group {
-                    flex-direction: column;
-                }
-                .ayur-btn {
-                    width: 100%;
+                .ayur-mobile-sidebar-btn {
+                    background: #020C22;
+                    color: #ffffff;
+                    border: 1px solid rgba(255,255,255,0.08);
+                    border-radius: 9999px;
+                    padding: 14px 24px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
                     justify-content: center;
+                    gap: 8px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+                }
+                .ayur-mobile-drawer {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 3000;
+                    visibility: hidden;
+                    transition: visibility 0.3s ease;
+                }
+                .ayur-mobile-drawer.open {
+                    visibility: visible;
+                }
+                .ayur-mobile-drawer-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.6);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .ayur-mobile-drawer.open .ayur-mobile-drawer-overlay {
+                    opacity: 1;
+                }
+                .ayur-mobile-drawer-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    max-height: 75%;
+                    background: #020C22;
+                    border-top-left-radius: 28px;
+                    border-top-right-radius: 28px;
+                    transform: translateY(100%);
+                    transition: transform 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                }
+                .ayur-mobile-drawer.open .ayur-mobile-drawer-content {
+                    transform: translateY(0);
+                }
+                .ayur-mobile-drawer-header {
+                    padding: 20px 24px;
+                    border-bottom: 1px solid rgba(255,255,255,0.08);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .ayur-mobile-drawer-header h3 {
+                    color: #ffffff;
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+                .ayur-mobile-drawer-close-btn {
+                    background: transparent;
+                    border: none;
+                    color: #94A3B8;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .ayur-mobile-drawer-body {
+                    padding: 16px 24px 40px 24px;
+                    overflow-y: auto;
+                    flex-grow: 1;
+                }
+                .ayur-mobile-drawer-body .ayur-sidebar-link {
+                    padding: 12px 14px;
+                }
+                .ayur-sticky-bottom-cta {
+                    display: block;
+                }
+                body {
+                    padding-bottom: 80px !important;
+                }
+                .ayur-timeline-item {
+                    flex-direction: column !important;
+                    gap: 20px;
+                    margin-bottom: 40px;
+                }
+                .ayur-timeline-col-img img {
+                    height: 220px;
+                }
+                .ayur-conditions-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 20px;
+                }
+                .ayur-tech-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 20px;
+                }
+                .ayur-tech-grid > div {
+                    grid-column: span 1 !important;
+                }
+                .hide-mobile {
+                    display: none !important;
                 }
             }
         </style>
 
         <!-- Section 1: Hero Section -->
-        <section class="ayur-hero">
-            <div class="ayur-container">
-                <div class="ayur-hero-grid">
-                    <div class="ayur-hero-content">
-                        <span class="ayur-badge">
-                            <i data-lucide="leaf" size="14"></i> Kerala Ayurveda
-                        </span>
-                        <h1 class="ayur-display-lg" style="margin-bottom: 24px;">Ayur-Neuro Pathway: Bridging Tradition & Innovation</h1>
-                        <p class="ayur-body-lg" style="margin-bottom: 36px;">At Ayurgreen Hospital, Ayurveda is not just a traditional treatment; it is an essential part of a scientifically guided recovery journey. We blend the restorative wisdom of ancient Ayurveda with modern medical advancements to support patients in regaining strength, mobility, and confidence.</p>
-                        <div class="ayur-btn-group">
-                            <a href="#consultation" class="ayur-btn ayur-btn-primary">
-                                Book Assessment <i data-lucide="calendar" size="18"></i>
-                            </a>
-                            <a href="#therapies" class="ayur-btn ayur-btn-secondary">
-                                Explore Therapies <i data-lucide="arrow-right" size="18"></i>
-                            </a>
-                        </div>
+        <div style="padding: 24px 24px 0 24px; max-width: 1440px; margin: 0 auto; box-sizing: border-box;">
+            <div class="ayur-hero-banner" style="position: relative; height: 480px; border-radius: 32px; overflow: hidden; background-image: url('Assets/rehab/th_shirodhara.webp'); background-size: cover; background-position: center; display: flex; align-items: center; box-shadow: var(--shadow-soft);">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 1;"></div>
+                <div class="container" style="position: relative; z-index: 2; color: white; padding-top: 100px;">
+                    <!-- Breadcrumbs -->
+                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 12px; font-weight: 500;">
+                        <a href="index.html" style="color: white; text-decoration: none;">Home</a> &nbsp;&gt;&nbsp; 
+                        <a href="therapies.html" style="color: white; text-decoration: none;">Departments</a> &nbsp;&gt;&nbsp; 
+                        <span style="color: #eaf4f0;">Ayurveda</span>
                     </div>
-                    <div class="ayur-hero-image-wrapper">
-                        <img src="Assets/rehab/th_shirodhara.webp" onerror="this.src='Assets/generated/ayurveda_treatment_1776269801869.png'" alt="Ayur-Neuro Treatment" class="ayur-hero-image">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: How Ayurveda Supports Recovery -->
-        <section class="ayur-section">
-            <div class="ayur-container">
-                <div class="ayur-pathway-grid">
-                    <div>
-                        <span class="ayur-label-md" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--ayur-primary); display: block; margin-bottom: 12px;">Stroke & Neuro Rehabilitation</span>
-                        <h2 class="ayur-headline-lg" style="margin-bottom: 24px;">Restoring Balance, Regenerating Nerves</h2>
-                        <p class="ayur-body-md" style="margin-bottom: 24px;">Neurological conditions such as stroke, paralysis, and nerve disorders affect both physical function and mental well-being. Ayurveda focuses on restoring the body's internal balance (doshas), improving circulation, and enhancing nerve regeneration.</p>
-                        <p class="ayur-body-md">By addressing the root causes of motor deficits rather than just managing peripheral symptoms, our Ayurvedic neuro-rehabilitation protocols establish a strong biological foundation for long-term functional recovery.</p>
-                    </div>
-                    <div class="ayur-pathway-list">
-                        <div class="ayur-pathway-card">
-                            <div class="ayur-card-icon"><i data-lucide="activity" size="20"></i></div>
-                            <h3 class="ayur-headline-md" style="font-size: 18px;">Stimulate Nerves</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">Targeted herbal oil treatments stimulate damaged nerves and muscles to promote localized neuroplasticity.</p>
-                        </div>
-                        <div class="ayur-pathway-card">
-                            <div class="ayur-card-icon"><i data-lucide="zap" size="20"></i></div>
-                            <h3 class="ayur-headline-md" style="font-size: 18px;">Improve Circulation</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">Enhances blood flow to the brain and affected areas to nourish tissues and accelerate healing.</p>
-                        </div>
-                        <div class="ayur-pathway-card">
-                            <div class="ayur-card-icon"><i data-lucide="shield" size="20"></i></div>
-                            <h3 class="ayur-headline-md" style="font-size: 18px;">Reduce Spasticity</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">Nourishing therapies relieve stiffness, ease chronic pain, and combat inflammation in muscles.</p>
-                        </div>
-                        <div class="ayur-pathway-card">
-                            <div class="ayur-card-icon"><i data-lucide="brain" size="20"></i></div>
-                            <h3 class="ayur-headline-md" style="font-size: 18px;">Enhance Motor Skills</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">Improves motor control, coordination, and functional mobility in paralyzed limbs.</p>
-                        </div>
+                    <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 8px; display: block;">Department / Therapy</span>
+                    <h1 class="premium-title text-white" style="margin-top: 0; margin-bottom: 24px; font-size: 48px; font-weight: 700; line-height: 1.1;">Kerala Ayurveda Rehabilitation</h1>
+                    <div class="flex" style="gap: 16px;">
+                        <a href="index.html#consultation" class="btn btn-primary" style="background-color: #27ae60; color: white; font-weight: 600; border-radius: 12px; padding: 14px 28px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                            Book Consultation <i data-lucide="calendar" size="16"></i>
+                        </a>
+                        <a href="https://wa.me/918080808080" target="_blank" class="btn btn-secondary" style="background-color: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: 600; border-radius: 12px; padding: 14px 28px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); text-decoration: none;">
+                            WhatsApp <i data-lucide="message-square" size="16"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Section 3: Key Ayurvedic Therapies Offered -->
-        <section class="ayur-section ayur-section-soft" id="therapies">
-            <div class="ayur-container">
-                <div class="ayur-section-header">
-                    <span class="ayur-badge">Healing Modalities</span>
-                    <h2 class="ayur-headline-lg">Key Ayurvedic Therapies Offered</h2>
-                    <p class="ayur-body-lg">Each therapy is carefully customized and supervised by experienced Ayurvedic physicians based on the patient's condition, recovery stage, and physical tolerance.</p>
+        <!-- Section 2: Main Layout Grid (2-column layout) -->
+        <div class="container" style="margin-top: 48px; margin-bottom: 80px; padding: 0 24px;">
+            <div class="ayur-layout-grid">
+                <!-- Left Sidebar -->
+                <aside class="ayur-sidebar-wrapper">
+                     <div class="ayur-sidebar-header">
+                         <h3 style="font-family: var(--font-heading); color: white; font-size: 20px; font-weight: 700; margin-bottom: 4px;">Our Services</h3>
+                         <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 24px; font-family: var(--font-body);">Integrated Healing Ecosystem</p>
+                     </div>
+                     <nav class="ayur-sidebar-nav">
+                          <a href="ayurveda.html" class="ayur-sidebar-link active">
+                              <i data-lucide="leaf" size="16" style="color: #4CAF50;"></i>
+                              <span>Ayurveda</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="dumbbell" size="16" style="color: #FF9800;"></i>
+                              <span>Physiotherapy</span>
+                          </a>
+                          <a href="robotic-rehab.html" class="ayur-sidebar-link">
+                              <i data-lucide="bot" size="16" style="color: #00BCD4;"></i>
+                              <span>Robotic Rehabilitation</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="puzzle" size="16" style="color: #9C27B0;"></i>
+                              <span>Occupational Therapy</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="message-circle" size="16" style="color: #2196F3;"></i>
+                              <span>Speech Therapy</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="headset" size="16" style="color: #E91E63;"></i>
+                              <span>Virtual Reality</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="sun" size="16" style="color: #FFC107;"></i>
+                              <span>Yoga and Meditation</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="map-pin" size="16" style="color: #F44336;"></i>
+                              <span>Acupuncture</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="footprints" size="16" style="color: #795548;"></i>
+                              <span>Reflexology</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="waves" size="16" style="color: #03A9F4;"></i>
+                              <span>Hydro / Aquatic Therapy</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="baby" size="16" style="color: #E040FB;"></i>
+                              <span>Pediatrics</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="ruler" size="16" style="color: #009688;"></i>
+                              <span>Slimming Treatment</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="shield-plus" size="16" style="color: #4CAF50;"></i>
+                              <span>Pain Management</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="utensils" size="16" style="color: #FF5722;"></i>
+                              <span>Diet & Nutrition</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="heart-handshake" size="16" style="color: #E91E63;"></i>
+                              <span>Counseling</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="smile" size="16" style="color: #00BCD4;"></i>
+                              <span>Dentistry</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="pill" size="16" style="color: #9C27B0;"></i>
+                              <span>Modern Medicine</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="accessibility" size="16" style="color: #3F51B5;"></i>
+                              <span>Assistive Devices</span>
+                          </a>
+                     </nav>
+                </aside>
+
+                <!-- Right Content Area -->
+                <div class="ayur-right-content">
+                     <!-- Section: About Department -->
+                     <section id="about-department" style="padding-top: 0; padding-bottom: 56px;">
+                         <div class="ayur-about-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;">
+                             <div>
+                                 <img src="Assets/rehab/th_ayurveda.webp" alt="Ayurveda Treatment at Ayurgreen" style="width: 100%; height: 380px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-soft);">
+                             </div>
+                             <div>
+                                 <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Ancient Wisdom Met Modern Care</span>
+                                 <h2 style="font-size: 32px; font-weight: 600; margin-bottom: 20px; font-family: var(--font-heading); line-height: 1.2;">The Ayur-Neuro Healing Paradigm</h2>
+                                 <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 15px; line-height: 1.6;">At Ayurgreen Hospital, Ayurveda is integrated as a core clinical pathway for neuro-rehabilitation. Our methodology focuses on reversing nerve damage, improving motor skills, and strengthening wasted muscle groups by restoring the body's internal bio-energies (Doshas).</p>
+                                 <p style="color: var(--text-muted); font-size: 15px; line-height: 1.6;">Led by certified Ayurvedic physicians and neurologists, our treatments combine biological therapies (such as Panchakarma detoxification and nourishing sudations) with advanced robotic gait assessments. This unique protocol builds a solid neuro-rehabilitation foundation for deep cellular healing.</p>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: Conditions Treated -->
+                     <section id="conditions-treated" style="padding: 56px 0; border-top: 1px solid var(--border);">
+                         <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Clinical Focus</span>
+                             <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Neurological Conditions Treated</h2>
+                             <p style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">Our specialized Ayurvedic protocols are customized to address specific neuro-motor impairments and systemic dysfunctions.</p>
+                         </div>
+                         <div class="ayur-conditions-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                             <!-- Stroke -->
+                             <div class="card" style="padding: 0; border-radius: 20px; overflow: hidden; background: #ffffff;">
+                                 <img src="Assets/rehab/prog_stroke.webp" alt="Stroke Recovery" style="width: 100%; height: 180px; object-fit: cover;">
+                                 <div style="padding: 24px;">
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-heading);">Stroke & Hemiplegia</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Targeted protocols to reduce spasticity, stimulate motor nerves, and regain independent mobility.</p>
+                                 </div>
+                             </div>
+                             <!-- Parkinson's -->
+                             <div class="card" style="padding: 0; border-radius: 20px; overflow: hidden; background: #ffffff;">
+                                 <img src="Assets/rehab/prog_parkinsons.webp" alt="Parkinson's Disease" style="width: 100%; height: 180px; object-fit: cover;">
+                                 <div style="padding: 24px;">
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-heading);">Parkinson's Disease</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Reversing rigidity and tremors through neurological nourishment and customized exercises.</p>
+                                 </div>
+                             </div>
+                             <!-- Spinal Cord -->
+                             <div class="card" style="padding: 0; border-radius: 20px; overflow: hidden; background: #ffffff;">
+                                 <img src="Assets/rehab/prog_spinal_cord.webp" alt="Spinal Cord Injury" style="width: 100%; height: 180px; object-fit: cover;">
+                                 <div style="padding: 24px;">
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-heading);">Spinal Cord Injury</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Enhancing neuro-regeneration, managing pain, and restoring bowel/bladder regulation.</p>
+                                 </div>
+                             </div>
+                             <!-- Cerebral Palsy -->
+                             <div class="card" style="padding: 0; border-radius: 20px; overflow: hidden; background: #ffffff;">
+                                 <img src="Assets/rehab/prog_cerebral_palsy.webp" alt="Cerebral Palsy" style="width: 100%; height: 180px; object-fit: cover;">
+                                 <div style="padding: 24px;">
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-heading);">Cerebral Palsy</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Pediatric developmental therapies designed to reduce stiffness and improve milestones.</p>
+                                 </div>
+                             </div>
+                             <!-- Multiple Sclerosis -->
+                             <div class="card" style="padding: 0; border-radius: 20px; overflow: hidden; background: #ffffff;">
+                                 <div style="width: 100%; height: 180px; background: var(--ayur-accent); display: flex; align-items: center; justify-content: center; color: var(--ayur-primary);">
+                                     <i data-lucide="shield-alert" size="48"></i>
+                                 </div>
+                                 <div style="padding: 24px;">
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-heading);">Multiple Sclerosis</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Immune-modulatory therapies to control flare-ups and stabilize neurological functions.</p>
+                                 </div>
+                             </div>
+                             <!-- Traumatic Brain Injury -->
+                             <div class="card" style="padding: 0; border-radius: 20px; overflow: hidden; background: #ffffff;">
+                                 <img src="Assets/rehab/prog_tbi.webp" alt="Traumatic Brain Injury" style="width: 100%; height: 180px; object-fit: cover;">
+                                 <div style="padding: 24px;">
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-heading);">Traumatic Brain Injury</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Cognitive and physical rehabilitation to stimulate neuronal recovery and rebuild pathways.</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: Treatments Offered -->
+                     <section id="treatments-offered" style="padding: 56px 0; border-top: 1px solid var(--border);">
+                         <div style="text-align: center; max-width: 600px; margin: 0 auto 48px auto;">
+                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Therapy Modules</span>
+                             <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Core Ayurvedic Treatments</h2>
+                             <p style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">Key evidence-based therapies customized according to biological state and functional tolerance.</p>
+                         </div>
+                         
+                         <div class="ayur-treatments-timeline" style="position: relative;">
+                             <!-- Vertical Line (Desktop Only) -->
+                             <div class="hide-mobile" style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: rgba(39, 174, 96, 0.15); transform: translateX(-50%); z-index: 1;"></div>
+                             
+                             <!-- Therapy 1 -->
+                             <div class="ayur-timeline-item">
+                                 <div class="ayur-timeline-col-img">
+                                     <img src="Assets/rehab/th_panchakarma.webp" alt="Panchakarma Detox">
+                                 </div>
+                                 <div class="ayur-timeline-col-content">
+                                     <div class="ayur-timeline-badge">1</div>
+                                     <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 12px; font-family: var(--font-heading);">Panchakarma Detox</h3>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">A profound five-fold purification and cleansing process that removes accumulated metabolic toxins (Ama) from bodily tissues, restoring metabolic balance and preparing the body for faster nerve regeneration.</p>
+                                 </div>
+                             </div>
+
+                             <!-- Therapy 2 -->
+                             <div class="ayur-timeline-item">
+                                 <div class="ayur-timeline-col-img">
+                                     <img src="Assets/rehab/th_abhyanga.webp" alt="Abhyanga Massages">
+                                 </div>
+                                 <div class="ayur-timeline-col-content">
+                                     <div class="ayur-timeline-badge">2</div>
+                                     <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 12px; font-family: var(--font-heading);">Abhyanga (Warm Oil Massage)</h3>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">A synchronized, rhythmic massage using specially prepared warm herbal oils. It helps improve systemic blood circulation, reduce muscular stiffness, and pacify an overactive nervous system.</p>
+                                 </div>
+                             </div>
+
+                             <!-- Therapy 3 -->
+                             <div class="ayur-timeline-item">
+                                 <div class="ayur-timeline-col-img">
+                                     <img src="Assets/rehab/th_njavarakizhi.webp" alt="Njavarakizhi Rice Sudation">
+                                 </div>
+                                 <div class="ayur-timeline-col-content">
+                                     <div class="ayur-timeline-badge">3</div>
+                                     <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 12px; font-family: var(--font-heading);">Njavarakizhi (Rice Bundle)</h3>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">A highly rejuvenating sudation therapy using warm pouches filled with medicated Njavara rice cooked in milk and herbal decoctions. It strengthens wasting muscles and enhances sensory-motor nerve functions.</p>
+                                 </div>
+                             </div>
+
+                             <!-- Therapy 4 -->
+                             <div class="ayur-timeline-item">
+                                 <div class="ayur-timeline-col-img">
+                                     <img src="Assets/rehab/th_shirodhara.webp" alt="Shirodhara oil therapy">
+                                 </div>
+                                 <div class="ayur-timeline-col-content">
+                                     <div class="ayur-timeline-badge">4</div>
+                                     <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 12px; font-family: var(--font-heading);">Shirodhara</h3>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">A deeply relaxing treatment where a continuous stream of warm medicated oil is gently poured over the forehead (the third eye region). This calms the mind, alleviates anxiety, and corrects neurological imbalances.</p>
+                                 </div>
+                             </div>
+
+                             <!-- Therapy 5 -->
+                             <div class="ayur-timeline-item">
+                                 <div class="ayur-timeline-col-img">
+                                     <img src="Assets/rehab/th_pizhichil.webp" alt="Pizhichil Oil Bath">
+                                 </div>
+                                 <div class="ayur-timeline-col-content">
+                                     <div class="ayur-timeline-badge">5</div>
+                                     <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 12px; font-family: var(--font-heading);">Pizhichil (Oil Bath)</h3>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">A therapeutic combination of warm oil massage and heat therapy where liters of medicated oil are poured continuously over the body. It is excellent for improving joint mobility and reducing spasticity.</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: Technologies Used -->
+                     <section id="technologies-used" style="padding: 56px 0; border-top: 1px solid var(--border);">
+                         <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Technology & Innovation</span>
+                             <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Integrated Advanced Technologies</h2>
+                             <p style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">While Ayurveda restores cellular vitality and relaxes spastic muscles, our advanced rehabilitation technologies build neural networks.</p>
+                         </div>
+                         
+                         <div class="ayur-tech-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+                             <div class="card" style="display: flex; gap: 20px; align-items: start; background: #ffffff;">
+                                 <div style="background: var(--ayur-accent); color: var(--ayur-primary); padding: 12px; border-radius: 12px;"><i data-lucide="bot" size="24"></i></div>
+                                 <div>
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; font-family: var(--font-heading);">G-EO Robotic Gait Trainer</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">The world's most advanced robotic walking simulator, helping paralyzed patients practice stair climbing and independent walking.</p>
+                                 </div>
+                             </div>
+                             <div class="card" style="display: flex; gap: 20px; align-items: start; background: #ffffff;">
+                                 <div style="background: var(--ayur-accent); color: var(--ayur-primary); padding: 12px; border-radius: 12px;"><i data-lucide="activity" size="24"></i></div>
+                                 <div>
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; font-family: var(--font-heading);">Armotion Upper Limb Trainer</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Robotic device that guides post-stroke arm movement to build upper limb strength and cognitive motor pathways.</p>
+                                 </div>
+                             </div>
+                             <div class="card" style="display: flex; gap: 20px; align-items: start; background: #ffffff;">
+                                 <div style="background: var(--ayur-accent); color: var(--ayur-primary); padding: 12px; border-radius: 12px;"><i data-lucide="shuffle" size="24"></i></div>
+                                 <div>
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; font-family: var(--font-heading);">Huber 360 Neuromuscular Trainer</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Multi-axis balance platform providing sensory biofeedback to correct posture, coordination, and foot placement.</p>
+                                 </div>
+                             </div>
+                             <div class="card" style="display: flex; gap: 20px; align-items: start; background: #ffffff;">
+                                 <div style="background: var(--ayur-accent); color: var(--ayur-primary); padding: 12px; border-radius: 12px;"><i data-lucide="headset" size="24"></i></div>
+                                 <div>
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; font-family: var(--font-heading);">VR Cognitive Rehabilitation</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Immersive digital virtual reality tasks to improve cognitive memory, spatial orientation, and visual reflexes.</p>
+                                 </div>
+                             </div>
+                             <div class="card" style="display: flex; gap: 20px; align-items: start; background: #ffffff; grid-column: span 2;">
+                                 <div style="background: var(--ayur-accent); color: var(--ayur-primary); padding: 12px; border-radius: 12px;"><i data-lucide="waves" size="24"></i></div>
+                                 <div>
+                                     <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; font-family: var(--font-heading);">Aquatic Hydrotherapy</h4>
+                                     <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5;">Low-impact, buoyancy-assisted walking and range-of-motion training in a warm temperature-regulated aquatic pool, ideal for severe balance issues.</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: Why Ayurgreen -->
+                     <section id="why-ayurgreen" style="padding: 56px 32px; background: #020C22; color: #ffffff; border-radius: 28px; margin-top: 56px; margin-bottom: 56px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                         <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">The Ayurgreen Standard</span>
+                             <h2 style="font-size: 28px; font-weight: 600; color: #ffffff; font-family: var(--font-heading);">Why Ayurgreen Hospital?</h2>
+                             <p style="color: rgba(255,255,255,0.7); font-size: 15px; margin-top: 8px;">Pioneering the global benchmark for integrated orthopedic and neurological recovery.</p>
+                         </div>
+                         
+                         <div class="ayur-why-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                             <!-- 25+ Years Experience -->
+                             <div class="ayur-why-card">
+                                 <div style="color: #27ae60; margin-bottom: 16px;"><i data-lucide="award" size="28"></i></div>
+                                 <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #ffffff; font-family: var(--font-heading);">25+ Years Experience</h4>
+                                 <p style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.5;">Over two decades of clinical experience managing critical neurological disorders and post-stroke cases.</p>
+                             </div>
+                             <!-- Robotic Rehabilitation -->
+                             <div class="ayur-why-card">
+                                 <div style="color: #27ae60; margin-bottom: 16px;"><i data-lucide="bot" size="28"></i></div>
+                                 <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #ffffff; font-family: var(--font-heading);">Robotic Rehabilitation</h4>
+                                 <p style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.5;">India's pioneer in combining state-of-the-art robotic exoskeletons with systemic cellular healing.</p>
+                             </div>
+                             <!-- Integrated Care -->
+                             <div class="ayur-why-card">
+                                 <div style="color: #27ae60; margin-bottom: 16px;"><i data-lucide="git-merge" size="28"></i></div>
+                                 <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #ffffff; font-family: var(--font-heading);">Integrated Care</h4>
+                                 <p style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.5;">A unified clinical panel combining Ayurvedic scholars, neurologists, therapists, and engineers.</p>
+                             </div>
+                             <!-- International Patients -->
+                             <div class="ayur-why-card">
+                                 <div style="color: #27ae60; margin-bottom: 16px;"><i data-lucide="globe" size="28"></i></div>
+                                 <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #ffffff; font-family: var(--font-heading);">International Patients</h4>
+                                 <p style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.5;">Welcomed and successfully treated recovery patients from over 50 countries globally.</p>
+                             </div>
+                             <!-- Expert Team -->
+                             <div class="ayur-why-card">
+                                 <div style="color: #27ae60; margin-bottom: 16px;"><i data-lucide="users" size="28"></i></div>
+                                 <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #ffffff; font-family: var(--font-heading);">Expert Team</h4>
+                                 <p style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.5;">Elite therapists and certified Ayurvedic doctors working together on synchronized programs.</p>
+                             </div>
+                             <!-- Evidence-Based Practice -->
+                             <div class="ayur-why-card">
+                                 <div style="color: #27ae60; margin-bottom: 16px;"><i data-lucide="check-square" size="28"></i></div>
+                                 <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #ffffff; font-family: var(--font-heading);">Evidence-Based Practice</h4>
+                                 <p style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.5;">Utilizing measurable bio-feedback data to track and document recovery milestones continuously.</p>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: Team -->
+                     <section id="expert-team" style="padding: 56px 0; border-top: 1px solid var(--border);">
+                         <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Medical Panel</span>
+                             <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Meet Our Experts</h2>
+                             <p style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">Highly experienced Ayurvedic neuro-rehab specialists dedicated to your recovery.</p>
+                         </div>
+                         
+                         <div class="ayur-team-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+                             <!-- Doctor 1 -->
+                             <div class="card" style="background: #ffffff; padding: 32px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                 <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--ayur-accent); color: var(--ayur-primary); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                                     <i data-lucide="user" size="48"></i>
+                                 </div>
+                                 <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-heading);">Dr. Yasir Ahamed</h4>
+                                 <span style="font-size: 13px; font-weight: 600; color: #27ae60; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block;">B.A.M.S, M.D. (Ay)</span>
+                                 <p style="font-weight: 500; font-size: 14px; margin-bottom: 16px; color: var(--ayur-text-main);">Chief Ayurvedic Physician & Rehabilitation Specialist</p>
+                                 <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5;">Specializes in clinical management of stroke deficits, spinal cord recovery, and neuromuscular waste reversal with 15+ years of practice.</p>
+                             </div>
+                             <!-- Doctor 2 -->
+                             <div class="card" style="background: #ffffff; padding: 32px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                 <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--ayur-accent); color: var(--ayur-primary); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                                     <i data-lucide="user" size="48"></i>
+                                 </div>
+                                 <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-heading);">Dr. Sreeja Rajesh</h4>
+                                 <span style="font-size: 13px; font-weight: 600; color: #27ae60; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block;">B.A.M.S</span>
+                                 <p style="font-weight: 500; font-size: 14px; margin-bottom: 16px; color: var(--ayur-text-main);">Senior Consultant Ayurvedic Physician</p>
+                                 <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5;">Specialist in Panchakarma detoxification, musculoskeletal therapy, arthritic pain regulation, and localized tissue nourishment.</p>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: FAQ -->
+                     <section id="faq-section" style="padding: 56px 0; border-top: 1px solid var(--border);">
+                         <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Common Queries</span>
+                             <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Frequently Asked Questions</h2>
+                             <p style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">Have questions about our integrated Ayurvedic treatments? Find the answers here.</p>
+                         </div>
+                         
+                         <div class="ayur-faq-container">
+                             <!-- FAQ 1 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>What is Integrated Ayurveda Rehabilitation?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Integrated Ayurveda Rehabilitation is a unique care model that combines traditional Kerala Ayurvedic therapies (like Panchakarma, Abhyanga) with modern neuro-rehabilitation techniques, such as robotic gait trainers and advanced physiotherapy. This dual approach accelerates physical recovery while enhancing nerve regeneration and biological vitality.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 2 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>How does Ayurveda help in post-stroke recovery?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Post-stroke, Ayurveda helps by pacifying Vata dosha, which regulates the nervous system. Specialized therapies improve blood circulation to the brain, stimulate dormant motor nerves, reduce muscular spasticity, and prevent secondary muscle wasting.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 3 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>Are the Ayurvedic treatments safe and quality-tested?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Yes. All Ayurvedic medicines and oils used at Ayurgreen Hospital are sourced from GMP-certified traditional pharmacies and undergo rigorous quality tests. Every treatment is prescribed and monitored by qualified Ayurvedic physicians.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 4 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>Is robotic therapy combined with Ayurveda on the same day?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Yes, for patients who qualify. Our multidisciplinary panel designs a daily schedule where active therapies like robotic gait training or physiotherapy are scheduled in the morning, followed by relaxing and nourishing Ayurvedic treatments in the afternoon.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 5 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>What is the typical duration of an inpatient recovery program?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Typical inpatient programs last between 14 to 28 days, depending on the severity of the neurological deficit. A detailed assessment is done upon admission to set realistic recovery goals and timelines.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 6 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>Are the treatments customized for each patient?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Absolutely. No two stroke or Parkinson's patients are identical. Treatments are customized based on the patient's constitution (Prakruti), current imbalance (Vikruti), age, and muscle tolerance.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 7 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>Can international patients receive treatment?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>Yes, we serve patients from over 50 countries. We provide full international patient support, including medical visa invitation letters, airport transfers, translators, and customized dietary menu options.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                             <!-- FAQ 8 -->
+                             <div class="ayur-faq-item">
+                                 <button class="ayur-faq-trigger">
+                                     <span>How can I book a consultation or check-in?</span>
+                                     <i class="faq-icon" data-lucide="plus" size="18"></i>
+                                 </button>
+                                 <div class="ayur-faq-content">
+                                     <div class="ayur-faq-content-inner">
+                                         <p>You can book a consultation by clicking 'Book Assessment' on our website, calling our direct helpline, or messaging us via WhatsApp. Our clinical liaisons will review your medical reports and guide you.</p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </section>
+
+                     <!-- Section: CTA Banner -->
+                     <section id="cta-banner" style="padding: 56px 40px; background: linear-gradient(135deg, #020C22 0%, #0F3D2E 100%); border-radius: 28px; text-align: center; color: white; margin-top: 48px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: var(--shadow-hover);">
+                         <h2 style="font-size: 32px; font-weight: 700; color: white; margin-bottom: 16px; font-family: var(--font-heading);">Start Your Recovery Journey</h2>
+                         <p style="color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 32px auto; font-size: 15px; line-height: 1.6;">Consult with our clinical experts and Ayurvedic scholars today to design your customized integrated recovery pathway.</p>
+                         
+                         <div class="ayur-cta-btns" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                             <a href="index.html#consultation" class="btn" style="background: #27ae60; color: white; border-radius: 12px; font-weight: 600; padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                 Book Consultation <i data-lucide="calendar" size="16"></i>
+                             </a>
+                             <a href="https://wa.me/918080808080" target="_blank" class="btn" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 12px; font-weight: 600; padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); text-decoration: none;">
+                                 WhatsApp <i data-lucide="message-square" size="16"></i>
+                             </a>
+                             <a href="tel:+918080808080" class="btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 12px; font-weight: 600; padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                 Call Now <i data-lucide="phone" size="16"></i>
+                             </a>
+                         </div>
+                     </section>
+                </div> <!-- End ayur-right-content -->
+            </div> <!-- End ayur-layout-grid -->
+        </div> <!-- End container -->
+
+        <!-- Mobile Drawer -->
+        <div id="ayurMobileSidebarDrawer" class="ayur-mobile-drawer">
+            <div class="ayur-mobile-drawer-overlay" id="ayurMobileDrawerOverlay"></div>
+            <div class="ayur-mobile-drawer-content">
+                <div class="ayur-mobile-drawer-header">
+                    <h3>Our Services</h3>
+                    <button id="ayurMobileDrawerClose" class="ayur-mobile-drawer-close-btn">
+                        <i data-lucide="x" size="20"></i>
+                    </button>
                 </div>
-                
-                <div class="ayur-therapies-grid">
-                    <!-- Therapy 1 -->
-                    <div class="ayur-therapy-card">
-                        <div class="ayur-therapy-img-wrapper">
-                            <span class="ayur-therapy-num">1</span>
-                            <img src="Assets/rehab/th_panchakarma.webp" alt="Panchakarma Detox" class="ayur-therapy-img">
-                        </div>
-                        <div class="ayur-therapy-content">
-                            <h3 class="ayur-headline-md" style="font-size: 20px;">Panchakarma Detox</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">A profound five-fold purification and cleansing process that removes accumulated metabolic toxins (Ama) from bodily tissues, restoring metabolic balance and preparing the body for faster healing.</p>
-                        </div>
-                    </div>
-                    <!-- Therapy 2 -->
-                    <div class="ayur-therapy-card">
-                        <div class="ayur-therapy-img-wrapper">
-                            <span class="ayur-therapy-num">2</span>
-                            <img src="Assets/rehab/th_abhyanga.webp" alt="Abhyanga" class="ayur-therapy-img">
-                        </div>
-                        <div class="ayur-therapy-content">
-                            <h3 class="ayur-headline-md" style="font-size: 20px;">Abhyanga (Oil Massage)</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">A synchronized, rhythmic massage using specially prepared warm herbal oils. It helps improve systemic blood circulation, reduce muscular stiffness, and pacify an overactive nervous system.</p>
-                        </div>
-                    </div>
-                    <!-- Therapy 3 -->
-                    <div class="ayur-therapy-card">
-                        <div class="ayur-therapy-img-wrapper">
-                            <span class="ayur-therapy-num">3</span>
-                            <img src="Assets/rehab/th_njavarakizhi.webp" alt="Njavarakizhi" class="ayur-therapy-img">
-                        </div>
-                        <div class="ayur-therapy-content">
-                            <h3 class="ayur-headline-md" style="font-size: 20px;">Njavarakizhi (Rice Bundle)</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">A highly rejuvenating sudation therapy using warm pouches filled with medicated Njavara rice cooked in milk and herbal decoctions. It strengthens wasting muscles and enhances sensory-motor nerve functions.</p>
-                        </div>
-                    </div>
-                    <!-- Therapy 4 -->
-                    <div class="ayur-therapy-card">
-                        <div class="ayur-therapy-img-wrapper">
-                            <span class="ayur-therapy-num">4</span>
-                            <img src="Assets/rehab/th_shirodhara.webp" alt="Shirodhara" class="ayur-therapy-img">
-                        </div>
-                        <div class="ayur-therapy-content">
-                            <h3 class="ayur-headline-md" style="font-size: 20px;">Shirodhara</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">A deeply relaxing treatment where a continuous stream of warm medicated oil is gently poured over the forehead (the third eye region). This calms the mind, alleviates anxiety, and corrects neurological imbalances.</p>
-                        </div>
-                    </div>
-                    <!-- Therapy 5 -->
-                    <div class="ayur-therapy-card">
-                        <div class="ayur-therapy-img-wrapper">
-                            <span class="ayur-therapy-num">5</span>
-                            <img src="Assets/rehab/th_pizhichil.webp" alt="Pizhichil" class="ayur-therapy-img">
-                        </div>
-                        <div class="ayur-therapy-content">
-                            <h3 class="ayur-headline-md" style="font-size: 20px;">Pizhichil (Oil Bath)</h3>
-                            <p class="ayur-body-md" style="font-size: 14px;">A therapeutic combination of warm oil massage and heat therapy where liters of medicated oil are poured continuously over the body. It is excellent for improving joint mobility and reducing spasticity.</p>
-                        </div>
-                    </div>
-                    <!-- Info Card -->
-                    <div class="ayur-therapy-card" style="background: linear-gradient(135deg, var(--ayur-surface-subtle) 0%, var(--ayur-surface-bg) 100%); justify-content: center; align-items: center; text-align: center; border: 2px dashed var(--ayur-primary);">
-                        <div class="ayur-therapy-content" style="justify-content: center; align-items: center; padding: 32px;">
-                            <div class="ayur-card-icon" style="background: var(--ayur-primary); color: #fff;"><i data-lucide="info" size="24"></i></div>
-                            <h3 class="ayur-headline-md">Personalized Care</h3>
-                            <p class="ayur-body-md" style="margin-bottom: 20px; font-size: 14px;">All therapies are tailored based on Prakruti (body constitution) and Vikruti (current imbalance) to maximize recovery outcomes.</p>
-                            <a href="#consultation" class="ayur-btn ayur-btn-primary" style="padding: 12px 24px; font-size: 14px;">Consult a Physician</a>
-                        </div>
-                    </div>
+                <div class="ayur-mobile-drawer-body">
+                     <nav class="ayur-sidebar-nav">
+                          <a href="ayurveda.html" class="ayur-sidebar-link active">
+                              <i data-lucide="leaf" size="16" style="color: #4CAF50;"></i>
+                              <span>Ayurveda</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="dumbbell" size="16" style="color: #FF9800;"></i>
+                              <span>Physiotherapy</span>
+                          </a>
+                          <a href="robotic-rehab.html" class="ayur-sidebar-link">
+                              <i data-lucide="bot" size="16" style="color: #00BCD4;"></i>
+                              <span>Robotic Rehabilitation</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="puzzle" size="16" style="color: #9C27B0;"></i>
+                              <span>Occupational Therapy</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="message-circle" size="16" style="color: #2196F3;"></i>
+                              <span>Speech Therapy</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="headset" size="16" style="color: #E91E63;"></i>
+                              <span>Virtual Reality</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="sun" size="16" style="color: #FFC107;"></i>
+                              <span>Yoga and Meditation</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="map-pin" size="16" style="color: #F44336;"></i>
+                              <span>Acupuncture</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="footprints" size="16" style="color: #795548;"></i>
+                              <span>Reflexology</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="waves" size="16" style="color: #03A9F4;"></i>
+                              <span>Hydro / Aquatic Therapy</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="baby" size="16" style="color: #E040FB;"></i>
+                              <span>Pediatrics</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="ruler" size="16" style="color: #009688;"></i>
+                              <span>Slimming Treatment</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="shield-plus" size="16" style="color: #4CAF50;"></i>
+                              <span>Pain Management</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="utensils" size="16" style="color: #FF5722;"></i>
+                              <span>Diet & Nutrition</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="heart-handshake" size="16" style="color: #E91E63;"></i>
+                              <span>Counseling</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="smile" size="16" style="color: #00BCD4;"></i>
+                              <span>Dentistry</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="pill" size="16" style="color: #9C27B0;"></i>
+                              <span>Modern Medicine</span>
+                          </a>
+                          <a href="therapies.html" class="ayur-sidebar-link">
+                              <i data-lucide="accessibility" size="16" style="color: #3F51B5;"></i>
+                              <span>Assistive Devices</span>
+                          </a>
+                     </nav>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Section 4: Integration with Modern Rehabilitation -->
-        <section class="ayur-section">
-            <div class="ayur-container">
-                <div class="ayur-integration-banner">
-                    <div class="ayur-integration-grid">
-                        <div>
-                            <span class="ayur-badge" style="background: rgba(255, 255, 255, 0.15); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.25);">The Ayurgreen Advantage</span>
-                            <h2 class="ayur-headline-lg" style="color: white; margin-top: 16px;">Fusing Ancient Healing with Modern Robotics</h2>
-                            <p class="ayur-body-md" style="color: rgba(255, 255, 255, 0.9);">What makes Ayurgreen unique is its seamless integration of Ayurveda with advanced rehabilitation technologies. We do not view Ayurveda as an isolated alternative, but as an active biological catalyst that works in harmony with modern clinical disciplines.</p>
-                            <p class="ayur-body-md" style="color: rgba(255, 255, 255, 0.9);">While robotics and physiotherapy build outer motor pathways and strength, Ayurveda supports inner cellular vitality, relaxes spastic muscles, and reduces neurological stress. This synergy ensures faster progress, improved functional outcomes, and a higher quality of life.</p>
-                        </div>
-                        <div class="ayur-integration-list">
-                            <div class="ayur-integration-item">
-                                <i data-lucide="bot" size="24"></i> Robotic Neuro Rehab
-                            </div>
-                            <div class="ayur-integration-item">
-                                <i data-lucide="activity" size="24"></i> Physiotherapy (PPT)
-                            </div>
-                            <div class="ayur-integration-item">
-                                <i data-lucide="shield" size="24"></i> Occupational Therapy
-                            </div>
-                            <div class="ayur-integration-item">
-                                <i data-lucide="brain" size="24"></i> Speech & Swallow Therapy
-                            </div>
-                            <div class="ayur-integration-item">
-                                <i data-lucide="users" size="24"></i> Psychological Counseling
-                            </div>
-                            <div class="ayur-integration-item">
-                                <i data-lucide="leaf" size="24"></i> Authentic Ayurveda
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Sticky Bottom CTA for Mobile -->
+        <div class="ayur-sticky-bottom-cta">
+            <div class="ayur-sticky-bottom-cta-grid">
+                <a href="tel:+918080808080" class="ayur-bottom-cta-btn">
+                    <i data-lucide="phone" size="18"></i>
+                    <span>Call Now</span>
+                </a>
+                <a href="https://wa.me/918080808080" target="_blank" class="ayur-bottom-cta-btn">
+                    <i data-lucide="message-square" size="18"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="index.html#consultation" class="ayur-bottom-cta-btn primary">
+                    <i data-lucide="calendar" size="18"></i>
+                    <span>Book Appt</span>
+                </a>
             </div>
-        </section>
+        </div>
 
-        <!-- Section 5: Benefits Matrix -->
-        <section class="ayur-section ayur-section-soft">
-            <div class="ayur-container">
-                <div class="ayur-section-header">
-                    <span class="ayur-badge">Recovery Milestones</span>
-                    <h2 class="ayur-headline-lg">Multidimensional Benefits of Ayurveda</h2>
-                    <p class="ayur-body-lg">Our integrated Ayurvedic protocols trigger deep biological changes that manifest across physical, mental, and long-term health dimensions.</p>
-                </div>
-                
-                <div class="ayur-benefits-grid">
-                    <!-- Column 1 -->
-                    <div class="ayur-benefit-card">
-                        <h3 class="ayur-headline-md" style="font-size: 22px;"><i data-lucide="activity" style="color: var(--ayur-primary);"></i> Physical Benefits</h3>
-                        <ul class="ayur-benefit-list" style="margin-top: 24px;">
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Muscle Strength & Tone</strong>
-                                    Reverses muscle atrophy and restores core muscle strength.
-                                </div>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Reduced Spasticity & Pain</strong>
-                                    Relieves muscular tightness, joint stiffness, and chronic inflammatory pain.
-                                </div>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Nerve Regeneration</strong>
-                                    Promotes micro-circulation and nerve growth factor pathways.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Column 2 -->
-                    <div class="ayur-benefit-card">
-                        <h3 class="ayur-headline-md" style="font-size: 22px;"><i data-lucide="heart" style="color: var(--ayur-primary);"></i> Mental & Emotional</h3>
-                        <ul class="ayur-benefit-list" style="margin-top: 24px;">
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Stress & Anxiety Reduction</strong>
-                                    Calms the autonomic nervous system through soothing Shirodhara.
-                                </div>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Restorative Sleep</strong>
-                                    Corrects insomnia and improves sleep quality, vital for neural repair.
-                                </div>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Emotional Resilience</strong>
-                                    Helps patients cope with post-stroke depression and mood instability.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Column 3 -->
-                    <div class="ayur-benefit-card">
-                        <h3 class="ayur-headline-md" style="font-size: 22px;"><i data-lucide="shield" style="color: var(--ayur-primary);"></i> Long-Term Wellness</h3>
-                        <ul class="ayur-benefit-list" style="margin-top: 24px;">
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Prevention of Complications</strong>
-                                    Reduces risks of secondary complications like deep vein thrombosis.
-                                </div>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Enhanced Immunity</strong>
-                                    Reboots systemic immunity and digestive fire (Agni) with rasayanas.
-                                </div>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle-2" size="18" style="color: var(--ayur-primary);"></i>
-                                <div>
-                                    <strong>Sustainable Habits</strong>
-                                    Empowers patients with lifestyle modifications to prevent relapse.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Mobile Sidebar trigger button -->
+        <div class="ayur-mobile-sidebar-toggle-wrapper">
+            <button id="ayurMobileSidebarToggle" class="ayur-mobile-sidebar-btn">
+                <i data-lucide="menu" size="18"></i> Browse Services
+            </button>
+        </div>
 
-        <!-- Section 6: Why Choose Ayurgreen -->
-        <section class="ayur-section">
-            <div class="ayur-container">
-                <div class="ayur-trust-grid">
-                    <div class="ayur-trust-stats">
-                        <div class="ayur-stat-card">
-                            <div class="ayur-stat-num">25+</div>
-                            <div class="ayur-stat-label">Years of Rehabilitation Expertise</div>
-                        </div>
-                        <div class="ayur-stat-card" style="border-color: var(--ayur-primary);">
-                            <div class="ayur-stat-num" style="color: var(--ayur-primary);">10k+</div>
-                            <div class="ayur-stat-label">Successful Patient Recovery Stories</div>
-                        </div>
-                        <div class="ayur-stat-card">
-                            <div class="ayur-stat-num">1st</div>
-                            <div class="ayur-stat-label">Robotic-Integrated Center in India</div>
-                        </div>
-                        <div class="ayur-stat-card">
-                            <div class="ayur-stat-num">50+</div>
-                            <div class="ayur-stat-label">Countries Served Globally</div>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="ayur-label-md" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--ayur-primary); display: block; margin-bottom: 12px;">Our Standard of Care</span>
-                        <h2 class="ayur-headline-lg" style="margin-bottom: 32px;">Why Choose Ayurgreen for Ayurvedic Rehab?</h2>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // FAQ Accordion Toggles
+                const triggers = document.querySelectorAll('.ayur-faq-trigger');
+                triggers.forEach(trigger => {
+                    trigger.addEventListener('click', () => {
+                        const item = trigger.closest('.ayur-faq-item');
+                        const isActive = item.classList.contains('active');
                         
-                        <div class="ayur-trust-points">
-                            <div class="ayur-trust-item">
-                                <div class="ayur-trust-item-icon"><i data-lucide="trophy" size="18"></i></div>
-                                <div>
-                                    <h4 class="ayur-headline-md" style="font-size: 16px;">Unrivaled Experience</h4>
-                                    <p class="ayur-body-md" style="font-size: 14px;">Over two decades of clinical experience in managing critical post-stroke, paralysis, and spine injury recovery cases.</p>
-                                </div>
-                            </div>
-                            <div class="ayur-trust-item">
-                                <div class="ayur-trust-item-icon"><i data-lucide="users" size="18"></i></div>
-                                <div>
-                                    <h4 class="ayur-headline-md" style="font-size: 16px;">Multidisciplinary Medical Panel</h4>
-                                    <p class="ayur-body-md" style="font-size: 14px;">Our Ayurvedic doctors work in close synergy with senior neurologists, physiatrists, and robotic therapy engineers.</p>
-                                </div>
-                            </div>
-                            <div class="ayur-trust-item">
-                                <div class="ayur-trust-item-icon"><i data-lucide="leaf" size="18"></i></div>
-                                <div>
-                                    <h4 class="ayur-headline-md" style="font-size: 16px;">Premium Wellness Ecosystem</h4>
-                                    <p class="ayur-body-md" style="font-size: 14px;">Located within the serene, biophilic Ayurgreen Rehab Village, creating a peaceful, stress-free healing environment.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        // Close all FAQs
+                        document.querySelectorAll('.ayur-faq-item').forEach(i => {
+                            i.classList.remove('active');
+                        });
+                        
+                        // Toggle current
+                        if (!isActive) {
+                            item.classList.add('active');
+                        }
+                    });
+                });
+
+                // Mobile Drawer Toggles
+                const toggleBtn = document.getElementById('ayurMobileSidebarToggle');
+                const closeBtn = document.getElementById('ayurMobileSidebarClose');
+                const drawer = document.getElementById('ayurMobileSidebarDrawer');
+                const overlay = document.getElementById('ayurMobileDrawerOverlay');
+
+                if (toggleBtn && drawer) {
+                    toggleBtn.addEventListener('click', () => {
+                        drawer.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
+
+                const closeDrawer = () => {
+                    if (drawer) {
+                        drawer.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                };
+
+                if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+                if (overlay) overlay.addEventListener('click', closeDrawer);
+            });
+        </script>
     </main>"""
 
 pages = [
@@ -1160,7 +1537,64 @@ def replace_main(filename, new_main_html):
                 # Keep transparent homepage header directly without any wrapper div or background style overrides
                 new_content = new_content[:wrapper_start] + header_html + new_content[wrapper_end:]
                 
-        with open(filepath, 'w') as f:
+        # Page-specific head and SEO updates
+        if filename == 'ayurveda.html':
+            # Replace title
+            title_start = new_content.find('<title>')
+            title_end = new_content.find('</title>')
+            if title_start != -1 and title_end != -1:
+                new_content = new_content[:title_start] + '<title>Kerala Ayurveda Rehabilitation & Panchakarma | Ayurgreen Hospital</title>' + new_content[title_end + len('</title>'):]
+                
+            # Replace description
+            desc_start = new_content.find('<meta name="description"')
+            if desc_start != -1:
+                desc_end = new_content.find('>', desc_start) + 1
+                new_content = new_content[:desc_start] + '<meta name="description" content="Experience authentic Kerala Ayurveda rehabilitation integrated with modern recovery techniques at Ayurgreen Hospital. Specialized Panchakarma and nerve regeneration therapies.">' + new_content[desc_end:]
+                
+            # Replace canonical
+            canonical_start = new_content.find('<link rel="canonical"')
+            if canonical_start != -1:
+                canonical_end = new_content.find('>', canonical_start) + 1
+                new_content = new_content[:canonical_start] + '<link rel="canonical" href="https://ayurgreenhospital.com/ayurveda.html">' + new_content[canonical_end:]
+
+            # Replace open graph & twitter properties
+            og_title_start = new_content.find('<meta property="og:title"')
+            if og_title_start != -1:
+                og_title_end = new_content.find('>', og_title_start) + 1
+                new_content = new_content[:og_title_start] + '<meta property="og:title" content="Kerala Ayurveda Rehabilitation & Panchakarma | Ayurgreen Hospital">' + new_content[og_title_end:]
+
+            og_desc_start = new_content.find('<meta property="og:description"')
+            if og_desc_start != -1:
+                og_desc_end = new_content.find('>', og_desc_start) + 1
+                new_content = new_content[:og_desc_start] + '<meta property="og:description" content="Experience authentic Kerala Ayurveda rehabilitation integrated with modern recovery techniques at Ayurgreen Hospital. Specialized Panchakarma and nerve regeneration therapies.">' + new_content[og_desc_end:]
+
+            og_url_start = new_content.find('<meta property="og:url"')
+            if og_url_start != -1:
+                og_url_end = new_content.find('>', og_url_start) + 1
+                new_content = new_content[:og_url_start] + '<meta property="og:url" content="https://ayurgreenhospital.com/ayurveda.html">' + new_content[og_url_end:]
+
+            twitter_title_start = new_content.find('<meta property="twitter:title"')
+            if twitter_title_start != -1:
+                twitter_title_end = new_content.find('>', twitter_title_start) + 1
+                new_content = new_content[:twitter_title_start] + '<meta property="twitter:title" content="Kerala Ayurveda Rehabilitation & Panchakarma | Ayurgreen Hospital">' + new_content[twitter_title_end:]
+
+            twitter_desc_start = new_content.find('<meta property="twitter:description"')
+            if twitter_desc_start != -1:
+                twitter_desc_end = new_content.find('>', twitter_desc_start) + 1
+                new_content = new_content[:twitter_desc_start] + '<meta property="twitter:description" content="Experience authentic Kerala Ayurveda rehabilitation integrated with modern recovery techniques at Ayurgreen Hospital. Specialized Panchakarma and nerve regeneration therapies.">' + new_content[twitter_desc_end:]
+
+            twitter_url_start = new_content.find('<meta property="twitter:url"')
+            if twitter_url_start != -1:
+                twitter_url_end = new_content.find('>', twitter_url_start) + 1
+                new_content = new_content[:twitter_url_start] + '<meta property="twitter:url" content="https://ayurgreenhospital.com/ayurveda.html">' + new_content[twitter_url_end:]
+
+            # Inject unified JSON-LD schema
+            schema_start = new_content.find('<script type="application/ld+json">')
+            if schema_start != -1:
+                schema_end = new_content.find('</script>', schema_start) + len('</script>')
+                new_content = new_content[:schema_start] + '<script type="application/ld+json">\n' + json_ld_ayurveda + '\n</script>' + new_content[schema_end:]
+
+        with open(filepath, 'w', encoding="utf-8") as f:
             f.write(new_content)
         print(f"Populated main content and processed header for {filename}")
 

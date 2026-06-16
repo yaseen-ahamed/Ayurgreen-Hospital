@@ -815,22 +815,22 @@ ayurveda_main = """    <main class="ayur-page-main">
 
         <!-- Section 1: Hero Section -->
         <div style="padding: 24px 24px 0 24px; max-width: 1440px; margin: 0 auto; box-sizing: border-box;">
-            <div class="ayur-hero-banner" style="position: relative; height: 480px; border-radius: 32px; overflow: hidden; background-image: url('Assets/rehab/th_shirodhara.webp'); background-size: cover; background-position: center; display: flex; align-items: center; box-shadow: var(--shadow-soft);">
-                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 1;"></div>
-                <div class="container" style="position: relative; z-index: 2; color: white; padding-top: 100px;">
+            <div class="ayur-hero-banner" style="position: relative; height: 520px; border-radius: 32px; overflow: hidden; background-image: url('Assets/rehab/th_shirodhara.webp'); background-size: cover; background-position: center top; display: flex; align-items: flex-end; box-shadow: var(--shadow-soft);">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.75) 100%); z-index: 1;"></div>
+                <div class="container" style="position: relative; z-index: 2; color: white; padding-bottom: 52px; width: 100%;">
                     <!-- Breadcrumbs -->
-                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 12px; font-weight: 500;">
-                        <a href="index.html" style="color: white; text-decoration: none;">Home</a> &nbsp;&gt;&nbsp; 
-                        <a href="therapies.html" style="color: white; text-decoration: none;">Departments</a> &nbsp;&gt;&nbsp; 
-                        <span style="color: #eaf4f0;">Ayurveda</span>
+                    <div style="font-size: 13px; opacity: 0.8; margin-bottom: 14px; font-weight: 500;">
+                        <a href="index.html" style="color: white; text-decoration: none;">Home</a> &nbsp;&gt;&nbsp;
+                        <a href="therapies.html" style="color: white; text-decoration: none;">Departments</a> &nbsp;&gt;&nbsp;
+                        <span style="color: #a8e6c3;">Ayurveda</span>
                     </div>
-                    <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 8px; display: block;">Department / Therapy</span>
-                    <h1 class="premium-title text-white" style="margin-top: 0; margin-bottom: 24px; font-size: 48px; font-weight: 700; line-height: 1.1;">Kerala Ayurveda Rehabilitation</h1>
-                    <div class="flex" style="gap: 16px;">
-                        <a href="index.html#consultation" class="btn btn-primary" style="background-color: #27ae60; color: white; font-weight: 600; border-radius: 12px; padding: 14px 28px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                    <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; color: #4ade80; margin-bottom: 10px; display: block; font-size: 12px;">Department / Therapy</span>
+                    <h1 class="premium-title text-white" style="margin-top: 0; margin-bottom: 28px; font-size: clamp(36px, 5vw, 52px); font-weight: 700; line-height: 1.1; max-width: 640px;">Kerala Ayurveda<br>Rehabilitation</h1>
+                    <div class="flex" style="gap: 16px; flex-wrap: wrap;">
+                        <a href="index.html#consultation" class="btn btn-primary" style="background-color: #27ae60; color: white; font-weight: 600; border-radius: 12px; padding: 14px 28px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; box-shadow: 0 4px 16px rgba(39,174,96,0.4);">
                             Book Consultation <i data-lucide="calendar" size="16"></i>
                         </a>
-                        <a href="https://wa.me/918080808080" target="_blank" class="btn btn-secondary" style="background-color: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: 600; border-radius: 12px; padding: 14px 28px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); text-decoration: none;">
+                        <a href="https://wa.me/918080808080" target="_blank" class="btn btn-secondary" style="background-color: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.35); color: white; font-weight: 600; border-radius: 12px; padding: 14px 28px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(12px); text-decoration: none;">
                             WhatsApp <i data-lucide="message-square" size="16"></i>
                         </a>
                     </div>
@@ -921,27 +921,27 @@ ayurveda_main = """    <main class="ayur-page-main">
                               <span>Assistive Devices</span>
                           </a>
                      </nav>
+                     <!-- Sidebar CTA Card -->
+                     <div style="margin-top: 28px; background: linear-gradient(135deg, rgba(39,174,96,0.15) 0%, rgba(39,174,96,0.05) 100%); border: 1px solid rgba(39,174,96,0.25); border-radius: 16px; padding: 24px; text-align: center;">
+                         <div style="width: 48px; height: 48px; background: rgba(39,174,96,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; color: #27ae60;">
+                             <i data-lucide="calendar-check" size="22"></i>
+                         </div>
+                         <h4 style="color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading);">Book a Free Assessment</h4>
+                         <p style="color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.5; margin-bottom: 20px;">Talk to our Ayurvedic specialists and get a customized recovery plan.</p>
+                         <a href="index.html#consultation" style="display: block; background: #27ae60; color: white; font-weight: 600; font-size: 14px; border-radius: 10px; padding: 12px 16px; text-decoration: none; transition: background 0.2s ease;" onmouseover="this.style.background='#219d54'" onmouseout="this.style.background='#27ae60'">
+                             Get Started
+                         </a>
+                         <a href="https://wa.me/918080808080" target="_blank" style="display: block; margin-top: 10px; color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 500; text-decoration: none; padding: 8px;">
+                             <i data-lucide="message-square" size="13" style="display: inline-block; vertical-align: middle; margin-right: 4px;"></i> WhatsApp Us
+                         </a>
+                     </div>
                 </aside>
 
                 <!-- Right Content Area -->
                 <div class="ayur-right-content">
-                     <!-- Section: About Department -->
-                     <section id="about-department" style="padding-top: 0; padding-bottom: 56px;">
-                         <div class="ayur-about-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;">
-                             <div>
-                                 <img src="Assets/rehab/th_ayurveda.webp" alt="Ayurveda Treatment at Ayurgreen" style="width: 100%; height: 380px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-soft);">
-                             </div>
-                             <div>
-                                 <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Ancient Wisdom Met Modern Care</span>
-                                 <h2 style="font-size: 32px; font-weight: 600; margin-bottom: 20px; font-family: var(--font-heading); line-height: 1.2;">The Ayur-Neuro Healing Paradigm</h2>
-                                 <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 15px; line-height: 1.6;">At Ayurgreen Hospital, Ayurveda is integrated as a core clinical pathway for neuro-rehabilitation. Our methodology focuses on reversing nerve damage, improving motor skills, and strengthening wasted muscle groups by restoring the body's internal bio-energies (Doshas).</p>
-                                 <p style="color: var(--text-muted); font-size: 15px; line-height: 1.6;">Led by certified Ayurvedic physicians and neurologists, our treatments combine biological therapies (such as Panchakarma detoxification and nourishing sudations) with advanced robotic gait assessments. This unique protocol builds a solid neuro-rehabilitation foundation for deep cellular healing.</p>
-                             </div>
-                         </div>
-                     </section>
 
                      <!-- Section: Conditions Treated -->
-                     <section id="conditions-treated" style="padding: 56px 0; border-top: 1px solid var(--border);">
+                     <section id="conditions-treated" style="padding: 0 0 56px 0;">
                          <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
                              <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Clinical Focus</span>
                              <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Neurological Conditions Treated</h2>
@@ -1170,37 +1170,7 @@ ayurveda_main = """    <main class="ayur-page-main">
                          </div>
                      </section>
 
-                     <!-- Section: Team -->
-                     <section id="expert-team" style="padding: 56px 0; border-top: 1px solid var(--border);">
-                         <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
-                             <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #27ae60; margin-bottom: 12px; display: block;">Medical Panel</span>
-                             <h2 style="font-size: 28px; font-weight: 600; font-family: var(--font-heading);">Meet Our Experts</h2>
-                             <p style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">Highly experienced Ayurvedic neuro-rehab specialists dedicated to your recovery.</p>
-                         </div>
-                         
-                         <div class="ayur-team-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
-                             <!-- Doctor 1 -->
-                             <div class="card" style="background: #ffffff; padding: 32px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                                 <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--ayur-accent); color: var(--ayur-primary); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                                     <i data-lucide="user" size="48"></i>
-                                 </div>
-                                 <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-heading);">Dr. Yasir Ahamed</h4>
-                                 <span style="font-size: 13px; font-weight: 600; color: #27ae60; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block;">B.A.M.S, M.D. (Ay)</span>
-                                 <p style="font-weight: 500; font-size: 14px; margin-bottom: 16px; color: var(--ayur-text-main);">Chief Ayurvedic Physician & Rehabilitation Specialist</p>
-                                 <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5;">Specializes in clinical management of stroke deficits, spinal cord recovery, and neuromuscular waste reversal with 15+ years of practice.</p>
-                             </div>
-                             <!-- Doctor 2 -->
-                             <div class="card" style="background: #ffffff; padding: 32px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                                 <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--ayur-accent); color: var(--ayur-primary); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                                     <i data-lucide="user" size="48"></i>
-                                 </div>
-                                 <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 4px; font-family: var(--font-heading);">Dr. Sreeja Rajesh</h4>
-                                 <span style="font-size: 13px; font-weight: 600; color: #27ae60; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block;">B.A.M.S</span>
-                                 <p style="font-weight: 500; font-size: 14px; margin-bottom: 16px; color: var(--ayur-text-main);">Senior Consultant Ayurvedic Physician</p>
-                                 <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5;">Specialist in Panchakarma detoxification, musculoskeletal therapy, arthritic pain regulation, and localized tissue nourishment.</p>
-                             </div>
-                         </div>
-                     </section>
+
 
                      <!-- Section: FAQ -->
                      <section id="faq-section" style="padding: 56px 0; border-top: 1px solid var(--border);">

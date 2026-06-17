@@ -3923,8 +3923,177 @@
 
         <!-- Section 2: Intro -->
         
-        <div class="ayur-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
-            <section id="intro" class="ayur-section-large">
+        <!-- Mobile Sidebar Toggle -->
+        <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
+            <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
+                <i data-lucide="menu" size="18"></i>
+                <span>Explore Therapies</span>
+            </button>
+        </div>
+        
+        <div class="sidebar-overlay" onclick="document.querySelector('.ayur-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
+        
+        <div class="ayur-container ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
+            <div class="ayur-sidebar-layout">
+                <!-- Sidebar Column -->
+                <aside class="ayur-sidebar">
+                    <h3 class="sidebar-title">Therapies</h3>
+                    <span class="sidebar-sub">Services</span>
+                    <div class="sidebar-list">
+                        
+                <a href="stroke-rehab.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="activity" size="16" style="color: #E91E63;"></i>
+                    </span>
+                    <span class="sidebar-label">Stroke</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="spinal-cord-injury.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="bone" size="16" style="color: #9C27B0;"></i>
+                    </span>
+                    <span class="sidebar-label">Spinal Cord Injury</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="traumatic-brain-injury.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="brain" size="16" style="color: #FF9800;"></i>
+                    </span>
+                    <span class="sidebar-label">Traumatic Brain Injury</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="hemiplegia.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="person-standing" size="16" style="color: #00BCD4;"></i>
+                    </span>
+                    <span class="sidebar-label">Hemiplegia</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="quadriplegia-paraplegia.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="accessibility" size="16" style="color: #3F51B5;"></i>
+                    </span>
+                    <span class="sidebar-label">Quadriplegia & Paraplegia</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="post-surgical-complications.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="stethoscope" size="16" style="color: #009688;"></i>
+                    </span>
+                    <span class="sidebar-label">Post-Surgical Complications</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="motor-neuron-diseases.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="network" size="16" style="color: #607D8B;"></i>
+                    </span>
+                    <span class="sidebar-label">Motor Neuron Diseases</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="cerebral-palsy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="flower-2" size="16" style="color: #E040FB;"></i>
+                    </span>
+                    <span class="sidebar-label">Cerebral Palsy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="parkinsons-disease.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="zap" size="16" style="color: #FFEB3B;"></i>
+                    </span>
+                    <span class="sidebar-label">Parkinson's Disease</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="myopathy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="dna" size="16" style="color: #8BC34A;"></i>
+                    </span>
+                    <span class="sidebar-label">Myopathy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="disc-spine-problems.html" class="sidebar-item active">
+                    <span class="sidebar-icon">
+                        <i data-lucide="git-commit" size="16" style="color: #FF5722;"></i>
+                    </span>
+                    <span class="sidebar-label">Disc & Spine Problems</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="sciatica.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="zap-off" size="16" style="color: #795548;"></i>
+                    </span>
+                    <span class="sidebar-label">Sciatica</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="obesity.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="scale" size="16" style="color: #F44336;"></i>
+                    </span>
+                    <span class="sidebar-label">Obesity</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="post-covid-complications.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="shield-alert" size="16" style="color: #FFC107;"></i>
+                    </span>
+                    <span class="sidebar-label">Post-Covid Complications</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="muscular-dystrophy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="heart-pulse" size="16" style="color: #E91E63;"></i>
+                    </span>
+                    <span class="sidebar-label">Muscular Dystrophy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="osteoarthritis.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="target" size="16" style="color: #9E9E9E;"></i>
+                    </span>
+                    <span class="sidebar-label">Osteoarthritis</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="rheumatoid-arthritis.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="flame" size="16" style="color: #FF5722;"></i>
+                    </span>
+                    <span class="sidebar-label">Rheumatoid Arthritis</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="developmental-delay.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="sprout" size="16" style="color: #8BC34A;"></i>
+                    </span>
+                    <span class="sidebar-label">Developmental Delay</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="psychological-problems.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="lightbulb" size="16" style="color: #FFEB3B;"></i>
+                    </span>
+                    <span class="sidebar-label">Psychological Problems</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="autism.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="heart" size="16" style="color: #E91E63;"></i>
+                    </span>
+                    <span class="sidebar-label">Autism</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="psychiatry.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="brain" size="16" style="color: #9C27B0;"></i>
+                    </span>
+                    <span class="sidebar-label">Psychiatry</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                    </div>
+                </aside>
+                
+                <!-- Content Column -->
+                <div class="ayur-sidebar-content" style="min-width: 0; flex: 1;">
+                    <section id="intro" class="ayur-section-large">
             <div class="ayur-container">
                 <div class="ayur-intro-row">
                     <div>
@@ -4239,6 +4408,8 @@
         </section>
     </main>
     
+                </div>
+            </div>
         </div>
     </main>
     

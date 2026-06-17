@@ -143,14 +143,50 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
     elif body_part.endswith("</main>\"\"\""):
         body_part = body_part[:-10]
         
-    # Return banner and the body wrapped in a centered container (no sidebar)
-    centered_html = f"""
-        <div class="ayur-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
-            {body_part}
+    # Generate sidebar links
+    sidebar_items_html = ""
+    for sib in siblings:
+        active_class = "active" if sib["filename"] == current_filename else ""
+        sidebar_items_html += f"""
+                <a href="{sib["filename"]}" class="sidebar-item {active_class}">
+                    <span class="sidebar-icon">
+                        <i data-lucide="{sib["icon"]}" size="16" style="color: {sib["color"]};"></i>
+                    </span>
+                    <span class="sidebar-label">{sib["name"]}</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>"""
+                
+    sidebar_html = f"""
+        <!-- Mobile Sidebar Toggle -->
+        <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
+            <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
+                <i data-lucide="menu" size="18"></i>
+                <span>Explore {category_name}</span>
+            </button>
+        </div>
+        
+        <div class="sidebar-overlay" onclick="document.querySelector('.ayur-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
+        
+        <div class="ayur-container ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
+            <div class="ayur-sidebar-layout">
+                <!-- Sidebar Column -->
+                <aside class="ayur-sidebar">
+                    <h3 class="sidebar-title">{category_name}</h3>
+                    <span class="sidebar-sub">Services</span>
+                    <div class="sidebar-list">
+                        {sidebar_items_html}
+                    </div>
+                </aside>
+                
+                <!-- Content Column -->
+                <div class="ayur-sidebar-content" style="min-width: 0; flex: 1;">
+                    {body_part}
+                </div>
+            </div>
         </div>
     </main>
     """
-    return banner_part + centered_html
+    return banner_part + sidebar_html
 
 def generate_service_html(svc, category_name, siblings):
     name = svc["name"]
@@ -1442,25 +1478,7 @@ ayurveda_main = """    <main class="ayur-page-main">
                 .ayur-hero-content { padding-left: 24px !important; }
             }
 
-            /* PAGE BODY — centered container, no sidebar grid */
-            .ayur-page-body {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 40px 24px 80px 24px;
-                box-sizing: border-box;
-                background: #ffffff;
-            }
-            @media (max-width: 768px) {
-                .ayur-page-body { padding: 24px 16px 80px 16px; }
-            }
 
-            /* CONTENT COLUMN */
-            .ayur-content-col {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                padding-top: 24px;
-            }
 
             /* WHITE SECTION BACKGROUND wrapper */
             .ayur-section {
@@ -1778,11 +1796,7 @@ ayurveda_main = """    <main class="ayur-page-main">
             </div>
         </div>
 
-        <!-- PAGE BODY: CONTENT (no sidebar) -->
-        <div class="ayur-page-body">
 
-            <!-- CONTENT SECTIONS -->
-            <div class="ayur-content-col">
 
                 <!-- 1. Introduction -->
                 <div class="ayur-section">
@@ -1984,8 +1998,7 @@ ayurveda_main = """    <main class="ayur-page-main">
                     </div>
                 </div>
 
-            </div>
-        </div>
+
 
     </main>
 """

@@ -3923,8 +3923,156 @@
 
         <!-- Section 2: Intro -->
         
-        <div class="ayur-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
-            <section id="intro" class="ayur-section-large">
+        <!-- Mobile Sidebar Toggle -->
+        <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
+            <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
+                <i data-lucide="menu" size="18"></i>
+                <span>Explore Departments</span>
+            </button>
+        </div>
+        
+        <div class="sidebar-overlay" onclick="document.querySelector('.ayur-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
+        
+        <div class="ayur-container ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
+            <div class="ayur-sidebar-layout">
+                <!-- Sidebar Column -->
+                <aside class="ayur-sidebar">
+                    <h3 class="sidebar-title">Departments</h3>
+                    <span class="sidebar-sub">Services</span>
+                    <div class="sidebar-list">
+                        
+                <a href="ayurveda.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="leaf" size="16" style="color: #4CAF50;"></i>
+                    </span>
+                    <span class="sidebar-label">Ayurveda</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="physiotherapy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="dumbbell" size="16" style="color: #FF9800;"></i>
+                    </span>
+                    <span class="sidebar-label">Physiotherapy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="robotic-rehab.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="bot" size="16" style="color: #00BCD4;"></i>
+                    </span>
+                    <span class="sidebar-label">Robotic Rehabilitation</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="occupational-therapy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="puzzle" size="16" style="color: #9C27B0;"></i>
+                    </span>
+                    <span class="sidebar-label">Occupational Therapy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="speech-therapy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="message-circle" size="16" style="color: #2196F3;"></i>
+                    </span>
+                    <span class="sidebar-label">Speech Therapy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="virtual-reality.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="headset" size="16" style="color: #E91E63;"></i>
+                    </span>
+                    <span class="sidebar-label">Virtual Reality</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="yoga-meditation.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="sun" size="16" style="color: #FFC107;"></i>
+                    </span>
+                    <span class="sidebar-label">Yoga and Meditation</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="acupuncture.html" class="sidebar-item active">
+                    <span class="sidebar-icon">
+                        <i data-lucide="map-pin" size="16" style="color: #F44336;"></i>
+                    </span>
+                    <span class="sidebar-label">Acupuncture</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="reflexology.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="footprints" size="16" style="color: #795548;"></i>
+                    </span>
+                    <span class="sidebar-label">Reflexology</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="hydro-therapy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="waves" size="16" style="color: #03A9F4;"></i>
+                    </span>
+                    <span class="sidebar-label">Hydro / Aquatic Therapy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="pediatrics.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="baby" size="16" style="color: #E040FB;"></i>
+                    </span>
+                    <span class="sidebar-label">Pediatrics</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="slimming-treatment.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="ruler" size="16" style="color: #009688;"></i>
+                    </span>
+                    <span class="sidebar-label">Slimming Treatment</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="pain-management.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="shield-plus" size="16" style="color: #4CAF50;"></i>
+                    </span>
+                    <span class="sidebar-label">Pain Management</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="diet-nutrition.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="utensils" size="16" style="color: #FF5722;"></i>
+                    </span>
+                    <span class="sidebar-label">Diet & Nutrition</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="counseling.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="heart-handshake" size="16" style="color: #E91E63;"></i>
+                    </span>
+                    <span class="sidebar-label">Counseling</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="dentistry.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="smile" size="16" style="color: #00BCD4;"></i>
+                    </span>
+                    <span class="sidebar-label">Dentistry</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="modern-medicine.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="pill" size="16" style="color: #9C27B0;"></i>
+                    </span>
+                    <span class="sidebar-label">Modern Medicine</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="assistive-devices.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="accessibility" size="16" style="color: #3F51B5;"></i>
+                    </span>
+                    <span class="sidebar-label">Assistive Devices</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                    </div>
+                </aside>
+                
+                <!-- Content Column -->
+                <div class="ayur-sidebar-content" style="min-width: 0; flex: 1;">
+                    <section id="intro" class="ayur-section-large">
             <div class="ayur-container">
                 <div class="ayur-intro-row">
                     <div>
@@ -4239,6 +4387,8 @@
         </section>
     </main>
     
+                </div>
+            </div>
         </div>
     </main>
     

@@ -3923,8 +3923,93 @@
 
         <!-- Section 2: Intro -->
         
-        <div class="ayur-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
-            <section id="intro" class="ayur-section-large">
+        <!-- Mobile Sidebar Toggle -->
+        <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
+            <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
+                <i data-lucide="menu" size="18"></i>
+                <span>Explore Specializations</span>
+            </button>
+        </div>
+        
+        <div class="sidebar-overlay" onclick="document.querySelector('.ayur-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
+        
+        <div class="ayur-container ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
+            <div class="ayur-sidebar-layout">
+                <!-- Sidebar Column -->
+                <aside class="ayur-sidebar">
+                    <h3 class="sidebar-title">Specializations</h3>
+                    <span class="sidebar-sub">Services</span>
+                    <div class="sidebar-list">
+                        
+                <a href="neurology.html" class="sidebar-item active">
+                    <span class="sidebar-icon">
+                        <i data-lucide="brain-circuit" size="16" style="color: #607D8B;"></i>
+                    </span>
+                    <span class="sidebar-label">Neurology</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="neurosurgery.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="microscope" size="16" style="color: #009688;"></i>
+                    </span>
+                    <span class="sidebar-label">Neurosurgery</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="orthopedic.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="hammer" size="16" style="color: #795548;"></i>
+                    </span>
+                    <span class="sidebar-label">Orthopedic</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="ent.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="ear" size="16" style="color: #FF9800;"></i>
+                    </span>
+                    <span class="sidebar-label">ENT</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="general-medicine.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="syringe" size="16" style="color: #F44336;"></i>
+                    </span>
+                    <span class="sidebar-label">General Medicine</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="urology.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="droplet" size="16" style="color: #03A9F4;"></i>
+                    </span>
+                    <span class="sidebar-label">Urology</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="cardiology.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="heart" size="16" style="color: #E91E63;"></i>
+                    </span>
+                    <span class="sidebar-label">Cardiology</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="respiratory-therapy.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="wind" size="16" style="color: #00BCD4;"></i>
+                    </span>
+                    <span class="sidebar-label">Respiratory Therapy</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                <a href="neuro-psychology.html" class="sidebar-item ">
+                    <span class="sidebar-icon">
+                        <i data-lucide="brain" size="16" style="color: #9C27B0;"></i>
+                    </span>
+                    <span class="sidebar-label">Neuro Psychology</span>
+                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
+                </a>
+                    </div>
+                </aside>
+                
+                <!-- Content Column -->
+                <div class="ayur-sidebar-content" style="min-width: 0; flex: 1;">
+                    <section id="intro" class="ayur-section-large">
             <div class="ayur-container">
                 <div class="ayur-intro-row">
                     <div>
@@ -4239,6 +4324,8 @@
         </section>
     </main>
     
+                </div>
+            </div>
         </div>
     </main>
     

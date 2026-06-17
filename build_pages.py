@@ -148,38 +148,139 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
     for sib in siblings:
         active_class = "active" if sib["filename"] == current_filename else ""
         sidebar_items_html += f"""
-                <a href="{sib["filename"]}" class="sidebar-item {active_class}">
-                    <span class="sidebar-icon">
-                        <i data-lucide="{sib["icon"]}" size="16" style="color: {sib["color"]};"></i>
-                    </span>
-                    <span class="sidebar-label">{sib["name"]}</span>
-                    <i data-lucide="chevron-right" size="14" class="sidebar-arrow"></i>
-                </a>"""
+                <a href="{sib["filename"]}" class="ayur-qdept-link {active_class}"><i data-lucide="{sib["icon"]}" size="14" style="color: {sib["color"]};"></i>{sib["name"]}</a>"""
                 
     sidebar_html = f"""
+        <style>
+            /* PAGE BODY — full width, same 16px outer gutter as banner wrapper */
+            .ayur-page-body {{
+                width: 100%;
+                padding: 0 16px 80px 16px;
+                display: grid;
+                grid-template-columns: 280px 1fr;
+                gap: 24px;
+                align-items: start;
+                box-sizing: border-box;
+                background: #ffffff;
+            }}
+            @media (max-width: 1024px) {{
+                .ayur-page-body {{ grid-template-columns: 240px 1fr; }}
+            }}
+            @media (max-width: 768px) {{
+                .ayur-page-body {{ grid-template-columns: 1fr; padding: 0 12px 80px; }}
+            }}
+
+            /* SIDEBAR */
+            .ayur-qdept-sidebar {{
+                position: sticky;
+                top: 96px;
+                background: rgba(0, 0, 0, 0.8) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 32px !important;
+                padding: 20px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 4px !important;
+                max-height: 80vh;
+                overflow-y: auto;
+                margin-top: 24px;
+                box-shadow: none !important;
+            }}
+            .ayur-qdept-sidebar::-webkit-scrollbar {{ width: 3px; }}
+            .ayur-qdept-sidebar::-webkit-scrollbar-thumb {{ background: rgba(255,255,255,0.15); border-radius: 2px; }}
+            .ayur-qdept-title {{
+                font-family: 'Inter', sans-serif;
+                font-size: 10.5px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.18em;
+                color: rgba(255,255,255,0.4);
+                padding: 2px 14px 10px;
+                margin-bottom: 4px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }}
+            .ayur-qdept-link {{
+                display: flex !important;
+                align-items: center !important;
+                gap: 12px !important;
+                color: rgba(255, 255, 255, 0.85) !important;
+                text-decoration: none !important;
+                padding: 7px 14px !important;
+                font-size: 13.5px !important;
+                font-weight: 500 !important;
+                border-radius: 40px !important;
+                transition: all 0.25s ease !important;
+                border: 1px solid transparent !important;
+                background: transparent !important;
+                font-family: 'Inter', sans-serif !important;
+                white-space: nowrap !important;
+            }}
+            .ayur-qdept-link:hover,
+            .ayur-qdept-link.active {{
+                background: rgba(255, 255, 255, 0.15) !important;
+                border-color: rgba(255, 255, 255, 0.25) !important;
+                color: #fff !important;
+            }}
+            .ayur-qdept-link svg {{
+                width: 28px !important;
+                height: 28px !important;
+                padding: 7px !important;
+                background: transparent !important;
+                border-radius: 50% !important;
+                box-sizing: border-box !important;
+                transition: all 0.25s ease !important;
+                flex-shrink: 0 !important;
+            }}
+            .ayur-qdept-link:hover svg,
+            .ayur-qdept-link.active svg {{
+                background: #ffffff !important;
+                padding: 6px !important;
+            }}
+            @media (max-width: 768px) {{
+                .ayur-qdept-sidebar {{
+                    position: relative !important;
+                    top: 0 !important;
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: wrap !important;
+                    max-height: none !important;
+                    border-radius: 24px !important;
+                    margin-top: 16px;
+                }}
+                .ayur-qdept-title {{ width: 100%; }}
+                .ayur-qdept-link {{ font-size: 12.5px !important; }}
+            }}
+
+            /* CONTENT COLUMN */
+            .ayur-content-col {{
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding-top: 24px;
+            }}
+        </style>
         <!-- Mobile Sidebar Toggle -->
         <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
-            <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
+            <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-qdept-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
                 <i data-lucide="menu" size="18"></i>
                 <span>Explore {category_name}</span>
             </button>
         </div>
         
-        <div class="sidebar-overlay" onclick="document.querySelector('.ayur-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
+        <div class="sidebar-overlay" onclick="document.querySelector('.ayur-qdept-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
         
         <div class="ayur-container ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
-            <div class="ayur-sidebar-layout">
-                <!-- Sidebar Column -->
-                <aside class="ayur-sidebar">
-                    <h3 class="sidebar-title">{category_name}</h3>
-                    <span class="sidebar-sub">Services</span>
-                    <div class="sidebar-list">
-                        {sidebar_items_html}
-                    </div>
+            <div class="ayur-page-body">
+                <!-- QUICK ACCESS SIDEBAR -->
+                <aside class="ayur-qdept-sidebar">
+                    <div class="ayur-qdept-title">{category_name}</div>
+                    {sidebar_items_html}
                 </aside>
                 
-                <!-- Content Column -->
-                <div class="ayur-sidebar-content" style="min-width: 0; flex: 1;">
+                <!-- CONTENT SECTIONS -->
+                <div class="ayur-content-col">
                     {body_part}
                 </div>
             </div>
@@ -1496,114 +1597,7 @@ ayurveda_main = """    <main class="ayur-page-main">
                 .ayur-hero-content { padding-left: 24px !important; }
             }
 
-            /* PAGE BODY — full width, same 16px outer gutter as banner wrapper */
-            .ayur-page-body {
-                width: 100%;
-                padding: 0 16px 80px 16px;
-                display: grid;
-                grid-template-columns: 280px 1fr;
-                gap: 24px;
-                align-items: start;
-                box-sizing: border-box;
-                background: #ffffff;
-            }
-            @media (max-width: 1024px) {
-                .ayur-page-body { grid-template-columns: 240px 1fr; }
-            }
-            @media (max-width: 768px) {
-                .ayur-page-body { grid-template-columns: 1fr; padding: 0 12px 80px; }
-            }
 
-            /* SIDEBAR — renamed to ayur-qdept-sidebar to avoid index.html conflict */
-            .ayur-qdept-sidebar {
-                position: sticky;
-                top: 96px;
-                background: rgba(0, 0, 0, 0.6) !important;
-                backdrop-filter: blur(16px) !important;
-                -webkit-backdrop-filter: blur(16px) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 32px !important;
-                padding: 20px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 4px !important;
-                max-height: 80vh;
-                overflow-y: auto;
-                margin-top: 24px;
-                box-shadow: none !important;
-            }
-            .ayur-qdept-sidebar::-webkit-scrollbar { width: 3px; }
-            .ayur-qdept-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
-            .ayur-qdept-title {
-                font-family: 'Inter', sans-serif;
-                font-size: 10.5px;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.18em;
-                color: rgba(255,255,255,0.4);
-                padding: 2px 14px 10px;
-                margin-bottom: 4px;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-            }
-            .ayur-qdept-link {
-                display: flex !important;
-                align-items: center !important;
-                gap: 12px !important;
-                color: rgba(255, 255, 255, 0.85) !important;
-                text-decoration: none !important;
-                padding: 7px 14px !important;
-                font-size: 13.5px !important;
-                font-weight: 500 !important;
-                border-radius: 40px !important;
-                transition: all 0.25s ease !important;
-                border: 1px solid transparent !important;
-                background: transparent !important;
-                font-family: 'Inter', sans-serif !important;
-                white-space: nowrap !important;
-            }
-            .ayur-qdept-link:hover,
-            .ayur-qdept-link.active {
-                background: rgba(255, 255, 255, 0.15) !important;
-                border-color: rgba(255, 255, 255, 0.25) !important;
-                color: #fff !important;
-            }
-            .ayur-qdept-link svg {
-                width: 28px !important;
-                height: 28px !important;
-                padding: 7px !important;
-                background: transparent !important;
-                border-radius: 50% !important;
-                box-sizing: border-box !important;
-                transition: all 0.25s ease !important;
-                flex-shrink: 0 !important;
-            }
-            .ayur-qdept-link:hover svg,
-            .ayur-qdept-link.active svg {
-                background: #ffffff !important;
-                padding: 6px !important;
-            }
-            @media (max-width: 768px) {
-                .ayur-qdept-sidebar {
-                    position: relative !important;
-                    top: 0 !important;
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: wrap !important;
-                    max-height: none !important;
-                    border-radius: 24px !important;
-                    margin-top: 16px;
-                }
-                .ayur-qdept-title { width: 100%; }
-                .ayur-qdept-link { font-size: 12.5px !important; }
-            }
-
-            /* CONTENT COLUMN */
-            .ayur-content-col {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                padding-top: 24px;
-            }
 
             /* WHITE SECTION CARD */
             .ayur-section {
@@ -1953,34 +1947,7 @@ ayurveda_main = """    <main class="ayur-page-main">
             </div>
         </div>
 
-        <!-- PAGE BODY: SIDEBAR + CONTENT -->
-        <div class="ayur-page-body">
 
-            <!-- QUICK ACCESS SIDEBAR -->
-            <aside class="ayur-qdept-sidebar">
-                <div class="ayur-qdept-title">All Departments</div>
-                <a href="ayurveda.html" class="ayur-qdept-link active"><i data-lucide="leaf" size="14" style="color: #4CAF50;"></i>Ayurveda</a>
-                <a href="physiotherapy.html" class="ayur-qdept-link"><i data-lucide="dumbbell" size="14" style="color: #FF9800;"></i>Physiotherapy</a>
-                <a href="robotic-rehab.html" class="ayur-qdept-link"><i data-lucide="bot" size="14" style="color: #00BCD4;"></i>Robotic Rehabilitation</a>
-                <a href="occupational-therapy.html" class="ayur-qdept-link"><i data-lucide="puzzle" size="14" style="color: #9C27B0;"></i>Occupational Therapy</a>
-                <a href="speech-therapy.html" class="ayur-qdept-link"><i data-lucide="message-circle" size="14" style="color: #2196F3;"></i>Speech Therapy</a>
-                <a href="virtual-reality.html" class="ayur-qdept-link"><i data-lucide="headset" size="14" style="color: #E91E63;"></i>Virtual Reality</a>
-                <a href="yoga-meditation.html" class="ayur-qdept-link"><i data-lucide="sun" size="14" style="color: #FFC107;"></i>Yoga and Meditation</a>
-                <a href="acupuncture.html" class="ayur-qdept-link"><i data-lucide="map-pin" size="14" style="color: #F44336;"></i>Acupuncture</a>
-                <a href="reflexology.html" class="ayur-qdept-link"><i data-lucide="footprints" size="14" style="color: #795548;"></i>Reflexology</a>
-                <a href="hydro-therapy.html" class="ayur-qdept-link"><i data-lucide="waves" size="14" style="color: #03A9F4;"></i>Hydro / Aquatic Therapy</a>
-                <a href="pediatrics.html" class="ayur-qdept-link"><i data-lucide="baby" size="14" style="color: #E040FB;"></i>Pediatrics</a>
-                <a href="slimming-treatment.html" class="ayur-qdept-link"><i data-lucide="ruler" size="14" style="color: #009688;"></i>Slimming Treatment</a>
-                <a href="pain-management.html" class="ayur-qdept-link"><i data-lucide="shield-plus" size="14" style="color: #4CAF50;"></i>Pain Management</a>
-                <a href="diet-nutrition.html" class="ayur-qdept-link"><i data-lucide="utensils" size="14" style="color: #FF5722;"></i>Diet &amp; Nutrition</a>
-                <a href="counseling.html" class="ayur-qdept-link"><i data-lucide="heart-handshake" size="14" style="color: #E91E63;"></i>Counseling</a>
-                <a href="dentistry.html" class="ayur-qdept-link"><i data-lucide="smile" size="14" style="color: #00BCD4;"></i>Dentistry</a>
-                <a href="modern-medicine.html" class="ayur-qdept-link"><i data-lucide="pill" size="14" style="color: #9C27B0;"></i>Modern Medicine</a>
-                <a href="assistive-devices.html" class="ayur-qdept-link"><i data-lucide="accessibility" size="14" style="color: #3F51B5;"></i>Assistive Devices</a>
-            </aside>
-
-            <!-- CONTENT SECTIONS -->
-            <div class="ayur-content-col">
 
                 <!-- 1. Introduction -->
                 <div class="ayur-section">
@@ -2168,17 +2135,7 @@ ayurveda_main = """    <main class="ayur-page-main">
                     </div>
                 </div>
 
-            </div>
-        </div>
 
-        <!-- Mobile Sticky CTA -->
-        <div class="ayur-sticky-bottom-cta">
-            <div class="ayur-sticky-bottom-cta-grid">
-                <a href="tel:+918080808080" class="ayur-bottom-cta-btn"><i data-lucide="phone" size="16"></i>Call</a>
-                <a href="index.html#consultation" class="ayur-bottom-cta-btn primary"><i data-lucide="calendar" size="16"></i>Book</a>
-                <a href="https://wa.me/918080808080" target="_blank" class="ayur-bottom-cta-btn"><i data-lucide="message-square" size="16"></i>WhatsApp</a>
-            </div>
-        </div>
 
     </main>
 """

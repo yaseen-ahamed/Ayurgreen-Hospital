@@ -97,4 +97,57 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    // Sidebar Drawer Toggle for Mobile
+    const sidebarToggle = document.querySelector('.mobile-sidebar-toggle');
+    const sidebar = document.querySelector('.ayur-sidebar');
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
+    
+    if (sidebarToggle && sidebar) {
+        let overlay = sidebarOverlay;
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'sidebar-overlay';
+            document.body.appendChild(overlay);
+        }
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        });
+        
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+        });
+    }
+
+    // FAQ Accordion Logic
+    const faqTriggers = document.querySelectorAll('.ayur-faq-trigger');
+    faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const item = trigger.closest('.ayur-faq-item');
+            const content = item.querySelector('.ayur-faq-content');
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.ayur-faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherContent = otherItem.querySelector('.ayur-faq-content');
+                    if (otherContent) {
+                        otherContent.style.maxHeight = null;
+                    }
+                }
+            });
+            
+            if (isActive) {
+                item.classList.remove('active');
+                content.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
 });

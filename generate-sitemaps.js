@@ -185,33 +185,39 @@ const generateXml = () => {
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Stroke Rehabilitation -->
-  <url>
-    <loc>${domain}/stroke-rehab.html</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Robotic Rehabilitation -->
-  <url>
-    <loc>${domain}/robotic-rehab.html</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Ayurveda -->
-  <url>
-    <loc>${domain}/ayurveda.html</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-</urlset>
 `;
+
+  // Service Pages
+  const servicePages = [
+    // Therapies
+    'stroke-rehab.html', 'spinal-cord-injury.html', 'traumatic-brain-injury.html', 'hemiplegia.html',
+    'quadriplegia-paraplegia.html', 'post-surgical-complications.html', 'motor-neuron-diseases.html',
+    'cerebral-palsy.html', 'parkinsons-disease.html', 'myopathy.html', 'disc-spine-problems.html',
+    'sciatica.html', 'obesity.html', 'post-covid-complications.html', 'muscular-dystrophy.html',
+    'osteoarthritis.html', 'rheumatoid-arthritis.html', 'developmental-delay.html',
+    'psychological-problems.html', 'autism.html', 'psychiatry.html',
+    // Departments
+    'ayurveda.html', 'physiotherapy.html', 'robotic-rehab.html', 'occupational-therapy.html',
+    'speech-therapy.html', 'virtual-reality.html', 'yoga-meditation.html', 'acupuncture.html',
+    'reflexology.html', 'hydro-therapy.html', 'pediatrics.html', 'slimming-treatment.html',
+    'pain-management.html', 'diet-nutrition.html', 'counseling.html', 'dentistry.html',
+    'modern-medicine.html', 'assistive-devices.html',
+    // Specializations
+    'neurology.html', 'neurosurgery.html', 'orthopedic.html', 'ent.html', 'general-medicine.html',
+    'urology.html', 'cardiology.html', 'respiratory-therapy.html', 'neuro-psychology.html'
+  ];
+
+  servicePages.forEach(page => {
+      xml += `
+  <url>
+    <loc>${domain}/${page}</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>`;
+  });
+
+  xml += `\n</urlset>\n`;
     return xml;
 };
 

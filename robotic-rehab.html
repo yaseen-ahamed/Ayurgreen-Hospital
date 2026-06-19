@@ -45,8 +45,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
     <!-- Structured Data: Unified JSON-LD Schema Graph -->
-    <script type="application/ld+json">
-{
+    <script type="application/ld+json">\n{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -113,8 +112,7 @@
       "description": "High-repetition, sensor-guided exoskeleton therapy designed to accelerate motor learning and rebuild walking patterns."
     }
   ]
-}
-</script>
+}\n</script>
     <link rel="stylesheet" href="style.css">
     <!-- Inline styles for custom sections to keep it manageable -->
     <style>
@@ -3426,39 +3424,118 @@
                 </div>
             </header>
 
-        <main>
-        <!-- Section 1: Hero Section -->
-        <div class="ayur-hero-wrapper">
-            <div class="ayur-hero-banner" style="background-image: url('Assets/generated/robotic_rehab_exo_1776281782213.png');">
-                <div class="ayur-hero-overlay"></div>
-                <div class="ayur-container">
-                    <div class="ayur-hero-content">
-                        <div class="ayur-hero-breadcrumb">
-                            <a href="index.html">Home</a> &nbsp;&gt;&nbsp;
-                            <a href="therapies.html">Departments</a> &nbsp;&gt;&nbsp;
-                            <span style="color: #ffffff;">Robotic Rehab</span>
-                        </div>
-                        <span class="ayur-hero-label">Clinical Modality</span>
-                        <h1 class="main-title" style="color: #ffffff !important;">Robotic Exoskeleton Therapy</h1>
-                        <p class="main-sub">India's most advanced robotic gait trainers and arm rehabilitation systems providing exact, sensor-guided, high-repetition movement.</p>
-                        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px;">
-                            <a href="index.html#consultation" class="main-cta">
-                                <span class="cta-text">Book Assessment</span> <span class="arrow-btn"><i data-lucide="arrow-up-right" size="14"></i></span>
-                            </a>
-                            <a href="https://wa.me/918080808080" target="_blank" class="main-cta">
-                                <span class="cta-text">WhatsApp</span>
-                                <span class="arrow-btn" style="background: transparent; color: #000000; width: 16px; height: 16px; border-radius: 0; display: inline-flex; align-items: center; justify-content: center;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.465L0 24zm6.59-4.846c1.6.95 3.488 1.45 5.41 1.451 5.4 0 9.794-4.393 9.798-9.799.002-2.618-1.017-5.08-2.868-6.93C17.078 2.026 14.615.82 12.006.818c-5.4 0-9.794 4.393-9.799 9.799-.001 2.1.543 4.146 1.573 5.956L2.78 21.612l5.05-1.326c-.347-.207-.756-.309-1.183-.311zm12.516-7.411c-.303-.151-1.793-.884-2.071-.985-.278-.101-.482-.151-.684.151-.202.303-.783.985-.96 1.186-.177.202-.354.228-.657.076-.303-.151-1.279-.471-2.436-1.503-.9-.802-1.507-1.793-1.684-2.096-.177-.303-.019-.467.133-.618.136-.135.303-.354.455-.53.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.53-.076-.151-.684-1.648-.938-2.261-.247-.595-.499-.513-.684-.522-.177-.008-.379-.01-.58-.01-.202 0-.53.076-.808.379-.278.303-1.062 1.037-1.062 2.529 0 1.491 1.087 2.932 1.239 3.134.151.202 2.14 3.267 5.184 4.578.724.312 1.29.499 1.732.639.728.231 1.39.198 1.916.12.585-.088 1.793-.733 2.046-1.44.253-.707.253-1.314.177-1.44-.076-.126-.278-.202-.58-.353z"/></svg>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
+            <main class="ayur-page-main">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+            .ayur-page-main {
+                --primary-green: #2BC46D;
+                --dark-navy: #020C22;
+                --pure-white: #FFFFFF;
+                --body-text: #667085;
+                --heading: #101828;
+                --border: #EAECF0;
+                
+                font-family: 'Inter', sans-serif;
+                color: var(--body-text);
+                background-color: var(--pure-white);
+                line-height: 1.7;
+            }
+
+            .ayur-page-main h1, 
+            .ayur-page-main h2, 
+            .ayur-page-main h3, 
+            .ayur-page-main h4 {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                color: var(--heading);
+                letter-spacing: -0.02em;
+            }
+            
+            .ayur-banner-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+                box-sizing: border-box;
+                width: 100%;
+            }
+
+            .ayur-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+                box-sizing: border-box;
+                width: 100%;
+            }
+
+            /* HERO BANNER SECTION */
+            .ayur-hero {
+                position: relative;
+                width: 100%;
+                height: 480px;
+                background-color: var(--dark-navy);
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+            }
+            .ayur-hero-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.35;
+                z-index: 1;
+            }
+            .ayur-hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, rgba(2, 12, 34, 0.95) 0%, rgba(2, 12, 34, 0.8) 50%, rgba(2, 12, 34, 0.2) 100%);
+                z-index: 2;
+            }
+            .ayur-hero-content-wrapper {
+                position: relative;
+                z-index: 3;
+                width: 100%;
+            }
+            .ayur-hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(43, 196, 109, 0.15);
+                border: 1px solid rgba(43, 196, 109, 0.3);
+                padding: 8px 16px;
+                border-radius: 100px;
+                color: #4CAF50;
+                font-size: 13.5px;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                margin-bottom: 24px;
+            }
+            .ayur-hero-title {
+                font-size: 56px;
+                font-weight: 800;
+                color: #ffffff;
+                line-height: 1.1;
+                margin-bottom: 24px;
+                max-width: 700px;
+            }
+            .ayur-hero-desc {
+                font-size: 18px;
+                color: rgba(255, 255, 255, 0.85);
+                max-width: 600px;
+                line-height: 1.6;
+            }
+            @media (max-width: 768px) {
+                .ayur-hero { height: 420px; }
+                .ayur-hero-title { font-size: 36px; }
+                .ayur-hero-desc { font-size: 16px; }
+            }
+            
             /* PAGE BODY — full width, same 16px outer gutter as banner wrapper */
             .ayur-page-body {
                 width: 100%;
@@ -3567,7 +3644,285 @@
                 gap: 0;
                 padding-top: 24px;
             }
+            
+            /* SECTIONS & TYPOGRAPHY */
+            .ayur-section {
+                padding: 48px;
+                border: 1px solid var(--border);
+                border-radius: 36px;
+                margin-bottom: 24px;
+                background-color: var(--pure-white);
+            }
+            .ayur-section.dark-bg {
+                background-color: var(--dark-navy);
+                border-color: var(--dark-navy);
+                color: #ffffff;
+            }
+            @media (max-width: 768px) {
+                .ayur-section { padding: 32px 24px; border-radius: 28px; }
+            }
+            .ayur-sec-label {
+                font-size: 13px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: var(--primary-green);
+                display: inline-block;
+                margin-bottom: 12px;
+            }
+            .ayur-sec-title {
+                font-size: 32px;
+                font-weight: 700;
+                margin-bottom: 32px;
+                color: var(--heading);
+                line-height: 1.25;
+            }
+            .ayur-section.dark-bg .ayur-sec-title {
+                color: #ffffff;
+            }
+            @media (max-width: 768px) {
+                .ayur-sec-title { font-size: 26px; margin-bottom: 24px; }
+            }
+            
+            .ayur-sec-body p {
+                font-size: 16px;
+                line-height: 1.7;
+                color: var(--body-text);
+                margin-bottom: 20px;
+            }
+            .ayur-section.dark-bg .ayur-sec-body p {
+                color: rgba(255, 255, 255, 0.8);
+            }
+            
+            .ayur-intro-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+            @media (max-width: 992px) {
+                .ayur-intro-grid { grid-template-columns: 1fr; gap: 24px; }
+            }
+            .ayur-intro-grid-img {
+                width: 100%;
+                height: auto;
+                border-radius: 24px;
+                object-fit: cover;
+                max-height: 380px;
+                border: 1px solid var(--border);
+            }
+
+            /* LISTS */
+            .ayur-list {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 24px 0;
+            }
+            .ayur-list li {
+                position: relative;
+                padding-left: 32px;
+                margin-bottom: 16px;
+                font-size: 16px;
+                color: var(--heading);
+                font-weight: 500;
+            }
+            .ayur-list li::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 6px;
+                width: 18px;
+                height: 18px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%232BC46D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            
+            /* THERAPY CARDS */
+            .ayur-therapy-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin-top: 32px;
+            }
+            @media (max-width: 768px) {
+                .ayur-therapy-grid { grid-template-columns: 1fr; }
+            }
+            .ayur-therapy-card {
+                display: flex;
+                flex-direction: column;
+                background: #F8FAFC;
+                border-radius: 24px;
+                border: 1px solid var(--border);
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+            .ayur-therapy-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+                border-color: rgba(43, 196, 109, 0.3);
+            }
+            .ayur-therapy-card-img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+            .ayur-therapy-card-body {
+                padding: 24px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .ayur-therapy-num {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 32px;
+                font-weight: 800;
+                color: rgba(43, 196, 109, 0.15);
+                line-height: 1;
+                margin-bottom: 12px;
+            }
+            .ayur-therapy-name {
+                font-size: 17px;
+                font-weight: 700;
+                color: var(--heading);
+                margin-bottom: 8px;
+            }
+            .ayur-therapy-desc {
+                font-size: 14.5px;
+                color: var(--body-text);
+                line-height: 1.6;
+            }
+            
+            /* INTEGRATION PILLS */
+            .ayur-integration-pills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 32px;
+            }
+            .ayur-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 10px 18px;
+                border-radius: 100px;
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+            .ayur-pill:hover {
+                background: rgba(43, 196, 109, 0.2);
+                border-color: #2BC46D;
+            }
+
+            /* STICKY BOTTOM CTA */
+            .ayur-sticky-bottom-cta {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border-top: 1px solid var(--border);
+                padding: 12px 16px;
+                box-sizing: border-box;
+                z-index: 100;
+                display: none;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+            }
+            @media (max-width: 768px) {
+                .ayur-sticky-bottom-cta { display: block; }
+            }
+            .ayur-sticky-bottom-cta-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .ayur-bottom-cta-btn {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                text-decoration: none;
+                color: var(--heading);
+                font-size: 11px;
+                font-weight: 600;
+                padding: 8px 4px;
+                border-radius: 12px;
+                background: #F8FAFC;
+                border: 1px solid var(--border);
+            }
+            .ayur-bottom-cta-btn.primary {
+                background: var(--primary-green);
+                border-color: var(--primary-green);
+                color: #ffffff;
+            }
+            
+            .mobile-sidebar-toggle {
+                display: none;
+                width: 100%;
+                padding: 14px 20px;
+                background: var(--dark-navy);
+                color: #fff;
+                border: none;
+                border-radius: 16px;
+                font-family: 'Inter', sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                cursor: pointer;
+            }
+            @media (max-width: 768px) {
+                .mobile-sidebar-toggle { display: flex; }
+                .ayur-qdept-sidebar {
+                    position: fixed !important;
+                    bottom: -100% !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    z-index: 1000 !important;
+                    background: var(--dark-navy) !important;
+                    border-radius: 24px 24px 0 0 !important;
+                    transition: bottom 0.3s ease-in-out !important;
+                    margin: 0 !important;
+                    padding: 32px 24px !important;
+                    box-sizing: border-box !important;
+                    max-height: 85vh !important;
+                }
+                .ayur-qdept-sidebar.open { bottom: 0 !important; }
+                .sidebar-overlay {
+                    position: fixed;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background: rgba(0,0,0,0.5);
+                    z-index: 999;
+                    display: none;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .sidebar-overlay.open { display: block; opacity: 1; }
+            }
         </style>
+        
+        <section class="ayur-hero">
+            <img src="Assets/generated/robotic_rehab_exo_1776281782213.png" alt="Robotic Rehabilitation Banner" class="ayur-hero-bg">
+            <div class="ayur-hero-overlay"></div>
+            <div class="ayur-banner-container">
+                <div class="ayur-hero-content-wrapper">
+                    <div class="ayur-hero-badge"><i data-lucide="shield-check" size="16"></i> Departments</div>
+                    <h1 class="ayur-hero-title">Robotic Rehabilitation</h1>
+                    <p class="ayur-hero-desc">Experience clinical care and integrated rehabilitation customized specifically for your recovery journey.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Mobile Sidebar Toggle -->
         <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
             <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-qdept-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
@@ -3606,30 +3961,118 @@
                 
                 <!-- CONTENT SECTIONS -->
                 <div class="ayur-content-col">
-                    <section class="container" style="margin-top: 64px; position: relative; z-index: 10;">
-            
-            <div class="grid grid-2 gap-large items-center">
-                <div>
-                    <h2>Precision Meets Neuroplasticity</h2>
-                     <p style="margin-top: 24px; margin-bottom: 24px;">Human therapists can physically guide a patient through perhaps 100 foot steps per session. Our advanced exoskeletons can guide them through perfectly synchronized 1,000+ steps. This massive repetition of correct biometric movement is the core secret to rewiring the damaged brain.</p>
-                     <p>Equipped with intelligent bio-sensors, our robots detect exactly how much effort the patient is producing, and automatically provide just enough assistance to complete the movement, forcing active patient participation rather than passive motion.</p>
-                </div>
-                <div class="card card-large-radius flex-col gap-medium" style="background: var(--bg-main);">
-                      <div style="display: flex; align-items: center; gap: 16px;">
-                          <div style="background: var(--primary); padding: 12px; border-radius: 50%; color: white;"><i data-lucide="activity" size="24"></i></div>
-                          <h3 style="font-size: 20px;">Sensory Biofeedback</h3>
-                      </div>
-                      <p>Real-time visual graphs on screens in front of the patient display their active participation and muscle engagement, creating immediate cognitive feedback loops.</p>
-                      
-                      <div style="display: flex; align-items: center; gap: 16px; margin-top: 16px;">
-                          <div style="background: var(--primary); padding: 12px; border-radius: 50%; color: white;"><i data-lucide="repeat" size="24"></i></div>
-                          <h3 style="font-size: 20px;">Intensive Repetition</h3>
-                      </div>
-                      <p>Enabling mass-practice of movement protocols mathematically impossible through manual therapy alone.</p>
-                </div>
-            </div>
-        </section>
-    
+                    <div class="ayur-section">
+                        <span class="ayur-sec-label">The Legacy</span>
+                        <h2 class="ayur-sec-title">Robotic Rehabilitation at Ayurgreen Hospital</h2>
+                        <div class="ayur-intro-grid">
+                            <div class="ayur-sec-body">
+                                <p>Robotic Rehabilitation</p>
+<p>Introduction to Robotic Neuro Rehabilitation</p>
+<p>Robotic Rehabilitation at Ayurgreen Hospital represents the future of advanced recovery for neurological and orthopedic conditions. As India’s first robotic-integrated neuro rehabilitation center, Ayurgreen combines cutting-edge technology with clinical expertise to deliver highly precise, consistent, and effective therapy.</p>
+<p>Designed to support patients recovering from stroke, spinal cord injuries, brain injuries, and other neurological disorders, robotic rehabilitation enhances traditional therapy methods by offering accuracy, repetition, and measurable progress. This modern approach aligns with Ayurgreen’s philosophy of “Happiness in Healthcare”, ensuring patients experience faster recovery with confidence and comfort.</p>
+<p>________________</p>
+<p>How Robotic Rehabilitation Supports Recovery</p>
+<p>Neurological conditions often result in loss of movement, coordination, and strength. Recovery requires repetitive, targeted exercises to retrain the brain and muscles a process known as neuroplasticity.</p>
+<p>Robotic systems are specially designed to assist this process by:</p>
+<ul class="ayur-list">
+    <li>Delivering precise and controlled movements</li>
+    <li>Providing consistent, repetitive training sessions</li>
+    <li>Reducing therapist dependency while improving efficiency</li>
+    <li>Offering real-time feedback and progress tracking</li>
+</ul>
+<p>In robotic neuro rehabilitation, these systems help patients relearn movements such as walking, hand coordination, and balance. This results in faster improvement compared to conventional therapy alone, especially in early and mid-stages of recovery.</p>
+<p>________________</p>
+<p>Advanced Robotic Technologies at Ayurgreen</p>
+<p>Robotic Gait Training (Lower Limb Rehabilitation)</p>
+<p>This advanced system helps patients relearn walking through supported, repetitive movement patterns. It improves balance, posture, and walking ability in patients recovering from stroke or spinal injuries.</p>
+<p>Robotic Hand & Arm Therapy (Upper Limb Rehabilitation)</p>
+<p>Designed to restore hand and arm function, this therapy focuses on improving grip strength, coordination, and fine motor skills, which are essential for daily activities.</p>
+<p>Huber 360 (Functional Rehabilitation System)</p>
+<p>A dynamic rehabilitation platform that enhances strength, balance, flexibility, and posture through interactive training programs. It is widely used for both neurological and musculoskeletal recovery.</p>
+<p>Each robotic therapy is customized based on the patient’s condition, ensuring safe, progressive, and goal-oriented rehabilitation.</p>
+<p>________________</p>
+
+                            </div>
+                            <img src="Assets/rehab/th_robotic.webp" alt="Robotic Rehabilitation treatment at Ayurgreen Hospital" class="ayur-intro-grid-img">
+                        </div>
+                    </div>
+
+                    <!-- 2. Neurological Recovery -->
+                    <div class="ayur-section">
+                        <span class="ayur-sec-label">Clinical Focus</span>
+                        <h2 class="ayur-sec-title">How Robotic Rehabilitation Supports Recovery</h2>
+                        <div class="ayur-intro-grid">
+                            <img src="Assets/generated/robotic_rehab_exo_1776281782213.png" alt="Robotic Rehabilitation support at Ayurgreen Hospital" class="ayur-intro-grid-img" style="order: -1;">
+                            <div>
+                                <div class="ayur-sec-body">
+                                    <p>Robotic Rehabilitation plays a powerful role in treatment for neurological disorders, especially when combined with advanced rehabilitation techniques.</p>
+<ul class="ayur-list">
+    <li>Comprehensive evaluations</li>
+    <li>Tailored treatment plans</li>
+    <li>Continuous monitoring</li>
+</ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Key Therapies -->
+                    <div class="ayur-section">
+                        <span class="ayur-sec-label">Therapy Modules</span>
+                        <h2 class="ayur-sec-title">Key Robotic Rehabilitation Therapies Offered</h2>
+                        <div class="ayur-sec-body">
+                            <p>Ayurgreen Hospital provides a range of specialized treatments tailored to each patient's condition and recovery stage:</p>
+                        </div>
+                        <div class="ayur-therapy-grid">
+                            
+                        <div class="ayur-therapy-card">
+                            <img src="Assets/rehab/th_panchakarma.webp" alt="Initial Assessment" class="ayur-therapy-card-img">
+                            <div class="ayur-therapy-card-body">
+                                <div class="ayur-therapy-num">01</div>
+                                <div class="ayur-therapy-name">Initial Assessment</div>
+                                <div class="ayur-therapy-desc">A comprehensive evaluation to understand the baseline condition and design a personalized protocol.</div>
+                            </div>
+                        </div>
+                        <div class="ayur-therapy-card">
+                            <img src="Assets/rehab/th_physiotherapy.webp" alt="Targeted Therapies" class="ayur-therapy-card-img">
+                            <div class="ayur-therapy-card-body">
+                                <div class="ayur-therapy-num">02</div>
+                                <div class="ayur-therapy-name">Targeted Therapies</div>
+                                <div class="ayur-therapy-desc">Evidence-based treatments designed to maximize functional recovery and systemic rejuvenation.</div>
+                            </div>
+                        </div>
+                        <div class="ayur-therapy-card">
+                            <img src="Assets/rehab/th_robotic.webp" alt="Progressive Rehabilitation" class="ayur-therapy-card-img">
+                            <div class="ayur-therapy-card-body">
+                                <div class="ayur-therapy-num">03</div>
+                                <div class="ayur-therapy-name">Progressive Rehabilitation</div>
+                                <div class="ayur-therapy-desc">Continuous adjustments to the therapy regimen based on real-time functional gains and recovery milestones.</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Integration with Modern Rehab (dark bg) -->
+                    <div class="ayur-section dark-bg">
+                        <span class="ayur-sec-label">Integrated Innovation</span>
+                        <h2 class="ayur-sec-title">Integration with Modern Rehabilitation</h2>
+                        <div class="ayur-sec-body">
+                            <p>What makes Ayurgreen unique is its seamless integration of advanced rehabilitation technologies. Patients benefit from a multidisciplinary approach that combines:</p>
+
+                        </div>
+                        <div class="ayur-integration-pills">
+                            <span class="ayur-pill"><i data-lucide="bot" size="14"></i>Robotic Neuro Rehabilitation</span>
+                            <span class="ayur-pill"><i data-lucide="dumbbell" size="14"></i>Physiotherapy &amp; Occupational Therapy</span>
+                            <span class="ayur-pill"><i data-lucide="message-circle" size="14"></i>Speech &amp; Swallow Therapy</span>
+                            <span class="ayur-pill"><i data-lucide="heart-handshake" size="14"></i>Psychological Counseling</span>
+                            <span class="ayur-pill"><i data-lucide="headset" size="14"></i>VR Cognitive Rehabilitation</span>
+                            <span class="ayur-pill"><i data-lucide="sun" size="14"></i>Yoga &amp; Meditation</span>
+                        </div>
+                        <div class="ayur-sec-body" style="margin-top: 24px;">
+                            <p>This combination ensures that Robotic Rehabilitation enhances — not replaces — modern treatment, creating a comprehensive recovery plan. The result is faster progress, improved functional outcomes, and better quality of life.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3652,6 +4095,7 @@
             </div>
         </div>
     </main>
+    
     
 
     <script>

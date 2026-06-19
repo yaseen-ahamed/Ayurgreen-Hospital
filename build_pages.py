@@ -262,7 +262,7 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
             }}
         </style>
         <!-- Mobile Sidebar Toggle -->
-        <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
+        <div style="margin-top: 24px; margin-bottom: 0; padding: 0 24px;">
             <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-qdept-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
                 <i data-lucide="menu" size="18"></i>
                 <span>Explore {category_name}</span>
@@ -271,7 +271,7 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
         
         <div class="sidebar-overlay" onclick="document.querySelector('.ayur-qdept-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
         
-        <div class="ayur-container ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
+        <div class="ayur-sidebar-container" style="padding: 40px 24px 80px 24px; box-sizing: border-box; width: 100%;">
             <div class="ayur-page-body">
                 <!-- QUICK ACCESS SIDEBAR -->
                 <aside class="ayur-qdept-sidebar">
@@ -437,13 +437,20 @@ def generate_service_html(svc, category_name, siblings):
                 background-color: var(--pure-white);
                 line-height: 1.7;
             }}
-
             .ayur-container {{
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 0 24px;
                 box-sizing: border-box;
                 width: 100%;
+            }}
+
+            /* Fix banner content left alignment */
+            .ayur-hero-content {{
+                padding-left: 48px !important;
+            }}
+            @media (max-width: 768px) {{
+                .ayur-hero-content {{ padding-left: 24px !important; }}
             }}
 
             .ayur-page-main h1, 
@@ -889,9 +896,8 @@ def generate_service_html(svc, category_name, siblings):
         <div class="ayur-hero-wrapper">
             <div class="ayur-hero-banner" style="background-image: url('{banner_img}');">
                 <div class="ayur-hero-overlay"></div>
-                <div class="ayur-container">
-                    <div class="ayur-hero-content">
-                        <div class="ayur-hero-breadcrumb">
+                <div class="ayur-hero-content">
+                    <div class="ayur-hero-breadcrumb">
                             <a href="index.html">Home</a> &nbsp;&gt;&nbsp;
                             <a href="therapies.html">{breadcrumb_label}</a> &nbsp;&gt;&nbsp;
                             <span style="color: #ffffff;">{name}</span>
@@ -911,7 +917,6 @@ def generate_service_html(svc, category_name, siblings):
                             </a>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
 

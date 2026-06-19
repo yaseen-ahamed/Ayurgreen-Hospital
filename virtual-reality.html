@@ -3074,6 +3074,13 @@
             -webkit-backdrop-filter: blur(1px);
             z-index: 1;
         }
+        .ayur-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+            width: 100%;
+        }
         .ayur-hero-content {
             position: relative;
             z-index: 2;
@@ -3082,6 +3089,10 @@
             width: 100%;
             box-sizing: border-box;
             text-align: left;
+            padding-left: 48px !important;
+        }
+        @media (max-width: 768px) {
+            .ayur-hero-content { padding-left: 48px !important; }
         }
         .ayur-hero-breadcrumb {
             font-size: 14px;

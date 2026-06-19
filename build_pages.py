@@ -1,619 +1,5 @@
 import os
 import json
-import re
-
-# Parse content.txt
-current_dir = os.path.dirname(os.path.abspath(__file__))
-content_path = os.path.join(current_dir, "content.txt")
-
-gdoc_data = {}
-if os.path.exists(content_path):
-    with open(content_path, "r", encoding="utf-8") as f:
-        text = f.read()
-    
-    # Normalize line endings
-    text = text.replace('\r\n', '\n')
-    lines = [l.strip().replace('\ufeff', '') for l in text.split('\n')]
-    
-    # Heading lists in Google Doc order
-    gdoc_headings = [
-        "Ayurveda", "Physiotherapy", "Robotic Rehabilitation", "Occupational Therapy", "Speech Therapy",
-        "Virtual Reality", "Yoga", "Acupuncture", "Reflexology", "Hydro / Aquatic Therapy",
-        "Pediatric Physiotherapy", "Slimming Treatment", "Pain Management", "Diet & Nutrition",
-        "Counseling", "Dentistry", "Modern Medical management", "Assistive Devices",
-        "Stroke", "Spinal Cord Injury", "Traumatic Brain Injury", "Hemiplegia",
-        "Quadriplegia & Paraplegia", "Motor Neuron Diseases", "Cerebral Palsy", "Parkinson's Disease",
-        "Myopathy", "Disc & Spine Problems", "Sciatica", "Obesity", "Post Covid Problems",
-        "Muscular Dystrophy", "Osteoarthritis", "Rheumatoid Arthritis", "Developmental Delay",
-        "Psychological Problems", "Neurology", "Neurosurgery", "Orthopedic", "ENT",
-        "General medicine", "Urology", "Cardiology"
-    ]
-    
-    # Find indices of headings in content.txt
-    heading_indices = []
-    current_idx = 0
-    for heading in gdoc_headings:
-        for i in range(current_idx, len(lines)):
-            if lines[i] == heading:
-                heading_indices.append((heading, i))
-                current_idx = i + 1
-                break
-                
-    # Parse each page's sections
-    for idx, (heading, line_idx) in enumerate(heading_indices):
-        start = line_idx
-        end = heading_indices[idx+1][1] if idx + 1 < len(heading_indices) else len(lines)
-        page_lines = lines[start:end]
-        
-        title = page_lines[0]
-        subtitle = ""
-        start_content_idx = 1
-        for i, line in enumerate(page_lines[1:]):
-            if line:
-                subtitle = line
-                start_content_idx = i + 2
-                break
-                
-        sections = {
-            "intro": [],
-            "importance": [],
-            "approach": [],
-            "treatments": [],
-            "benefits": [],
-            "why_choose": []
-        }
-        current_sec = "intro"
-        
-        for line in page_lines[start_content_idx:]:
-            if not line:
-                continue
-            
-            lower_line = line.lower()
-            is_heading = False
-            detected_sec = None
-            
-            # Heading heuristic matching test_refined_parser
-            if len(line) < 80 and not line.startswith(('*', '-', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.')):
-                if "importance" in lower_line or ("how " in lower_line and "support" in lower_line):
-                    is_heading = True
-                    detected_sec = "importance"
-                elif "approach" in lower_line or "integration" in lower_line or "integrated" in lower_line or "multidisciplinary care" in lower_line:
-                    is_heading = True
-                    detected_sec = "approach"
-                elif "treatment" in lower_line or "therapy" in lower_line or "therapies" in lower_line or "services" in lower_line or "procedures" in lower_line or "devices" in lower_line or "approaches" in lower_line:
-                    is_heading = True
-                    detected_sec = "treatments"
-                elif "benefit" in lower_line or "applications" in lower_line or "indications" in lower_line:
-                    is_heading = True
-                    detected_sec = "benefits"
-                elif "why choose" in lower_line:
-                    is_heading = True
-                    detected_sec = "why_choose"
-                    
-            if is_heading and detected_sec:
-                current_sec = detected_sec
-                sections[current_sec].append(line)
-            else:
-                sections[current_sec].append(line)
-                
-        gdoc_data[heading] = {
-            "title": title,
-            "subtitle": subtitle,
-            "sections": sections
-        }
-
-gdoc_mapping = {
-    # Therapies
-    "Stroke": "Stroke",
-    "Spinal Cord Injury": "Spinal Cord Injury",
-    "Traumatic Brain Injury": "Traumatic Brain Injury",
-    "Hemiplegia": "Hemiplegia",
-    "Quadriplegia & Paraplegia": "Quadriplegia & Paraplegia",
-    "Motor Neuron Diseases": "Motor Neuron Diseases",
-    "Cerebral Palsy": "Cerebral Palsy",
-    "Parkinson's Disease": "Parkinson's Disease",
-    "Myopathy": "Myopathy",
-    "Disc & Spine Problems": "Disc & Spine Problems",
-    "Sciatica": "Sciatica",
-    "Obesity": "Obesity",
-    "Post-Covid Complications": "Post Covid Problems",
-    "Muscular Dystrophy": "Muscular Dystrophy",
-    "Osteoarthritis": "Osteoarthritis",
-    "Rheumatoid Arthritis": "Rheumatoid Arthritis",
-    "Developmental Delay": "Developmental Delay",
-    "Psychological Problems": "Psychological Problems",
-    
-    # Departments
-    "Ayurveda": "Ayurveda",
-    "Physiotherapy": "Physiotherapy",
-    "Robotic Rehabilitation": "Robotic Rehabilitation",
-    "Occupational Therapy": "Occupational Therapy",
-    "Speech Therapy": "Speech Therapy",
-    "Virtual Reality": "Virtual Reality",
-    "Yoga and Meditation": "Yoga",
-    "Acupuncture": "Acupuncture",
-    "Reflexology": "Reflexology",
-    "Hydro / Aquatic Therapy": "Hydro / Aquatic Therapy",
-    "Pediatrics": "Pediatric Physiotherapy",
-    "Slimming Treatment": "Slimming Treatment",
-    "Pain Management": "Pain Management",
-    "Diet & Nutrition": "Diet & Nutrition",
-    "Counseling": "Counseling",
-    "Dentistry": "Dentistry",
-    "Modern Medicine": "Modern Medical management",
-    "Assistive Devices": "Assistive Devices",
-    
-    # Specializations
-    "Neurology": "Neurology",
-    "Neurosurgery": "Neurosurgery",
-    "Orthopedic": "Orthopedic",
-    "ENT": "ENT",
-    "General Medicine": "General medicine",
-    "Urology": "Urology",
-    "Cardiology": "Cardiology"
-}
-
-fallbacks = {
-    "Autism": {
-        "subtitle": "Pediatric Sensory & Neuromotor Rehabilitation",
-        "sections": {
-            "intro": [
-                "At Ayurgreen Hospital, our Autism program offers specialized neurodevelopmental support, sensory integration, and motor coordination therapies to help children achieve active life milestones.",
-                "We design personalized physical and cognitive stimulation protocols in a warm, welcoming environment to foster developmental progress, motor learning, and emotional growth."
-            ],
-            "importance": [
-                "How Sensory Integration Supports Autism Care",
-                "Children facing developmental milestones or sensory processing difficulties benefit from structured neuro-physical stimulation.",
-                "Our therapies target: sensory overload reduction, fine motor grip control, eye-hand coordination, balance, and spatial awareness."
-            ],
-            "treatments": [
-                "Specialized Autism Interventions Offered",
-                "* Sensory Integration Therapy: Dynamic tactile and vestibular training in specialized pediatric gyms.",
-                "* Motor Coordination Exercises: Guided physical activities to improve gait, stability, and posture.",
-                "* ADL & Task-Specific Training: Empowering children to perform everyday self-care tasks independently."
-            ],
-            "approach": [
-                "Integrated Innovation in Pediatric Care",
-                "We combine advanced sensory integration setups with traditional Ayurvedic organic oil applications (where recommended by our clinical scholars) to nourish nerve pathways and calm sensory hyperactivity."
-            ],
-            "benefits": [
-                "Developmental Benefits of the Program",
-                "* Improved sensory regulation and calm focus",
-                "* Enhanced motor planning and coordination",
-                "* Increased independence in daily self-care tasks"
-            ]
-        }
-    },
-    "Psychiatry": {
-        "subtitle": "Comprehensive Mental Health & Clinical Psychology Services",
-        "sections": {
-            "intro": [
-                "Ayurgreen Hospital provides integrated clinical psychiatric support, wellness counseling, and stress-reduction protocols for patients navigating mental health challenges.",
-                "We believe that physical recovery and mental peace go hand-in-hand. Our scholars and psychologists work closely with families to offer holistic cognitive support."
-            ],
-            "importance": [
-                "The Role of Mental Health in Rehabilitation",
-                "Recovering from chronic illness, nerve damage, or trauma requires emotional resilience and active psychological support.",
-                "Our services focus on: managing anxiety and depression, stress regulation, family counseling, and building positive coping strategies."
-            ],
-            "treatments": [
-                "Psychiatric & Counseling Offerings",
-                "* Clinical Assessments: In-depth evaluations to understand emotional and cognitive health.",
-                "* Mind-Body Relaxation: Specialized breathing exercises, meditation, and biofeedback sessions.",
-                "* Cognitive Behavioral Guidance: Targeted therapy to build emotional strength and resilience."
-            ],
-            "approach": [
-                "Integrated Holistic Mental Health Care",
-                "Our clinical model pairs scientific psychological counseling with traditional Ayurvedic Shirodhara and herbal wellness formulations to lower cortisol levels and calm the nervous system."
-            ],
-            "benefits": [
-                "Clinical Benefits of Psychological Support",
-                "* Reduced anxiety, stress, and mental fatigue",
-                "* Enhanced motivation and focus on recovery",
-                "* Improved sleep quality and overall vitality"
-            ]
-        }
-    },
-    "Respiratory Therapy": {
-        "subtitle": "Advanced Cardiopulmonary Rehabilitation & Airway Care",
-        "sections": {
-            "intro": [
-                "Our Respiratory Therapy program is dedicated to restoring lung volumes, improving breathing mechanics, and enhancing oxygenation for patients recovering from severe illness.",
-                "Using specialized breathing exercises and advanced chest physiotherapy, our therapists help patients rebuild physical endurance and respiratory capacity."
-            ],
-            "importance": [
-                "The Vital Importance of Pulmonary Care",
-                "Restoring lung capacity is critical for patients with chronic muscular fatigue, post-covid complications, or limited mobility.",
-                "Our focus areas include: clearing airway secretions, strengthening breathing muscles, and optimizing oxygen distribution throughout the body."
-            ],
-            "treatments": [
-                "Pulmonary Rehabilitation Interventions",
-                "* Diaphragmatic Breathing Drills: Targeted exercises to maximize lung expansion and efficiency.",
-                "* Chest Physiotherapy: Specialized manual techniques to clear airways and reduce congestion.",
-                "* Aerobic Conditioning: Monitored low-impact exercise to improve cardiac and lung endurance."
-            ],
-            "approach": [
-                "Integrated Airway Rejuvenation Model",
-                "We combine advanced respiratory trainers and chest physiotherapy with traditional Ayurvedic steam sudations and herbal formulations to reduce airway inflammation and boost immunity."
-            ],
-            "benefits": [
-                "Expected Respiratory Benefits",
-                "* Increased lung volumes and easier breathing",
-                "* Reduced physical fatigue and higher energy levels",
-                "* Improved systemic oxygenation and overall health"
-            ]
-        }
-    },
-    "Neuro Psychology": {
-        "subtitle": "Cognitive Retraining & Neuro-Cognitive Assessment",
-        "sections": {
-            "intro": [
-                "Our Neuropsychology program focuses on diagnosing and treating cognitive, behavioral, and emotional challenges resulting from brain injury, stroke, or neurological conditions.",
-                "We design personalized cognitive retraining modules to help patients rebuild memory, attention, and executive functions."
-            ],
-            "importance": [
-                "Rebuilding Cognitive Pathways Post-Trauma",
-                "Physical recovery must be matched by cognitive restoration to ensure full integration into daily life.",
-                "We target: memory enhancement, attention span retraining, spatial reasoning, and emotional regulation."
-            ],
-            "treatments": [
-                "Neuro-Cognitive Interventions We Offer",
-                "* Cognitive Retraining Exercises: Interactive computer-based and manual exercises to challenge the brain.",
-                "* Biofeedback & Relaxation: Training to control physiological responses to stress and anxiety.",
-                "* Behavior Management Support: Helping patients and families adapt to behavioral changes post-injury."
-            ],
-            "approach": [
-                "Integrated Cognitive Rebuilding Pathway",
-                "We utilize advanced virtual reality (VR) cognitive environments alongside traditional Ayurvedic nerve-nourishing (Medhya) oils to accelerate synaptic plasticity and focus."
-            ],
-            "benefits": [
-                "Expected Cognitive Outcomes",
-                "* Enhanced short-term and long-term memory",
-                "* Improved concentration and problem-solving skills",
-                "* Restored emotional control and self-confidence"
-            ]
-        }
-    },
-    "Post-Surgical Complications": {
-        "subtitle": "Integrated Post-Operative Ortho-Neuro Rehabilitation",
-        "sections": {
-            "intro": [
-                "Our Post-Surgical Complications recovery program focuses on correcting joint stiffness, relieving nerve impingements, and speeding tissue healing after orthopedic or neurosurgery.",
-                "We combine gentle mobilization, physical therapies, and natural swelling-relief applications to ensure a smooth, complete recovery after surgery."
-            ],
-            "importance": [
-                "Preventing Complications After Surgery",
-                "Early movement and proper tissue care are essential to prevent scar tissue formation, muscle wasting, and persistent pain.",
-                "Our clinical focus includes: restoring joint mobility, reducing surgical edema, and strengthening supporting muscles."
-            ],
-            "treatments": [
-                "Post-Operative Recovery Modalities",
-                "* Gentle Joint Mobilization: Guided movements to restore range of motion without straining sutures.",
-                "* Ayurvedic Inflammation Control: Herbal paste wraps (Lepanams) to reduce swelling and pain.",
-                "* Muscle Loading Protocols: Scientific exercises to rebuild strength around the surgical site."
-            ],
-            "approach": [
-                "Integrated Post-Surgical Healing Pathway",
-                "We combine evidence-based physical therapy and muscle activation with traditional Ayurvedic oil therapies and herbal wraps to accelerate tissue repair and joint lubrication."
-            ],
-            "benefits": [
-                "Clinical Benefits of Post-Surgical Rehab",
-                "* Faster tissue healing and swelling reduction",
-                "* Restored joint flexibility and range of motion",
-                "* Safe, supervised return to daily physical activity"
-            ]
-        }
-    }
-}
-
-# Define the service lists with their dropdown settings
-
-import re
-
-# Parse content.txt
-current_dir = os.path.dirname(os.path.abspath(__file__))
-content_path = os.path.join(current_dir, "content.txt")
-
-gdoc_data = {}
-if os.path.exists(content_path):
-    with open(content_path, "r", encoding="utf-8") as f:
-        text = f.read()
-    
-    # Normalize line endings
-    text = text.replace('\r\n', '\n')
-    lines = [l.strip().replace('\ufeff', '') for l in text.split('\n')]
-    
-    # Heading lists in Google Doc order
-    gdoc_headings = [
-        "Ayurveda", "Physiotherapy", "Robotic Rehabilitation", "Occupational Therapy", "Speech Therapy",
-        "Virtual Reality", "Yoga", "Acupuncture", "Reflexology", "Hydro / Aquatic Therapy",
-        "Pediatric Physiotherapy", "Slimming Treatment", "Pain Management", "Diet & Nutrition",
-        "Counseling", "Dentistry", "Modern Medical management", "Assistive Devices",
-        "Stroke", "Spinal Cord Injury", "Traumatic Brain Injury", "Hemiplegia",
-        "Quadriplegia & Paraplegia", "Motor Neuron Diseases", "Cerebral Palsy", "Parkinson's Disease",
-        "Myopathy", "Disc & Spine Problems", "Sciatica", "Obesity", "Post Covid Problems",
-        "Muscular Dystrophy", "Osteoarthritis", "Rheumatoid Arthritis", "Developmental Delay",
-        "Psychological Problems", "Neurology", "Neurosurgery", "Orthopedic", "ENT",
-        "General medicine", "Urology", "Cardiology"
-    ]
-    
-    # Find indices of headings in content.txt
-    heading_indices = []
-    current_idx = 0
-    for heading in gdoc_headings:
-        for i in range(current_idx, len(lines)):
-            if lines[i] == heading:
-                heading_indices.append((heading, i))
-                current_idx = i + 1
-                break
-                
-    # Parse each page's sections
-    for idx, (heading, line_idx) in enumerate(heading_indices):
-        start = line_idx
-        end = heading_indices[idx+1][1] if idx + 1 < len(heading_indices) else len(lines)
-        page_lines = lines[start:end]
-        
-        title = page_lines[0]
-        subtitle = ""
-        start_content_idx = 1
-        for i, line in enumerate(page_lines[1:]):
-            if line:
-                subtitle = line
-                start_content_idx = i + 2
-                break
-                
-        sections = {
-            "intro": [],
-            "importance": [],
-            "approach": [],
-            "treatments": [],
-            "benefits": [],
-            "why_choose": []
-        }
-        current_sec = "intro"
-        
-        for line in page_lines[start_content_idx:]:
-            if not line:
-                continue
-            
-            lower_line = line.lower()
-            is_heading = False
-            detected_sec = None
-            
-            # Heading heuristic matching test_refined_parser
-            if len(line) < 80 and not line.startswith(('*', '-', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.')):
-                if "importance" in lower_line or ("how " in lower_line and "support" in lower_line):
-                    is_heading = True
-                    detected_sec = "importance"
-                elif "approach" in lower_line or "integration" in lower_line or "integrated" in lower_line or "multidisciplinary care" in lower_line:
-                    is_heading = True
-                    detected_sec = "approach"
-                elif "treatment" in lower_line or "therapy" in lower_line or "therapies" in lower_line or "services" in lower_line or "procedures" in lower_line or "devices" in lower_line or "approaches" in lower_line:
-                    is_heading = True
-                    detected_sec = "treatments"
-                elif "benefit" in lower_line or "applications" in lower_line or "indications" in lower_line:
-                    is_heading = True
-                    detected_sec = "benefits"
-                elif "why choose" in lower_line:
-                    is_heading = True
-                    detected_sec = "why_choose"
-                    
-            if is_heading and detected_sec:
-                current_sec = detected_sec
-                sections[current_sec].append(line)
-            else:
-                sections[current_sec].append(line)
-                
-        gdoc_data[heading] = {
-            "title": title,
-            "subtitle": subtitle,
-            "sections": sections
-        }
-
-gdoc_mapping = {
-    # Therapies
-    "Stroke": "Stroke",
-    "Spinal Cord Injury": "Spinal Cord Injury",
-    "Traumatic Brain Injury": "Traumatic Brain Injury",
-    "Hemiplegia": "Hemiplegia",
-    "Quadriplegia & Paraplegia": "Quadriplegia & Paraplegia",
-    "Motor Neuron Diseases": "Motor Neuron Diseases",
-    "Cerebral Palsy": "Cerebral Palsy",
-    "Parkinson's Disease": "Parkinson's Disease",
-    "Myopathy": "Myopathy",
-    "Disc & Spine Problems": "Disc & Spine Problems",
-    "Sciatica": "Sciatica",
-    "Obesity": "Obesity",
-    "Post-Covid Complications": "Post Covid Problems",
-    "Muscular Dystrophy": "Muscular Dystrophy",
-    "Osteoarthritis": "Osteoarthritis",
-    "Rheumatoid Arthritis": "Rheumatoid Arthritis",
-    "Developmental Delay": "Developmental Delay",
-    "Psychological Problems": "Psychological Problems",
-    
-    # Departments
-    "Ayurveda": "Ayurveda",
-    "Physiotherapy": "Physiotherapy",
-    "Robotic Rehabilitation": "Robotic Rehabilitation",
-    "Occupational Therapy": "Occupational Therapy",
-    "Speech Therapy": "Speech Therapy",
-    "Virtual Reality": "Virtual Reality",
-    "Yoga and Meditation": "Yoga",
-    "Acupuncture": "Acupuncture",
-    "Reflexology": "Reflexology",
-    "Hydro / Aquatic Therapy": "Hydro / Aquatic Therapy",
-    "Pediatrics": "Pediatric Physiotherapy",
-    "Slimming Treatment": "Slimming Treatment",
-    "Pain Management": "Pain Management",
-    "Diet & Nutrition": "Diet & Nutrition",
-    "Counseling": "Counseling",
-    "Dentistry": "Dentistry",
-    "Modern Medicine": "Modern Medical management",
-    "Assistive Devices": "Assistive Devices",
-    
-    # Specializations
-    "Neurology": "Neurology",
-    "Neurosurgery": "Neurosurgery",
-    "Orthopedic": "Orthopedic",
-    "ENT": "ENT",
-    "General Medicine": "General medicine",
-    "Urology": "Urology",
-    "Cardiology": "Cardiology"
-}
-
-fallbacks = {
-    "Autism": {
-        "subtitle": "Pediatric Sensory & Neuromotor Rehabilitation",
-        "sections": {
-            "intro": [
-                "At Ayurgreen Hospital, our Autism program offers specialized neurodevelopmental support, sensory integration, and motor coordination therapies to help children achieve active life milestones.",
-                "We design personalized physical and cognitive stimulation protocols in a warm, welcoming environment to foster developmental progress, motor learning, and emotional growth."
-            ],
-            "importance": [
-                "How Sensory Integration Supports Autism Care",
-                "Children facing developmental milestones or sensory processing difficulties benefit from structured neuro-physical stimulation.",
-                "Our therapies target: sensory overload reduction, fine motor grip control, eye-hand coordination, balance, and spatial awareness."
-            ],
-            "treatments": [
-                "Specialized Autism Interventions Offered",
-                "* Sensory Integration Therapy: Dynamic tactile and vestibular training in specialized pediatric gyms.",
-                "* Motor Coordination Exercises: Guided physical activities to improve gait, stability, and posture.",
-                "* ADL & Task-Specific Training: Empowering children to perform everyday self-care tasks independently."
-            ],
-            "approach": [
-                "Integrated Innovation in Pediatric Care",
-                "We combine advanced sensory integration setups with traditional Ayurvedic organic oil applications (where recommended by our clinical scholars) to nourish nerve pathways and calm sensory hyperactivity."
-            ],
-            "benefits": [
-                "Developmental Benefits of the Program",
-                "* Improved sensory regulation and calm focus",
-                "* Enhanced motor planning and coordination",
-                "* Increased independence in daily self-care tasks"
-            ]
-        }
-    },
-    "Psychiatry": {
-        "subtitle": "Comprehensive Mental Health & Clinical Psychology Services",
-        "sections": {
-            "intro": [
-                "Ayurgreen Hospital provides integrated clinical psychiatric support, wellness counseling, and stress-reduction protocols for patients navigating mental health challenges.",
-                "We believe that physical recovery and mental peace go hand-in-hand. Our scholars and psychologists work closely with families to offer holistic cognitive support."
-            ],
-            "importance": [
-                "The Role of Mental Health in Rehabilitation",
-                "Recovering from chronic illness, nerve damage, or trauma requires emotional resilience and active psychological support.",
-                "Our services focus on: managing anxiety and depression, stress regulation, family counseling, and building positive coping strategies."
-            ],
-            "treatments": [
-                "Psychiatric & Counseling Offerings",
-                "* Clinical Assessments: In-depth evaluations to understand emotional and cognitive health.",
-                "* Mind-Body Relaxation: Specialized breathing exercises, meditation, and biofeedback sessions.",
-                "* Cognitive Behavioral Guidance: Targeted therapy to build emotional strength and resilience."
-            ],
-            "approach": [
-                "Integrated Holistic Mental Health Care",
-                "Our clinical model pairs scientific psychological counseling with traditional Ayurvedic Shirodhara and herbal wellness formulations to lower cortisol levels and calm the nervous system."
-            ],
-            "benefits": [
-                "Clinical Benefits of Psychological Support",
-                "* Reduced anxiety, stress, and mental fatigue",
-                "* Enhanced motivation and focus on recovery",
-                "* Improved sleep quality and overall vitality"
-            ]
-        }
-    },
-    "Respiratory Therapy": {
-        "subtitle": "Advanced Cardiopulmonary Rehabilitation & Airway Care",
-        "sections": {
-            "intro": [
-                "Our Respiratory Therapy program is dedicated to restoring lung volumes, improving breathing mechanics, and enhancing oxygenation for patients recovering from severe illness.",
-                "Using specialized breathing exercises and advanced chest physiotherapy, our therapists help patients rebuild physical endurance and respiratory capacity."
-            ],
-            "importance": [
-                "The Vital Importance of Pulmonary Care",
-                "Restoring lung capacity is critical for patients with chronic muscular fatigue, post-covid complications, or limited mobility.",
-                "Our focus areas include: clearing airway secretions, strengthening breathing muscles, and optimizing oxygen distribution throughout the body."
-            ],
-            "treatments": [
-                "Pulmonary Rehabilitation Interventions",
-                "* Diaphragmatic Breathing Drills: Targeted exercises to maximize lung expansion and efficiency.",
-                "* Chest Physiotherapy: Specialized manual techniques to clear airways and reduce congestion.",
-                "* Aerobic Conditioning: Monitored low-impact exercise to improve cardiac and lung endurance."
-            ],
-            "approach": [
-                "Integrated Airway Rejuvenation Model",
-                "We combine advanced respiratory trainers and chest physiotherapy with traditional Ayurvedic steam sudations and herbal formulations to reduce airway inflammation and boost immunity."
-            ],
-            "benefits": [
-                "Expected Respiratory Benefits",
-                "* Increased lung volumes and easier breathing",
-                "* Reduced physical fatigue and higher energy levels",
-                "* Improved systemic oxygenation and overall health"
-            ]
-        }
-    },
-    "Neuro Psychology": {
-        "subtitle": "Cognitive Retraining & Neuro-Cognitive Assessment",
-        "sections": {
-            "intro": [
-                "Our Neuropsychology program focuses on diagnosing and treating cognitive, behavioral, and emotional challenges resulting from brain injury, stroke, or neurological conditions.",
-                "We design personalized cognitive retraining modules to help patients rebuild memory, attention, and executive functions."
-            ],
-            "importance": [
-                "Rebuilding Cognitive Pathways Post-Trauma",
-                "Physical recovery must be matched by cognitive restoration to ensure full integration into daily life.",
-                "We target: memory enhancement, attention span retraining, spatial reasoning, and emotional regulation."
-            ],
-            "treatments": [
-                "Neuro-Cognitive Interventions We Offer",
-                "* Cognitive Retraining Exercises: Interactive computer-based and manual exercises to challenge the brain.",
-                "* Biofeedback & Relaxation: Training to control physiological responses to stress and anxiety.",
-                "* Behavior Management Support: Helping patients and families adapt to behavioral changes post-injury."
-            ],
-            "approach": [
-                "Integrated Cognitive Rebuilding Pathway",
-                "We utilize advanced virtual reality (VR) cognitive environments alongside traditional Ayurvedic nerve-nourishing (Medhya) oils to accelerate synaptic plasticity and focus."
-            ],
-            "benefits": [
-                "Expected Cognitive Outcomes",
-                "* Enhanced short-term and long-term memory",
-                "* Improved concentration and problem-solving skills",
-                "* Restored emotional control and self-confidence"
-            ]
-        }
-    },
-    "Post-Surgical Complications": {
-        "subtitle": "Integrated Post-Operative Ortho-Neuro Rehabilitation",
-        "sections": {
-            "intro": [
-                "Our Post-Surgical Complications recovery program focuses on correcting joint stiffness, relieving nerve impingements, and speeding tissue healing after orthopedic or neurosurgery.",
-                "We combine gentle mobilization, physical therapies, and natural swelling-relief applications to ensure a smooth, complete recovery after surgery."
-            ],
-            "importance": [
-                "Preventing Complications After Surgery",
-                "Early movement and proper tissue care are essential to prevent scar tissue formation, muscle wasting, and persistent pain.",
-                "Our clinical focus includes: restoring joint mobility, reducing surgical edema, and strengthening supporting muscles."
-            ],
-            "treatments": [
-                "Post-Operative Recovery Modalities",
-                "* Gentle Joint Mobilization: Guided movements to restore range of motion without straining sutures.",
-                "* Ayurvedic Inflammation Control: Herbal paste wraps (Lepanams) to reduce swelling and pain.",
-                "* Muscle Loading Protocols: Scientific exercises to rebuild strength around the surgical site."
-            ],
-            "approach": [
-                "Integrated Post-Surgical Healing Pathway",
-                "We combine evidence-based physical therapy and muscle activation with traditional Ayurvedic oil therapies and herbal wraps to accelerate tissue repair and joint lubrication."
-            ],
-            "benefits": [
-                "Clinical Benefits of Post-Surgical Rehab",
-                "* Faster tissue healing and swelling reduction",
-                "* Restored joint flexibility and range of motion",
-                "* Safe, supervised return to daily physical activity"
-            ]
-        }
-    }
-}
-
 
 # Define the service lists with their dropdown settings
 therapies_list = [
@@ -742,9 +128,9 @@ def generate_json_ld(filename, name, desc, category_name):
     return json.dumps(schema, indent=2)
 
 def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblings):
-    sec_idx = html_content.find("<div class=\"ayur-section")
+    sec_idx = html_content.find("<section")
     if sec_idx == -1:
-        sec_idx = html_content.find("<section")
+        sec_idx = html_content.find("<div class=\"ayur-section") # Fallback
     
     if sec_idx == -1:
         return html_content
@@ -752,7 +138,6 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
     banner_part = html_content[:sec_idx]
     body_part = html_content[sec_idx:]
     
-    body_part = body_part.strip()
     if body_part.endswith("</main>"):
         body_part = body_part[:-7]
     elif body_part.endswith("</main>\"\"\""):
@@ -925,359 +310,116 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
 def generate_service_html(svc, category_name, siblings):
     name = svc["name"]
     filename = svc["filename"]
+    
+    if category_name == "Therapies":
+        breadcrumb_label = "Therapies"
+        hero_label = "Rehabilitation Program"
+    elif category_name == "Departments":
+        breadcrumb_label = "Departments"
+        hero_label = "Clinical Modalities"
+    else:
+        breadcrumb_label = "Specializations"
+        hero_label = "Clinical Specialization"
+        
     banner_img = svc.get("banner_img", "Assets/Hospital View.webp")
     intro_img = svc.get("intro_img", "Assets/Hospital View.webp")
+    desc = svc.get("desc", f"Comprehensive clinical care and integrated rehabilitation pathways customized specifically for {name} recovery.")
     
-    gdoc_key = gdoc_mapping.get(name)
-    if gdoc_key and gdoc_key in gdoc_data:
-        page_data = gdoc_data[gdoc_key]
-        subtitle = page_data["subtitle"]
-        sections_data = page_data["sections"]
-    elif name in fallbacks:
-        page_data = fallbacks[name]
-        subtitle = page_data["subtitle"]
-        sections_data = page_data["sections"]
-    else:
-        subtitle = svc.get("desc", f"Comprehensive clinical care and integrated rehabilitation for {name}.")
-        sections_data = {
-            "intro": [f"At Ayurgreen Hospital, we provide an integrated rehabilitation approach for {name} designed to maximize functional recovery and systemic rejuvenation."],
-            "importance": [],
-            "approach": [],
-            "treatments": [],
-            "benefits": [],
-            "why_choose": []
-        }
-        
-    def format_paragraphs(lines_list):
-        paragraphs = []
-        for line in lines_list:
-            if line.startswith(('*', '-', '•', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.')):
-                continue
-            paragraphs.append(f"<p>{line}</p>")
-        return "\n".join(paragraphs)
+    p1 = f"At Ayurgreen Hospital, we provide an integrated rehabilitation approach for {name} designed to maximize functional recovery and systemic rejuvenation. By combining state-of-the-art robotic assistive technologies, evidence-based physiotherapy, and authentic traditional Kerala Ayurveda, our multidisciplinary team addresses both structural and biochemical pathways to promote deep neural healing."
+    p2 = f"Each patient receives a customized treatment protocol mapped directly to their baseline assessment and functional goals. Our clinicians, therapists, and Ayurvedic scholars collaborate daily to adjust therapies, ensuring safe progression, spasticity reduction, and optimal functional autonomy."
+    
+    # Map sub-images based on general fallback or specific categories
+    cond_img1 = "Assets/rehab/prog_stroke.webp"
+    cond_img2 = "Assets/rehab/prog_spinal_cord.webp"
+    cond_img3 = "Assets/rehab/prog_parkinsons.webp"
+    
+    treat_img1 = "Assets/rehab/th_panchakarma.webp"
+    treat_img2 = "Assets/rehab/th_physiotherapy.webp"
+    treat_img3 = "Assets/rehab/th_robotic.webp"
+    
+    conditions_data = [
+        {"title": "Acute Phase Support", "desc": "Early intervention focused on stabilizing deficits, reducing cellular swelling, and preventing muscle wasting.", "img": cond_img1},
+        {"title": "Chronic Management", "desc": "Intensive therapy modules targeting long-term recovery of motor coordination, balance, and independence.", "img": cond_img2},
+        {"title": "Functional Adaptations", "desc": "Customized training using assistive technologies to adapt tasks and restore everyday activities.", "img": cond_img3}
+    ]
+    
+    treatments_data = [
+        {"title": "Biological Purification (Panchakarma)", "desc": "Tailored Ayurvedic purification treatments to remove cellular metabolic toxins, calm nerve inflammation, and restore biochemical equilibrium.", "img": treat_img1},
+        {"title": "Neuromuscular Re-education", "desc": "Evidence-based active exercises and sensory feedback training to rebuild damaged motor pathways and improve joint ranges.", "img": treat_img2},
+        {"title": "Robotic & Technology Training", "desc": "High-repetition sensor-guided movement training to trigger neuroplasticity and build new coordinate loops around brain lesions.", "img": treat_img3}
+    ]
+    
+    techs_data = [
+        {"icon": "bot", "title": "Sensor-Guided Robotics", "desc": "Exoskeletons and gait trainers providing highly repeatable, precise movements to stimulate spinal and cortical pathways."},
+        {"icon": "activity", "title": "Advanced Physiotherapy", "desc": "Targeted muscle loading, balance retraining, and proprioception drills using premium dynamic assessment platforms."},
+        {"icon": "heart", "title": "Kerala Ayurvedic Medicine", "desc": "Time-tested organic formulations and specialized warm oil sudations acting directly on motor system biology."}
+    ]
+    
+    conditions_html = ""
+    for cond in conditions_data:
+        conditions_html += f"""
+                    <div class="ayur-condition-card">
+                        <div class="ayur-condition-card-img-wrapper">
+                            <img src="{cond["img"]}" alt="{cond["title"]}" class="ayur-condition-card-img">
+                        </div>
+                        <div class="ayur-condition-card-content">
+                            <h4 class="ayur-condition-card-title">{cond["title"]}</h4>
+                            <p class="ayur-condition-card-desc">{cond["desc"]}</p>
+                        </div>
+                    </div>"""
+                    
+    treatments_html = ""
+    for idx, treat in enumerate(treatments_data):
+        num = idx + 1
+        treatments_html += f"""
+                    <div class="ayur-timeline-item">
+                        <div class="ayur-timeline-col-img">
+                            <img src="{treat["img"]}" alt="{treat["title"]}">
+                        </div>
+                        <div class="ayur-timeline-col-content">
+                            <div class="ayur-timeline-badge">{num}</div>
+                            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px;">{treat["title"]}</h3>
+                            <p style="font-size: 14.5px; line-height: 1.6;">{treat["desc"]}</p>
+                        </div>
+                    </div>"""
+                    
+    techs_html = ""
+    for tech in techs_data:
+        techs_html += f"""
+                    <div class="ayur-tech-card">
+                        <div class="ayur-tech-card-title-row">
+                            <span class="ayur-tech-card-icon"><i data-lucide="{tech["icon"]}" size="24"></i></span>
+                            <h3 class="ayur-tech-card-title">{tech["title"]}</h3>
+                        </div>
+                        <p class="ayur-tech-card-desc">{tech["desc"]}</p>
+                    </div>"""
+                    
+    faqs_data = [
+        ("What is the recovery protocol for this program?", f"Our recovery protocol for {name} combines daily intensive rehabilitation therapies (robotic support and physical therapy) with personalized Ayurvedic nerve nourishment and systemic detoxification to accelerate functional gains."),
+        ("How long is the typical inpatient stay?", f"Most inpatient stays range from 14 to 28 days. A comprehensive assessment is conducted on arrival to map specific milestones, timelines, and discharge pathways."),
+        ("Is robotic therapy safe for all patients?", "Yes, robotic training is safe and is adjusted based on muscle strength, joint ranges, and fatigue levels. Every session is directly supervised by certified clinical engineers and therapists."),
+        ("Are the Ayurvedic medicines safe?", "All herbal oils and medicines are sourced from GMP-certified traditional pharmacies and undergo rigorous testing. They are prescribed specifically to match the patient's biological state."),
+        ("Can we coordinate with our existing neurologist?", "Absolutely. We encourage multidisciplinary alignment and coordinate closely with the patient's referring clinicians to ensure continuity of care."),
+        ("What is the daily therapy schedule?", "A typical day includes active physical and robotic rehabilitation in the morning, followed by relaxing Ayurvedic therapies and counseling sessions in the afternoon."),
+        ("Do you offer post-discharge support?", "Yes, we provide detailed home-exercise regimens, custom orthotic consultations, and online follow-ups to ensure patients maintain their functional gains."),
+        ("How do I book a consultation?", "You can book a virtual consultation by submitting your medical records online, messaging our coordinators via WhatsApp, or calling our helpline directly.")
+    ]
+    
+    faqs_html = ""
+    for q, a in faqs_data:
+        faqs_html += f"""
+                    <div class="ayur-faq-item">
+                        <button class="ayur-faq-trigger">
+                            <span>{q}</span>
+                            <span class="faq-icon"><i data-lucide="plus" size="18"></i></span>
+                        </button>
+                        <div class="ayur-faq-content">
+                            <div class="ayur-faq-content-inner">
+                                <p>{a}</p>
+                            </div>
+                        </div>
+                    </div>"""
 
-    intro_paragraphs = format_paragraphs(sections_data.get("intro", []))
-    sec1_html = f"""
-                    <div class="ayur-section">
-                        <span class="ayur-sec-label">Overview</span>
-                        <h2 class="ayur-sec-title">{name} at Ayurgreen Hospital</h2>
-                        <div class="ayur-intro-grid">
-                            <div class="ayur-sec-body">
-                                {intro_paragraphs}
-                            </div>
-                            <img src="{intro_img}" alt="{name} treatment at Ayurgreen Hospital" class="ayur-intro-grid-img">
-                        </div>
-                    </div>"""
-                    
-    sec2_html = ""
-    imp_lines = sections_data.get("importance", [])
-    if imp_lines:
-        sec2_title = imp_lines[0]
-        sec2_body_lines = imp_lines[1:]
-        
-        bullets = []
-        paragraphs = []
-        for line in sec2_body_lines:
-            if line.startswith(('*', '-', '•')):
-                bullets.append(re.sub(r'^[\*\-\u2022]\s*', '', line).strip())
-            else:
-                paragraphs.append(line)
-                
-        body_p_html = format_paragraphs(paragraphs)
-        bullets_html = ""
-        if bullets:
-            bullets_html = '<ul class="ayur-list">' + "\n".join(f"<li>{b}</li>" for b in bullets) + '</ul>'
-            
-        sec2_img = "Assets/generated/physiotherapy_session.png"
-        if filename in ["stroke-rehab.html", "hemiplegia.html", "quadriplegia-paraplegia.html"]:
-            sec2_img = "Assets/rehab/prog_stroke.webp"
-        elif filename in ["spinal-cord-injury.html", "disc-spine-problems.html", "sciatica.html", "osteoarthritis.html", "rheumatoid-arthritis.html"]:
-            sec2_img = "Assets/rehab/prog_spinal_cord.webp"
-        elif filename in ["parkinsons-disease.html", "motor-neuron-diseases.html", "myopathy.html", "muscular-dystrophy.html"]:
-            sec2_img = "Assets/rehab/prog_parkinsons.webp"
-        elif filename in ["cerebral-palsy.html", "pediatrics.html", "developmental-delay.html"]:
-            sec2_img = "Assets/rehab/prog_cerebral_palsy.webp"
-            
-        sec2_html = f"""
-                    <div class="ayur-section">
-                        <span class="ayur-sec-label">Clinical Focus</span>
-                        <h2 class="ayur-sec-title">{sec2_title}</h2>
-                        <div class="ayur-intro-grid">
-                            <img src="{sec2_img}" alt="{name} support at Ayurgreen Hospital" class="ayur-intro-grid-img" style="order: -1;">
-                            <div>
-                                <div class="ayur-sec-body">
-                                    {body_p_html}
-                                </div>
-                                {bullets_html}
-                            </div>
-                        </div>
-                    </div>"""
-                    
-    sec3_html = ""
-    treat_lines = sections_data.get("treatments", [])
-    if treat_lines:
-        sec3_title = treat_lines[0]
-        intro_p = []
-        cards = []
-        current_card = None
-        
-        for line in treat_lines[1:]:
-            match = re.match(r'^(\d+[\.\)]|[\*\-\u2022])\s*(.*)', line)
-            if match:
-                if current_card:
-                    cards.append(current_card)
-                card_content = match.group(2).strip()
-                if ":" in card_content:
-                    card_title, card_desc = card_content.split(":", 1)
-                    current_card = {"title": card_title.strip(), "desc": card_desc.strip()}
-                else:
-                    current_card = {"title": card_content, "desc": ""}
-            else:
-                if current_card:
-                    if not current_card["desc"]:
-                        current_card["desc"] = line
-                    else:
-                        current_card["desc"] += " " + line
-                else:
-                    intro_p.append(line)
-        if current_card:
-            cards.append(current_card)
-            
-        intro_p_html = format_paragraphs(intro_p)
-        
-        card_imgs = [
-            "Assets/rehab/th_panchakarma.webp",
-            "Assets/rehab/th_abhyanga.webp",
-            "Assets/rehab/th_njavara.webp",
-            "Assets/rehab/th_shirodhara.webp",
-            "Assets/rehab/th_pizhichil.webp",
-            "Assets/rehab/th_physiotherapy.webp",
-            "Assets/rehab/th_robotic.webp",
-            "Assets/rehab/th_ot.webp",
-            "Assets/rehab/th_speech.webp",
-            "Assets/rehab/th_vr.webp"
-        ]
-        
-        cards_html = ""
-        for card_idx, card in enumerate(cards):
-            num_str = f"{card_idx+1:02d}"
-            img_path = card_imgs[card_idx % len(card_imgs)]
-            card_title = card["title"]
-            card_desc = card["desc"]
-            
-            is_last = (card_idx == len(cards) - 1)
-            is_odd_total = (len(cards) % 2 != 0)
-            
-            if is_last and is_odd_total:
-                cards_html += f"""
-                        <div class="ayur-therapy-card" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr;">
-                            <img src="{img_path}" alt="{card_title}" class="ayur-therapy-card-img" style="height: 100%; border-radius: 0;">
-                            <div class="ayur-therapy-card-body" style="padding: 28px 28px;">
-                                <div class="ayur-therapy-num">{num_str}</div>
-                                <div class="ayur-therapy-name" style="font-size: 18px;">{card_title}</div>
-                                <div class="ayur-therapy-desc" style="font-size: 14.5px; line-height: 1.65;">{card_desc}</div>
-                            </div>
-                        </div>"""
-            else:
-                cards_html += f"""
-                        <div class="ayur-therapy-card">
-                            <img src="{img_path}" alt="{card_title}" class="ayur-therapy-card-img">
-                            <div class="ayur-therapy-card-body">
-                                <div class="ayur-therapy-num">{num_str}</div>
-                                <div class="ayur-therapy-name">{card_title}</div>
-                                <div class="ayur-therapy-desc">{card_desc}</div>
-                            </div>
-                        </div>"""
-                        
-        sec3_html = f"""
-                    <div class="ayur-section">
-                        <span class="ayur-sec-label">Therapy Modules</span>
-                        <h2 class="ayur-sec-title">{sec3_title}</h2>
-                        {intro_p_html}
-                        <div class="ayur-therapy-grid">
-                            {cards_html}
-                        </div>
-                    </div>"""
-                    
-    sec4_html = ""
-    app_lines = sections_data.get("approach", [])
-    if app_lines:
-        sec4_title = app_lines[0]
-        intro_lines = []
-        pills = []
-        outro_lines = []
-        state = "intro"
-        
-        for line in app_lines[1:]:
-            if line.startswith(('*', '-', '•')):
-                state = "pills"
-                pills.append(re.sub(r'^[\*\-\u2022]\s*', '', line).strip())
-            else:
-                if state == "pills":
-                    state = "outro"
-                if state == "intro":
-                    intro_lines.append(line)
-                else:
-                    outro_lines.append(line)
-                    
-        intro_p_html = format_paragraphs(intro_lines)
-        outro_p_html = format_paragraphs(outro_lines)
-        
-        def get_pill_icon(pill_text):
-            text_lower = pill_text.lower()
-            if "robotic" in text_lower or "robot" in text_lower:
-                return "bot"
-            elif "physio" in text_lower or "occupational" in text_lower or "exercise" in text_lower or "fitness" in text_lower:
-                return "dumbbell"
-            elif "speech" in text_lower or "language" in text_lower or "swallow" in text_lower:
-                return "message-circle"
-            elif "psych" in text_lower or "counsel" in text_lower or "mental" in text_lower or "emotional" in text_lower or "behavior" in text_lower:
-                return "heart-handshake"
-            elif "vr" in text_lower or "virtual" in text_lower:
-                return "headset"
-            elif "yoga" in text_lower or "meditat" in text_lower:
-                return "sun"
-            else:
-                return "activity"
-                
-        pills_html = ""
-        for pill in pills:
-            icon = get_pill_icon(pill)
-            pills_html += f"""
-                            <span class="ayur-pill"><i data-lucide="{icon}" size="14"></i>{pill}</span>"""
-                            
-        sec4_html = f"""
-                    <div class="ayur-section dark-bg">
-                        <span class="ayur-sec-label">Integrated Innovation</span>
-                        <h2 class="ayur-sec-title">{sec4_title}</h2>
-                        <div class="ayur-sec-body">
-                            {intro_p_html}
-                        </div>
-                        <div class="ayur-integration-pills">
-                            {pills_html}
-                        </div>
-                        <div class="ayur-sec-body" style="margin-top: 24px;">
-                            {outro_p_html}
-                        </div>
-                        <img src="Assets/rehab/th_robotic.webp" alt="Integrated rehabilitation technology at Ayurgreen Hospital" style="width:100%; border-radius:20px; object-fit:cover; height:240px; margin-top:28px; display:block;">
-                    </div>"""
-                    
-    sec5_html = ""
-    ben_lines = sections_data.get("benefits", [])
-    if ben_lines:
-        title_5 = ben_lines[0]
-        intro_lines = []
-        columns = []
-        current_col = None
-        
-        for line in ben_lines[1:]:
-            if line.startswith(('*', '-', '•')):
-                bullet_text = re.sub(r'^[\*\-\u2022]\s*', '', line).strip()
-                if current_col:
-                    current_col["bullets"].append(bullet_text)
-                else:
-                    intro_lines.append(line)
-            elif len(line) < 40 and not line.endswith('.'):
-                if current_col:
-                    columns.append(current_col)
-                current_col = {"title": line, "bullets": []}
-            else:
-                if current_col:
-                    current_col["bullets"].append(line)
-                else:
-                    intro_lines.append(line)
-        if current_col:
-            columns.append(current_col)
-            
-        if not columns:
-            bullets = []
-            paragraphs = []
-            for line in intro_lines:
-                if line.startswith(('*', '-', '•')):
-                    bullets.append(re.sub(r'^[\*\-\u2022]\s*', '', line).strip())
-                else:
-                    paragraphs.append(line)
-            if bullets:
-                columns.append({"title": "Clinical Outcomes", "bullets": bullets})
-                intro_p_html = format_paragraphs(paragraphs)
-            else:
-                intro_p_html = format_paragraphs(intro_lines)
-        else:
-            intro_p_html = format_paragraphs(intro_lines)
-            
-        col_html = ""
-        for col in columns[:3]:
-            bullets_html = ""
-            for b in col["bullets"]:
-                bullets_html += f"<li>{b}</li>\n"
-            style_str = ' style="grid-column: 1 / -1;"' if len(columns) == 1 else ''
-            col_html += f"""
-                        <div class="ayur-benefit-col"{style_str}>
-                            <div class="ayur-benefit-col-title">{col["title"]}</div>
-                            <ul class="ayur-list">
-                                {bullets_html}
-                            </ul>
-                        </div>"""
-                        
-        sec5_html = f"""
-                    <div class="ayur-section">
-                        <span class="ayur-sec-label">Why It Works</span>
-                        <h2 class="ayur-sec-title">{title_5}</h2>
-                        {intro_p_html}
-                        <div class="ayur-benefits-grid">
-                            {col_html}
-                        </div>
-                    </div>"""
-                    
-    why_lines = [l.strip() for l in sections_data.get("why_choose", []) if l.strip()]
-    why_choose_intro = ""
-    if why_lines:
-        why_choose_intro = format_paragraphs(why_lines[1:])
-    else:
-        why_choose_intro = f"<p>Ayurgreen stands out as a leader in integrated neuro and orthopedic rehabilitation because of its unique care model:</p>"
-        
-    sec6_html = f"""
-                    <div class="ayur-section">
-                        <span class="ayur-sec-label">The Benchmark</span>
-                        <h2 class="ayur-sec-title">Why Choose Ayurgreen Hospital?</h2>
-                        <div class="ayur-sec-body">
-                            {why_choose_intro}
-                        </div>
-                        <ul class="ayur-why-list">
-                            <li class="ayur-why-item">
-                                <div class="ayur-why-icon"><i data-lucide="award" size="16"></i></div>
-                                <div class="ayur-why-text"><strong>25+ Years of Clinical Expertise</strong>Over two decades of clinical experience in neuro rehabilitation, managing complex neurological impairments.</div>
-                            </li>
-                            <li class="ayur-why-item">
-                                <div class="ayur-why-icon"><i data-lucide="bot" size="16"></i></div>
-                                <div class="ayur-why-text"><strong>India's First Robotic-Integrated Center</strong>Pioneer in combining advanced sensory-robotic trainers with traditional Kerala Ayurvedic cellular therapies.</div>
-                            </li>
-                            <li class="ayur-why-item">
-                                <div class="ayur-why-icon"><i data-lucide="clipboard-list" size="16"></i></div>
-                                <div class="ayur-why-text"><strong>Personalized Treatment Plans</strong>Every plan uniquely combines advanced robotics and authentic Ayurveda to match the patient's specific recovery needs.</div>
-                            </li>
-                            <li class="ayur-why-item">
-                                <div class="ayur-why-icon"><i data-lucide="users" size="16"></i></div>
-                                <div class="ayur-why-text"><strong>Experienced Multidisciplinary Team</strong>Ayurvedic scholars, neurologists, physiotherapists, and robotic engineers working as one integrated panel.</div>
-                            </li>
-                            <li class="ayur-why-item">
-                                <div class="ayur-why-icon"><i data-lucide="leaf" size="16"></i></div>
-                                <div class="ayur-why-text"><strong>Holistic Healing Philosophy</strong>Focusing on body, mind, and soul — every patient receives a complete recovery experience, not just treatment.</div>
-                            </li>
-                        </ul>
-                    </div>"""
-                    
-    sec7_html = f"""
-                    <div class="ayur-cta-section">
-                        <h2 class="ayur-cta-title">Start Your Recovery Journey Today</h2>
-                        <p class="ayur-cta-desc">Consult with our integrated clinical panel and Ayurvedic scholars to design a custom pathway.</p>
-                        <div class="ayur-cta-buttons">
-                            <a href="index.html#consultation" class="ayur-btn-primary">Book Consultation <i data-lucide="calendar" size="16"></i></a>
-                            <a href="https://wa.me/918080808080" target="_blank" class="ayur-btn-ghost">WhatsApp <i data-lucide="message-square" size="16"></i></a>
-                            <a href="tel:+918080808080" class="ayur-btn-ghost">Call Now <i data-lucide="phone" size="16"></i></a>
-                        </div>
-                    </div>"""
-                    
     main_html = f"""    <main class="ayur-page-main">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
@@ -1296,23 +438,6 @@ def generate_service_html(svc, category_name, siblings):
                 line-height: 1.7;
             }}
 
-            .ayur-page-main h1, 
-            .ayur-page-main h2, 
-            .ayur-page-main h3, 
-            .ayur-page-main h4 {{
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                color: var(--heading);
-                letter-spacing: -0.02em;
-            }}
-            
-            .ayur-banner-container {{
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 24px;
-                box-sizing: border-box;
-                width: 100%;
-            }}
-
             .ayur-container {{
                 max-width: 1200px;
                 margin: 0 auto;
@@ -1321,457 +446,623 @@ def generate_service_html(svc, category_name, siblings):
                 width: 100%;
             }}
 
-            /* HERO BANNER SECTION */
-            .ayur-hero {{
-                position: relative;
-                width: 100%;
-                height: 480px;
-                background-color: var(--dark-navy);
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-            }}
-            .ayur-hero-bg {{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                opacity: 0.35;
-                z-index: 1;
-            }}
-            .ayur-hero-overlay {{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, rgba(2, 12, 34, 0.95) 0%, rgba(2, 12, 34, 0.8) 50%, rgba(2, 12, 34, 0.2) 100%);
-                z-index: 2;
-            }}
-            .ayur-hero-content-wrapper {{
-                position: relative;
-                z-index: 3;
-                width: 100%;
-            }}
-            .ayur-hero-badge {{
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: rgba(43, 196, 109, 0.15);
-                border: 1px solid rgba(43, 196, 109, 0.3);
-                padding: 8px 16px;
-                border-radius: 100px;
-                color: #4CAF50;
-                font-size: 13.5px;
-                font-weight: 600;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                margin-bottom: 24px;
-            }}
-            .ayur-hero-title {{
-                font-size: 56px;
-                font-weight: 800;
-                color: #ffffff;
-                line-height: 1.1;
-                margin-bottom: 24px;
-                max-width: 700px;
-            }}
-            .ayur-hero-desc {{
-                font-size: 18px;
-                color: rgba(255, 255, 255, 0.85);
-                max-width: 600px;
-                line-height: 1.6;
-            }}
-            @media (max-width: 768px) {{
-                .ayur-hero {{ height: 420px; }}
-                .ayur-hero-title {{ font-size: 36px; }}
-                .ayur-hero-desc {{ font-size: 16px; }}
+            .ayur-page-main h1, 
+            .ayur-page-main h2, 
+            .ayur-page-main h3, 
+            .ayur-page-main h4 {{
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                color: var(--heading);
+                letter-spacing: -0.02em;
             }}
 
-            /* SECTIONS & TYPOGRAPHY */
-            .ayur-section {{
-                padding: 48px;
-                border: 1px solid var(--border);
-                border-radius: 36px;
-                margin-bottom: 24px;
-                background-color: var(--pure-white);
+            .ayur-section-header {{
+                text-align: center;
+                max-width: 720px;
+                margin: 0 auto 56px auto;
             }}
-            .ayur-section.dark-bg {{
-                background-color: var(--dark-navy);
-                border-color: var(--dark-navy);
-                color: #ffffff;
-            }}
-            @media (max-width: 768px) {{
-                .ayur-section {{ padding: 32px 24px; border-radius: 28px; }}
-            }}
-            .ayur-sec-label {{
-                font-size: 13px;
-                font-weight: 700;
+            .ayur-section-label {{
+                font-size: 14px;
                 text-transform: uppercase;
-                letter-spacing: 0.15em;
+                letter-spacing: 0.2em;
+                font-weight: 600;
                 color: var(--primary-green);
-                display: inline-block;
+                display: block;
                 margin-bottom: 12px;
             }}
-            .ayur-sec-title {{
+            .ayur-section-title {{
                 font-size: 32px;
                 font-weight: 700;
-                margin-bottom: 32px;
-                color: var(--heading);
-                line-height: 1.25;
+                color: var(--dark-navy);
+                line-height: 1.2;
             }}
-            .ayur-section.dark-bg .ayur-sec-title {{
-                color: #ffffff;
-            }}
-            @media (max-width: 768px) {{
-                .ayur-sec-title {{ font-size: 26px; margin-bottom: 24px; }}
-            }}
-            
-            .ayur-sec-body p {{
+            .ayur-section-support {{
                 font-size: 16px;
-                line-height: 1.7;
                 color: var(--body-text);
-                margin-bottom: 20px;
-            }}
-            .ayur-section.dark-bg .ayur-sec-body p {{
-                color: rgba(255, 255, 255, 0.8);
-            }}
-            
-            .ayur-intro-grid {{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                align-items: center;
-            }}
-            @media (max-width: 992px) {{
-                .ayur-intro-grid {{ grid-template-columns: 1fr; gap: 24px; }}
-            }}
-            .ayur-intro-grid-img {{
-                width: 100%;
-                height: auto;
-                border-radius: 24px;
-                object-fit: cover;
-                max-height: 380px;
-                border: 1px solid var(--border);
+                margin-top: 12px;
+                line-height: 1.6;
             }}
 
-            /* LISTS */
-            .ayur-list {{
-                list-style: none;
-                padding: 0;
-                margin: 0 0 24px 0;
+            .ayur-section-large {{
+                padding: 80px 0;
             }}
-            .ayur-list li {{
-                position: relative;
-                padding-left: 32px;
-                margin-bottom: 16px;
-                font-size: 16px;
-                color: var(--heading);
-                font-weight: 500;
+            .ayur-section-medium {{
+                padding: 60px 0;
             }}
-            .ayur-list li::before {{
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 6px;
-                width: 18px;
-                height: 18px;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%232BC46D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E");
-                background-size: contain;
-                background-repeat: no-repeat;
-            }}
-            
-            /* THERAPY CARDS */
-            .ayur-therapy-grid {{
+
+            .ayur-intro-row {{
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                margin-top: 32px;
+                grid-template-columns: 1.2fr 1.1fr;
+                gap: 64px;
+                align-items: center;
             }}
             @media (max-width: 768px) {{
-                .ayur-therapy-grid {{ grid-template-columns: 1fr; }}
+                .ayur-intro-row {{
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }}
             }}
-            .ayur-therapy-card {{
+
+            .ayur-intro-img-frame {{
+                padding: 16px;
+                background-color: #F8FAFC;
+                border: 1px solid var(--border);
+                border-radius: 36px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 380px;
+            }}
+
+            .ayur-intro-img {{
+                border-radius: 20px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 400ms ease;
+                display: block;
+            }}
+
+            .ayur-intro-img-frame:hover .ayur-intro-img {{
+                transform: scale(1.03);
+            }}
+
+            .ayur-conditions-grid {{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }}
+            @media (max-width: 1024px) {{
+                .ayur-conditions-grid {{
+                    grid-template-columns: repeat(2, 1fr);
+                }}
+            }}
+            @media (max-width: 768px) {{
+                .ayur-conditions-grid {{
+                    grid-template-columns: 1fr;
+                }}
+            }}
+            .ayur-condition-card {{
+                background: #ffffff;
+                border: 1px solid var(--border);
+                border-radius: 28px;
+                overflow: hidden;
+                height: 420px;
                 display: flex;
                 flex-direction: column;
-                background: #F8FAFC;
-                border-radius: 24px;
-                border: 1px solid var(--border);
-                overflow: hidden;
-                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+                transition: all 400ms ease;
             }}
-            .ayur-therapy-card:hover {{
-                transform: translateY(-4px);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-                border-color: rgba(43, 196, 109, 0.3);
-            }}
-            .ayur-therapy-card-img {{
+            .ayur-condition-card-img-wrapper {{
                 width: 100%;
-                height: 180px;
-                object-fit: cover;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
             }}
-            .ayur-therapy-card-body {{
+            .ayur-condition-card-img {{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 400ms ease;
+            }}
+            .ayur-condition-card:hover {{
+                transform: translateY(-4px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+                border-color: rgba(43, 196, 109, 0.2);
+            }}
+            .ayur-condition-card:hover .ayur-condition-card-img {{
+                transform: scale(1.03);
+            }}
+            .ayur-condition-card-content {{
                 padding: 24px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }}
+            .ayur-condition-card-title {{
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--dark-navy);
+                margin-bottom: 10px;
+            }}
+            .ayur-condition-card-desc {{
+                font-size: 14px;
+                color: var(--body-text);
+                line-height: 1.5;
+            }}
+
+            .ayur-timeline-item {{
+                display: flex;
+                align-items: center;
+                gap: 48px;
+                margin-bottom: 56px;
+                position: relative;
+                z-index: 2;
+            }}
+            .ayur-timeline-item:last-child {{
+                margin-bottom: 0;
+            }}
+            .ayur-timeline-item:nth-child(even) {{
+                flex-direction: row-reverse;
+            }}
+            @media (max-width: 768px) {{
+                .ayur-timeline-item, .ayur-timeline-item:nth-child(even) {{
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-bottom: 40px;
+                }}
+            }}
+            .ayur-timeline-col-img {{
+                flex: 1;
+                overflow: hidden;
+                border-radius: 28px;
+                width: 100%;
+            }}
+            .ayur-timeline-col-img img {{
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+                transition: transform 400ms ease;
+                display: block;
+            }}
+            .ayur-timeline-col-img:hover img {{
+                transform: scale(1.03);
+            }}
+            .ayur-timeline-col-content {{
+                flex: 1;
+                width: 100%;
+            }}
+            .ayur-timeline-badge {{
+                background: rgba(43, 196, 109, 0.1);
+                color: var(--primary-green);
+                font-weight: 700;
+                font-size: 14px;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 16px;
+                border: 2px solid var(--primary-green);
+            }}
+
+            .ayur-tech-outer {{
+                background-color: var(--dark-navy);
+                padding: 80px 24px;
+                border-radius: 36px;
+                color: #ffffff;
+                margin-bottom: 56px;
+            }}
+            .ayur-tech-grid {{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }}
+            @media (max-width: 1024px) {{
+                .ayur-tech-grid {{
+                    grid-template-columns: repeat(2, 1fr);
+                }}
+            }}
+            @media (max-width: 768px) {{
+                .ayur-tech-grid {{
+                    grid-template-columns: 1fr;
+                }}
+            }}
+            .ayur-tech-card {{
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 32px;
+                padding: 24px;
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: all 400ms ease;
+                display: flex;
+                flex-direction: column;
+            }}
+            .ayur-tech-card:hover {{
+                transform: translateY(-4px);
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(43, 196, 109, 0.3);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            }}
+            .ayur-tech-card-title-row {{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+            }}
+            .ayur-tech-card-icon {{
+                color: var(--primary-green);
+                display: flex;
+                align-items: center;
+            }}
+            .ayur-tech-card-title {{
+                font-size: 18px;
+                font-weight: 700;
+                color: #ffffff;
+                margin: 0;
+            }}
+            .ayur-tech-card-desc {{
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.7);
+                line-height: 1.5;
+            }}
+
+            .ayur-journey-timeline {{
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                margin-top: 40px;
+                gap: 24px;
+            }}
+            .ayur-journey-timeline::before {{
+                content: '';
+                position: absolute;
+                top: 36px;
+                left: 40px;
+                right: 40px;
+                height: 2px;
+                background: #EAECF0;
+                z-index: 1;
+            }}
+            @media (max-width: 1024px) {{
+                .ayur-journey-timeline {{
+                    flex-wrap: wrap;
+                }}
+                .ayur-journey-timeline::before {{
+                    display: none;
+                }}
+            }}
+            @media (max-width: 768px) {{
+                .ayur-journey-timeline {{
+                    flex-direction: column;
+                    gap: 32px;
+                }}
+            }}
+            .ayur-journey-step {{
                 flex: 1;
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+                min-width: 140px;
             }}
-            .ayur-therapy-num {{
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                font-size: 32px;
-                font-weight: 800;
-                color: rgba(43, 196, 109, 0.15);
-                line-height: 1;
-                margin-bottom: 12px;
+            .ayur-journey-icon-circle {{
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                background: #ffffff;
+                border: 2px solid #EAECF0;
+                color: var(--dark-navy);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 16px;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
             }}
-            .ayur-therapy-name {{
-                font-size: 17px;
+            .ayur-journey-step:hover .ayur-journey-icon-circle {{
+                border-color: var(--primary-green);
+                color: var(--primary-green);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(43, 196, 109, 0.15);
+            }}
+            .ayur-journey-step-title {{
+                font-size: 15px;
                 font-weight: 700;
-                color: var(--heading);
-                margin-bottom: 8px;
+                color: var(--dark-navy);
+                margin-bottom: 6px;
             }}
-            .ayur-therapy-desc {{
+            .ayur-journey-step-desc {{
+                font-size: 12px;
+                color: var(--body-text);
+                line-height: 1.4;
+            }}
+
+            .ayur-faq-container {{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }}
+            .ayur-faq-item {{
+                background: #F8FAFC;
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }}
+            .ayur-faq-item:hover {{
+                border-color: rgba(43, 196, 109, 0.3);
+            }}
+            .ayur-faq-trigger {{
+                width: 100%;
+                padding: 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: none;
+                border: none;
+                font-size: 16px;
+                font-weight: 600;
+                text-align: left;
+                color: var(--dark-navy);
+                cursor: pointer;
+            }}
+            .ayur-faq-content {{
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            }}
+            .ayur-faq-item.active .ayur-faq-content {{
+                max-height: 1000px;
+                transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            }}
+            .ayur-faq-content-inner {{
+                padding: 0 24px 24px 24px;
                 font-size: 14.5px;
                 color: var(--body-text);
                 line-height: 1.6;
             }}
-            
-            /* INTEGRATION PILLS */
-            .ayur-integration-pills {{
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-                margin-top: 32px;
-            }}
-            .ayur-pill {{
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                padding: 10px 18px;
-                border-radius: 100px;
-                color: #ffffff;
-                font-size: 14px;
-                font-weight: 500;
-                transition: all 0.3s ease;
-            }}
-            .ayur-pill:hover {{
-                background: rgba(43, 196, 109, 0.2);
-                border-color: #2BC46D;
-            }}
-
-            /* BENEFITS 3 COL */
-            .ayur-benefits-grid {{
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                margin-top: 32px;
-            }}
-            @media (max-width: 860px) {{ .ayur-benefits-grid {{ grid-template-columns: 1fr 1fr; }} }}
-            @media (max-width: 520px) {{ .ayur-benefits-grid {{ grid-template-columns: 1fr; }} }}
-
-            .ayur-benefit-col {{
-                background: #F8FAFC;
-                border: 1px solid var(--border);
-                border-radius: 24px;
-                padding: 24px;
-                transition: all 0.3s ease;
-            }}
-            .ayur-benefit-col:hover {{
-                border-color: rgba(43, 196, 109, 0.3);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            }}
-            .ayur-benefit-col-title {{
-                font-size: 13px;
-                font-weight: 700;
+            .ayur-faq-item .faq-icon {{
+                transition: transform 0.3s ease;
                 color: var(--primary-green);
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                margin-bottom: 16px;
-                font-family: 'Plus Jakarta Sans', sans-serif;
-            }}
-
-            /* WHY LIST */
-            .ayur-why-list {{
-                list-style: none;
-                padding: 0;
-                margin: 24px 0 0 0;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }}
-            .ayur-why-item {{
-                display: flex;
-                align-items: flex-start;
-                gap: 16px;
-                padding: 20px;
-                background: #F8FAFC;
-                border: 1px solid var(--border);
-                border-radius: 20px;
-                transition: all 0.3s ease;
-            }}
-            .ayur-why-item:hover {{
-                border-color: rgba(43, 196, 109, 0.3);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            }}
-            .ayur-why-icon {{
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                background: rgba(43, 196, 109, 0.1);
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                color: var(--primary-green);
-                flex-shrink: 0;
             }}
-            .ayur-why-text {{
-                font-size: 15px;
-                color: var(--body-text);
-                line-height: 1.6;
-            }}
-            .ayur-why-text strong {{
-                color: var(--heading);
-                font-weight: 700;
-                display: block;
-                margin-bottom: 4px;
+            .ayur-faq-item.active .faq-icon {{
+                transform: rotate(45deg);
             }}
 
-            /* CTA BANNER */
+            .ayur-cta-outer {{
+                background: #FFFFFF;
+                padding: 60px 0;
+            }}
             .ayur-cta-section {{
-                background: linear-gradient(135deg, #020C22 0%, #0a2240 60%, #0d3321 100%);
-                padding: 64px 48px;
-                text-align: center;
+                background: rgba(2, 12, 34, 0.95);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
                 border-radius: 36px;
+                padding: 64px 24px;
+                text-align: center;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
             }}
             .ayur-cta-title {{
-                font-family: 'Plus Jakarta Sans', sans-serif;
                 font-size: 32px;
                 font-weight: 700;
                 color: #ffffff;
                 margin-bottom: 16px;
             }}
             .ayur-cta-desc {{
+                color: rgba(255, 255, 255, 0.85);
                 font-size: 16px;
-                color: rgba(255, 255, 255, 0.8);
-                line-height: 1.6;
-                margin-bottom: 32px;
                 max-width: 600px;
-                margin-left: auto;
-                margin-right: auto;
+                margin: 0 auto 36px auto;
+                line-height: 1.6;
             }}
-            .ayur-cta-buttons {{
+            .ayur-cta-btn-group {{
                 display: flex;
                 gap: 16px;
                 justify-content: center;
                 flex-wrap: wrap;
             }}
-            .ayur-btn-primary {{
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                padding: 14px 28px;
-                background: var(--primary-green);
-                color: #ffffff;
-                border-radius: 100px;
-                font-size: 15px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }}
-            .ayur-btn-primary:hover {{
-                background: #24b260;
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(43, 196, 109, 0.3);
-            }}
-            .ayur-btn-ghost {{
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                padding: 14px 28px;
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                color: #ffffff;
-                border-radius: 100px;
-                font-size: 15px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }}
-            .ayur-btn-ghost:hover {{
-                background: rgba(255, 255, 255, 0.2);
-                transform: translateY(-2px);
-            }}
 
-            /* MOBILE STICKY CTA */
-            .ayur-sticky-bottom-cta {{
-                display: none;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: rgba(2, 12, 34, 0.97);
-                backdrop-filter: blur(12px);
-                border-top: 1px solid rgba(255, 255, 255, 0.12);
-                z-index: 1999;
-                padding: 10px 20px;
+            /* Sidebar column overrides */
+            .ayur-sidebar-content .ayur-container {{
+                max-width: 100% !important;
+                padding: 0 !important;
             }}
-            .ayur-sticky-bottom-cta-grid {{
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                max-width: 460px;
-                margin: 0 auto;
+            .ayur-sidebar-content .ayur-section-large {{
+                padding: 40px 0 !important;
             }}
-            .ayur-bottom-cta-btn {{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 3px;
-                height: 50px;
-                border-radius: 12px;
-                font-size: 11px;
-                font-weight: 600;
-                text-decoration: none;
-                color: rgba(255, 255, 255, 0.75);
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                transition: all 0.2s ease;
-                justify-content: center;
-            }}
-            .ayur-bottom-cta-btn.primary {{
-                background: var(--primary-green);
-                color: #ffffff;
-                border: none;
-            }}
-            @media (max-width: 768px) {{
-                .ayur-sticky-bottom-cta {{ display: block; }}
+            .ayur-sidebar-content .ayur-section-medium {{
+                padding: 30px 0 !important;
             }}
         </style>
 
-        <!-- BANNER -->
-        <section class="ayur-hero">
-            <img src="{banner_img}" alt="{name} Banner" class="ayur-hero-bg">
-            <div class="ayur-hero-overlay"></div>
-            <div class="ayur-banner-container">
-                <div class="ayur-hero-content-wrapper">
-                    <div class="ayur-hero-badge"><i data-lucide="shield-check" size="16"></i> {category_name}</div>
-                    <h1 class="ayur-hero-title">{name}</h1>
-                    <p class="ayur-hero-desc">{subtitle}</p>
+        <!-- Section 1: Hero Section -->
+        <div class="ayur-hero-wrapper">
+            <div class="ayur-hero-banner" style="background-image: url('{banner_img}');">
+                <div class="ayur-hero-overlay"></div>
+                <div class="ayur-container">
+                    <div class="ayur-hero-content">
+                        <div class="ayur-hero-breadcrumb">
+                            <a href="index.html">Home</a> &nbsp;&gt;&nbsp;
+                            <a href="therapies.html">{breadcrumb_label}</a> &nbsp;&gt;&nbsp;
+                            <span style="color: #ffffff;">{name}</span>
+                        </div>
+                        <span class="ayur-hero-label">{hero_label}</span>
+                        <h1 class="main-title" style="color: #ffffff !important;">{name}</h1>
+                        <p class="main-sub">{desc}</p>
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px;">
+                            <a href="index.html#consultation" class="main-cta">
+                                <span class="cta-text">Book Assessment</span> <span class="arrow-btn"><i data-lucide="arrow-up-right" size="14"></i></span>
+                            </a>
+                            <a href="https://wa.me/918080808080" target="_blank" class="main-cta">
+                                <span class="cta-text">WhatsApp</span>
+                                <span class="arrow-btn" style="background: transparent; color: #000000; width: 16px; height: 16px; border-radius: 0; display: inline-flex; align-items: center; justify-content: center;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.465L0 24zm6.59-4.846c1.6.95 3.488 1.45 5.41 1.451 5.4 0 9.794-4.393 9.798-9.799.002-2.618-1.017-5.08-2.868-6.93C17.078 2.026 14.615.82 12.006.818c-5.4 0-9.794 4.393-9.799 9.799-.001 2.1.543 4.146 1.573 5.956L2.78 21.612l5.05-1.326c-.347-.207-.756-.309-1.183-.311zm12.516-7.411c-.303-.151-1.793-.884-2.071-.985-.278-.101-.482-.151-.684.151-.202.303-.783.985-.96 1.186-.177.202-.354.228-.657.076-.303-.151-1.279-.471-2.436-1.503-.9-.802-1.507-1.793-1.684-2.096-.177-.303-.019-.467.133-.618.136-.135.303-.354.455-.53.151-.177.202-.303.303-.505.101-.202.051-.379-.025-.53-.076-.151-.684-1.648-.938-2.261-.247-.595-.499-.513-.684-.522-.177-.008-.379-.01-.58-.01-.202 0-.53.076-.808.379-.278.303-1.062 1.037-1.062 2.529 0 1.491 1.087 2.932 1.239 3.134.151.202 2.14 3.267 5.184 4.578.724.312 1.29.499 1.732.639.728.231 1.39.198 1.916.12.585-.088 1.793-.733 2.046-1.44.253-.707.253-1.314.177-1.44-.076-.126-.278-.202-.58-.353z"/></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Intro -->
+        <section id="intro" class="ayur-section-large">
+            <div class="ayur-container">
+                <div class="ayur-intro-row">
+                    <div>
+                        <span class="ayur-section-label">OVERVIEW</span>
+                        <h2 class="ayur-section-title" style="margin-bottom: 24px; font-size: 28px;">{svc.get("about_title", f"Comprehensive Rehabilitation for {name}")}</h2>
+                        <p style="margin-bottom: 16px;">{p1}</p>
+                        <p>{p2}</p>
+                    </div>
+                    <div class="ayur-intro-img-frame">
+                        <img src="{intro_img}" alt="{name} Treatment" class="ayur-intro-img">
+                    </div>
                 </div>
             </div>
         </section>
 
-        {sec1_html}
-        {sec2_html}
-        {sec3_html}
-        {sec4_html}
-        {sec5_html}
-        {sec6_html}
-        {sec7_html}
+        <!-- Section 3: Conditions Treated -->
+        <section id="conditions" class="ayur-section-medium" style="background-color: #FBFDFB; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+            <div class="ayur-container">
+                <div class="ayur-section-header">
+                    <span class="ayur-section-label">CLINICAL FOCUS</span>
+                    <h2 class="ayur-section-title">Key Areas of Intervention</h2>
+                    <p class="ayur-section-support">Our therapy modules address specific functional deficits and biological healing targets for optimal progress.</p>
+                </div>
+                <div class="ayur-conditions-grid">
+                    {conditions_html}
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Treatments Offered -->
+        <section id="treatments" class="ayur-section-large">
+            <div class="ayur-container">
+                <div class="ayur-section-header">
+                    <span class="ayur-section-label">THERAPY MODULES</span>
+                    <h2 class="ayur-section-title">Core Treatment Modalities</h2>
+                    <p class="ayur-section-support">Specialized therapies coordinated daily by our integrated clinical panel.</p>
+                </div>
+                <div class="ayur-treatments-timeline" style="position: relative;">
+                    {treatments_html}
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Technologies Used -->
+        <section id="technologies" class="ayur-tech-outer">
+            <div class="ayur-container">
+                <div class="ayur-section-header">
+                    <span class="ayur-section-label" style="color: var(--primary-green);">INTEGRATED INNOVATION</span>
+                    <h2 class="ayur-section-title" style="color: #ffffff;">Clinical Suites & Technology</h2>
+                    <p class="ayur-section-support" style="color: rgba(255, 255, 255, 0.75);">Harnessing advanced feedback systems and traditional biological therapies to support recovery.</p>
+                </div>
+                <div class="ayur-tech-grid">
+                    {techs_html}
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Recovery Journey Timeline -->
+        <section id="journey" class="ayur-section-large">
+            <div class="ayur-container">
+                <div class="ayur-section-header">
+                    <span class="ayur-section-label">RECOVERY TIMELINE</span>
+                    <h2 class="ayur-section-title">Your Recovery Journey</h2>
+                    <p class="ayur-section-support">Our recovery path is a carefully structured, multi-phase clinical progression that guides patients smoothly from intake to dynamic independence.</p>
+                </div>
+                <div class="ayur-journey-timeline">
+                    <div class="ayur-journey-step">
+                        <div class="ayur-journey-icon-circle">
+                            <i data-lucide="clipboard-list" size="24"></i>
+                        </div>
+                        <h4 class="ayur-journey-step-title">1. Assessment</h4>
+                        <p class="ayur-journey-step-desc">Comprehensive medical assessment by our multi-disciplinary panel.</p>
+                    </div>
+                    <div class="ayur-journey-step">
+                        <div class="ayur-journey-icon-circle">
+                            <i data-lucide="activity" size="24"></i>
+                        </div>
+                        <h4 class="ayur-journey-step-title">2. Diagnosis</h4>
+                        <p class="ayur-journey-step-desc">Pinpointing motor, sensory, and biological imbalance vectors.</p>
+                    </div>
+                    <div class="ayur-journey-step">
+                        <div class="ayur-journey-icon-circle">
+                            <i data-lucide="file-text" size="24"></i>
+                        </div>
+                        <h4 class="ayur-journey-step-title">3. Personalized Plan</h4>
+                        <p class="ayur-journey-step-desc">Scheduling custom robotic runs and targeted Ayurvedic protocols.</p>
+                    </div>
+                    <div class="ayur-journey-step">
+                        <div class="ayur-journey-icon-circle">
+                            <i data-lucide="heart-handshake" size="24"></i>
+                        </div>
+                        <h4 class="ayur-journey-step-title">4. Therapy</h4>
+                        <p class="ayur-journey-step-desc">Intensive, daily physical training and cellular purification treatments.</p>
+                    </div>
+                    <div class="ayur-journey-step">
+                        <div class="ayur-journey-icon-circle">
+                            <i data-lucide="trending-up" size="24"></i>
+                        </div>
+                        <h4 class="ayur-journey-step-title">5. Monitoring</h4>
+                        <p class="ayur-journey-step-desc">Strict weekly tracking of physical and sensory progress data.</p>
+                    </div>
+                    <div class="ayur-journey-step">
+                        <div class="ayur-journey-icon-circle">
+                            <i data-lucide="award" size="24"></i>
+                        </div>
+                        <h4 class="ayur-journey-step-title">6. Recovery</h4>
+                        <p class="ayur-journey-step-desc">Achieving optimal independence and preparing a home transition plan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: FAQ Accordion -->
+        <section id="faq" class="ayur-section-large" style="border-top: 1px solid var(--border);">
+            <div class="ayur-container">
+                <div class="ayur-section-header">
+                    <span class="ayur-section-label">COMMON QUERIES</span>
+                    <h2 class="ayur-section-title">Frequently Asked Questions</h2>
+                    <p class="ayur-section-support">Find answers to key details about the {name} program.</p>
+                </div>
+                <div class="ayur-faq-container">
+                    {faqs_html}
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: FAQ Accordion -->
+        <section id="cta" class="ayur-cta-outer">
+            <div class="ayur-container">
+                <div class="ayur-cta-section">
+                    <h2 class="ayur-cta-title">Start Your Recovery Journey Today</h2>
+                    <p class="ayur-cta-desc">Consult with our integrated clinical panel and Ayurvedic scholars to design a custom pathway.</p>
+                    <div class="ayur-cta-btn-group">
+                        <a href="index.html#consultation" class="ayur-btn-primary">
+                            Book Consultation <i data-lucide="calendar" size="18"></i>
+                        </a>
+                        <a href="https://wa.me/918080808080" target="_blank" class="ayur-btn-glass">
+                            WhatsApp <i data-lucide="message-square" size="18"></i>
+                        </a>
+                        <a href="tel:+918080808080" class="ayur-btn-glass" style="background: transparent;">
+                            Call Now <i data-lucide="phone" size="18"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     """
     return main_html
@@ -2859,11 +2150,12 @@ ayurveda_main = """    <main class="ayur-page-main">
 all_dynamic_pages = []
 
 for svc in therapies_list:
-    html = generate_service_html(svc, "Therapies", therapies_list)
-    all_dynamic_pages.append((svc['filename'], html))
+    if svc['filename'] not in ['stroke-rehab.html']: # Skip custom
+        html = generate_service_html(svc, "Therapies", therapies_list)
+        all_dynamic_pages.append((svc['filename'], html))
 
 for svc in departments_list:
-    if svc['filename'] not in ['ayurveda.html']: # Skip ayurveda.html to keep it untouched
+    if svc['filename'] not in ['ayurveda.html', 'robotic-rehab.html']: # Skip custom
         html = generate_service_html(svc, "Departments", departments_list)
         all_dynamic_pages.append((svc['filename'], html))
 
@@ -2877,6 +2169,9 @@ pages = [
     ('therapies.html', therapies_main),
     ('rehab-village.html', village_main),
     ('international-patients.html', international_main),
+    ('stroke-rehab.html', stroke_main),
+    ('robotic-rehab.html', robotic_main),
+    ('ayurveda.html', ayurveda_main)
 ] + all_dynamic_pages
 
 current_dir = os.path.dirname(os.path.abspath(__file__))

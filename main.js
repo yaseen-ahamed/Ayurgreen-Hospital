@@ -1,4 +1,7 @@
+import { mountSidebarGlow } from './mount-sidebar-glow';
+
 document.addEventListener('DOMContentLoaded', () => {
+    mountSidebarGlow();
     // Initialize Lucide Icons
     lucide.createIcons({
       strokeWidth: 1.5,

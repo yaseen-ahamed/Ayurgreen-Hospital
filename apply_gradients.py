@@ -3,11 +3,11 @@ import os
 
 colors_dict = {
     "stroke-rehab.html": "#FDF2F8", # Use a very light pink for stroke to match icon instead of pure white
-    "spinal-cord-injury.html": "#E0F2F1",
-    "traumatic-brain-injury.html": "#E8EAF6",
+    "spinal-cord-injury.html": "#5CE1E6",
+    "traumatic-brain-injury.html": "#47D88A",
     "hemiplegia.html": "#32426E",
     "quadriplegia-paraplegia.html": "#FFE0B2",
-    "post-surgical-complications.html": "#DCEDC8",
+    "post-surgical-complications.html": "#FF914D",
     "motor-neuron-diseases.html": "#FFDE59",
     "cerebral-palsy.html": "#E3F2FD",
     "parkinsons-disease.html": "#D7CCC8",
@@ -15,12 +15,12 @@ colors_dict = {
     "disc-spine-problems.html": "#E8F5E9",
     "sciatica.html": "#C5CAE9",
     "obesity.html": "#D89F74",
-    "post-covid-complications.html": "#FFF9C4",
+    "post-covid-complications.html": "#8C52FF",
     "muscular-dystrophy.html": "#FFCCBC",
     "osteoarthritis.html": "#38B6FF",
     "rheumatoid-arthritis.html": "#FFCDD2",
     "developmental-delay.html": "#FFECB3",
-    "psychological-problems.html": "#F3E8FF",
+    "psychological-problems.html": "#C1FF72",
     "autism.html": "#E0F7FA",
     "psychiatry.html": "#B2EBF2",
 }

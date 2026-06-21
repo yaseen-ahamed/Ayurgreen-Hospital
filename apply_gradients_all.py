@@ -5,16 +5,16 @@ import urllib.parse
 from PIL import Image
 
 known_colors = {
-    "psychological-problems.html": "#F3E8FF",
-    "spinal-cord-injury.html": "#E0F2F1",
+    "psychological-problems.html": "#C1FF72",
+    "spinal-cord-injury.html": "#5CE1E6",
     "quadriplegia-paraplegia.html": "#FFE0B2",
     "cerebral-palsy.html": "#E3F2FD",
     "disc-spine-problems.html": "#E8F5E9",
-    "post-covid-complications.html": "#FFF9C4",
+    "post-covid-complications.html": "#8C52FF",
     "rheumatoid-arthritis.html": "#FFCDD2",
     "autism.html": "#E0F7FA",
-    "traumatic-brain-injury.html": "#E8EAF6",
-    "post-surgical-complications.html": "#DCEDC8",
+    "traumatic-brain-injury.html": "#47D88A",
+    "post-surgical-complications.html": "#FF914D",
     "parkinsons-disease.html": "#D7CCC8",
     "sciatica.html": "#C5CAE9",
     "muscular-dystrophy.html": "#FFCCBC",
@@ -49,11 +49,6 @@ for file in glob.glob("*.html"):
         colors[file] = bg_match.group(1).upper()
         continue
 
-    # If no background-color, try known_colors
-    if file in known_colors:
-        colors[file] = known_colors[file]
-        continue
-
     # Try background-image
     img_match = re.search(r'<div class="ayur-hero-banner"[^>]*background-image:\s*url\((["\']?)(.*?)\1\)', content)
     if img_match:
@@ -63,18 +58,24 @@ for file in glob.glob("*.html"):
             img = Image.open(img_path)
             rgb = img.convert('RGB').getpixel((10, 10))
             colors[file] = f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}".upper()
+            continue
         else:
             print(f"Image not found: {img_path}")
-    else:
-        # Check if there is an img tag inside
-        img_tag = re.search(r'<div class="ayur-hero-banner"[^>]*>.*?<img[^>]*src=(["\']?)(.*?)\1', content, re.DOTALL)
-        if img_tag:
-            img_url = img_tag.group(2)
-            img_path = urllib.parse.unquote(img_url)
-            if os.path.exists(img_path):
-                img = Image.open(img_path)
-                rgb = img.convert('RGB').getpixel((10, 10))
-                colors[file] = f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}".upper()
+
+    # If no background-color and image fails, try known_colors
+    if file in known_colors:
+        colors[file] = known_colors[file]
+        continue
+
+    # Check if there is an img tag inside
+    img_tag = re.search(r'<div class="ayur-hero-banner"[^>]*>.*?<img[^>]*src=(["\']?)(.*?)\1', content, re.DOTALL)
+    if img_tag:
+        img_url = img_tag.group(2)
+        img_path = urllib.parse.unquote(img_url)
+        if os.path.exists(img_path):
+            img = Image.open(img_path)
+            rgb = img.convert('RGB').getpixel((10, 10))
+            colors[file] = f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}".upper()
 
 # Optional: manually fix some colors that are too white
 if "stroke-rehab.html" in colors and colors["stroke-rehab.html"] == "#FFFFFF":

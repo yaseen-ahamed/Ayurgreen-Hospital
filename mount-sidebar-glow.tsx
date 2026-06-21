@@ -9,7 +9,6 @@ export function mountSidebarGlow() {
     '.admire-info-card',
     '.nations-badge-card',
     '.story-card',
-    '.ayur-condition-card',
     '.ayur-tech-card',
     '.rehab-card',
     '.rv-info-card',

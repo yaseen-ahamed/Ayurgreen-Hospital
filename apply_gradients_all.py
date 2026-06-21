@@ -115,20 +115,20 @@ for file, color in colors.items():
     content = re.sub(r'\.ayur-btn-glass\s*\{[^}]*\}', '', content)
     content = re.sub(r'\.ayur-btn-glass:hover\s*\{[^}]*\}', '', content)
 
-    # Determine styles based on theme brightness
+    # Determine styles based on theme brightness (liquid glass theme for both primary and secondary buttons)
     if light:
         btn_styles = """
-            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--dark-navy) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid transparent; }
-            .ayur-btn-primary:hover { background: var(--primary-green) !important; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
-            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.05) !important; border: 1px solid rgba(0, 0, 0, 0.08) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
-            .ayur-btn-glass:hover { background: rgba(0, 0, 0, 0.1) !important; border-color: rgba(0, 0, 0, 0.15) !important; transform: translateY(-2px); }
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.08) !important; border: 1px solid rgba(0, 0, 0, 0.12) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-primary:hover { background: rgba(0, 0, 0, 0.14) !important; border-color: rgba(0, 0, 0, 0.18) !important; transform: translateY(-2px); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.04) !important; border: 1px solid rgba(0, 0, 0, 0.08) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-glass:hover { background: rgba(0, 0, 0, 0.08) !important; border-color: rgba(0, 0, 0, 0.12) !important; transform: translateY(-2px); }
         """
     else:
         btn_styles = """
-            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #ffffff !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid transparent; }
-            .ayur-btn-primary:hover { background: var(--primary-green) !important; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
-            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.15) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
-            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.25) !important; border-color: rgba(255, 255, 255, 0.4) !important; transform: translateY(-2px); }
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.28) !important; border: 1px solid rgba(255, 255, 255, 0.38) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-primary:hover { background: rgba(255, 255, 255, 0.38) !important; border-color: rgba(255, 255, 255, 0.48) !important; transform: translateY(-2px); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.15) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.25) !important; border-color: rgba(255, 255, 255, 0.35) !important; transform: translateY(-2px); }
         """
 
     # Inject the button styles directly after the ayur-cta-btn-group selector

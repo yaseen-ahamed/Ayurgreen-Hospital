@@ -3112,29 +3112,8 @@
             margin-bottom: 8px;
             display: block;
         }
-        .ayur-btn-glass {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            height: 44px;
-            border-radius: 999px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 13px;
-            padding: 0 24px;
-            text-decoration: none;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .ayur-btn-glass:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+        
+        
 
         /* --- Sidebar Navigation Styles --- */
         .ayur-sidebar-container {
@@ -3894,6 +3873,12 @@
                 justify-content: center;
                 flex-wrap: wrap;
             }
+
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #ffffff !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid transparent; }
+            .ayur-btn-primary:hover { background: var(--primary-green) !important; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.15) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
+            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.25) !important; border-color: rgba(255, 255, 255, 0.4) !important; transform: translateY(-2px); }
+        
 
             /* Sidebar column overrides */
             .ayur-sidebar-content .ayur-container {

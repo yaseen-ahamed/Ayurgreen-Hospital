@@ -109,6 +109,31 @@ for file, color in colors.items():
         gradient = f"linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), {color}"
         shadow = "0 20px 50px rgba(0, 0, 0, 0.25)"
 
+    # Remove existing btn blocks if any to prevent duplicates or stale styles
+    content = re.sub(r'\.ayur-btn-primary\s*\{[^}]*\}', '', content)
+    content = re.sub(r'\.ayur-btn-primary:hover\s*\{[^}]*\}', '', content)
+    content = re.sub(r'\.ayur-btn-glass\s*\{[^}]*\}', '', content)
+    content = re.sub(r'\.ayur-btn-glass:hover\s*\{[^}]*\}', '', content)
+
+    # Determine styles based on theme brightness
+    if light:
+        btn_styles = """
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--dark-navy) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid transparent; }
+            .ayur-btn-primary:hover { background: var(--primary-green) !important; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.05) !important; border: 1px solid rgba(0, 0, 0, 0.08) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
+            .ayur-btn-glass:hover { background: rgba(0, 0, 0, 0.1) !important; border-color: rgba(0, 0, 0, 0.15) !important; transform: translateY(-2px); }
+        """
+    else:
+        btn_styles = """
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #ffffff !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid transparent; }
+            .ayur-btn-primary:hover { background: var(--primary-green) !important; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.15) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
+            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.25) !important; border-color: rgba(255, 255, 255, 0.4) !important; transform: translateY(-2px); }
+        """
+
+    # Inject the button styles directly after the ayur-cta-btn-group selector
+    content = re.sub(r'(\.ayur-cta-btn-group\s*\{[^}]*?\})', rf'\1\n{btn_styles}', content)
+
     # 1. .ayur-cta-section
     content = re.sub(r'(\.ayur-cta-section\s*\{[^}]*?)(?:background-color|background):\s*[^;]+;', rf'\1background: {gradient};', content, flags=re.DOTALL)
     # 2. .ayur-tech-outer

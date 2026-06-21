@@ -3111,29 +3111,8 @@
             margin-bottom: 8px;
             display: block;
         }
-        .ayur-btn-glass {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            height: 44px;
-            border-radius: 999px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 13px;
-            padding: 0 24px;
-            text-decoration: none;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .ayur-btn-glass:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+        
+        
 
         /* --- Sidebar Navigation Styles --- */
         .ayur-sidebar-container {
@@ -3529,10 +3508,16 @@
             .ayur-cta-title { font-size: 32px; font-weight: 700; color: var(--dark-navy); margin-bottom: 16px; }
             .ayur-cta-desc { color: var(--body-text); font-size: 16px; max-width: 600px; margin: 0 auto 36px auto; line-height: 1.6; }
             .ayur-cta-btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--primary-green); color: #ffffff; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
-            .ayur-btn-primary:hover { background: #23a85e; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
-            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); color: #ffffff; padding: 14px 28px; border-radius: 40px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; backdrop-filter: blur(10px); }
-            .ayur-btn-glass:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--dark-navy) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid transparent; }
+            .ayur-btn-primary:hover { background: var(--primary-green) !important; color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,196,109,0.35); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.05) !important; border: 1px solid rgba(0, 0, 0, 0.08) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; }
+            .ayur-btn-glass:hover { background: rgba(0, 0, 0, 0.1) !important; border-color: rgba(0, 0, 0, 0.15) !important; transform: translateY(-2px); }
+        
+            
+            
+            
+            
             .ayur-sidebar-content .ayur-container { max-width: 100% !important; padding: 0 !important; }
             .ayur-sidebar-content .ayur-section-large { padding: 40px 0 !important; }
             .ayur-sidebar-content .ayur-section-medium { padding: 30px 0 !important; }

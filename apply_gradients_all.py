@@ -95,16 +95,20 @@ for file, color in colors.items():
     if light:
         text_color = "var(--dark-navy)"
         text_color_muted = "var(--body-text)"
-        card_bg = "rgba(0, 0, 0, 0.03)"
-        card_border = "rgba(0, 0, 0, 0.08)"
+        card_bg = "rgba(255, 255, 255, 0.45) !important"
+        card_border = "rgba(255, 255, 255, 0.5) !important"
+        card_hover_bg = "rgba(255, 255, 255, 0.65) !important"
+        card_hover_border = "rgba(255, 255, 255, 0.7) !important"
         cta_border = "rgba(0, 0, 0, 0.08)"
         gradient = f"linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%), {color}"
         shadow = "0 20px 50px rgba(0, 0, 0, 0.06)"
     else:
         text_color = "#ffffff"
         text_color_muted = "rgba(255, 255, 255, 0.85)"
-        card_bg = "rgba(255, 255, 255, 0.05)"
-        card_border = "rgba(255, 255, 255, 0.1)"
+        card_bg = "rgba(0, 0, 0, 0.2) !important"
+        card_border = "rgba(255, 255, 255, 0.15) !important"
+        card_hover_bg = "rgba(0, 0, 0, 0.35) !important"
+        card_hover_border = "rgba(255, 255, 255, 0.25) !important"
         cta_border = "rgba(255, 255, 255, 0.15)"
         gradient = f"linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), {color}"
         shadow = "0 20px 50px rgba(0, 0, 0, 0.25)"
@@ -152,6 +156,8 @@ for file, color in colors.items():
     content = re.sub(r'(\.ayur-tech-outer\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card\s*\{[^}]*?background:\s*)[^;]+;', rf'\1{card_bg};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card\s*\{[^}]*?border:\s*)[^;]+;', rf'\g<1>1px solid {card_border};', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-tech-card:hover\s*\{[^}]*?background:\s*)[^;]+;', rf'\1{card_hover_bg};', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-tech-card:hover\s*\{[^}]*?border-color:\s*)[^;]+;', rf'\1{card_hover_border};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-condition-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)

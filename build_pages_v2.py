@@ -101,7 +101,7 @@ def generate_json_ld(filename, name, desc, category_name):
             {
               "@type": "ListItem",
               "position": 2,
-              "name": category_name,
+              "name": "Specialities" if category_name == "Therapies" else ("Modern Integrations" if category_name == "Specializations" else category_name),
               "item": "https://ayurgreenhospital.com/therapies.html" if category_name != "Specializations" else "https://ayurgreenhospital.com/programs.html"
             },
             {
@@ -128,6 +128,7 @@ def generate_json_ld(filename, name, desc, category_name):
     return json.dumps(schema, indent=2)
 
 def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblings):
+    display_category_name = "Specialities" if category_name == "Therapies" else ("Modern Integrations" if category_name == "Specializations" else category_name)
     sec_idx = html_content.find("<section")
     if sec_idx == -1:
         sec_idx = html_content.find("<div class=\"ayur-section") # Fallback
@@ -265,7 +266,7 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
         <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
             <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-qdept-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
                 <i data-lucide="menu" size="18"></i>
-                <span>Explore {category_name}</span>
+                <span>Explore {display_category_name}</span>
             </button>
         </div>
         
@@ -275,7 +276,7 @@ def wrap_in_sidebar_layout(html_content, current_filename, category_name, siblin
             <div class="ayur-page-body">
                 <!-- QUICK ACCESS SIDEBAR -->
                 <aside class="ayur-qdept-sidebar">
-                    <div class="ayur-qdept-title">{category_name}</div>
+                    <div class="ayur-qdept-title">{display_category_name}</div>
                     {sidebar_items_html}
                 </aside>
                 
@@ -312,13 +313,13 @@ def generate_service_html(svc, category_name, siblings):
     filename = svc["filename"]
     
     if category_name == "Therapies":
-        breadcrumb_label = "Therapies"
+        breadcrumb_label = "Specialities"
         hero_label = "Rehabilitation Program"
     elif category_name == "Departments":
         breadcrumb_label = "Departments"
         hero_label = "Clinical Modalities"
     else:
-        breadcrumb_label = "Specializations"
+        breadcrumb_label = "Modern Integrations"
         hero_label = "Clinical Specialization"
         
     banner_img = svc.get("banner_img", "Assets/Hospital View.webp")
@@ -1116,7 +1117,7 @@ programs_main = """    <main>
                     <div class="ayur-hero-content">
                         <div class="ayur-hero-breadcrumb">
                             <a href="index.html">Home</a> &nbsp;&gt;&nbsp;
-                            <span style="color: #ffffff;">Specializations</span>
+                            <span style="color: #ffffff;">Modern Integrations</span>
                         </div>
                         <span class="ayur-hero-label">Clinical Programs</span>
                         <h1 class="main-title" style="color: #ffffff !important;">Comprehensive Rehabilitation Programs</h1>
@@ -1191,7 +1192,7 @@ therapies_main = """    <main>
                             <span style="color: #ffffff;">Departments</span>
                         </div>
                         <span class="ayur-hero-label">Clinical Modalities</span>
-                        <h1 class="main-title" style="color: #ffffff !important;">Advanced Healing Therapies</h1>
+                        <h1 class="main-title" style="color: #ffffff !important;">Advanced Healing Specialities</h1>
                         <p class="main-sub">Explore our 15+ specialized therapeutic interventions, integrating the best of technology, ancient science, and modern medicine.</p>
                         <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px;">
                             <a href="index.html#consultation" class="main-cta">
@@ -1334,7 +1335,7 @@ stroke_main = """    <main>
                     <div class="ayur-hero-content">
                         <div class="ayur-hero-breadcrumb">
                             <a href="index.html">Home</a> &nbsp;&gt;&nbsp;
-                            <a href="therapies.html">Therapies</a> &nbsp;&gt;&nbsp;
+                            <a href="therapies.html">Specialities</a> &nbsp;&gt;&nbsp;
                             <span style="color: #ffffff;">Stroke</span>
                         </div>
                         <span class="ayur-hero-label">Rehabilitation Program</span>

@@ -472,6 +472,38 @@
             transform: rotate(180deg);
         }
 
+        /* Specializations Expand Hover Animation */
+        .specializations-pill {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .specializations-pill .pill-text-hover {
+            display: inline-block;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            vertical-align: middle;
+        }
+        .specializations-pill .pill-text-normal {
+            display: inline-block;
+            max-width: 100px;
+            opacity: 1;
+            overflow: hidden;
+            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            vertical-align: middle;
+        }
+        .nav-item-wrapper:hover .specializations-pill .pill-text-normal,
+        .specializations-pill:hover .pill-text-normal {
+            max-width: 0;
+            opacity: 0;
+        }
+        .nav-item-wrapper:hover .specializations-pill .pill-text-hover,
+        .specializations-pill:hover .pill-text-hover {
+            max-width: 180px;
+            opacity: 1;
+        }
+
         .nav-dropdown {
             position: absolute;
             top: 100%;
@@ -3252,8 +3284,29 @@
             margin-bottom: 8px;
             display: block;
         }
-        
-        
+        .ayur-btn-glass {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 44px;
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 0 24px;
+            text-decoration: none;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .ayur-btn-glass:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
 
         /* --- Sidebar Navigation Styles --- */
         .ayur-sidebar-container {
@@ -3390,6 +3443,48 @@
                 display: block;
             }
         }
+    
+        /* Weather Widget */
+        .weather-widget {
+            position: absolute;
+            bottom: 110px; /* Above the bottom-left-badge */
+            left: 48px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: var(--font-body), sans-serif;
+        }
+        .weather-icon {
+            display: flex;
+            align-items: center;
+        }
+        .weather-temp {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .weather-loc {
+            font-size: 10px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .weather-widget {
+                bottom: 100px;
+                left: 24px;
+            }
+        }
+
     </style>
 </head>
 
@@ -3413,7 +3508,7 @@
                         </div>
 
                         <div class="nav-item-wrapper">
-                            <a href="therapies.html" class="individual-pill">Therapies <i data-lucide="chevron-down"
+                            <a href="therapies.html" class="individual-pill">Specialities <i data-lucide="chevron-down"
                                     size="14"></i></a>
                             <div class="nav-dropdown mega-menu-3-col">
                                 <a href="stroke-rehab.html"><i data-lucide="activity" size="14" style="color: #E91E63;"></i> Stroke</a>
@@ -3515,8 +3610,11 @@
 
                 <div class="header-right">
                     <div class="nav-item-wrapper">
-                        <a href="programs.html" class="individual-pill">Specializations <i data-lucide="chevron-down"
-                                size="14"></i></a>
+                        <a href="programs.html" class="individual-pill specializations-pill">
+                            <span class="pill-text-normal">Modern Int</span>
+                            <span class="pill-text-hover">Modern Integrations</span>
+                            <i data-lucide="chevron-down" size="14"></i>
+                        </a>
                         <div class="nav-dropdown">
                             <a href="neurology.html"><i data-lucide="brain-circuit" size="14" style="color: #607D8B;"></i>
                                 Neurology</a>
@@ -3564,7 +3662,7 @@
                     <div class="ayur-hero-content">
                         <div class="ayur-hero-breadcrumb">
                             <a href="index.html">Home</a> &nbsp;&gt;&nbsp;
-                            <span style="color: #ffffff;">Specializations</span>
+                            <span style="color: #ffffff;">Modern Integrations</span>
                         </div>
                         <span class="ayur-hero-label">Clinical Programs</span>
                         <h1 class="main-title" style="color: #ffffff !important;">Comprehensive Rehabilitation Programs</h1>
@@ -3575,7 +3673,7 @@
                             </a>
                             <a href="https://wa.me/918080808080" target="_blank" class="main-cta">
                                 <span class="cta-text">WhatsApp</span>
-                                <span class="arrow-btn" style="background: transparent; padding: 0; display: inline-flex; align-items: center; justify-content: center;"><img src="Assets/Whatsapp%20Icon.png" alt="WhatsApp" style="width: 32px; height: 32px; object-fit: contain; transform: scale(1.5);"></span>
+                                <span class="arrow-btn" style="background: transparent; padding: 0; display: inline-flex; align-items: center; justify-content: center;"><img src="Assets/whatsapp-icon-3953.png" alt="WhatsApp" style="width: 32px; height: 32px; object-fit: contain;"></span>
                             </a>
                         </div>
                     </div>
@@ -3911,7 +4009,7 @@
                     <div class="minimal-footer-links" style="margin-bottom: 24px;">
                         <a href="about.html">About Us</a>
                         <a href="rehab-village.html">Rehab Village</a>
-                        <a href="therapies.html">All Therapies</a>
+                        <a href="therapies.html">All Specialities</a>
                         <a href="international-patients.html">International Patients</a>
                     </div>
                     <h4>Contact Us</h4>
@@ -3977,7 +4075,7 @@
                 </div>
                 
                 <div class="mobile-nav-group">
-                    <button class="mobile-nav-trigger">Therapies <i data-lucide="chevron-down" size="16"></i></button>
+                    <button class="mobile-nav-trigger">Specialities <i data-lucide="chevron-down" size="16"></i></button>
                     <div class="mobile-nav-dropdown-content">
                         <a href="stroke-rehab.html"><i data-lucide="activity" size="16" style="color: #E91E63;"></i> Stroke Rehabilitation</a>
                         <a href="programs.html"><i data-lucide="bone" size="16" style="color: #9C27B0;"></i> Spinal Cord Injury</a>
@@ -4030,7 +4128,7 @@
                 <a href="rehab-village.html" class="mobile-nav-link">Rehab Village</a>
 
                 <div class="mobile-nav-group">
-                    <button class="mobile-nav-trigger">Specializations <i data-lucide="chevron-down" size="16"></i></button>
+                    <button class="mobile-nav-trigger">Modern Integrations <i data-lucide="chevron-down" size="16"></i></button>
                     <div class="mobile-nav-dropdown-content">
                         <a href="programs.html"><i data-lucide="brain-circuit" size="16" style="color: #607D8B;"></i> Neurology</a>
                         <a href="programs.html"><i data-lucide="microscope" size="16" style="color: #009688;"></i> Neurosurgery</a>
@@ -4873,6 +4971,22 @@
         });
     </script>
     <script type="module" src="main.js"></script>
+<script>
+        // Fetch Live Weather for Ayurgreen Hospital
+        async function fetchWeather() {
+            try {
+                const response = await fetch('https://wttr.in/Edappal?format=j1');
+                const data = await response.json();
+                if (data && data.current_condition && data.current_condition.length > 0) {
+                    const temp = data.current_condition[0].temp_C;
+                    document.getElementById('weather-temp').innerText = `${temp}°C`;
+                }
+            } catch (error) {
+                console.error("Failed to fetch weather data", error);
+            }
+        }
+        fetchWeather();
+</script>
 </body>
 
 </html><!-- test -->

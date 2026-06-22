@@ -75,6 +75,7 @@ def parse_treatments(lines):
     return treatments
 
 def generate_service_html(svc, category_name, siblings):
+    display_category_name = "Specialities" if category_name == "Therapies" else ("Modern Integrations" if category_name == "Specializations" else category_name)
     name = svc["name"]
     filename = svc["filename"]
     banner_img = svc.get("banner_img", "Assets/Hospital View.webp")
@@ -614,7 +615,7 @@ def generate_service_html(svc, category_name, siblings):
             <div class="ayur-hero-overlay"></div>
             <div class="ayur-banner-container">
                 <div class="ayur-hero-content-wrapper">
-                    <div class="ayur-hero-badge"><i data-lucide="shield-check" size="16"></i> {category_name}</div>
+                    <div class="ayur-hero-badge"><i data-lucide="shield-check" size="16"></i> {display_category_name}</div>
                     <h1 class="ayur-hero-title">{name}</h1>
                     <p class="ayur-hero-desc">Experience clinical care and integrated rehabilitation customized specifically for your recovery journey.</p>
                 </div>
@@ -625,7 +626,7 @@ def generate_service_html(svc, category_name, siblings):
         <div class="ayur-container" style="margin-top: 24px; margin-bottom: 0;">
             <button class="mobile-sidebar-toggle" onclick="document.querySelector('.ayur-qdept-sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('open');">
                 <i data-lucide="menu" size="18"></i>
-                <span>Explore {category_name}</span>
+                <span>Explore {display_category_name}</span>
             </button>
         </div>
         
@@ -635,7 +636,7 @@ def generate_service_html(svc, category_name, siblings):
             <div class="ayur-page-body">
                 <!-- QUICK ACCESS SIDEBAR -->
                 <aside class="ayur-qdept-sidebar">
-                    <div class="ayur-qdept-title">{category_name}</div>
+                    <div class="ayur-qdept-title">{display_category_name}</div>
                     {sidebar_items_html}
                 </aside>
                 

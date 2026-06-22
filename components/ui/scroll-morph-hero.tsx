@@ -16,7 +16,6 @@ interface BadgeData {
     height?: number;
     imgStyle?: React.CSSProperties;
     borderStyle?: string;
-    rotation: number;          // actual degrees
     alignSelf: "flex-start" | "flex-end" | "center";
 }
 
@@ -29,7 +28,6 @@ const LEFT_BADGES: BadgeData[] = [
         img: "Assets/Logo/nabh-seeklogo.webp",
         width: 2000,
         height: 2000,
-        rotation: -6,
         alignSelf: "flex-start",
     },
     {
@@ -39,7 +37,6 @@ const LEFT_BADGES: BadgeData[] = [
         img: "Assets/Logo/ayur-diamond.webp",
         width: 200,
         height: 198,
-        rotation: 4,
         alignSelf: "flex-end",
     },
     {
@@ -49,7 +46,6 @@ const LEFT_BADGES: BadgeData[] = [
         img: "Assets/Logo/Ahma-Logo.webp",
         width: 600,
         height: 600,
-        rotation: -3,
         alignSelf: "flex-start",
     },
     {
@@ -57,7 +53,6 @@ const LEFT_BADGES: BadgeData[] = [
         bg: "linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%), #c0f249",
         color: "#000",
         icon: <Star size={28} />,
-        rotation: 5,
         alignSelf: "flex-end",
     },
     {
@@ -65,7 +60,6 @@ const LEFT_BADGES: BadgeData[] = [
         label: "Nations Served",
         bg: "linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), #8b0042",
         color: "#fff",
-        rotation: -4,
         alignSelf: "flex-start",
     },
 ];
@@ -76,7 +70,6 @@ const RIGHT_BADGES: BadgeData[] = [
         label: "Years of Legacy",
         bg: "linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), #f97316",
         color: "#fff",
-        rotation: 4,
         alignSelf: "flex-end",
     },
     {
@@ -84,7 +77,6 @@ const RIGHT_BADGES: BadgeData[] = [
         label: "Patients Recovered",
         bg: "linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), #00c08b",
         color: "#fff",
-        rotation: -3,
         alignSelf: "flex-start",
     },
     {
@@ -95,7 +87,6 @@ const RIGHT_BADGES: BadgeData[] = [
         width: 320,
         height: 130,
         imgStyle: { maxHeight: 36 },
-        rotation: 3,
         alignSelf: "flex-end",
     },
     {
@@ -103,7 +94,6 @@ const RIGHT_BADGES: BadgeData[] = [
         bg: "linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), #0891b2",
         color: "#fff",
         icon: <Medal size={28} />,
-        rotation: -4,
         alignSelf: "flex-start",
     },
     {
@@ -114,7 +104,6 @@ const RIGHT_BADGES: BadgeData[] = [
         width: 335,
         height: 151,
         borderStyle: "1px solid #e5e7eb",
-        rotation: 3,
         alignSelf: "flex-end",
     },
 ];
@@ -131,8 +120,8 @@ function BadgeCard({
 }) {
     return (
         <motion.div
-            initial={{ opacity: 0, x: fromLeft ? -60 : 60, rotate: badge.rotation * 1.5 }}
-            whileInView={{ opacity: 1, x: 0, rotate: badge.rotation }}
+            initial={{ opacity: 0, x: fromLeft ? -60 : 60, rotate: 0 }}
+            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{
                 duration: 0.65,
@@ -155,7 +144,6 @@ function BadgeCard({
                 background: badge.bg,
                 color: badge.color,
                 border: badge.borderStyle ?? "none",
-                transform: `rotate(${badge.rotation}deg)`,
             }}
         >
             {badge.icon && (

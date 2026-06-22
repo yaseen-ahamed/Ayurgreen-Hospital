@@ -165,6 +165,7 @@ for file, color in colors.items():
     content = re.sub(r'(\.ayur-tech-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted} !important;', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-condition-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color} !important;', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-condition-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted} !important;', content, flags=re.DOTALL)
+    content = re.sub(r'\.ayur-condition-card-img-wrapper\s*\{[^}]*\}', '.ayur-condition-card-img-wrapper { width: calc(100% - 24px) !important; margin: 12px 12px 0 12px !important; border-radius: 18px !important; height: 180px !important; overflow: hidden; position: relative; }', content)
 
     # HTML inline text color
     tech_outer_match = re.search(r'<section id="technologies" class="ayur-tech-outer">.*?</section>', content, flags=re.DOTALL)

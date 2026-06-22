@@ -562,8 +562,10 @@ def generate_service_html(svc, category_name, siblings):
                 transition: all 400ms ease;
             }}
             .ayur-condition-card-img-wrapper {{
-                width: 100%;
-                height: 200px;
+                width: calc(100% - 24px);
+                margin: 12px 12px 0 12px;
+                border-radius: 18px;
+                height: 180px;
                 overflow: hidden;
                 position: relative;
             }}

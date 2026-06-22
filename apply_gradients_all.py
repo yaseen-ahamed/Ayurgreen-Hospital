@@ -96,8 +96,8 @@ for file, color in colors.items():
 
     light = is_light(color)
     if light:
-        text_color = "var(--dark-navy)"
-        text_color_muted = "var(--body-text)"
+        text_color = "#0c1938"
+        text_color_muted = "rgba(12, 25, 56, 0.85)"
         card_bg = "rgba(255, 255, 255, 0.45) !important"
         card_border = "rgba(255, 255, 255, 0.5) !important"
         card_hover_bg = "rgba(255, 255, 255, 0.65) !important"

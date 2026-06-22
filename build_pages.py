@@ -2155,12 +2155,8 @@ for svc in specializations_list:
     all_dynamic_pages.append((svc['filename'], html))
 
 pages = [
-    ('rehab-village.html', village_main),
-    ('international-patients.html', international_main),
-    ('stroke-rehab.html', stroke_main),
-    ('robotic-rehab.html', robotic_main),
-    ('ayurveda.html', ayurveda_main)
-] + all_dynamic_pages
+    ('rehab-village.html', village_main)
+]
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 

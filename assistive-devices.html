@@ -330,34 +330,21 @@
         }
 
         /* Specializations Expand Hover Animation */
-        .specializations-pill {
+        .specializations-pill .pill-text-wrapper {
+            display: inline-flex;
+            align-items: center;
+        }
+        .specializations-pill .pill-text-expandable {
+            display: inline-block;
+            max-width: 0;
+            opacity: 0;
             overflow: hidden;
             white-space: nowrap;
-        }
-        .specializations-pill .pill-text-hover {
-            display: inline-block;
-            max-width: 0;
-            opacity: 0;
-            overflow: hidden;
             transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-            vertical-align: middle;
         }
-        .specializations-pill .pill-text-normal {
-            display: inline-block;
-            max-width: 100px;
-            opacity: 1;
-            overflow: hidden;
-            transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-            vertical-align: middle;
-        }
-        .nav-item-wrapper:hover .specializations-pill .pill-text-normal,
-        .specializations-pill:hover .pill-text-normal {
-            max-width: 0;
-            opacity: 0;
-        }
-        .nav-item-wrapper:hover .specializations-pill .pill-text-hover,
-        .specializations-pill:hover .pill-text-hover {
-            max-width: 180px;
+        .nav-item-wrapper:hover .specializations-pill .pill-text-expandable,
+        .specializations-pill:hover .pill-text-expandable {
+            max-width: 120px;
             opacity: 1;
         }
 
@@ -3468,8 +3455,7 @@
                 <div class="header-right">
                     <div class="nav-item-wrapper">
                         <a href="programs.html" class="individual-pill specializations-pill">
-                            <span class="pill-text-normal">Modern Int</span>
-                            <span class="pill-text-hover">Modern Integrations</span>
+                            <span class="pill-text-wrapper">Modern Int<span class="pill-text-expandable">egrations</span></span>
                             <i data-lucide="chevron-down" size="14"></i>
                         </a>
                         <div class="nav-dropdown">

@@ -3465,8 +3465,8 @@
             .ayur-condition-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); border-color: rgba(43,196,109,0.2); }
             .ayur-condition-card:hover .ayur-condition-card-img { transform: scale(1.03); }
             .ayur-condition-card-content { padding: 24px; background-color: transparent; flex-grow: 1; display: flex; flex-direction: column; }
-            .ayur-condition-card-title { font-size: 18px; font-weight: 700; color: var(--dark-navy); margin-bottom: 10px; }
-            .ayur-condition-card-desc { font-size: 14px; color: var(--body-text); line-height: 1.5; }
+            .ayur-condition-card-title { font-size: 18px; font-weight: 700; color: var(--dark-navy) !important; margin-bottom: 10px; }
+            .ayur-condition-card-desc { font-size: 14px; color: var(--body-text) !important; line-height: 1.5; }
             .ayur-timeline-item { display: flex; align-items: center; gap: 48px; margin-bottom: 56px; position: relative; z-index: 2; }
             .ayur-timeline-item:last-child { margin-bottom: 0; }
             .ayur-timeline-item:nth-child(even) { flex-direction: row-reverse; }
@@ -3476,7 +3476,7 @@
             .ayur-timeline-col-img:hover img { transform: scale(1.03); }
             .ayur-timeline-col-content { flex: 1; width: 100%; }
             .ayur-timeline-badge { background: rgba(43,196,109,0.1); color: var(--primary-green); font-weight: 700; font-size: 14px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 2px solid var(--primary-green); }
-            .ayur-tech-outer { background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%), #FDF2F8; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); padding: 80px 24px; border-radius: 36px; color: var(--dark-navy); margin-bottom: 56px; }
+            .ayur-tech-outer { background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%), #FDF2F8; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.08); padding: 80px 24px; border-radius: 36px; color: var(--dark-navy) !important; margin-bottom: 56px; }
             .ayur-tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
             @media (max-width: 1024px) { .ayur-tech-grid { grid-template-columns: repeat(2, 1fr); } }
             @media (max-width: 768px) { .ayur-tech-grid { grid-template-columns: 1fr; } }
@@ -3484,8 +3484,8 @@
             .ayur-tech-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.65) !important; border-color: rgba(255, 255, 255, 0.7) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
             .ayur-tech-card-title-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
             .ayur-tech-card-icon { color: var(--primary-green); display: flex; align-items: center; }
-            .ayur-tech-card-title { font-size: 18px; font-weight: 700; color: var(--dark-navy); margin: 0; }
-            .ayur-tech-card-desc { font-size: 14px; color: var(--body-text); line-height: 1.5; }
+            .ayur-tech-card-title { font-size: 18px; font-weight: 700; color: var(--dark-navy) !important; margin: 0; }
+            .ayur-tech-card-desc { font-size: 14px; color: var(--body-text) !important; line-height: 1.5; }
             .ayur-journey-timeline { display: flex; justify-content: space-between; position: relative; margin-top: 40px; gap: 24px; }
             .ayur-journey-timeline::before { content: ''; position: absolute; top: 36px; left: 40px; right: 40px; height: 2px; background: #EAECF0; z-index: 1; }
             @media (max-width: 1024px) { .ayur-journey-timeline { flex-wrap: wrap; } .ayur-journey-timeline::before { display: none; } }
@@ -3506,14 +3506,20 @@
             .ayur-faq-item.active .faq-icon { transform: rotate(45deg); }
             .ayur-cta-outer { background: #FFFFFF; padding: 60px 0; }
             .ayur-cta-section { background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%), #FDF2F8; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 36px; padding: 64px 24px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06); }
-            .ayur-cta-title { font-size: 32px; font-weight: 700; color: var(--dark-navy); margin-bottom: 16px; }
-            .ayur-cta-desc { color: var(--body-text); font-size: 16px; max-width: 600px; margin: 0 auto 36px auto; line-height: 1.6; }
+            .ayur-cta-title { font-size: 32px; font-weight: 700; color: var(--dark-navy) !important; margin-bottom: 16px; }
+            .ayur-cta-desc { color: var(--body-text) !important; font-size: 16px; max-width: 600px; margin: 0 auto 36px auto; line-height: 1.6; }
             .ayur-cta-btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.08) !important; border: 1px solid rgba(0, 0, 0, 0.12) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-            .ayur-btn-primary:hover { background: rgba(0, 0, 0, 0.14) !important; border-color: rgba(0, 0, 0, 0.18) !important; transform: translateY(-2px); }
-            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.04) !important; border: 1px solid rgba(0, 0, 0, 0.08) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-            .ayur-btn-glass:hover { background: rgba(0, 0, 0, 0.08) !important; border-color: rgba(0, 0, 0, 0.12) !important; transform: translateY(-2px); }
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.5) !important; border: 1px solid rgba(255, 255, 255, 0.6) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-primary:hover { background: rgba(255, 255, 255, 0.7) !important; border-color: rgba(255, 255, 255, 0.8) !important; transform: translateY(-2px); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.5) !important; border: 1px solid rgba(255, 255, 255, 0.6) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.7) !important; border-color: rgba(255, 255, 255, 0.8) !important; transform: translateY(-2px); }
+        
+
+            
+            
+            
+            
         
 
             
@@ -4039,7 +4045,7 @@
                         <a href="https://wa.me/918943055555" target="_blank" class="ayur-btn-glass">
                             WhatsApp <img src="Assets/Whatsapp%20Icon.png" alt="WhatsApp" style="width: 18px; height: 18px; object-fit: contain; margin-left: 6px; vertical-align: middle; transform: scale(1.5);">
                         </a>
-                        <a href="tel:+918943055555" class="ayur-btn-glass" style="background: transparent;">
+                        <a href="tel:+918943055555" class="ayur-btn-glass">
                             Call Now <i data-lucide="phone" size="18"></i>
                         </a>
                     </div>

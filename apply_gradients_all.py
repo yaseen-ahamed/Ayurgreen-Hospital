@@ -91,6 +91,9 @@ for file, color in colors.items():
     with open(file, 'r', encoding='utf-8') as f:
         content = f.read()
 
+    # Clean up inline style background override from Call Now button
+    content = re.sub(r'class="ayur-btn-glass"\s+style="background:\s*transparent;?"', 'class="ayur-btn-glass"', content)
+
     light = is_light(color)
     if light:
         text_color = "var(--dark-navy)"
@@ -122,17 +125,17 @@ for file, color in colors.items():
     # Determine styles based on theme brightness (liquid glass theme for both primary and secondary buttons)
     if light:
         btn_styles = """
-            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.08) !important; border: 1px solid rgba(0, 0, 0, 0.12) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-            .ayur-btn-primary:hover { background: rgba(0, 0, 0, 0.14) !important; border-color: rgba(0, 0, 0, 0.18) !important; transform: translateY(-2px); }
-            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.04) !important; border: 1px solid rgba(0, 0, 0, 0.08) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-            .ayur-btn-glass:hover { background: rgba(0, 0, 0, 0.08) !important; border-color: rgba(0, 0, 0, 0.12) !important; transform: translateY(-2px); }
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.5) !important; border: 1px solid rgba(255, 255, 255, 0.6) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-primary:hover { background: rgba(255, 255, 255, 0.7) !important; border-color: rgba(255, 255, 255, 0.8) !important; transform: translateY(-2px); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.5) !important; border: 1px solid rgba(255, 255, 255, 0.6) !important; color: var(--dark-navy) !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.7) !important; border-color: rgba(255, 255, 255, 0.8) !important; transform: translateY(-2px); }
         """
     else:
         btn_styles = """
-            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.28) !important; border: 1px solid rgba(255, 255, 255, 0.38) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-            .ayur-btn-primary:hover { background: rgba(255, 255, 255, 0.38) !important; border-color: rgba(255, 255, 255, 0.48) !important; transform: translateY(-2px); }
-            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.15) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.25) !important; border-color: rgba(255, 255, 255, 0.35) !important; transform: translateY(-2px); }
+            .ayur-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.18) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-primary:hover { background: rgba(255, 255, 255, 0.28) !important; border-color: rgba(255, 255, 255, 0.35) !important; transform: translateY(-2px); }
+            .ayur-btn-glass { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.18) !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; padding: 14px 28px; border-radius: 40px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+            .ayur-btn-glass:hover { background: rgba(255, 255, 255, 0.28) !important; border-color: rgba(255, 255, 255, 0.35) !important; transform: translateY(-2px); }
         """
 
     # Inject the button styles directly after the ayur-cta-btn-group selector
@@ -150,18 +153,18 @@ for file, color in colors.items():
     if '.ayur-condition-card-content' in content:
         content = re.sub(r'(\.ayur-condition-card-content\s*\{[^}]*?background(-color)?:\s*)[^;]+;', rf'\1transparent;', content, flags=re.DOTALL)
 
-    # Apply text color changes
-    content = re.sub(r'(\.ayur-cta-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)
-    content = re.sub(r'(\.ayur-cta-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted};', content, flags=re.DOTALL)
-    content = re.sub(r'(\.ayur-tech-outer\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)
+    # Apply text color changes with !important to prevent specific selector override
+    content = re.sub(r'(\.ayur-cta-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color} !important;', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-cta-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted} !important;', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-tech-outer\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color} !important;', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card\s*\{[^}]*?background:\s*)[^;]+;', rf'\1{card_bg};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card\s*\{[^}]*?border:\s*)[^;]+;', rf'\g<1>1px solid {card_border};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card:hover\s*\{[^}]*?background:\s*)[^;]+;', rf'\1{card_hover_bg};', content, flags=re.DOTALL)
     content = re.sub(r'(\.ayur-tech-card:hover\s*\{[^}]*?border-color:\s*)[^;]+;', rf'\1{card_hover_border};', content, flags=re.DOTALL)
-    content = re.sub(r'(\.ayur-tech-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)
-    content = re.sub(r'(\.ayur-tech-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted};', content, flags=re.DOTALL)
-    content = re.sub(r'(\.ayur-condition-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color};', content, flags=re.DOTALL)
-    content = re.sub(r'(\.ayur-condition-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted};', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-tech-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color} !important;', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-tech-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted} !important;', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-condition-card-title\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color} !important;', content, flags=re.DOTALL)
+    content = re.sub(r'(\.ayur-condition-card-desc\s*\{[^}]*?color:\s*)[^;]+;', rf'\1{text_color_muted} !important;', content, flags=re.DOTALL)
 
     # HTML inline text color
     tech_outer_match = re.search(r'<section id="technologies" class="ayur-tech-outer">.*?</section>', content, flags=re.DOTALL)

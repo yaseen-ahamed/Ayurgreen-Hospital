@@ -1056,7 +1056,7 @@ def generate_service_html(svc, category_name, siblings):
                         <a href="https://wa.me/918080808080" target="_blank" class="ayur-btn-glass">
                             WhatsApp <i data-lucide="message-square" size="18"></i>
                         </a>
-                        <a href="tel:+918080808080" class="ayur-btn-glass" style="background: transparent;">
+                        <a href="tel:+918080808080" class="ayur-btn-glass">
                             Call Now <i data-lucide="phone" size="18"></i>
                         </a>
                     </div>

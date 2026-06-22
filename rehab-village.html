@@ -3653,37 +3653,74 @@
         /* HERO SECTION */
         /* HERO SECTION */
         .rv-hero {
-            height: 100vh;
-            min-height: 850px;
+            position: relative;
+            height: 620px;
+            width: 100%;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, #050814 0%, #0c1938 100%);
-            padding-top: 100px;
+            border-radius: 36px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            background: linear-gradient(to right, #041009 0%, #0a2917 35%, #2bc46d 100%);
         }
 
         .rv-hero .rv-tagline {
             color: #2BC46D;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
         }
 
         .rv-hero .rv-title-large {
             color: #ffffff;
-        }
-
-        .rv-hero .text-gradient {
-            background: linear-gradient(135deg, #ffffff 30%, rgba(255, 255, 255, 0.75) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
         .rv-hero .rv-para-large {
-            color: rgba(255, 255, 255, 0.75);
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Action Buttons */
+        .rv-hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .rv-hero .rv-btn-primary {
             background: #ffffff;
             color: #000000;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .rv-hero .rv-btn-primary .icon-circle {
+            background: #000000;
+            color: #ffffff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .rv-hero .rv-btn-primary:hover {
@@ -3692,146 +3729,56 @@
         }
 
         .rv-hero .rv-btn-secondary {
+            background: #ffffff;
+            color: #000000;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .rv-hero .rv-btn-secondary .icon-circle {
+            background: #25D366; /* WhatsApp green */
             color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .rv-hero .rv-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000000;
         }
 
-        .rv-hero-visual-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 48%;
-            height: 100%;
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            opacity: 0.85;
-            mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        @media (max-width: 1024px) {
+            .rv-hero {
+                height: 520px;
+            }
         }
 
-        .rv-hero-visual-bg img {
-            width: 100%;
-            height: 80%;
-            object-fit: cover;
-            border-radius: 60px 0 0 60px;
-            border-left: 2px solid rgba(255, 255, 255, 0.15);
+        @media (max-width: 768px) {
+            .rv-hero {
+                height: 420px;
+            }
+            .rv-hero-actions .rv-btn-primary,
+            .rv-hero-actions .rv-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        .rv-hero-content-wrap {
-            max-width: 620px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .rv-hero-cards {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .rv-floating-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid var(--border, #E5E7EB);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 16px 24px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-            color: var(--text-main, #111111);
-            pointer-events: auto;
-            transition: all 0.3s ease;
-        }
-
-        .rv-hero .rv-floating-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .rv-hero .rv-floating-card:hover {
-            border-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.15);
-        }
-
-        .rv-floating-card:hover {
-            border-color: var(--secondary, #262626);
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 0 20px rgba(38, 38, 38, 0.12);
-        }
-
-        .rv-floating-card.card-1 { top: 20%; right: 28%; }
-        .rv-floating-card.card-2 { top: 48%; right: 5%; }
-        .rv-floating-card.card-3 { bottom: 25%; right: 38%; }
-        .rv-floating-card.card-4 { bottom: 15%; right: 10%; }
-
-        .rv-scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            opacity: 0.6;
-        }
-
-        .rv-hero .rv-scroll-indicator {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .rv-scroll-mouse {
-            width: 24px;
-            height: 38px;
-            border: 2px solid var(--text-main, #111111);
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .rv-hero .rv-scroll-mouse {
-            border-color: #ffffff;
-        }
-
-        .rv-scroll-wheel {
-            width: 4px;
-            height: 8px;
-            background: var(--accent-green);
-            border-radius: 2px;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: scrollWheelAnim 1.6s infinite;
-        }
-
-        .rv-hero .rv-scroll-wheel {
-            background: #ffffff;
-        }
-
-        @keyframes scrollWheelAnim {
-            0% { top: 6px; opacity: 1; }
-            100% { top: 22px; opacity: 0; }
-        }
+        /* Floating Glass Cards Removed as per minimal design */
 
         /* ------------------------------------------------------------- */
         /* SECTION 2 – ABOUT & TIMELINE */
@@ -5132,20 +5079,7 @@
                 gap: 40px;
             }
 
-            .rv-hero {
-                height: auto;
-                min-height: auto;
-                padding-bottom: 80px;
-            }
-
-            .rv-hero-visual-bg {
-                display: none;
-            }
-
-            .rv-hero-content-wrap {
-                max-width: 100%;
-                text-align: center;
-            }
+            /* rv-hero visual and structural styles removed as they are handled in the main styles */
 
             .rv-floating-card {
                 position: relative;
@@ -5328,44 +5262,29 @@
     </style>
 
     <!-- SECTION 1: HERO SECTION -->
-    <section class="rv-hero">
-        <div class="rv-container">
-            <div class="rv-hero-content-wrap">
-                <span class="rv-tagline">Nature-Integrated Recovery</span>
-                <h1 class="rv-title-large text-gradient">Welcome to Ayurgreen Rehab Village</h1>
-                <p class="rv-para-large">A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.</p>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <a href="#about" class="rv-btn-primary">Explore Rehab Village <i data-lucide="arrow-right" size="16"></i></a>
-                    <a href="#stakeholder-registration" class="rv-btn-secondary">Become a Partner</a>
+    <div class="ayur-hero-wrapper">
+        <section class="rv-hero">
+            <div class="ayur-hero-overlay" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);"></div>
+            <div class="ayur-container">
+                <div class="ayur-hero-content">
+                    <div class="ayur-hero-breadcrumb">
+                        <a href="index.html">Home</a> &gt; <span>Rehab Village</span>
+                    </div>
+                    <span class="rv-tagline">Nature-Integrated Recovery</span>
+                    <h1 class="rv-title-large">Welcome to Ayurgreen<br>Rehab Village</h1>
+                    <p class="rv-para-large">A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.</p>
+                    <div class="rv-hero-actions">
+                        <a href="#about" class="rv-btn-primary">
+                            Explore Rehab Village <span class="icon-circle"><i data-lucide="arrow-up-right" size="14"></i></span>
+                        </a>
+                        <a href="#stakeholder-registration" class="rv-btn-secondary">
+                            Become a Partner <span class="icon-circle"><i data-lucide="message-circle" size="14"></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="rv-hero-visual-bg">
-            <img src="Assets/generated/rehab_village_exterior_1776281820189.png" onerror="this.src='Assets/Hospital View.webp'" alt="Ayurgreen Rehab Village Landscape">
-        </div>
-        <!-- Floating Glass Cards (Dynamic Visual Elements) -->
-        <div class="rv-hero-cards">
-            <div class="rv-floating-card card-1">
-                <span>🏡</span> Extended Stay
-            </div>
-            <div class="rv-floating-card card-2">
-                <span>🩺</span> Daily Doctor Visits
-            </div>
-            <div class="rv-floating-card card-3">
-                <span>🤝</span> Community Support
-            </div>
-            <div class="rv-floating-card card-4">
-                <span>🚑</span> Hospital Connectivity
-            </div>
-        </div>
-        <!-- Scroll Indicator -->
-        <div class="rv-scroll-indicator">
-            <div class="rv-scroll-mouse">
-                <div class="rv-scroll-wheel"></div>
-            </div>
-            <span style="font-size: 11px; letter-spacing: 1px; font-weight: 500; text-transform: uppercase;">Scroll to discover</span>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- SECTION 2: WHAT IS REHAB VILLAGE -->
     <section id="about" class="rv-section" style="border-top: 1px solid var(--border); background: radial-gradient(circle at 10% 20%, rgba(38, 38, 38, 0.03) 0%, transparent 40%);">

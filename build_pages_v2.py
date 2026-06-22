@@ -2154,9 +2154,6 @@ for svc in specializations_list:
     all_dynamic_pages.append((svc['filename'], html))
 
 pages = [
-    ('about.html', about_main),
-    ('programs.html', programs_main),
-    ('therapies.html', therapies_main),
     ('rehab-village.html', village_main),
     ('international-patients.html', international_main),
     ('stroke-rehab.html', stroke_main),

@@ -1,0 +1,3286 @@
+<main class="rv-main">
+    <!-- Embedded Scoped Styling to protect theme consistency -->
+    <style>
+        .rv-main {
+            background-color: #050814;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fluid typography & spacing variables */
+        :root {
+            --emerald-glow: 0 0 30px rgba(43, 196, 109, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            --accent-green: #2BC46D;
+            --accent-green-glow: #00ff66;
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .rv-section {
+            padding: clamp(60px, 8vw, 120px) 0;
+            position: relative;
+        }
+
+        .rv-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        .rv-title-large {
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            font-family: var(--font-heading);
+        }
+
+        .rv-title-medium {
+            font-size: clamp(24px, 3vw, 42px);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+        }
+
+        .rv-title-small {
+            font-size: clamp(18px, 1.8vw, 24px);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+        }
+
+        .rv-tagline {
+            font-size: clamp(14px, 1.2vw, 18px);
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .rv-para-large {
+            font-size: clamp(16px, 1.3vw, 20px);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+        }
+
+        .rv-para-medium {
+            font-size: 15px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism Cards */
+        .rv-glass-panel {
+            background: var(--glass-bg);
+            border: var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+        }
+
+        .rv-glass-panel:hover {
+            border-color: rgba(43, 196, 109, 0.3);
+            box-shadow: var(--glass-shadow), var(--emerald-glow);
+        }
+
+        /* Buttons */
+        .rv-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #050814;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid transparent;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .rv-btn-primary:hover {
+            transform: translateY(-2px);
+            background: var(--accent-green);
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(43, 196, 109, 0.4);
+        }
+
+        .rv-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .rv-btn-secondary:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* HERO SECTION */
+        .rv-hero {
+            height: 100vh;
+            min-height: 850px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(43, 196, 109, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 10% 80%, rgba(31, 90, 68, 0.1) 0%, transparent 60%);
+            padding-top: 100px;
+        }
+
+        .rv-hero-visual-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 48%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            opacity: 0.85;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+
+        .rv-hero-visual-bg img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 60px 0 0 60px;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rv-hero-content-wrap {
+            max-width: 620px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .rv-hero-cards {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .rv-floating-card {
+            position: absolute;
+            background: rgba(5, 8, 20, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 16px 24px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: #ffffff;
+            pointer-events: auto;
+            transition: all 0.3s ease;
+        }
+
+        .rv-floating-card:hover {
+            border-color: var(--accent-green);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(43, 196, 109, 0.3);
+        }
+
+        .rv-floating-card.card-1 { top: 20%; right: 28%; }
+        .rv-floating-card.card-2 { top: 48%; right: 5%; }
+        .rv-floating-card.card-3 { bottom: 25%; right: 38%; }
+        .rv-floating-card.card-4 { bottom: 15%; right: 10%; }
+
+        .rv-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.6;
+        }
+
+        .rv-scroll-mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid #ffffff;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .rv-scroll-wheel {
+            width: 4px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheelAnim 1.6s infinite;
+        }
+
+        @keyframes scrollWheelAnim {
+            0% { top: 6px; opacity: 1; }
+            100% { top: 22px; opacity: 0; }
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 2 – ABOUT & TIMELINE */
+        .rv-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 80px);
+            align-items: center;
+        }
+
+        .rv-illustration-box {
+            position: relative;
+            background: linear-gradient(135deg, rgba(31, 90, 68, 0.15) 0%, rgba(5, 8, 20, 0.4) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 36px;
+            padding: 40px;
+            box-shadow: inset 0 0 30px rgba(43, 196, 109, 0.05);
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .rv-path-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rv-path-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-green);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .rv-path-item:hover .rv-path-icon {
+            border-color: var(--accent-green);
+            background: rgba(43, 196, 109, 0.1);
+            box-shadow: 0 8px 24px rgba(43, 196, 109, 0.2);
+        }
+
+        .rv-path-connector {
+            position: absolute;
+            left: 32px;
+            top: 64px;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, var(--accent-green) 0%, rgba(255,255,255,0.05) 100%);
+            z-index: 1;
+        }
+
+        .rv-path-2 .rv-path-connector {
+            height: 90px;
+        }
+
+        /* Timeline Infographic Scroll-triggered */
+        .rv-timeline-horizontal {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .rv-timeline-line {
+            position: absolute;
+            top: 28px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.08);
+            z-index: 1;
+        }
+
+        .rv-timeline-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-green) 0%, var(--accent-green-glow) 100%);
+            box-shadow: 0 0 10px var(--accent-green-glow);
+            transition: width 0.8s ease-out;
+        }
+
+        .rv-timeline-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .rv-timeline-step.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .rv-timeline-dot {
+            width: 56px;
+            height: 56px;
+            background: #050814;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            transition: all 0.4s ease;
+        }
+
+        .rv-timeline-step.active .rv-timeline-dot {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            box-shadow: 0 0 15px rgba(43, 196, 109, 0.4);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 3 – BENTO GRID */
+        .rv-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .rv-bento-card {
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rv-bento-card.col-2 {
+            grid-column: span 2;
+        }
+
+        .rv-bento-card.row-2 {
+            grid-row: span 2;
+            min-height: 524px;
+        }
+
+        .rv-bento-card .card-icon-wrap {
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-green);
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .rv-bento-card:hover .card-icon-wrap {
+            background: var(--accent-green);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(43, 196, 109, 0.3);
+        }
+
+        .rv-bento-card .ripple-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(43, 196, 109, 0.06) 0%, transparent 70%);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .rv-bento-card:hover .ripple-bg {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 4 – VISION & MISSION */
+        .rv-vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+        }
+
+        .rv-vm-grid::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            bottom: 10%;
+            left: 50%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent);
+            transform: translateX(-50%);
+        }
+
+        .rv-svg-line-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .rv-svg-line-container path {
+            fill: none;
+            stroke: var(--accent-green);
+            stroke-width: 1.5;
+            stroke-dasharray: 6 6;
+            opacity: 0.25;
+            animation: dashpath 40s linear infinite;
+        }
+
+        @keyframes dashpath {
+            to { stroke-dashoffset: -1000; }
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 5 – HOW IT WORKS */
+        .rv-process-timeline {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 60px;
+        }
+
+        .rv-process-card-wrapper {
+            flex: 1;
+            perspective: 1000px;
+        }
+
+        .rv-process-card {
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px 16px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .rv-process-card .card-step-num {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-green);
+            background: rgba(43, 196, 109, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .rv-process-card .card-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+        }
+
+        .rv-process-card:hover {
+            height: 260px;
+            transform: translateY(-8px);
+            border-color: var(--accent-green);
+            box-shadow: var(--glass-shadow), 0 0 20px rgba(43, 196, 109, 0.2);
+        }
+
+        .rv-process-card:hover .card-desc {
+            max-height: 80px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 6 – DAILY LIFE */
+        .rv-lifestyle-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .rv-lifestyle-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .rv-lifestyle-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .rv-lifestyle-content {
+            flex: 1;
+        }
+
+        .rv-lifestyle-visual {
+            flex: 1;
+            position: relative;
+            height: 380px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .rv-lifestyle-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .rv-lifestyle-visual:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 7 – ECOSYSTEM WHEEL */
+        .rv-wheel-wrap {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: clamp(40px, 5vw, 80px);
+            align-items: center;
+        }
+
+        .rv-wheel-visual-side {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rv-wheel-center {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #10261c 0%, #050814 100%);
+            border: 2px solid var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 0 35px rgba(43, 196, 109, 0.4), inset 0 0 20px rgba(43, 196, 109, 0.2);
+            z-index: 10;
+        }
+
+        .rv-wheel-orbit {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border: 1px dashed rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            animation: rotateOrbit 120s linear infinite;
+        }
+
+        @keyframes rotateOrbit {
+            to { transform: rotate(360deg); }
+        }
+
+        .rv-wheel-node {
+            position: absolute;
+            width: 72px;
+            height: 72px;
+            background: rgba(5, 8, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 11;
+            transition: all 0.3s ease;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .rv-wheel-node:hover, .rv-wheel-node.active {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(43, 196, 109, 0.4);
+            transform: scale(1.1);
+        }
+
+        /* Position Orbit Nodes (6 stakeholders) */
+        .node-1 { top: -36px; left: calc(50% - 36px); } /* Patients */
+        .node-2 { top: 70px; right: -30px; } /* Families */
+        .node-3 { bottom: 70px; right: -30px; } /* Healthcare Professionals */
+        .node-4 { bottom: -36px; left: calc(50% - 36px); } /* Accommodation Partners */
+        .node-5 { bottom: 70px; left: -30px; } /* Local Community */
+        .node-6 { top: 70px; left: -30px; } /* Volunteers */
+
+        .rv-wheel-node i {
+            pointer-events: none;
+        }
+
+        .rv-wheel-info-panel {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 8 – WHY REHAB VILLAGE STACK */
+        .rv-stack-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .rv-stack-card {
+            border-radius: 24px;
+            padding: 32px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .rv-stack-card-left {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .rv-stack-card-left h3 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .rv-stack-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-green);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .rv-stack-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            width: 60%;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .rv-stack-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(43, 196, 109, 0.25);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .rv-stack-card.active {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--accent-green);
+            box-shadow: var(--glass-shadow), var(--emerald-glow);
+        }
+
+        .rv-stack-card.active .rv-stack-details {
+            max-height: 120px;
+            opacity: 1;
+        }
+
+        .rv-stack-card .rv-stack-arrow {
+            transition: transform 0.4s ease;
+        }
+
+        .rv-stack-card.active .rv-stack-arrow {
+            transform: rotate(180deg);
+            color: var(--accent-green);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 9 – ACCOMMODATION ECOSYSTEM */
+        .rv-tabs-header {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .rv-tab-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rv-tab-btn:hover {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .rv-tab-btn.active {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(43, 196, 109, 0.3);
+        }
+
+        .rv-tab-content {
+            display: none;
+            animation: fadeInTab 0.5s ease forwards;
+        }
+
+        .rv-tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInTab {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .rv-acc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .rv-acc-card {
+            overflow: hidden;
+            border-radius: 28px;
+            background: var(--glass-bg);
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .rv-acc-img-wrap {
+            height: 220px;
+            position: relative;
+            background: #0f1912;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .rv-acc-img-wrap svg {
+            width: 64px;
+            height: 64px;
+            color: rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
+        }
+
+        .rv-acc-card:hover .rv-acc-img-wrap svg {
+            transform: scale(1.1) rotate(5deg);
+            color: rgba(43, 196, 109, 0.15);
+        }
+
+        .rv-acc-tag {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(5, 8, 20, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-green);
+            border: 1px solid rgba(43, 196, 109, 0.3);
+        }
+
+        .rv-acc-details-panel {
+            padding: 30px;
+        }
+
+        .rv-acc-amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0 24px 0;
+        }
+
+        .rv-acc-badge {
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .rv-acc-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 16px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 10 – MEDICAL TOURISM ADVANTAGE MAP */
+        .rv-map-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .rv-map-graphic {
+            position: relative;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 36px;
+            overflow: hidden;
+        }
+
+        .rv-map-connection {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rv-map-connection path {
+            fill: none;
+            stroke: var(--accent-green);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-dasharray: 8, 8;
+            opacity: 0.6;
+            animation: march 20s linear infinite;
+        }
+
+        @keyframes march {
+            to { stroke-dashoffset: -400; }
+        }
+
+        .rv-map-point {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rv-map-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-green);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-green);
+            position: relative;
+        }
+
+        .rv-map-dot::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-green);
+            border-radius: 50%;
+            animation: pulseMapDot 1.5s infinite ease-out;
+            opacity: 0;
+        }
+
+        @keyframes pulseMapDot {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+        .rv-map-label {
+            font-size: 11px;
+            font-weight: 700;
+            background: rgba(5, 8, 20, 0.85);
+            padding: 4px 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 6px;
+            white-space: nowrap;
+        }
+
+        /* Locations coordinates roughly estimated */
+        .point-europe { top: 20%; left: 20%; }
+        .point-me { top: 40%; left: 45%; }
+        .point-africa { top: 65%; left: 30%; }
+        .point-india { top: 50%; left: 78%; } /* Center Destination */
+
+        .point-india .rv-map-dot {
+            width: 18px;
+            height: 18px;
+            background: #ffffff;
+            border: 3px solid var(--accent-green);
+            box-shadow: 0 0 25px var(--accent-green);
+        }
+
+        .point-india .rv-map-label {
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+            font-size: 12px;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 11 – VOLUNTEER PROGRAM */
+        .rv-volunteer-visual {
+            position: relative;
+            border-radius: 36px;
+            overflow: hidden;
+            height: 480px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .rv-volunteer-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rv-v-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .rv-v-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rv-v-card i {
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .rv-quote-box {
+            border-left: 3px solid var(--accent-green);
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 12 – PARTNERSHIPS */
+        .rv-partner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .rv-partner-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 440px;
+        }
+
+        .rv-partner-list {
+            margin: 24px 0 32px 0;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rv-partner-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .rv-partner-list li i {
+            color: var(--accent-green);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 13 – PATIENT JOURNEY SCROLL */
+        .rv-journey-track {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .rv-journey-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .rv-journey-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-green-glow) 100%);
+            box-shadow: 0 0 10px var(--accent-green-glow);
+            transition: height 0.3s ease-out;
+        }
+
+        .rv-journey-block {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rv-journey-block.left {
+            justify-content: flex-start;
+        }
+
+        .rv-journey-card-wrap {
+            width: 45%;
+        }
+
+        .rv-journey-dot {
+            width: 24px;
+            height: 24px;
+            background: #050814;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            z-index: 3;
+            transition: all 0.4s ease;
+        }
+
+        .rv-journey-block.active .rv-journey-dot {
+            border-color: var(--accent-green);
+            background: var(--accent-green);
+            box-shadow: 0 0 12px var(--accent-green);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 14 – IMPACT METRICS */
+        .rv-metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .rv-metric-card {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .rv-metric-number {
+            font-size: clamp(36px, 4vw, 54px);
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 15 – TESTIMONIALS CAROUSEL */
+        .rv-carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .rv-carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            gap: 30px;
+        }
+
+        .rv-carousel-slide {
+            flex: 0 0 calc(50% - 15px);
+            box-sizing: border-box;
+        }
+
+        .rv-star-rating {
+            color: #FFD700;
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .rv-carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .rv-carousel-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rv-carousel-btn:hover {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 15px rgba(43, 196, 109, 0.3);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 16 – FAQ */
+        .rv-faq-stack {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .rv-faq-item {
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .rv-faq-trigger {
+            width: 100%;
+            padding: 24px 30px;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .rv-faq-trigger i {
+            transition: transform 0.3s ease;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .rv-faq-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            padding: 0 30px;
+        }
+
+        .rv-faq-content p {
+            padding-bottom: 24px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14.5px;
+        }
+
+        .rv-faq-item.active {
+            border-color: rgba(43, 196, 109, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .rv-faq-item.active .rv-faq-trigger i {
+            transform: rotate(180deg);
+            color: var(--accent-green);
+        }
+
+        .rv-faq-item.active .rv-faq-content {
+            opacity: 1;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SECTION 17 – REGISTRATION FORM */
+        .rv-form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rv-form-tabs {
+            display: flex;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 6px;
+            border-radius: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rv-form-tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            font-size: 13.5px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .rv-form-tab-btn.active {
+            background: #ffffff;
+            color: #050814;
+        }
+
+        .rv-form-step-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .rv-form-step-line {
+            position: absolute;
+            top: 14px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255,255,255,0.08);
+            z-index: 1;
+        }
+
+        .rv-form-step-line-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-green);
+            transition: width 0.4s ease;
+        }
+
+        .rv-form-step-node {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #050814;
+            border: 2px solid rgba(255,255,255,0.15);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .rv-form-step-node.active {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            box-shadow: 0 0 10px rgba(43, 196, 109, 0.4);
+        }
+
+        .rv-form-step-node.completed {
+            border-color: var(--accent-green);
+            background: var(--accent-green);
+            color: #ffffff;
+        }
+
+        .rv-form-pane {
+            display: none;
+        }
+
+        .rv-form-pane.active {
+            display: block;
+        }
+
+        .rv-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .rv-form-group {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .rv-form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .rv-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 20px;
+            border-radius: 14px;
+            color: #ffffff;
+            font-size: 14.5px;
+            outline: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .rv-input:focus {
+            border-color: var(--accent-green);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 0 10px rgba(43, 196, 109, 0.1);
+        }
+
+        .rv-label {
+            position: absolute;
+            left: 20px;
+            top: 18px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .rv-input:focus ~ .rv-label,
+        .rv-input:not(:placeholder-shown) ~ .rv-label {
+            top: -10px;
+            left: 14px;
+            font-size: 11px;
+            background: #050814;
+            padding: 0 6px;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .rv-form-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* CONTACT SECTION */
+        .rv-contact-box {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, rgba(43, 196, 109, 0.1) 0%, transparent 60%);
+        }
+
+        .rv-contact-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .rv-contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 24px 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .rv-contact-card:hover {
+            border-color: var(--accent-green);
+            background: rgba(43, 196, 109, 0.05);
+            box-shadow: 0 0 20px rgba(43, 196, 109, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .rv-contact-card i {
+            color: var(--accent-green);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* RESPONSIVE LAYOUT */
+        @media (max-width: 1024px) {
+            .rv-split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .rv-hero {
+                height: auto;
+                min-height: auto;
+                padding-bottom: 80px;
+            }
+
+            .rv-hero-visual-bg {
+                display: none;
+            }
+
+            .rv-hero-content-wrap {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .rv-floating-card {
+                position: relative;
+                top: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                left: auto !important;
+                display: inline-flex;
+                margin: 10px;
+            }
+
+            .rv-hero-cards {
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 40px;
+                height: auto;
+                pointer-events: auto;
+            }
+
+            .rv-bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rv-bento-card.col-2 {
+                grid-column: span 2;
+            }
+
+            .rv-bento-card.row-2 {
+                grid-row: span 1;
+                min-height: 250px;
+            }
+
+            .rv-timeline-horizontal {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding-left: 30px;
+            }
+
+            .rv-timeline-line {
+                top: 0;
+                bottom: 0;
+                left: 28px;
+                width: 2px;
+                height: 100%;
+            }
+
+            .rv-timeline-step {
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .rv-timeline-dot {
+                margin: 0;
+            }
+
+            .rv-wheel-wrap {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .rv-stack-details {
+                width: 100%;
+            }
+
+            .rv-stack-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .rv-stack-card-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .rv-partner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-acc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rv-map-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rv-carousel-slide {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rv-bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-bento-card.col-2 {
+                grid-column: span 1;
+            }
+
+            .rv-vm-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-vm-grid::after {
+                display: none;
+            }
+
+            .rv-process-timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .rv-process-card {
+                height: auto !important;
+                padding: 30px;
+            }
+
+            .rv-process-card .card-desc {
+                max-height: none !important;
+                opacity: 1 !important;
+                margin-top: 12px;
+            }
+
+            .rv-lifestyle-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .rv-lifestyle-row.reverse {
+                flex-direction: column;
+            }
+
+            .rv-acc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-v-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-journey-line {
+                left: 16px;
+            }
+
+            .rv-journey-dot {
+                left: 16px;
+            }
+
+            .rv-journey-card-wrap {
+                width: calc(100% - 48px);
+                margin-left: 48px !important;
+            }
+
+            .rv-journey-block {
+                justify-content: flex-start !important;
+            }
+
+            .rv-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rv-form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="rv-hero">
+        <div class="rv-container">
+            <div class="rv-hero-content-wrap">
+                <span class="rv-tagline">Nature-Integrated Recovery</span>
+                <h1 class="rv-title-large text-gradient">Welcome to Ayurgreen Rehab Village</h1>
+                <p class="rv-para-large">A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <a href="#about" class="rv-btn-primary">Explore Rehab Village <i data-lucide="arrow-right" size="16"></i></a>
+                    <a href="#stakeholder-registration" class="rv-btn-secondary">Become a Partner</a>
+                </div>
+            </div>
+        </div>
+        <div class="rv-hero-visual-bg">
+            <img src="Assets/generated/rehab_village_exterior_1776281820189.png" onerror="this.src='Assets/Hospital View.webp'" alt="Ayurgreen Rehab Village Landscape">
+        </div>
+        <!-- Floating Glass Cards (Dynamic Visual Elements) -->
+        <div class="rv-hero-cards">
+            <div class="rv-floating-card card-1">
+                <span>🏡</span> Extended Stay
+            </div>
+            <div class="rv-floating-card card-2">
+                <span>🩺</span> Daily Doctor Visits
+            </div>
+            <div class="rv-floating-card card-3">
+                <span>🤝</span> Community Support
+            </div>
+            <div class="rv-floating-card card-4">
+                <span>🚑</span> Hospital Connectivity
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="rv-scroll-indicator">
+            <div class="rv-scroll-mouse">
+                <div class="rv-scroll-wheel"></div>
+            </div>
+            <span style="font-size: 11px; letter-spacing: 1px; font-weight: 500; text-transform: uppercase;">Scroll to discover</span>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHAT IS REHAB VILLAGE -->
+    <section id="about" class="rv-section" style="border-top: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at 10% 20%, rgba(43, 196, 109, 0.03) 0%, transparent 40%);">
+        <div class="rv-container">
+            <div class="rv-split-layout">
+                <!-- Left: Path Illustration -->
+                <div class="rv-illustration-box">
+                    <div class="rv-path-item rv-path-1">
+                        <div class="rv-path-icon"><i data-lucide="building-2" size="24"></i></div>
+                        <div>
+                            <h4 class="rv-title-small" style="margin:0;">1. Specialized Hospital</h4>
+                            <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 4px 0 0 0;">Intensive ortho-neuro clinical therapy</p>
+                        </div>
+                        <div class="rv-path-connector"></div>
+                    </div>
+                    <div class="rv-path-item rv-path-2">
+                        <div class="rv-path-icon"><i data-lucide="home" size="24"></i></div>
+                        <div>
+                            <h4 class="rv-title-small" style="margin:0;">2. Accommodations</h4>
+                            <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 4px 0 0 0;">Service villas, homestays, and apartments</p>
+                        </div>
+                        <div class="rv-path-connector"></div>
+                    </div>
+                    <div class="rv-path-item rv-path-3">
+                        <div class="rv-path-icon"><i data-lucide="sparkles" size="24"></i></div>
+                        <div>
+                            <h4 class="rv-title-small" style="margin:0;">3. Recovery & Independence</h4>
+                            <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 4px 0 0 0;">Community support and complete integration</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Content -->
+                <div>
+                    <span class="rv-tagline">About Rehab Village</span>
+                    <h2 class="rv-title-medium text-gradient">Recovery Doesn't Stop When Hospital Treatment Ends</h2>
+                    <p class="rv-para-medium" style="margin-bottom: 20px;">Rehab Village is a transformative initiative by Ayurgreen Hospitals, designed to redefine rehabilitation and patient care. Set amidst a serene village environment, it offers a unique and nurturing space for patients to recover and regain independence.</p>
+                    <p class="rv-para-medium" style="margin-bottom: 24px;">By integrating traditional healing techniques with modern medical advancements, Rehab Village ensures holistic, patient-centered care tailored to individual needs. Patients benefit from specialized ortho-neuro rehabilitation programs, extended accommodation facilities, and a supportive community atmosphere that enhances their recovery journey.</p>
+                    <div style="display: flex; gap: 40px;">
+                        <div>
+                            <div style="font-size: 32px; font-weight: 700; color: var(--accent-green);">5 km</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Radius of Edappal</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 32px; font-weight: 700; color: var(--accent-green);">100%</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Community Integrated</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Timeline infographic -->
+            <div class="rv-timeline-horizontal">
+                <div class="rv-timeline-line">
+                    <div class="rv-timeline-line-fill" id="timeline-progress"></div>
+                </div>
+                
+                <div class="rv-timeline-step" data-step="1">
+                    <div class="rv-timeline-dot">1</div>
+                    <h4 class="rv-title-small" style="font-size: 16px;">Admission</h4>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Clinical consultation & onboarding</p>
+                </div>
+                <div class="rv-timeline-step" data-step="2">
+                    <div class="rv-timeline-dot">2</div>
+                    <h4 class="rv-title-small" style="font-size: 16px;">Accommodation</h4>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Allocating specialized village stay</p>
+                </div>
+                <div class="rv-timeline-step" data-step="3">
+                    <div class="rv-timeline-dot">3</div>
+                    <h4 class="rv-title-small" style="font-size: 16px;">Therapy</h4>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Integrated clinic-based treatments</p>
+                </div>
+                <div class="rv-timeline-step" data-step="4">
+                    <div class="rv-timeline-dot">4</div>
+                    <h4 class="rv-title-small" style="font-size: 16px;">Recovery</h4>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Adapting to daily residential living</p>
+                </div>
+                <div class="rv-timeline-step" data-step="5">
+                    <div class="rv-timeline-dot">5</div>
+                    <h4 class="rv-title-small" style="font-size: 16px;">Independence</h4>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Returning to life with full confidence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE REHAB VILLAGE EXPERIENCE BENTO GRID -->
+    <section class="rv-section" style="background: #03060f;">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="rv-tagline">Integrated Stay</span>
+                <h2 class="rv-title-medium text-gradient">The Rehab Village Experience</h2>
+                <p class="rv-para-medium">Combining clinical excellence with village hospitality to create a comprehensive healing environment.</p>
+            </div>
+            
+            <div class="rv-bento-grid">
+                <!-- Card 1: Service Villas -->
+                <div class="rv-glass-panel rv-bento-card col-2">
+                    <div class="ripple-bg"></div>
+                    <div>
+                        <div class="card-icon-wrap"><i data-lucide="home" size="24"></i></div>
+                        <h3 class="rv-title-small">Service Villas</h3>
+                        <p class="rv-para-medium">Comfortable long-stay private accommodations fully wheelchair accessible, designed to keep you close to nature and support networks.</p>
+                    </div>
+                </div>
+                <!-- Card 2: Homestays -->
+                <div class="rv-glass-panel rv-bento-card">
+                    <div class="ripple-bg"></div>
+                    <div>
+                        <div class="card-icon-wrap"><i data-lucide="users" size="24"></i></div>
+                        <h3 class="rv-title-small">Homestays</h3>
+                        <p class="rv-para-medium">Authentic local community homestays fostering emotional support and social integration.</p>
+                    </div>
+                </div>
+                <!-- Card 3: Doctor Visits -->
+                <div class="rv-glass-panel rv-bento-card">
+                    <div class="ripple-bg"></div>
+                    <div>
+                        <div class="card-icon-wrap"><i data-lucide="stethoscope" size="24"></i></div>
+                        <h3 class="rv-title-small">Doctor Visits</h3>
+                        <p class="rv-para-medium">Daily medical monitoring at your accommodation based on health status.</p>
+                    </div>
+                </div>
+                <!-- Card 4: Food Support -->
+                <div class="rv-glass-panel rv-bento-card col-2">
+                    <div class="ripple-bg"></div>
+                    <div>
+                        <div class="card-icon-wrap"><i data-lucide="utensils" size="24"></i></div>
+                        <h3 class="rv-title-small">Food Support</h3>
+                        <p class="rv-para-medium">Customized dietary options with door-to-door restaurant delivery, ensuring high-nutrition support during recovery.</p>
+                    </div>
+                </div>
+                <!-- Card 5: Housekeeping -->
+                <div class="rv-glass-panel rv-bento-card col-2">
+                    <div class="ripple-bg"></div>
+                    <div>
+                        <div class="card-icon-wrap"><i data-lucide="sparkles" size="24"></i></div>
+                        <h3 class="rv-title-small">Laundry & Housekeeping</h3>
+                        <p class="rv-para-medium">Hassle-free, premium cleaning services for all long-stay guests, letting you focus completely on healing.</p>
+                    </div>
+                </div>
+                <!-- Card 6: Transportation Support -->
+                <div class="rv-glass-panel rv-bento-card">
+                    <div class="ripple-bg"></div>
+                    <div>
+                        <div class="card-icon-wrap"><i data-lucide="car" size="24"></i></div>
+                        <h3 class="rv-title-small">Transportation Support</h3>
+                        <p class="rv-para-medium">Easy, dedicated shuttle links directly to Ayurgreen Hospitals for clinical treatments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VISION & MISSION -->
+    <section class="rv-section" style="background: radial-gradient(circle at 50% 50%, rgba(43, 196, 109, 0.05) 0%, transparent 60%); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div class="rv-vm-grid">
+                <!-- SVG connecting paths -->
+                <div class="rv-svg-line-container">
+                    <svg width="100%" height="100%" viewBox="0 0 1000 400" preserveAspectRatio="none">
+                        <path d="M 100 200 Q 500 50 900 200 Q 500 350 100 200 Z" />
+                    </svg>
+                </div>
+                <!-- Vision Panel -->
+                <div class="rv-glass-panel" style="position: relative; z-index: 5;">
+                    <span class="rv-tagline">The Vision</span>
+                    <h3 class="rv-title-medium text-gradient" style="font-size: 28px;">To Redefine Community Rehabilitation Globally</h3>
+                    <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85);">To be a globally recognized leader in community-integrated rehabilitation, blending advanced therapeutic care with a supportive village atmosphere. Rehab Village strives to empower patients to regain independence while contributing to local economic development through sustainable partnerships with the community, enhancing both healthcare and livelihoods.</p>
+                </div>
+                <!-- Mission Panel -->
+                <div class="rv-glass-panel" style="position: relative; z-index: 5;">
+                    <span class="rv-tagline">The Mission</span>
+                    <h3 class="rv-title-medium text-gradient" style="font-size: 28px;">Holistic, Patient-Centered Clinical Pathways</h3>
+                    <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85);">To provide accessible, affordable and holistic rehabilitation services through state-of-the-art facilities, expert care, and partnerships with local communities. Ayurgreen Rehab village is committed to enhancing patient well-being by combining traditional and modern therapies, prioritizing personalized care, and promoting responsible tourism that contributes to economic and social growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HOW REHAB VILLAGE WORKS -->
+    <section class="rv-section" style="background: #03060f;">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                <span class="rv-tagline">The Process</span>
+                <h2 class="rv-title-medium text-gradient">How Rehab Village Works</h2>
+                <p class="rv-para-medium">Our structured operational pathway ensures seamless transitioning from diagnostic assessment to clinical recovery.</p>
+            </div>
+
+            <div class="rv-process-timeline">
+                <!-- Step 1 -->
+                <div class="rv-process-card-wrapper">
+                    <div class="rv-glass-panel rv-process-card">
+                        <span class="card-step-num">Step 01</span>
+                        <i data-lucide="message-square-plus" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
+                        <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Patient Consultation</h4>
+                        <p class="card-desc">Initial consultation at Ayurgreen Hospital to understand history.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="rv-process-card-wrapper">
+                    <div class="rv-glass-panel rv-process-card">
+                        <span class="card-step-num">Step 02</span>
+                        <i data-lucide="clipboard-check" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
+                        <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Treatment Assessment</h4>
+                        <p class="card-desc">Detailed assessment to design the personalized rehab pathway.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="rv-process-card-wrapper">
+                    <div class="rv-glass-panel rv-process-card">
+                        <span class="card-step-num">Step 03</span>
+                        <i data-lucide="key" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
+                        <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Accommodation Selection</h4>
+                        <p class="card-desc">Allocating homestays, service villas, or apartments within 5km.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="rv-process-card-wrapper">
+                    <div class="rv-glass-panel rv-process-card">
+                        <span class="card-step-num">Step 04</span>
+                        <i data-lucide="activity" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
+                        <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Daily Rehabilitation</h4>
+                        <p class="card-desc">Clinical therapies coupled with medical supervision at villas.</p>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div class="rv-process-card-wrapper">
+                    <div class="rv-glass-panel rv-process-card">
+                        <span class="card-step-num">Step 05</span>
+                        <i data-lucide="users-2" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
+                        <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Community Living</h4>
+                        <p class="card-desc">Socializing and participating in safe neighborhood activities.</p>
+                    </div>
+                </div>
+                <!-- Step 6 -->
+                <div class="rv-process-card-wrapper">
+                    <div class="rv-glass-panel rv-process-card">
+                        <span class="card-step-num">Step 06</span>
+                        <i data-lucide="award" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
+                        <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Independence</h4>
+                        <p class="card-desc">Completing the milestone and returning home fully independent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: DAILY LIFE AT REHAB VILLAGE -->
+    <section class="rv-section">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 80px auto;">
+                <span class="rv-tagline">Life in the Village</span>
+                <h2 class="rv-title-medium text-gradient">Daily Life at Rehab Village</h2>
+                <p class="rv-para-medium">Every detail is structured to keep recovery comfortable, encouraging, and seamlessly integrated into local life.</p>
+            </div>
+
+            <!-- Activity 1 -->
+            <div class="rv-lifestyle-row">
+                <div class="rv-lifestyle-content">
+                    <span class="rv-tagline">Clinical Support</span>
+                    <h3 class="rv-title-small" style="font-size: 26px;">Daily Doctor Visits</h3>
+                    <p class="rv-para-medium">Patients receive visits from doctors once a day directly at their accommodation, as per their health status. This ensures continuous clinical monitoring while giving the comfort of homelike living.</p>
+                </div>
+                <div class="rv-lifestyle-visual">
+                    <!-- High-fidelity visual styling using linear-gradients as assets framework -->
+                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+                        <i data-lucide="stethoscope" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Diagnostic Visual Representation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 2 -->
+            <div class="rv-lifestyle-row reverse">
+                <div class="rv-lifestyle-content">
+                    <span class="rv-tagline">Dining Convenience</span>
+                    <h3 class="rv-title-small" style="font-size: 26px;">Food Delivery Support</h3>
+                    <p class="rv-para-medium">Healthy recovery requires balanced nutrition. We provide door-to-door delivery support directly from our specialized restaurant partners. Enjoy customized meal plans delivered directly to your doorstep.</p>
+                </div>
+                <div class="rv-lifestyle-visual">
+                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+                        <i data-lucide="utensils-crosskeys" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Nutritional Visual Representation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 3 -->
+            <div class="rv-lifestyle-row">
+                <div class="rv-lifestyle-content">
+                    <span class="rv-tagline">Convenient Stays</span>
+                    <h3 class="rv-title-small" style="font-size: 26px;">Laundry & Housekeeping</h3>
+                    <p class="rv-para-medium">Long-term stay is made completely comfortable. Additional services include professional housekeeping and laundry, keeping your living space clean and sanitized without you lifting a finger.</p>
+                </div>
+                <div class="rv-lifestyle-visual">
+                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+                        <i data-lucide="shirt" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Housekeeping Visual Representation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 4 -->
+            <div class="rv-lifestyle-row reverse">
+                <div class="rv-lifestyle-content">
+                    <span class="rv-tagline">Advanced Therapy</span>
+                    <h3 class="rv-title-small" style="font-size: 26px;">Treatment at Ayurgreen Hospital</h3>
+                    <p class="rv-para-medium">While accommodations are residential, all specialized treatments are provided exclusively at Ayurgreen Hospital. Patients can access state-of-the-art robotic systems, physical rehab, speech therapy, and clinical supervision.</p>
+                </div>
+                <div class="rv-lifestyle-visual">
+                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+                        <i data-lucide="hospital" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Clinical Visual Representation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 5 -->
+            <div class="rv-lifestyle-row">
+                <div class="rv-lifestyle-content">
+                    <span class="rv-tagline">Social Care</span>
+                    <h3 class="rv-title-small" style="font-size: 26px;">Volunteer Assistance</h3>
+                    <p class="rv-para-medium">Patients are supported by our active volunteer network, helping them join community gatherings, interact with neighbors, and participate in rehabilitation exercises for emotional well-being.</p>
+                </div>
+                <div class="rv-lifestyle-visual">
+                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+                        <i data-lucide="heart" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Support Visual Representation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: WHO BENEFITS (ECOSYSTEM WHEEL) -->
+    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div class="rv-wheel-wrap">
+                <!-- Left: Circular Orbit Wheel -->
+                <div class="rv-wheel-visual-side">
+                    <div class="rv-wheel-center">
+                        Rehab Village<br>Ecosystem
+                    </div>
+                    <div class="rv-wheel-orbit">
+                        <!-- Orbit line -->
+                    </div>
+                    <!-- Nodes -->
+                    <div class="rv-wheel-node active" data-node="patients">
+                        <i data-lucide="user" size="28"></i>
+                        <span class="rv-map-label" style="position:absolute; bottom:-30px;">Patients</span>
+                    </div>
+                    <div class="rv-wheel-node" data-node="families">
+                        <i data-lucide="users" size="28"></i>
+                        <span class="rv-map-label" style="position:absolute; bottom:-30px;">Families</span>
+                    </div>
+                    <div class="rv-wheel-node" data-node="healthcare">
+                        <i data-lucide="stethoscope" size="28"></i>
+                        <span class="rv-map-label" style="position:absolute; bottom:-30px;">Professionals</span>
+                    </div>
+                    <div class="rv-wheel-node" data-node="accommodation">
+                        <i data-lucide="home" size="28"></i>
+                        <span class="rv-map-label" style="position:absolute; bottom:-30px;">Partners</span>
+                    </div>
+                    <div class="rv-wheel-node" data-node="community">
+                        <i data-lucide="building" size="28"></i>
+                        <span class="rv-map-label" style="position:absolute; bottom:-30px;">Community</span>
+                    </div>
+                    <div class="rv-wheel-node" data-node="volunteers">
+                        <i data-lucide="heart" size="28"></i>
+                        <span class="rv-map-label" style="position:absolute; bottom:-30px;">Volunteers</span>
+                    </div>
+                </div>
+
+                <!-- Right: Details Info Panel -->
+                <div class="rv-glass-panel rv-wheel-info-panel" id="ecosystem-details-panel">
+                    <span class="rv-tagline" id="eco-tag">Stakeholder Focus</span>
+                    <h3 class="rv-title-medium text-gradient" id="eco-heading">Ecosystem Partners</h3>
+                    <p class="rv-para-medium" id="eco-text">Select any stakeholder node on the wheel to see how they contribute to and benefit from the Rehab Village network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: WHY REHAB VILLAGE -->
+    <section class="rv-section">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                <span class="rv-tagline">Why Choose Us</span>
+                <h2 class="rv-title-medium text-gradient">Why Rehab Village?</h2>
+                <p class="rv-para-medium">A specialized initiative bridging modern medical approaches with village-style residential healing.</p>
+            </div>
+
+            <div class="rv-stack-container">
+                <!-- Row 1: Patients -->
+                <div class="rv-stack-card active" data-index="0">
+                    <div class="rv-stack-card-left">
+                        <div class="rv-stack-icon"><i data-lucide="user" size="20"></i></div>
+                        <h3>For Patients</h3>
+                    </div>
+                    <div class="rv-stack-details">
+                        Affordable and personalized care in a supportive environment, complemented by extended accommodation facilities such as service villas and apartments. Additional services include volunteer support, daily doctor visits, 24/7 support, travel assistance, housekeeping, laundry services, and door-to-door delivery from the restaurant, ensuring a seamless and comfortable experience.
+                    </div>
+                    <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
+                </div>
+                <!-- Row 2: Caregivers -->
+                <div class="rv-stack-card" data-index="1">
+                    <div class="rv-stack-card-left">
+                        <div class="rv-stack-icon"><i data-lucide="heart" size="20"></i></div>
+                        <h3>For Caregivers</h3>
+                    </div>
+                    <div class="rv-stack-details">
+                        Peace of mind knowing loved ones are in expert hands and receiving holistic, 24/7 clinical monitoring. Reassuring transition back into community-based life while enjoying clean, comfortable, and spacious accommodations with support systems.
+                    </div>
+                    <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
+                </div>
+                <!-- Row 3: Healthcare Professionals -->
+                <div class="rv-stack-card" data-index="2">
+                    <div class="rv-stack-card-left">
+                        <div class="rv-stack-icon"><i data-lucide="stethoscope" size="20"></i></div>
+                        <h3>For Healthcare Professionals</h3>
+                    </div>
+                    <div class="rv-stack-details">
+                        Unique opportunities for skill development and contributions to innovative rehabilitation practices, testing new recovery models in real-world community-integrated environments.
+                    </div>
+                    <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
+                </div>
+                <!-- Row 4: Local Businesses -->
+                <div class="rv-stack-card" data-index="3">
+                    <div class="rv-stack-card-left">
+                        <div class="rv-stack-icon"><i data-lucide="trending-up" size="20"></i></div>
+                        <h3>For Local Businesses</h3>
+                    </div>
+                    <div class="rv-stack-details">
+                        Increased economic activity through partnerships with accommodation providers, transport providers, local restaurants, and daily supplies, strengthening regional micro-economies.
+                    </div>
+                    <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
+                </div>
+                <!-- Row 5: Volunteers -->
+                <div class="rv-stack-card" data-index="4">
+                    <div class="rv-stack-card-left">
+                        <div class="rv-stack-icon"><i data-lucide="users" size="20"></i></div>
+                        <h3>For Volunteers</h3>
+                    </div>
+                    <div class="rv-stack-details">
+                        Meaningful engagement and the chance to make a positive impact in patients' recovery milestones, gaining valuable exposure and career development paths in health services.
+                    </div>
+                    <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
+                </div>
+                <!-- Row 6: Gov & Tourism -->
+                <div class="rv-stack-card" data-index="5">
+                    <div class="rv-stack-card-left">
+                        <div class="rv-stack-icon"><i data-lucide="globe" size="20"></i></div>
+                        <h3>Government & Tourism Integration</h3>
+                    </div>
+                    <div class="rv-stack-details">
+                        Strong collaboration with government and local bodies to ensure seamless operations, infrastructure support, and enhanced accessibility. Promoting medical and responsible tourism to boost economic and cultural engagement while fostering sustainable community growth.
+                    </div>
+                    <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: ACCOMMODATION ECOSYSTEM -->
+    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                <span class="rv-tagline">Stay Options</span>
+                <h2 class="rv-title-medium text-gradient">Accommodation Ecosystem</h2>
+                <p class="rv-para-medium">Diverse range of fully-furnished options situated within a 5 km radius of Ayurgreen Hospital (Edappal).</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="rv-tabs-header">
+                <button class="rv-tab-btn active" data-tab="homestays">🏡 Homestays</button>
+                <button class="rv-tab-btn" data-tab="villas">🏘 Service Villas</button>
+                <button class="rv-tab-btn" data-tab="apartments">🏢 Apartments</button>
+            </div>
+
+            <!-- Tab Content: Homestays -->
+            <div class="rv-tab-content active" id="tab-homestays">
+                <div class="rv-acc-grid">
+                    <!-- Villa Card 1 -->
+                    <div class="rv-acc-card">
+                        <div class="rv-acc-img-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span class="rv-acc-tag">Homestay Premium</span>
+                        </div>
+                        <div class="rv-acc-details-panel">
+                            <h4 class="rv-title-small">Green Meadows Homestay</h4>
+                            <p class="rv-para-medium" style="font-size: 13.5px;">Experience the warmth of a local family environment while recovering in a private guest suite.</p>
+                            <div class="rv-acc-amenities">
+                                <span class="rv-acc-badge">2 Guests</span>
+                                <span class="rv-acc-badge">Wheelchair Ramp</span>
+                                <span class="rv-acc-badge">AC</span>
+                                <span class="rv-acc-badge">Attached Bath</span>
+                            </div>
+                            <div class="rv-acc-footer">
+                                <span>Edappal Center</span>
+                                <span>2.8 km away</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="rv-acc-card">
+                        <div class="rv-acc-img-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span class="rv-acc-tag">Homestay Standard</span>
+                        </div>
+                        <div class="rv-acc-details-panel">
+                            <h4 class="rv-title-small">Kovilakam Heritage Stay</h4>
+                            <p class="rv-para-medium" style="font-size: 13.5px;">Traditional design heritage home with wheelchair friendly walkways and quiet gardens.</p>
+                            <div class="rv-acc-amenities">
+                                <span class="rv-acc-badge">3 Guests</span>
+                                <span class="rv-acc-badge">Veranda</span>
+                                <span class="rv-acc-badge">Organic Food</span>
+                            </div>
+                            <div class="rv-acc-footer">
+                                <span>Vattamkulam</span>
+                                <span>3.5 km away</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="rv-acc-card">
+                        <div class="rv-acc-img-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span class="rv-acc-tag">Homestay Premium</span>
+                        </div>
+                        <div class="rv-acc-details-panel">
+                            <h4 class="rv-title-small">Riverview Retreat</h4>
+                            <p class="rv-para-medium" style="font-size: 13.5px;">Tranquil riverside homestay with host assistance, specialized Ayurvedic diet options.</p>
+                            <div class="rv-acc-amenities">
+                                <span class="rv-acc-badge">2 Guests</span>
+                                <span class="rv-acc-badge">River View</span>
+                                <span class="rv-acc-badge">Wi-Fi</span>
+                                <span class="rv-acc-badge">Grab Bars</span>
+                            </div>
+                            <div class="rv-acc-footer">
+                                <span>Thavanur Road</span>
+                                <span>4.2 km away</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Villas -->
+            <div class="rv-tab-content" id="tab-villas">
+                <div class="rv-acc-grid">
+                    <!-- Villa Card 1 -->
+                    <div class="rv-acc-card">
+                        <div class="rv-acc-img-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span class="rv-acc-tag">Service Villa VIP</span>
+                        </div>
+                        <div class="rv-acc-details-panel">
+                            <h4 class="rv-title-small">Emerald Green Villa</h4>
+                            <p class="rv-para-medium" style="font-size: 13.5px;">Premium private villas fully wheelchair accessible, designed to keep patients connected to nature.</p>
+                            <div class="rv-acc-amenities">
+                                <span class="rv-acc-badge">4 Guests</span>
+                                <span class="rv-acc-badge">Hospital Bed Compatible</span>
+                                <span class="rv-acc-badge">Kitchen</span>
+                            </div>
+                            <div class="rv-acc-footer">
+                                <span>Ayurgreen Enclave</span>
+                                <span>1.2 km away</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Villa Card 2 -->
+                    <div class="rv-acc-card">
+                        <div class="rv-acc-img-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span class="rv-acc-tag">Service Villa Standard</span>
+                        </div>
+                        <div class="rv-acc-details-panel">
+                            <h4 class="rv-title-small">Palm Breeze Cottage</h4>
+                            <p class="rv-para-medium" style="font-size: 13.5px;">Charming independent cottage surrounded by medicinal herbs, with custom accessibility features.</p>
+                            <div class="rv-acc-amenities">
+                                <span class="rv-acc-badge">3 Guests</span>
+                                <span class="rv-acc-badge">Private Lawn</span>
+                                <span class="rv-acc-badge">Nurse Call Link</span>
+                            </div>
+                            <div class="rv-acc-footer">
+                                <span>Ayurgreen Enclave</span>
+                                <span>1.5 km away</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Apartments -->
+            <div class="rv-tab-content" id="tab-apartments">
+                <div class="rv-acc-grid">
+                    <!-- Apt Card 1 -->
+                    <div class="rv-acc-card">
+                        <div class="rv-acc-img-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span class="rv-acc-tag">Apartment 1 BHK</span>
+                        </div>
+                        <div class="rv-acc-details-panel">
+                            <h4 class="rv-title-small">Ayur Residency Suite 402</h4>
+                            <p class="rv-para-medium" style="font-size: 13.5px;">Premium elevator-connected high-rise suite, wheelchair friendly layout with medical grab-bars.</p>
+                            <div class="rv-acc-amenities">
+                                <span class="rv-acc-badge">2 Guests</span>
+                                <span class="rv-acc-badge">Elevator Access</span>
+                                <span class="rv-acc-badge">Balcony</span>
+                            </div>
+                            <div class="rv-acc-footer">
+                                <span>Edappal Bypass</span>
+                                <span>2.0 km away</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: MEDICAL TOURISM ADVANTAGE -->
+    <section class="rv-section">
+        <div class="rv-container">
+            <div class="rv-map-layout">
+                <div>
+                    <span class="rv-tagline">Global Reach</span>
+                    <h2 class="rv-title-medium text-gradient">Medical Tourism Advantage</h2>
+                    <p class="rv-para-medium" style="margin-bottom: 24px;">Rehab Village serves as a premium hub for international patients seeking affordable, long-term rehabilitation combined with the healing power of authentic Ayurveda.</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px;">
+                        <li style="display:flex; gap:12px; align-items:flex-start;">
+                            <i data-lucide="check-circle" size="20" style="color:var(--accent-green); flex-shrink:0;"></i>
+                            <span><strong>Long-Term Recovery:</strong> Comfortable, extended stays that prevent premature discharge.</span>
+                        </li>
+                        <li style="display:flex; gap:12px; align-items:flex-start;">
+                            <i data-lucide="check-circle" size="20" style="color:var(--accent-green); flex-shrink:0;"></i>
+                            <span><strong>Affordable Accommodations:</strong> Save up to 70% compared to typical long-stay hospital rooms.</span>
+                        </li>
+                        <li style="display:flex; gap:12px; align-items:flex-start;">
+                            <i data-lucide="check-circle" size="20" style="color:var(--accent-green); flex-shrink:0;"></i>
+                            <span><strong>Cultural Comfort & Cuisine:</strong> Custom global diets, translators, and prayer rooms.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Map Graphic -->
+                <div class="rv-map-graphic">
+                    <!-- SVG map mockup -->
+                    <div style="position: absolute; inset: 0; background: url('Assets/generated/world_map_dots.png') center/cover no-repeat; opacity: 0.15;"></div>
+                    <svg class="rv-map-connection" viewBox="0 0 500 400">
+                        <!-- Connecting paths from continents to India -->
+                        <!-- Europe to India -->
+                        <path d="M 120 100 Q 250 120 380 200" />
+                        <!-- Middle East to India -->
+                        <path d="M 230 170 Q 300 180 380 200" />
+                        <!-- Africa to India -->
+                        <path d="M 160 270 Q 270 260 380 200" />
+                    </svg>
+
+                    <!-- Points -->
+                    <div class="rv-map-point point-europe">
+                        <div class="rv-map-dot"></div>
+                        <span class="rv-map-label">Europe</span>
+                    </div>
+                    <div class="rv-map-point point-me">
+                        <div class="rv-map-dot"></div>
+                        <span class="rv-map-label">Middle East</span>
+                    </div>
+                    <div class="rv-map-point point-africa">
+                        <div class="rv-map-dot"></div>
+                        <span class="rv-map-label">Africa</span>
+                    </div>
+                    <div class="rv-map-point point-india">
+                        <div class="rv-map-dot"></div>
+                        <span class="rv-map-label">Ayurgreen, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: VOLUNTEER PROGRAM -->
+    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div class="rv-split-layout">
+                <!-- Visual -->
+                <div class="rv-volunteer-visual">
+                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+                        <i data-lucide="heart" size="64" style="color:var(--accent-green); margin-bottom:16px; filter: drop-shadow(0 0 10px rgba(43,196,109,0.4));"></i>
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1.5px; font-size:13px; color:#ffffff;">Supporting Patient Journeys</span>
+                        <p style="font-size:13px; color:rgba(255,255,255,0.5); text-align:center; max-width:320px; margin-top:8px;">Volunteers helping patients transition to daily independent routines.</p>
+                    </div>
+                </div>
+                <!-- Content -->
+                <div>
+                    <span class="rv-tagline">Volunteer Program</span>
+                    <h2 class="rv-title-medium text-gradient">Make a Meaningful Impact</h2>
+                    <p class="rv-para-medium">Volunteering at Ayurgreen Hospital & Rehab Village is a mutually beneficial experience. The organization gains valuable support in patient care and daily operations, while volunteers receive practical experience, skill development, and opportunities for personal and career growth.</p>
+                    
+                    <div class="rv-quote-box">
+                        "Make a meaningful impact while gaining valuable healthcare and rehabilitation experience."
+                    </div>
+
+                    <div class="rv-v-grid">
+                        <div class="rv-v-card">
+                            <i data-lucide="check" size="18"></i>
+                            <h4 style="margin:0; font-size:15px;">Daily Assistance</h4>
+                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Assisting patients with daily activities and therapeutic sessions.</p>
+                        </div>
+                        <div class="rv-v-card">
+                            <i data-lucide="sparkles" size="18"></i>
+                            <h4 style="margin:0; font-size:15px;">Community Events</h4>
+                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Organizing and participating in recreational and community events.</p>
+                        </div>
+                        <div class="rv-v-card">
+                            <i data-lucide="file-text" size="18"></i>
+                            <h4 style="margin:0; font-size:15px;">Administrative Support</h4>
+                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Providing administrative support and coordinating stakeholder networks.</p>
+                        </div>
+                        <div class="rv-v-card">
+                            <i data-lucide="book-open" size="18"></i>
+                            <h4 style="margin:0; font-size:15px;">Research Support</h4>
+                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Contributing to rehabilitation research and outcome documentation.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px;">
+                        <a href="#stakeholder-registration" class="rv-btn-primary">Become a Volunteer <i data-lucide="heart" size="16"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: PARTNERSHIP OPPORTUNITIES -->
+    <section class="rv-section">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="rv-tagline">Collaborate</span>
+                <h2 class="rv-title-medium text-gradient">Partnership Opportunities</h2>
+                <p class="rv-para-medium">Rehab Village welcomes collaborations with a variety of stakeholders to enhance its operations and expand its impact.</p>
+            </div>
+
+            <div class="rv-partner-grid">
+                <!-- Column 1: Accommodations -->
+                <div class="rv-glass-panel rv-partner-card">
+                    <div>
+                        <span class="rv-tagline" style="font-size: 11px;">Property Owners</span>
+                        <h3 class="rv-title-small" style="font-size:22px; margin-top:8px;">Accommodation Partners</h3>
+                        <p class="rv-para-medium" style="font-size:14px;">Register properties within a 5 km radius of Edappal (homestays, service villas, apartments) to house patients and families.</p>
+                        <ul class="rv-partner-list">
+                            <li><i data-lucide="check-circle" size="16"></i> Extended stays (1-6 months)</li>
+                            <li><i data-lucide="check-circle" size="16"></i> Consistent occupancy rates</li>
+                            <li><i data-lucide="check-circle" size="16"></i> Managed cleaning support</li>
+                        </ul>
+                    </div>
+                    <a href="#stakeholder-registration" class="rv-btn-primary text-center justify-content-center">Apply as Stay Partner</a>
+                </div>
+                <!-- Column 2: Transportation -->
+                <div class="rv-glass-panel rv-partner-card">
+                    <div>
+                        <span class="rv-tagline" style="font-size: 11px;">Fleet Operators</span>
+                        <h3 class="rv-title-small" style="font-size:22px; margin-top:8px;">Transportation Providers</h3>
+                        <p class="rv-para-medium" style="font-size:14px;">Partner with us to provide reliable, comfortable, and accessible vehicle solutions for individual or group passenger transfers.</p>
+                        <ul class="rv-partner-list">
+                            <li><i data-lucide="check-circle" size="16"></i> Wheelchair accessible ramps</li>
+                            <li><i data-lucide="check-circle" size="16"></i> Hospital-to-village shuttles</li>
+                            <li><i data-lucide="check-circle" size="16"></i> Airport pickup contracts</li>
+                        </ul>
+                    </div>
+                    <a href="#stakeholder-registration" class="rv-btn-primary text-center justify-content-center">Apply as Transit Partner</a>
+                </div>
+                <!-- Column 3: Community -->
+                <div class="rv-glass-panel rv-partner-card">
+                    <div>
+                        <span class="rv-tagline" style="font-size: 11px;">Local Organizations</span>
+                        <h3 class="rv-title-small" style="font-size:22px; margin-top:8px;">Community Partners</h3>
+                        <p class="rv-para-medium" style="font-size:14px;">Collaborate on local tourism, social activities, cultural integration, and regional economic development initiatives.</p>
+                        <ul class="rv-partner-list">
+                            <li><i data-lucide="check-circle" size="16"></i> Tourism department backing</li>
+                            <li><i data-lucide="check-circle" size="16"></i> Cultural exchanges & outings</li>
+                            <li><i data-lucide="check-circle" size="16"></i> Collaborative medical tourism</li>
+                        </ul>
+                    </div>
+                    <a href="#stakeholder-registration" class="rv-btn-primary text-center justify-content-center">Apply as Community Partner</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 13: PATIENT JOURNEY STORY -->
+    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
+                <span class="rv-tagline">Visual Storytelling</span>
+                <h2 class="rv-title-medium text-gradient">The Patient Journey</h2>
+                <p class="rv-para-medium">Follow the step-by-step transition of how patients rebuild confidence and achieve independent living.</p>
+            </div>
+
+            <div class="rv-journey-track">
+                <div class="rv-journey-line">
+                    <div class="rv-journey-line-fill" id="journey-progress-line"></div>
+                </div>
+
+                <!-- Stage 1 -->
+                <div class="rv-journey-block left">
+                    <div class="rv-journey-dot"></div>
+                    <div class="rv-glass-panel rv-journey-card-wrap">
+                        <span class="rv-tagline" style="font-size:11px;">Stage 01</span>
+                        <h3 class="rv-title-small">Clinical Intake & Arrival</h3>
+                        <p class="rv-para-medium">Patient arrives at Ayurgreen Hospital with family. Complete clinical diagnostics, muscle charting, and robotic functional capability tests are conducted to set therapeutic goals.</p>
+                    </div>
+                </div>
+                <!-- Stage 2 -->
+                <div class="rv-journey-block">
+                    <div class="rv-journey-dot"></div>
+                    <div class="rv-glass-panel rv-journey-card-wrap">
+                        <span class="rv-tagline" style="font-size:11px;">Stage 02</span>
+                        <h3 class="rv-title-small">Therapeutic Assessment</h3>
+                        <p class="rv-para-medium">Rehabilitation specialists configure an integrated plan mixing modern robotics, physiotherapy, speech-language therapy, and traditional Ayurvedic protocols.</p>
+                    </div>
+                </div>
+                <!-- Stage 3 -->
+                <div class="rv-journey-block left">
+                    <div class="rv-journey-dot"></div>
+                    <div class="rv-glass-panel rv-journey-card-wrap">
+                        <span class="rv-tagline" style="font-size:11px;">Stage 03</span>
+                        <h3 class="rv-title-small">Village Accommodation Allocation</h3>
+                        <p class="rv-para-medium">Patient transfers to a wheelchair-accessible Service Villa within 5km. Housekeeping, dining support, and daily nurse checks are established for safety.</p>
+                    </div>
+                </div>
+                <!-- Stage 4 -->
+                <div class="rv-journey-block">
+                    <div class="rv-journey-dot"></div>
+                    <div class="rv-glass-panel rv-journey-card-wrap">
+                        <span class="rv-tagline" style="font-size:11px;">Stage 04</span>
+                        <h3 class="rv-title-small">Daily Therapy & Supervision</h3>
+                        <p class="rv-para-medium">Patient undergoes daily treatment at the hospital, returning to the villa to practice activities of daily living (ADLs) with volunteer support.</p>
+                    </div>
+                </div>
+                <!-- Stage 5 -->
+                <div class="rv-journey-block left">
+                    <div class="rv-journey-dot"></div>
+                    <div class="rv-glass-panel rv-journey-card-wrap">
+                        <span class="rv-tagline" style="font-size:11px;">Stage 05</span>
+                        <h3 class="rv-title-small">Social Re-integration</h3>
+                        <p class="rv-para-medium">Patient begins visiting public spaces, joining village gatherings, and shopping, breaking the psychological isolation of normal clinical stays.</p>
+                    </div>
+                </div>
+                <!-- Stage 6 -->
+                <div class="rv-journey-block">
+                    <div class="rv-journey-dot"></div>
+                    <div class="rv-glass-panel rv-journey-card-wrap">
+                        <span class="rv-tagline" style="font-size:11px;">Stage 06</span>
+                        <h3 class="rv-title-small">Complete Independence</h3>
+                        <p class="rv-para-medium">Milestones achieved! The patient graduates from the program and returns home, fully prepared to resume an active, self-reliant lifestyle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 14: IMPACT METRICS -->
+    <section class="rv-section">
+        <div class="rv-container">
+            <div class="rv-metric-grid">
+                <div class="rv-glass-panel rv-metric-card">
+                    <div class="rv-metric-number" data-target="45">0</div>
+                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">Accommodation Partners</div>
+                </div>
+                <div class="rv-glass-panel rv-metric-card">
+                    <div class="rv-metric-number" data-target="250">0</div>
+                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">Community Members</div>
+                </div>
+                <div class="rv-glass-panel rv-metric-card">
+                    <div class="rv-metric-number" data-target="1800">0</div>
+                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">Rehabilitation Patients</div>
+                </div>
+                <div class="rv-glass-panel rv-metric-card">
+                    <div class="rv-metric-number" data-target="420">0</div>
+                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">International Visitors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 15: TESTIMONIALS -->
+    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                <span class="rv-tagline">Testimonials</span>
+                <h2 class="rv-title-medium text-gradient">Stories of Transformation</h2>
+                <p class="rv-para-medium">Read about the experiences of our patients, caregivers, partners, and volunteers.</p>
+            </div>
+
+            <div class="rv-carousel-container">
+                <div class="rv-carousel-track" id="testimonial-track">
+                    <!-- Slide 1 -->
+                    <div class="rv-glass-panel rv-carousel-slide">
+                        <div class="rv-star-rating">
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                        </div>
+                        <p class="rv-para-medium" style="font-size:15px; font-style:italic; margin-bottom:20px;">"Living in a service villa during my stroke rehabilitation allowed my wife and children to stay with me in a normal home environment, while I received premium therapy at the hospital daily. It changed everything."</p>
+                        <h4 style="margin:0; font-size:16px;">Abdul Rahman</h4>
+                        <span style="font-size:12px; color:rgba(255,255,255,0.4);">Stroke Recovery Patient, UAE</span>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="rv-glass-panel rv-carousel-slide">
+                        <div class="rv-star-rating">
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                        </div>
+                        <p class="rv-para-medium" style="font-size:15px; font-style:italic; margin-bottom:20px;">"As a caregiver, having doctor visits right at our homestay stay gave me immense peace of mind. I could manage my work remotely while knowing professional medical supervision was available once a day."</p>
+                        <h4 style="margin:0; font-size:16px;">Sarah Mitchell</h4>
+                        <span style="font-size:12px; color:rgba(255,255,255,0.4);">Caregiver for Parkinson's Patient, UK</span>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="rv-glass-panel rv-carousel-slide">
+                        <div class="rv-star-rating">
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                            <i data-lucide="star" size="16"></i>
+                        </div>
+                        <p class="rv-para-medium" style="font-size:15px; font-style:italic; margin-bottom:20px;">"Registering our cottage as an accommodation partner was simple and has brought steady rental support to our family, while giving us the privilege of helping patient families feel at home in Edappal."</p>
+                        <h4 style="margin:0; font-size:16px;">K. Raghavan</h4>
+                        <span style="font-size:12px; color:rgba(255,255,255,0.4);">Accommodation Provider, Edappal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="rv-carousel-controls">
+                <button class="rv-carousel-btn" id="prev-test"><i data-lucide="arrow-left" size="20"></i></button>
+                <button class="rv-carousel-btn" id="next-test"><i data-lucide="arrow-right" size="20"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 16: FAQ ACCORDION -->
+    <section class="rv-section">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+                <span class="rv-tagline">Common Questions</span>
+                <h2 class="rv-title-medium text-gradient">Frequently Asked Questions</h2>
+                <p class="rv-para-medium">Everything you need to know about stay options, medical treatment, and collaborations.</p>
+            </div>
+
+            <div class="rv-faq-stack">
+                <!-- Item 1 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>What is Rehab Village?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>Rehab Village is a community-based recovery initiative by Ayurgreen Hospitals. It provides furnished, wheelchair-accessible accommodations (homestays, service villas, and apartments) for long-term patients and their caregivers, letting them recover in a natural, community-driven environment rather than a standard hospital ward.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>How does accommodation work?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>Based on the patient's needs and preferences during clinical intake, our team suggests the most suitable stay within a 5 km radius of Edappal. Options include private Service Villas (ideal for families), heritage Homestays (for local connection), and modern elevator-connected Apartments.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>Can international patients join?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>Yes, Rehab Village is highly sought after by international patients for long-term recovery. We provide comprehensive medical tourism support, visa invitations, translator services, custom continental/Halal dining options, and airport pickups.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>How are treatments provided?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>All clinical therapies, physical rehabilitation, speech therapy, robotic training, and clinical examinations are conducted exclusively at Ayurgreen Hospital's advanced facilities. Shuttle links are organized to transfer patients safely from their villa to the hospital daily.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>Are doctor visits included?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>Yes, patients receive visits from doctors once a day at their accommodation, as per their health status. This ensures they are clinically safe while enjoying the freedom of home living.</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>Can families stay together?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>Absolutely. The primary reason we developed Service Villas and Apartments is to enable families to live with patients, providing essential emotional support during recovery.</p>
+                    </div>
+                </div>
+                <!-- Item 7 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>How can I become a volunteer?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>You can apply using our multi-step Stakeholder Registration form below. Choose the "Volunteer" tab, complete the required details, and our coordinator will schedule an orientation session.</p>
+                    </div>
+                </div>
+                <!-- Item 8 -->
+                <div class="rv-faq-item">
+                    <button class="rv-faq-trigger">
+                        <span>How can I partner with Rehab Village?</span>
+                        <i data-lucide="chevron-down" size="20"></i>
+                    </</button>
+                    <div class="rv-faq-content">
+                        <p>Accommodation hosts within a 5 km radius, transport companies, and community organizations can submit partner applications through the registration form below. We will conduct field checks before onboarding properties/services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 17: STAKEHOLDER REGISTRATION FORM -->
+    <section id="stakeholder-registration" class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="rv-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
+                <span class="rv-tagline">Onboarding</span>
+                <h2 class="rv-title-medium text-gradient">Stakeholder Registration</h2>
+                <p class="rv-para-medium">Join our community. Select your category to register for rehabilitation stay or partnerships.</p>
+            </div>
+
+            <div class="rv-glass-panel rv-form-wrapper">
+                <!-- Registration Category Tabs -->
+                <div class="rv-form-tabs">
+                    <button class="rv-form-tab-btn active" data-form="patient">Patient Stay</button>
+                    <button class="rv-form-tab-btn" data-form="volunteer">Volunteer</button>
+                    <button class="rv-form-tab-btn" data-form="stay-partner">Accommodation Partner</button>
+                    <button class="rv-form-tab-btn" data-form="transit-partner">Transport Partner</button>
+                    <button class="rv-form-tab-btn" data-form="community-partner">Community Partner</button>
+                </div>
+
+                <!-- Form Progress Indicator -->
+                <div class="rv-form-step-indicator">
+                    <div class="rv-form-step-line">
+                        <div class="rv-form-step-line-fill" id="form-progress-bar" style="width: 50%;"></div>
+                    </div>
+                    <div class="rv-form-step-node active" data-step="1">1</div>
+                    <div class="rv-form-step-node" data-step="2">2</div>
+                </div>
+
+                <form id="rv-registration-form" onsubmit="event.preventDefault(); alert('Registration submitted successfully!');">
+                    <!-- Step 1 Pane -->
+                    <div class="rv-form-pane active" id="pane-step-1">
+                        <div class="rv-form-grid">
+                            <div class="rv-form-group">
+                                <input type="text" id="reg-name" class="rv-input" placeholder=" " required>
+                                <label for="reg-name" class="rv-label">Full Name</label>
+                            </div>
+                            <div class="rv-form-group">
+                                <input type="email" id="reg-email" class="rv-input" placeholder=" " required>
+                                <label for="reg-email" class="rv-label">Email Address</label>
+                            </div>
+                            <div class="rv-form-group">
+                                <input type="tel" id="reg-phone" class="rv-input" placeholder=" " required>
+                                <label for="reg-phone" class="rv-label">Phone / WhatsApp</label>
+                            </div>
+                            <div class="rv-form-group">
+                                <input type="text" id="reg-location" class="rv-input" placeholder=" " required>
+                                <label for="reg-location" class="rv-label">City, Country</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Pane (Dynamic based on selected category) -->
+                    <div class="rv-form-pane" id="pane-step-2">
+                        <!-- Patient Stay details -->
+                        <div class="form-dynamic-details" id="details-patient">
+                            <div class="rv-form-grid">
+                                <div class="rv-form-group">
+                                    <input type="text" id="pat-condition" class="rv-input" placeholder=" ">
+                                    <label for="pat-condition" class="rv-label">Medical Condition (e.g., Stroke, Parkinson's)</label>
+                                </div>
+                                <div class="rv-form-group">
+                                    <input type="text" id="pat-duration" class="rv-input" placeholder=" ">
+                                    <label for="pat-duration" class="rv-label">Expected Duration (e.g., 1 Month)</label>
+                                </div>
+                                <div class="rv-form-group full-width">
+                                    <textarea id="pat-needs" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <label for="pat-needs" class="rv-label">Special Needs or Mobility Assistance Required</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Volunteer details -->
+                        <div class="form-dynamic-details" id="details-volunteer" style="display:none;">
+                            <div class="rv-form-grid">
+                                <div class="rv-form-group">
+                                    <input type="text" id="vol-exp" class="rv-input" placeholder=" ">
+                                    <label for="vol-exp" class="rv-label">Prior Healthcare Experience (if any)</label>
+                                </div>
+                                <div class="rv-form-group">
+                                    <input type="text" id="vol-time" class="rv-input" placeholder=" ">
+                                    <label for="vol-time" class="rv-label">Availability (Hours per week)</label>
+                                </div>
+                                <div class="rv-form-group full-width">
+                                    <textarea id="vol-reason" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <label for="vol-reason" class="rv-label">Why do you want to volunteer at Ayurgreen?</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stay Partner details -->
+                        <div class="form-dynamic-details" id="details-stay-partner" style="display:none;">
+                            <div class="rv-form-grid">
+                                <div class="rv-form-group">
+                                    <input type="text" id="stay-type" class="rv-input" placeholder=" ">
+                                    <label for="stay-type" class="rv-label">Property Type (Villa, Homestay, Apartment)</label>
+                                </div>
+                                <div class="rv-form-group">
+                                    <input type="text" id="stay-dist" class="rv-input" placeholder=" ">
+                                    <label for="stay-dist" class="rv-label">Distance from Edappal Hospital (km)</label>
+                                </div>
+                                <div class="rv-form-group full-width">
+                                    <textarea id="stay-amenities" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <label for="stay-amenities" class="rv-label">Accessibility Features (Ramp, Grab bars, elevator, etc.)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transit Partner details -->
+                        <div class="form-dynamic-details" id="details-transit-partner" style="display:none;">
+                            <div class="rv-form-grid">
+                                <div class="rv-form-group">
+                                    <input type="text" id="trans-vehicles" class="rv-input" placeholder=" ">
+                                    <label for="trans-vehicles" class="rv-label">Number of Available Vehicles</label>
+                                </div>
+                                <div class="rv-form-group">
+                                    <input type="text" id="trans-type" class="rv-input" placeholder=" ">
+                                    <label for="trans-type" class="rv-label">Vehicle Models & Accessibility Features</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Community Partner details -->
+                        <div class="form-dynamic-details" id="details-community-partner" style="display:none;">
+                            <div class="rv-form-grid">
+                                <div class="rv-form-group full-width">
+                                    <input type="text" id="comm-org" class="rv-input" placeholder=" ">
+                                    <label for="comm-org" class="rv-label">Organization Name / Tourism Board</label>
+                                </div>
+                                <div class="rv-form-group full-width">
+                                    <textarea id="comm-collab" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <label for="comm-collab" class="rv-label">Proposed Scope of Collaboration</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation buttons -->
+                    <div class="rv-form-nav">
+                        <button type="button" class="rv-btn-secondary" id="form-back-btn" style="display:none;">Back</button>
+                        <button type="button" class="rv-btn-primary" id="form-next-btn">Next Step</button>
+                        <button type="submit" class="rv-btn-primary" id="form-submit-btn" style="display:none;">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 18: CONTACT / CALL TO ACTION -->
+    <section class="rv-section rv-contact-box">
+        <div class="rv-container">
+            <span class="rv-tagline">Get In Touch</span>
+            <h2 class="rv-title-large text-gradient">Join the Rehab Village Movement</h2>
+            <p class="rv-para-large" style="max-width: 800px; margin: 0 auto;">Whether you are a patient seeking recovery, a caregiver desiring peace of mind, a volunteer wishing to make an impact, or a local provider, we welcome you to our recovery ecosystem.</p>
+            
+            <div class="rv-contact-cards">
+                <a href="tel:+918943055518" class="rv-contact-card">
+                    <i data-lucide="phone-call" size="24"></i>
+                    <div style="text-align: left;">
+                        <div style="font-size:12px; color:rgba(255,255,255,0.4);">Call or WhatsApp</div>
+                        <div style="font-weight:600; font-size:16px;">+91 89430 55518</div>
+                    </div>
+                </a>
+                <a href="mailto:rehabvillage@ayurgreenhospitals.com" class="rv-contact-card">
+                    <i data-lucide="mail" size="24"></i>
+                    <div style="text-align: left;">
+                        <div style="font-size:12px; color:rgba(255,255,255,0.4);">Email Us</div>
+                        <div style="font-weight:600; font-size:16px;">rehabvillage@ayurgreenhospitals.com</div>
+                    </div>
+                </a>
+            </div>
+
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#stakeholder-registration" class="rv-btn-primary">Become a Partner <i data-lucide="arrow-right" size="16"></i></a>
+                <a href="index.html#consultation" class="rv-btn-secondary">Book Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scoped Scripts for Interactive Page Elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // FAQ Accordions
+            const faqItems = document.querySelectorAll('.rv-faq-item');
+            faqItems.forEach(item => {
+                const trigger = item.querySelector('.rv-faq-trigger');
+                trigger.addEventListener('click', () => {
+                    const content = item.querySelector('.rv-faq-content');
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.rv-faq-content').style.maxHeight = null;
+                        }
+                    });
+
+                    if (isActive) {
+                        item.classList.remove('active');
+                        content.style.maxHeight = null;
+                    } else {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+
+            // Why Rehab Village Expandable Stack
+            const stackCards = document.querySelectorAll('.rv-stack-card');
+            stackCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    stackCards.forEach(c => {
+                        if (c !== card) {
+                            c.classList.remove('active');
+                        }
+                    });
+                    card.classList.toggle('active');
+                });
+            });
+
+            // Accommodation Tabs
+            const tabButtons = document.querySelectorAll('.rv-tab-btn');
+            const tabContents = document.querySelectorAll('.rv-tab-content');
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    btn.classList.add('active');
+                    const targetTab = btn.getAttribute('data-tab');
+                    document.getElementById(`tab-${targetTab}`).classList.add('active');
+                });
+            });
+
+            // Ecosystem Wheel Click Details
+            const nodes = document.querySelectorAll('.rv-wheel-node');
+            const ecoTag = document.getElementById('eco-tag');
+            const ecoHeading = document.getElementById('eco-heading');
+            const ecoText = document.getElementById('eco-text');
+
+            const stakeholderData = {
+                patients: {
+                    tag: 'Primary Beneficiary',
+                    heading: 'Patients',
+                    text: 'Our patients receive top-quality ortho-neuro rehabilitation programs combining robotics and Ayurveda. They benefit from daily home doctor visits, housekeeping, food support, travel support, and voluntary networks that help them practice independent routines in a warm, welcoming community environment.'
+                },
+                families: {
+                    tag: 'Support Pillar',
+                    heading: 'Families & Caregivers',
+                    text: 'Caregivers receive complete peace of mind knowing their loved ones are monitored daily in certified home stays. We guide and train families on how to support long-term recovery during and after the stay, and our service villas are designed to comfortably accommodate family members.'
+                },
+                healthcare: {
+                    tag: 'Clinical Delivery',
+                    heading: 'Healthcare Professionals',
+                    text: 'Doctors, physical therapists, occupational therapists, and speech pathologists visit patient accommodations regularly to check health metrics. They gain professional skill development by working in a community-integrated environment, adapting recovery practices to patients\' active, real-world living situations.'
+                },
+                accommodation: {
+                    tag: 'Hospitality Partner',
+                    heading: 'Accommodation Partners',
+                    text: 'Local homestay hosts, service villas, and apartments situated within a 5 km radius of Edappal can register to provide long-stay solutions. Onboarding partners receive steady occupancy support, clinical safety clearance, and access to managed housekeeping services.'
+                },
+                community: {
+                    tag: 'Socioeconomic Partner',
+                    heading: 'Local Community',
+                    text: 'Rehab Village generates job creation, supports responsible medical tourism, and drives economic development for local shops, restaurants, and suppliers. The community offers a welcoming environment where patient recovery is enhanced by natural social exchanges.'
+                },
+                volunteers: {
+                    tag: 'Emotional Catalyst',
+                    heading: 'Volunteers',
+                    text: 'Volunteers assist patients in daily social activities, accompany them to local outings, coordinate community events, and help record recovery metrics. It is a mutually beneficial pathway where volunteers gain healthcare exposure and career growth while transforming patient well-being.'
+                }
+            };
+
+            nodes.forEach(node => {
+                node.addEventListener('click', (e) => {
+                    nodes.forEach(n => n.classList.remove('active'));
+                    node.classList.add('active');
+                    const key = node.getAttribute('data-node');
+                    if (stakeholderData[key]) {
+                        ecoTag.innerText = stakeholderData[key].tag;
+                        ecoHeading.innerText = stakeholderData[key].heading;
+                        ecoText.innerText = stakeholderData[key].text;
+                    }
+                });
+            });
+
+            // Stakeholder Form Multi-Step & Selector Logic
+            const formTabButtons = document.querySelectorAll('.rv-form-tab-btn');
+            const stepNodes = document.querySelectorAll('.rv-form-step-node');
+            const progressBar = document.getElementById('form-progress-bar');
+            
+            const paneStep1 = document.getElementById('pane-step-1');
+            const paneStep2 = document.getElementById('pane-step-2');
+            
+            const nextBtn = document.getElementById('form-next-btn');
+            const backBtn = document.getElementById('form-back-btn');
+            const submitBtn = document.getElementById('form-submit-btn');
+
+            let currentStep = 1;
+            let activeCategory = 'patient';
+
+            // Category Tab selector
+            formTabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    formTabButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeCategory = btn.getAttribute('data-form');
+                    
+                    // Show corresponding dynamic fields in Step 2
+                    document.querySelectorAll('.form-dynamic-details').forEach(div => {
+                        div.style.display = 'none';
+                    });
+                    const targetDetails = document.getElementById(`details-${activeCategory}`);
+                    if (targetDetails) targetDetails.style.display = 'block';
+                });
+            });
+
+            // Next step validation
+            nextBtn.addEventListener('click', () => {
+                // Perform quick HTML5 validation check
+                const inputs = paneStep1.querySelectorAll('input');
+                let valid = true;
+                inputs.forEach(input => {
+                    if (!input.checkValidity()) {
+                        input.reportValidity();
+                        valid = false;
+                    }
+                });
+
+                if (valid) {
+                    currentStep = 2;
+                    paneStep1.classList.remove('active');
+                    paneStep2.classList.add('active');
+                    
+                    // Update nodes
+                    stepNodes[0].classList.add('completed');
+                    stepNodes[0].classList.remove('active');
+                    stepNodes[1].classList.add('active');
+                    progressBar.style.width = '100%';
+                    
+                    nextBtn.style.display = 'none';
+                    backBtn.style.display = 'block';
+                    submitBtn.style.display = 'block';
+                }
+            });
+
+            // Back step
+            backBtn.addEventListener('click', () => {
+                currentStep = 1;
+                paneStep2.classList.remove('active');
+                paneStep1.classList.add('active');
+                
+                stepNodes[0].classList.add('active');
+                stepNodes[0].classList.remove('completed');
+                stepNodes[1].classList.remove('active');
+                progressBar.style.width = '50%';
+                
+                nextBtn.style.display = 'block';
+                backBtn.style.display = 'none';
+                submitBtn.style.display = 'none';
+            });
+
+            // GSAP ScrollTrigger Animations (Counters & Journey Points)
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Counter animation
+                const counterNumbers = document.querySelectorAll('.rv-metric-number');
+                counterNumbers.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    
+                    ScrollTrigger.create({
+                        trigger: counter,
+                        start: "top 85%",
+                        onEnter: () => {
+                            let obj = { val: 0 };
+                            gsap.to(obj, {
+                                val: target,
+                                duration: 2,
+                                ease: "power2.out",
+                                onUpdate: () => {
+                                    counter.innerText = Math.ceil(obj.val) + "+";
+                                }
+                            });
+                        }
+                    });
+                });
+
+                // Timeline Line reveal
+                ScrollTrigger.create({
+                    trigger: ".rv-timeline-horizontal",
+                    start: "top 80%",
+                    onEnter: () => {
+                        document.getElementById('timeline-progress').style.width = '100%';
+                        const steps = document.querySelectorAll('.rv-timeline-step');
+                        steps.forEach((step, idx) => {
+                            setTimeout(() => {
+                                step.classList.add('animated');
+                                step.classList.add('active');
+                            }, idx * 250);
+                        });
+                    }
+                });
+
+                // Journey Vertical Line progress
+                gsap.to("#journey-progress-line", {
+                    height: "100%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".rv-journey-track",
+                        start: "top 40%",
+                        end: "bottom 60%",
+                        scrub: true
+                    }
+                });
+
+                // Activate individual journey blocks on scroll
+                const blocks = document.querySelectorAll('.rv-journey-block');
+                blocks.forEach(block => {
+                    ScrollTrigger.create({
+                        trigger: block,
+                        start: "top 65%",
+                        onEnter: () => block.classList.add('active'),
+                        onLeaveBack: () => block.classList.remove('active')
+                    });
+                });
+
+                // Stagger reveal other sections
+                gsap.from(".rv-bento-card", {
+                    opacity: 0,
+                    y: 40,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".rv-bento-grid",
+                        start: "top 80%"
+                    }
+                });
+
+                gsap.from(".rv-partner-card", {
+                    opacity: 0,
+                    y: 40,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".rv-partner-grid",
+                        start: "top 80%"
+                    }
+                });
+            }
+
+            // Testimonials Carousel Controls
+            const testTrack = document.getElementById('testimonial-track');
+            const prevTestBtn = document.getElementById('prev-test');
+            const nextTestBtn = document.getElementById('next-test');
+            let testIndex = 0;
+
+            if (testTrack) {
+                const getSlideWidth = () => {
+                    const slides = testTrack.querySelectorAll('.rv-carousel-slide');
+                    if (slides.length > 0) {
+                        return slides[0].offsetWidth + 30; // slide width + gap
+                    }
+                    return 0;
+                };
+
+                const updateCarousel = () => {
+                    const width = getSlideWidth();
+                    testTrack.style.transform = `translateX(-${testIndex * width}px)`;
+                };
+
+                nextTestBtn.addEventListener('click', () => {
+                    const slidesCount = testTrack.querySelectorAll('.rv-carousel-slide').length;
+                    const itemsVisible = window.innerWidth > 1024 ? 2 : 1;
+                    if (testIndex < slidesCount - itemsVisible) {
+                        testIndex++;
+                        updateCarousel();
+                    } else {
+                        testIndex = 0; // Loop back
+                        updateCarousel();
+                    }
+                });
+
+                prevTestBtn.addEventListener('click', () => {
+                    const slidesCount = testTrack.querySelectorAll('.rv-carousel-slide').length;
+                    const itemsVisible = window.innerWidth > 1024 ? 2 : 1;
+                    if (testIndex > 0) {
+                        testIndex--;
+                        updateCarousel();
+                    } else {
+                        testIndex = slidesCount - itemsVisible; // Loop to end
+                        updateCarousel();
+                    }
+                });
+
+                window.addEventListener('resize', updateCarousel);
+            }
+        });
+    </script>
+</main>

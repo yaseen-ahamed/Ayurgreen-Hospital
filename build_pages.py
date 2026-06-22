@@ -1256,43 +1256,30 @@ therapies_main = """    <main>
         </section>
     </main>"""
 
-village_main = """    <main>
+# Load Rehab Village main content from external file if exists, otherwise fallback
+import os
+try:
+    village_html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'village_main.html')
+    if os.path.exists(village_html_path):
+        with open(village_html_path, 'r', encoding='utf-8') as f:
+            village_main = f.read()
+    else:
+        village_main = """    <main>
+            <section class="section-dark" style="padding-top: 120px;">
+                <div class="container text-center">
+                    <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: rgba(255,255,255,0.6);">Nature & Healing</span>
+                    <h1 style="margin-top: 16px; margin-bottom: 24px; color: white;">The Rehab Village</h1>
+                    <p class="text-large" style="max-width: 800px; margin: 0 auto 64px auto;">A fully integrated residential hospital campus where profound stillness meets absolute clinical excellence.</p>
+                </div>
+            </section>
+        </main>"""
+except Exception:
+    village_main = """    <main>
         <section class="section-dark" style="padding-top: 120px;">
             <div class="container text-center">
                 <span class="text-micro" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: rgba(255,255,255,0.6);">Nature & Healing</span>
                 <h1 style="margin-top: 16px; margin-bottom: 24px; color: white;">The Rehab Village</h1>
                 <p class="text-large" style="max-width: 800px; margin: 0 auto 64px auto;">A fully integrated residential hospital campus where profound stillness meets absolute clinical excellence.</p>
-            </div>
-        </section>
-
-        <section class="container" style="margin-top: -80px; position: relative; z-index: 10;">
-            <img src="Assets/generated/rehab_village_exterior_1776281820189.png" onerror="this.src='Assets/Hospital View.webp'" alt="Ayurgreen Rehab Village" style="width: 100%; border-radius: var(--radius-large); height: 600px; object-fit: cover; box-shadow: var(--shadow-hover); margin-bottom: 64px;">
-            
-            <div class="grid grid-2 gap-large items-center">
-                <div>
-                    <h2>A Sanctuary Designed for Serenity</h2>
-                    <p style="margin-top: 24px; margin-bottom: 24px;">Recovery is not merely physical; the environment plays a profound role in a patient's neurological healing process. We have built an expansive, lush green campus specifically engineered to reduce stress and promote well-being.</p>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; margin-top: 32px;">
-                        <li style="display: flex; gap: 16px; align-items: flex-start;">
-                            <i data-lucide="check-circle" size="24" style="color: var(--primary);"></i>
-                            <div>
-                                <h4 style="font-size: 18px;">Independent Cottages</h4>
-                                <p style="font-size: 15px; margin-top: 4px;">Wheelchair-accessible, premium private villas offering privacy and comfort for patients and their families.</p>
-                            </div>
-                        </li>
-                        <li style="display: flex; gap: 16px; align-items: flex-start;">
-                            <i data-lucide="check-circle" size="24" style="color: var(--primary);"></i>
-                            <div>
-                                <h4 style="font-size: 18px;">Organic Ecosystem</h4>
-                                <p style="font-size: 15px; margin-top: 4px;">Surrounded by medicinal paths and tropical gardens designed to keep patients connected to nature.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="grid grid-2 gap-small">
-                    <img src="Assets/generated/international_patient_room_1776281853326.png" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-card);">
-                    <img src="Assets/generated/ayurveda_premium_room_1776281797515.png" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-card);">
-                </div>
             </div>
         </section>
     </main>"""
@@ -2243,21 +2230,54 @@ def replace_main(filename, new_main_html):
                 new_content = new_content[:wrapper_start] + header_html + new_content[wrapper_end:]
                 
         # Page-specific head and SEO updates
+        static_meta = {
+            'rehab-village.html': {
+                'name': 'Rehab Village',
+                'desc': 'A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.',
+                'category_name': 'Rehab Village'
+            },
+            'about.html': {
+                'name': 'About Us',
+                'desc': 'Ayurgreen Hospital is India\'s leading integrated ortho-neuro rehabilitation hospital combining advanced robotic technology, physiotherapy, and authentic Ayurveda.',
+                'category_name': 'About Us'
+            },
+            'programs.html': {
+                'name': 'Programs',
+                'desc': 'Specialized neurodevelopmental, orthopedic, and pediatric rehabilitation programs tailored to maximize recovery and functional independence.',
+                'category_name': 'Programs'
+            },
+            'therapies.html': {
+                'name': 'Specialities',
+                'desc': 'Explore our specialized clinical specialties and therapies including robotic rehabilitation, occupational therapy, speech therapy, and physiotherapy.',
+                'category_name': 'Specialities'
+            }
+        }
+        
+        meta_name = None
+        meta_desc = None
+        meta_cat = None
+        
         if svc:
-            name = svc['name']
-            desc = svc.get('desc', f"Experience clinical care and integrated rehabilitation for {name} at Ayurgreen Hospital. Combining advanced technology and traditional Ayurveda.")
+            meta_name = svc['name']
+            meta_desc = svc.get('desc', f"Experience clinical care and integrated rehabilitation for {meta_name} at Ayurgreen Hospital. Combining advanced technology and traditional Ayurveda.")
+            meta_cat = category_name
+        elif filename in static_meta:
+            meta_name = static_meta[filename]['name']
+            meta_desc = static_meta[filename]['desc']
+            meta_cat = static_meta[filename]['category_name']
             
+        if meta_name:
             # Replace title
             title_start = new_content.find('<title>')
             title_end = new_content.find('</title>')
             if title_start != -1 and title_end != -1:
-                new_content = new_content[:title_start] + f'<title>{name} Rehabilitation & Care | Ayurgreen Hospital</title>' + new_content[title_end + len('</title>'):]
+                new_content = new_content[:title_start] + f'<title>{meta_name} Rehabilitation & Care | Ayurgreen Hospital</title>' + new_content[title_end + len('</title>'):]
                 
             # Replace description
             desc_start = new_content.find('<meta name="description"')
             if desc_start != -1:
                 desc_end = new_content.find('>', desc_start) + 1
-                new_content = new_content[:desc_start] + f'<meta name="description" content="{desc}">' + new_content[desc_end:]
+                new_content = new_content[:desc_start] + f'<meta name="description" content="{meta_desc}">' + new_content[desc_end:]
                 
             # Replace canonical
             canonical_start = new_content.find('<link rel="canonical"')
@@ -2269,12 +2289,12 @@ def replace_main(filename, new_main_html):
             og_title_start = new_content.find('<meta property="og:title"')
             if og_title_start != -1:
                 og_title_end = new_content.find('>', og_title_start) + 1
-                new_content = new_content[:og_title_start] + f'<meta property="og:title" content="{name} Rehabilitation & Care | Ayurgreen Hospital">' + new_content[og_title_end:]
+                new_content = new_content[:og_title_start] + f'<meta property="og:title" content="{meta_name} Rehabilitation & Care | Ayurgreen Hospital">' + new_content[og_title_end:]
 
             og_desc_start = new_content.find('<meta property="og:description"')
             if og_desc_start != -1:
                 og_desc_end = new_content.find('>', og_desc_start) + 1
-                new_content = new_content[:og_desc_start] + f'<meta property="og:description" content="{desc}">' + new_content[og_desc_end:]
+                new_content = new_content[:og_desc_start] + f'<meta property="og:description" content="{meta_desc}">' + new_content[og_desc_end:]
 
             og_url_start = new_content.find('<meta property="og:url"')
             if og_url_start != -1:
@@ -2284,12 +2304,12 @@ def replace_main(filename, new_main_html):
             twitter_title_start = new_content.find('<meta property="twitter:title"')
             if twitter_title_start != -1:
                 twitter_title_end = new_content.find('>', twitter_title_start) + 1
-                new_content = new_content[:twitter_title_start] + f'<meta property="twitter:title" content="{name} Rehabilitation & Care | Ayurgreen Hospital">' + new_content[twitter_title_end:]
+                new_content = new_content[:twitter_title_start] + f'<meta property="twitter:title" content="{meta_name} Rehabilitation & Care | Ayurgreen Hospital">' + new_content[twitter_title_end:]
 
             twitter_desc_start = new_content.find('<meta property="twitter:description"')
             if twitter_desc_start != -1:
                 twitter_desc_end = new_content.find('>', twitter_desc_start) + 1
-                new_content = new_content[:twitter_desc_start] + f'<meta property="twitter:description" content="{desc}">' + new_content[twitter_desc_end:]
+                new_content = new_content[:twitter_desc_start] + f'<meta property="twitter:description" content="{meta_desc}">' + new_content[twitter_desc_end:]
 
             twitter_url_start = new_content.find('<meta property="twitter:url"')
             if twitter_url_start != -1:
@@ -2300,7 +2320,7 @@ def replace_main(filename, new_main_html):
             schema_start = new_content.find('<script type="application/ld+json">')
             if schema_start != -1:
                 schema_end = new_content.find('</script>', schema_start) + len('</script>')
-                json_ld_schema = generate_json_ld(filename, name, desc, category_name)
+                json_ld_schema = generate_json_ld(filename, meta_name, meta_desc, meta_cat)
                 new_content = new_content[:schema_start] + '<script type="application/ld+json">\n' + json_ld_schema + '\n</script>' + new_content[schema_end:]
 
         with open(filepath, 'w', encoding="utf-8") as f:

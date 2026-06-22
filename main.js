@@ -198,6 +198,14 @@ function initSearch() {
         .search-wrapper:hover .search-trigger-btn .lucide {
             transform: none !important;
         }
+        .search-trigger-btn {
+            transition: all 0.2s ease !important;
+        }
+        .search-wrapper:hover .individual-pill,
+        .search-trigger-btn:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
         @media (min-width: 1251px) {
             .mobile-only-search { display: none !important; }
         }

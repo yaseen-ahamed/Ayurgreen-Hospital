@@ -132,7 +132,7 @@
 
         /* Keyboard Focus Indicator States for Accessibility */
         a:focus-visible, button:focus-visible, [role="button"]:focus-visible, [role="tab"]:focus-visible {
-            outline: 3px solid var(--secondary, #1F5A44);
+            outline: 3px solid var(--secondary, #262626);
             outline-offset: 3px;
         }
 
@@ -520,6 +520,7 @@
             transition: width 0.3s, height 0.3s;
         }
 
+
         /* Main Content Block */
         .main-content-block {
             position: absolute;
@@ -740,7 +741,7 @@
                 border-radius: 32px !important;
                 overflow: hidden !important;
                 position: relative !important;
-                background: #0f3d2e !important;
+                background: #000000 !important;
                 display: block !important;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
                 border: none !important;
@@ -3126,7 +3127,7 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             font-weight: 600;
-            color: #2BC46D;
+            color: #000000;
             margin-bottom: 8px;
             display: block;
         }
@@ -3218,8 +3219,8 @@
             transform: translateX(5px);
         }
         .sidebar-item.active {
-            background: linear-gradient(90deg, rgba(43, 196, 109, 0.15), transparent);
-            border-left: 3px solid #2BC46D;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.15), transparent);
+            border-left: 3px solid #000000;
             color: #ffffff;
             font-weight: 600;
         }
@@ -3502,22 +3503,24 @@
     <!-- Embedded Scoped Styling to protect theme consistency -->
     <style>
         .rv-main {
-            background-color: #050814;
-            color: #ffffff;
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-main, #111111);
+            font-family: var(--font-body, 'Inter', sans-serif);
             overflow-x: hidden;
             position: relative;
         }
 
         /* Fluid typography & spacing variables */
         :root {
-            --emerald-glow: 0 0 30px rgba(43, 196, 109, 0.15);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            --accent-green: #2BC46D;
-            --accent-green-glow: #00ff66;
-            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --primary: #000000;
+            --secondary: #262626;
+            --emerald-glow: 0 8px 30px rgba(38, 38, 38, 0.08);
+            --glass-bg: #ffffff;
+            --glass-border: 1px solid var(--border, #E5E7EB);
+            --glass-shadow: var(--shadow-soft, 0 4px 20px -2px rgba(0, 0, 0, 0.03));
+            --accent-green: #000000;
+            --accent-green-glow: #262626;
+            --font-heading: 'TT Commons Pro DemiBold', 'TT Commons Pro', 'TT Commons', 'Plus Jakarta Sans', sans-serif;
         }
 
         .rv-section {
@@ -3559,7 +3562,7 @@
 
         .rv-tagline {
             font-size: clamp(14px, 1.2vw, 18px);
-            color: var(--accent-green);
+            color: var(--secondary, #262626);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
@@ -3570,18 +3573,18 @@
         .rv-para-large {
             font-size: clamp(16px, 1.3vw, 20px);
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted, #6B7280);
             margin-bottom: 32px;
         }
 
         .rv-para-medium {
             font-size: 15px;
             line-height: 1.65;
-            color: rgba(255, 255, 255, 0.65);
+            color: var(--text-muted, #6B7280);
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #ffffff 40%, var(--accent-green) 100%);
+            background: linear-gradient(135deg, var(--primary, #000000) 30%, var(--secondary, #262626) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -3592,14 +3595,12 @@
             border: var(--glass-border);
             border-radius: 28px;
             padding: 40px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             box-shadow: var(--glass-shadow);
             transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
         }
 
         .rv-glass-panel:hover {
-            border-color: rgba(43, 196, 109, 0.3);
+            border-color: var(--secondary, #262626);
             box-shadow: var(--glass-shadow), var(--emerald-glow);
         }
 
@@ -3608,8 +3609,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #ffffff;
-            color: #050814;
+            background: var(--primary, #000000);
+            color: #ffffff;
             padding: 14px 28px;
             border-radius: 40px;
             font-weight: 600;
@@ -3617,39 +3618,39 @@
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid transparent;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
         .rv-btn-primary:hover {
             transform: translateY(-2px);
-            background: var(--accent-green);
+            background: var(--secondary, #262626);
             color: #ffffff;
-            box-shadow: 0 4px 20px rgba(43, 196, 109, 0.4);
+            box-shadow: var(--shadow-hover);
         }
 
         .rv-btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
+            background: transparent;
+            color: var(--text-main, #111111);
             padding: 14px 28px;
             border-radius: 40px;
             font-weight: 600;
             font-size: 14px;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            border: 1px solid var(--border, #E5E7EB);
         }
 
         .rv-btn-secondary:hover {
             transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: var(--accent, #EAF4F0);
+            border-color: var(--secondary, #262626);
         }
 
         /* ------------------------------------------------------------- */
+        /* HERO SECTION */
         /* HERO SECTION */
         .rv-hero {
             height: 100vh;
@@ -3657,9 +3658,50 @@
             display: flex;
             align-items: center;
             position: relative;
-            background: radial-gradient(circle at 80% 20%, rgba(43, 196, 109, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 10% 80%, rgba(31, 90, 68, 0.1) 0%, transparent 60%);
+            background: linear-gradient(135deg, #050814 0%, #0c1938 100%);
             padding-top: 100px;
+        }
+
+        .rv-hero .rv-tagline {
+            color: #2BC46D;
+        }
+
+        .rv-hero .rv-title-large {
+            color: #ffffff;
+        }
+
+        .rv-hero .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, rgba(255, 255, 255, 0.75) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rv-hero .rv-para-large {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .rv-hero .rv-btn-primary {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+        }
+
+        .rv-hero .rv-btn-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000000;
+        }
+
+        .rv-hero .rv-btn-secondary {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .rv-hero .rv-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffffff;
         }
 
         .rv-hero-visual-bg {
@@ -3682,7 +3724,7 @@
             height: 80%;
             object-fit: cover;
             border-radius: 60px 0 0 60px;
-            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            border-left: 2px solid rgba(255, 255, 255, 0.15);
         }
 
         .rv-hero-content-wrap {
@@ -3703,26 +3745,38 @@
 
         .rv-floating-card {
             position: absolute;
-            background: rgba(5, 8, 20, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--border, #E5E7EB);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 16px 24px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             display: flex;
             align-items: center;
             gap: 12px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-main, #111111);
             pointer-events: auto;
             transition: all 0.3s ease;
         }
 
+        .rv-hero .rv-floating-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .rv-hero .rv-floating-card:hover {
+            border-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
         .rv-floating-card:hover {
-            border-color: var(--accent-green);
+            border-color: var(--secondary, #262626);
             transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(43, 196, 109, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 0 20px rgba(38, 38, 38, 0.12);
         }
 
         .rv-floating-card.card-1 { top: 20%; right: 28%; }
@@ -3742,12 +3796,20 @@
             opacity: 0.6;
         }
 
+        .rv-hero .rv-scroll-indicator {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         .rv-scroll-mouse {
             width: 24px;
             height: 38px;
-            border: 2px solid #ffffff;
+            border: 2px solid var(--text-main, #111111);
             border-radius: 12px;
             position: relative;
+        }
+
+        .rv-hero .rv-scroll-mouse {
+            border-color: #ffffff;
         }
 
         .rv-scroll-wheel {
@@ -3760,6 +3822,10 @@
             left: 50%;
             transform: translateX(-50%);
             animation: scrollWheelAnim 1.6s infinite;
+        }
+
+        .rv-hero .rv-scroll-wheel {
+            background: #ffffff;
         }
 
         @keyframes scrollWheelAnim {
@@ -3778,11 +3844,11 @@
 
         .rv-illustration-box {
             position: relative;
-            background: linear-gradient(135deg, rgba(31, 90, 68, 0.15) 0%, rgba(5, 8, 20, 0.4) 100%);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(135deg, var(--accent, #EAF4F0) 0%, rgba(255, 255, 255, 0.7) 100%);
+            border: 1px solid var(--border, #E5E7EB);
             border-radius: 36px;
             padding: 40px;
-            box-shadow: inset 0 0 30px rgba(43, 196, 109, 0.05);
+            box-shadow: inset 0 0 30px rgba(38, 38, 38, 0.03);
             height: 480px;
             display: flex;
             flex-direction: column;
@@ -3800,21 +3866,21 @@
         .rv-path-icon {
             width: 64px;
             height: 64px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent-green);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02);
             transition: all 0.3s ease;
         }
 
         .rv-path-item:hover .rv-path-icon {
-            border-color: var(--accent-green);
-            background: rgba(43, 196, 109, 0.1);
-            box-shadow: 0 8px 24px rgba(43, 196, 109, 0.2);
+            border-color: var(--secondary, #262626);
+            background: var(--accent, #EAF4F0);
+            box-shadow: 0 8px 24px rgba(38, 38, 38, 0.1);
         }
 
         .rv-path-connector {
@@ -3823,7 +3889,7 @@
             top: 64px;
             width: 2px;
             height: 100px;
-            background: linear-gradient(180deg, var(--accent-green) 0%, rgba(255,255,255,0.05) 100%);
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--border, #E5E7EB) 100%);
             z-index: 1;
         }
 
@@ -3846,7 +3912,7 @@
             left: 10%;
             right: 10%;
             height: 2px;
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--border, #E5E7EB);
             z-index: 1;
         }
 
@@ -3878,14 +3944,14 @@
         .rv-timeline-dot {
             width: 56px;
             height: 56px;
-            background: #050814;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: #ffffff;
+            border: 2px solid var(--border, #E5E7EB);
             border-radius: 50%;
             margin: 0 auto 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
+            color: var(--text-main, #111111);
             font-weight: 700;
             transition: all 0.4s ease;
         }
@@ -3893,7 +3959,7 @@
         .rv-timeline-step.active .rv-timeline-dot {
             border-color: var(--accent-green);
             color: var(--accent-green);
-            box-shadow: 0 0 15px rgba(43, 196, 109, 0.4);
+            box-shadow: 0 0 15px rgba(38, 38, 38, 0.15);
         }
 
         /* ------------------------------------------------------------- */
@@ -3925,21 +3991,21 @@
         .rv-bento-card .card-icon-wrap {
             width: 52px;
             height: 52px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent-green);
             margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.12);
             transition: all 0.3s ease;
         }
 
         .rv-bento-card:hover .card-icon-wrap {
             background: var(--accent-green);
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(43, 196, 109, 0.3);
+            box-shadow: 0 0 15px rgba(38, 38, 38, 0.2);
         }
 
         .rv-bento-card .ripple-bg {
@@ -3948,7 +4014,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(43, 196, 109, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(38, 38, 38, 0.06) 0%, transparent 70%);
             opacity: 0;
             transform: scale(0.5);
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -3977,7 +4043,7 @@
             bottom: 10%;
             left: 50%;
             width: 1px;
-            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent);
+            background: linear-gradient(180deg, transparent, var(--border, #E5E7EB) 30%, var(--border, #E5E7EB) 70%, transparent);
             transform: translateX(-50%);
         }
 
@@ -4035,7 +4101,7 @@
             font-size: 11px;
             font-weight: 700;
             color: var(--accent-green);
-            background: rgba(43, 196, 109, 0.1);
+            background: rgba(0, 0, 0, 0.08);
             padding: 4px 10px;
             border-radius: 20px;
             margin-bottom: 16px;
@@ -4044,7 +4110,7 @@
 
         .rv-process-card .card-desc {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--text-muted, #6B7280);
             max-height: 0;
             opacity: 0;
             overflow: hidden;
@@ -4055,7 +4121,7 @@
             height: 260px;
             transform: translateY(-8px);
             border-color: var(--accent-green);
-            box-shadow: var(--glass-shadow), 0 0 20px rgba(43, 196, 109, 0.2);
+            box-shadow: var(--glass-shadow), 0 0 20px rgba(38, 38, 38, 0.12);
         }
 
         .rv-process-card:hover .card-desc {
@@ -4106,6 +4172,30 @@
             transform: scale(1.05);
         }
 
+        .rv-lifestyle-visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(38, 38, 38, 0.05) 0%, rgba(38, 38, 38, 0.15) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .rv-lifestyle-visual-overlay i {
+            color: var(--primary, #000000) !important;
+            margin-bottom: 16px;
+        }
+
+        .rv-lifestyle-visual-overlay span {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+            color: var(--text-muted, #6B7280);
+        }
+
         /* ------------------------------------------------------------- */
         /* SECTION 7 – ECOSYSTEM WHEEL */
         .rv-wheel-wrap {
@@ -4126,8 +4216,8 @@
         .rv-wheel-center {
             width: 140px;
             height: 140px;
-            background: linear-gradient(135deg, #10261c 0%, #050814 100%);
-            border: 2px solid var(--accent-green);
+            background: linear-gradient(135deg, var(--primary, #000000) 0%, var(--secondary, #262626) 100%);
+            border: 2px solid var(--border, #E5E7EB);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -4135,7 +4225,8 @@
             text-align: center;
             font-weight: 700;
             font-size: 15px;
-            box-shadow: 0 0 35px rgba(43, 196, 109, 0.4), inset 0 0 20px rgba(43, 196, 109, 0.2);
+            color: #ffffff;
+            box-shadow: 0 0 35px rgba(38, 38, 38, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
             z-index: 10;
         }
 
@@ -4143,7 +4234,7 @@
             position: absolute;
             width: 380px;
             height: 380px;
-            border: 1px dashed rgba(255, 255, 255, 0.12);
+            border: 1px dashed rgba(0, 0, 0, 0.12);
             border-radius: 50%;
             animation: rotateOrbit 120s linear infinite;
         }
@@ -4156,13 +4247,13 @@
             position: absolute;
             width: 72px;
             height: 72px;
-            background: rgba(5, 8, 20, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
+            color: var(--text-main, #111111);
             cursor: pointer;
             z-index: 11;
             transition: all 0.3s ease;
@@ -4170,9 +4261,10 @@
         }
 
         .rv-wheel-node:hover, .rv-wheel-node.active {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-            box-shadow: 0 0 20px rgba(43, 196, 109, 0.4);
+            border-color: var(--secondary, #262626);
+            color: var(--secondary, #262626);
+            background: var(--accent, #EAF4F0);
+            box-shadow: 0 0 20px rgba(38, 38, 38, 0.15);
             transform: scale(1.1);
         }
 
@@ -4207,8 +4299,8 @@
         .rv-stack-card {
             border-radius: 24px;
             padding: 32px 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -4232,12 +4324,12 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent-green);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.12);
         }
 
         .rv-stack-details {
@@ -4247,19 +4339,19 @@
             width: 60%;
             transition: max-height 0.4s ease, opacity 0.4s ease;
             font-size: 14.5px;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-muted, #6B7280);
             line-height: 1.6;
         }
 
         .rv-stack-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(43, 196, 109, 0.25);
+            background: var(--bg-main, #F7F8F7);
+            border-color: var(--secondary, #262626);
             box-shadow: var(--glass-shadow);
         }
 
         .rv-stack-card.active {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--accent-green);
+            background: var(--accent, #EAF4F0);
+            border-color: var(--primary, #000000);
             box-shadow: var(--glass-shadow), var(--emerald-glow);
         }
 
@@ -4287,26 +4379,26 @@
         }
 
         .rv-tab-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             padding: 12px 28px;
             border-radius: 30px;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-muted, #6B7280);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .rv-tab-btn:hover {
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-main, #111111);
+            border-color: var(--secondary, #262626);
         }
 
         .rv-tab-btn.active {
-            background: var(--accent-green);
-            border-color: var(--accent-green);
+            background: var(--primary, #000000);
+            border-color: var(--primary, #000000);
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(43, 196, 109, 0.3);
+            box-shadow: 0 0 15px rgba(38, 38, 38, 0.2);
         }
 
         .rv-tab-content {
@@ -4340,7 +4432,7 @@
         .rv-acc-img-wrap {
             height: 220px;
             position: relative;
-            background: #0f1912;
+            background: var(--bg-main, #F7F8F7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -4350,28 +4442,28 @@
         .rv-acc-img-wrap svg {
             width: 64px;
             height: 64px;
-            color: rgba(255, 255, 255, 0.05);
+            color: rgba(0, 0, 0, 0.1);
             transition: all 0.5s ease;
         }
 
         .rv-acc-card:hover .rv-acc-img-wrap svg {
             transform: scale(1.1) rotate(5deg);
-            color: rgba(43, 196, 109, 0.15);
+            color: rgba(38, 38, 38, 0.3);
         }
 
         .rv-acc-tag {
             position: absolute;
             bottom: 16px;
             left: 16px;
-            background: rgba(5, 8, 20, 0.75);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
-            color: var(--accent-green);
-            border: 1px solid rgba(43, 196, 109, 0.3);
+            color: var(--primary, #000000);
+            border: 1px solid rgba(0, 0, 0, 0.2);
         }
 
         .rv-acc-details-panel {
@@ -4387,9 +4479,9 @@
 
         .rv-acc-badge {
             font-size: 11px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.6);
+            background: var(--bg-main, #F7F8F7);
+            border: 1px solid var(--border, #E5E7EB);
+            color: var(--text-muted, #6B7280);
             padding: 4px 10px;
             border-radius: 12px;
         }
@@ -4398,10 +4490,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid var(--border, #E5E7EB);
             padding-top: 16px;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-muted, #6B7280);
         }
 
         /* ------------------------------------------------------------- */
@@ -4416,8 +4508,8 @@
         .rv-map-graphic {
             position: relative;
             height: 400px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             border-radius: 36px;
             overflow: hidden;
         }
@@ -4453,7 +4545,7 @@
             width: 12px;
             height: 12px;
             background: var(--accent-green);
-            border: 2px solid #ffffff;
+            border: 2px solid var(--bg-white, #ffffff);
             border-radius: 50%;
             box-shadow: 0 0 15px var(--accent-green);
             position: relative;
@@ -4480,11 +4572,12 @@
         .rv-map-label {
             font-size: 11px;
             font-weight: 700;
-            background: rgba(5, 8, 20, 0.85);
+            background: #ffffff;
             padding: 4px 8px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border, #E5E7EB);
             margin-top: 6px;
+            color: var(--text-main, #111111);
             white-space: nowrap;
         }
 
@@ -4524,6 +4617,36 @@
             object-fit: cover;
         }
 
+        .rv-volunteer-visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(38, 38, 38, 0.05) 0%, rgba(38, 38, 38, 0.15) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .rv-volunteer-visual-overlay i {
+            color: var(--primary, #000000) !important;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+        }
+        .rv-volunteer-visual-overlay span {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            color: var(--text-main, #111111);
+        }
+        .rv-volunteer-visual-overlay p {
+            font-size: 13px;
+            color: var(--text-muted, #6B7280);
+            text-align: center;
+            max-width: 320px;
+            margin-top: 8px;
+        }
+
         .rv-v-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -4532,13 +4655,14 @@
         }
 
         .rv-v-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             border-radius: 20px;
             padding: 24px;
             display: flex;
             flex-direction: column;
             gap: 8px;
+            color: var(--text-main, #111111);
         }
 
         .rv-v-card i {
@@ -4552,7 +4676,7 @@
             margin: 32px 0;
             font-style: italic;
             font-size: 17px;
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--text-main, #111111);
             line-height: 1.5;
         }
 
@@ -4585,7 +4709,7 @@
             align-items: center;
             gap: 12px;
             font-size: 14.5px;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted, #6B7280);
         }
 
         .rv-partner-list li i {
@@ -4605,7 +4729,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--border, #E5E7EB);
             transform: translateX(-50%);
             z-index: 1;
         }
@@ -4640,8 +4764,8 @@
         .rv-journey-dot {
             width: 24px;
             height: 24px;
-            background: #050814;
-            border: 3px solid rgba(255,255,255,0.2);
+            background: #ffffff;
+            border: 3px solid var(--border, #E5E7EB);
             border-radius: 50%;
             position: absolute;
             left: 50%;
@@ -4652,9 +4776,9 @@
         }
 
         .rv-journey-block.active .rv-journey-dot {
-            border-color: var(--accent-green);
-            background: var(--accent-green);
-            box-shadow: 0 0 12px var(--accent-green);
+            border-color: var(--secondary, #262626);
+            background: var(--secondary, #262626);
+            box-shadow: 0 0 12px rgba(38, 38, 38, 0.3);
         }
 
         /* ------------------------------------------------------------- */
@@ -4716,9 +4840,9 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #ffffff;
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
+            color: var(--text-main, #111111);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -4727,9 +4851,10 @@
         }
 
         .rv-carousel-btn:hover {
-            background: var(--accent-green);
-            border-color: var(--accent-green);
-            box-shadow: 0 0 15px rgba(43, 196, 109, 0.3);
+            background: var(--primary, #000000);
+            border-color: var(--primary, #000000);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(38, 38, 38, 0.2);
         }
 
         /* ------------------------------------------------------------- */
@@ -4744,8 +4869,8 @@
 
         .rv-faq-item {
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             overflow: hidden;
             transition: all 0.3s ease;
         }
@@ -4755,7 +4880,7 @@
             padding: 24px 30px;
             background: transparent;
             border: none;
-            color: #ffffff;
+            color: var(--text-main, #111111);
             text-align: left;
             font-size: 16px;
             font-weight: 600;
@@ -4767,7 +4892,7 @@
 
         .rv-faq-trigger i {
             transition: transform 0.3s ease;
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-muted, #6B7280);
         }
 
         .rv-faq-content {
@@ -4781,13 +4906,13 @@
         .rv-faq-content p {
             padding-bottom: 24px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-muted, #6B7280);
             font-size: 14.5px;
         }
 
         .rv-faq-item.active {
-            border-color: rgba(43, 196, 109, 0.2);
-            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--secondary, #262626);
+            background: var(--accent, #EAF4F0);
         }
 
         .rv-faq-item.active .rv-faq-trigger i {
@@ -4808,8 +4933,8 @@
 
         .rv-form-tabs {
             display: flex;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg-main, #F7F8F7);
+            border: 1px solid var(--border, #E5E7EB);
             padding: 6px;
             border-radius: 40px;
             margin-bottom: 40px;
@@ -4820,7 +4945,7 @@
             padding: 12px;
             background: transparent;
             border: none;
-            color: rgba(255,255,255,0.5);
+            color: var(--text-muted, #6B7280);
             font-weight: 600;
             font-size: 13.5px;
             cursor: pointer;
@@ -4829,8 +4954,8 @@
         }
 
         .rv-form-tab-btn.active {
-            background: #ffffff;
-            color: #050814;
+            background: var(--primary, #000000);
+            color: #ffffff;
         }
 
         .rv-form-step-indicator {
@@ -4847,7 +4972,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: rgba(255,255,255,0.08);
+            background: var(--border, #E5E7EB);
             z-index: 1;
         }
 
@@ -4862,27 +4987,27 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: #050814;
-            border: 2px solid rgba(255,255,255,0.15);
+            background: #ffffff;
+            border: 2px solid var(--border, #E5E7EB);
             z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 12px;
             font-weight: 700;
-            color: rgba(255,255,255,0.4);
+            color: var(--text-muted, #6B7280);
             transition: all 0.3s ease;
         }
 
         .rv-form-step-node.active {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-            box-shadow: 0 0 10px rgba(43, 196, 109, 0.4);
+            border-color: var(--secondary, #262626);
+            color: var(--secondary, #262626);
+            box-shadow: 0 0 10px rgba(38, 38, 38, 0.15);
         }
 
         .rv-form-step-node.completed {
-            border-color: var(--accent-green);
-            background: var(--accent-green);
+            border-color: var(--secondary, #262626);
+            background: var(--secondary, #262626);
             color: #ffffff;
         }
 
@@ -4911,11 +5036,11 @@
 
         .rv-input {
             width: 100%;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             padding: 16px 20px;
             border-radius: 14px;
-            color: #ffffff;
+            color: var(--text-main, #111111);
             font-size: 14.5px;
             outline: none;
             box-sizing: border-box;
@@ -4923,9 +5048,9 @@
         }
 
         .rv-input:focus {
-            border-color: var(--accent-green);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 0 10px rgba(43, 196, 109, 0.1);
+            border-color: var(--secondary, #262626);
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(38, 38, 38, 0.10);
         }
 
         .rv-label {
@@ -4933,7 +5058,7 @@
             left: 20px;
             top: 18px;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-muted, #6B7280);
             pointer-events: none;
             transition: all 0.3s ease;
         }
@@ -4943,9 +5068,9 @@
             top: -10px;
             left: 14px;
             font-size: 11px;
-            background: #050814;
+            background: #ffffff;
             padding: 0 6px;
-            color: var(--accent-green);
+            color: var(--secondary, #262626);
             font-weight: 600;
         }
 
@@ -4954,7 +5079,7 @@
             justify-content: flex-end;
             gap: 16px;
             margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid var(--border, #E5E7EB);
             padding-top: 24px;
         }
 
@@ -4964,7 +5089,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, rgba(43, 196, 109, 0.1) 0%, transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.1) 0%, transparent 60%);
         }
 
         .rv-contact-cards {
@@ -4976,22 +5101,22 @@
         }
 
         .rv-contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid var(--border, #E5E7EB);
             border-radius: 20px;
             padding: 24px 40px;
             display: flex;
             align-items: center;
             gap: 16px;
             text-decoration: none;
-            color: #ffffff;
+            color: var(--text-main, #111111);
             transition: all 0.3s ease;
         }
 
         .rv-contact-card:hover {
-            border-color: var(--accent-green);
-            background: rgba(43, 196, 109, 0.05);
-            box-shadow: 0 0 20px rgba(43, 196, 109, 0.1);
+            border-color: var(--secondary, #262626);
+            background: var(--accent, #EAF4F0);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-2px);
         }
 
@@ -5243,7 +5368,7 @@
     </section>
 
     <!-- SECTION 2: WHAT IS REHAB VILLAGE -->
-    <section id="about" class="rv-section" style="border-top: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at 10% 20%, rgba(43, 196, 109, 0.03) 0%, transparent 40%);">
+    <section id="about" class="rv-section" style="border-top: 1px solid var(--border); background: radial-gradient(circle at 10% 20%, rgba(38, 38, 38, 0.03) 0%, transparent 40%);">
         <div class="rv-container">
             <div class="rv-split-layout">
                 <!-- Left: Path Illustration -->
@@ -5252,7 +5377,7 @@
                         <div class="rv-path-icon"><i data-lucide="building-2" size="24"></i></div>
                         <div>
                             <h4 class="rv-title-small" style="margin:0;">1. Specialized Hospital</h4>
-                            <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 4px 0 0 0;">Intensive ortho-neuro clinical therapy</p>
+                            <p style="font-size: 12px; color: var(--text-muted, #6B7280); margin: 4px 0 0 0;">Intensive ortho-neuro clinical therapy</p>
                         </div>
                         <div class="rv-path-connector"></div>
                     </div>
@@ -5260,7 +5385,7 @@
                         <div class="rv-path-icon"><i data-lucide="home" size="24"></i></div>
                         <div>
                             <h4 class="rv-title-small" style="margin:0;">2. Accommodations</h4>
-                            <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 4px 0 0 0;">Service villas, homestays, and apartments</p>
+                            <p style="font-size: 12px; color: var(--text-muted, #6B7280); margin: 4px 0 0 0;">Service villas, homestays, and apartments</p>
                         </div>
                         <div class="rv-path-connector"></div>
                     </div>
@@ -5268,7 +5393,7 @@
                         <div class="rv-path-icon"><i data-lucide="sparkles" size="24"></i></div>
                         <div>
                             <h4 class="rv-title-small" style="margin:0;">3. Recovery & Independence</h4>
-                            <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 4px 0 0 0;">Community support and complete integration</p>
+                            <p style="font-size: 12px; color: var(--text-muted, #6B7280); margin: 4px 0 0 0;">Community support and complete integration</p>
                         </div>
                     </div>
                 </div>
@@ -5281,16 +5406,16 @@
                     <div style="display: flex; gap: 40px;">
                         <div>
                             <div style="font-size: 32px; font-weight: 700; color: var(--accent-green);">5 km</div>
-                            <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Radius of Edappal</div>
+                            <div style="font-size: 12px; color: var(--text-muted, #6B7280); margin-top: 4px;">Radius of Edappal</div>
                         </div>
                         <div>
                             <div style="font-size: 32px; font-weight: 700; color: var(--accent-green);">100%</div>
-                            <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Community Integrated</div>
+                            <div style="font-size: 12px; color: var(--text-muted, #6B7280); margin-top: 4px;">Community Integrated</div>
                         </div>
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Interactive Timeline infographic -->
             <div class="rv-timeline-horizontal">
                 <div class="rv-timeline-line">
@@ -5300,34 +5425,34 @@
                 <div class="rv-timeline-step" data-step="1">
                     <div class="rv-timeline-dot">1</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Admission</h4>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Clinical consultation & onboarding</p>
+                    <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Clinical consultation & onboarding</p>
                 </div>
                 <div class="rv-timeline-step" data-step="2">
                     <div class="rv-timeline-dot">2</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Accommodation</h4>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Allocating specialized village stay</p>
+                    <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Allocating specialized village stay</p>
                 </div>
                 <div class="rv-timeline-step" data-step="3">
                     <div class="rv-timeline-dot">3</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Therapy</h4>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Integrated clinic-based treatments</p>
+                    <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Integrated clinic-based treatments</p>
                 </div>
                 <div class="rv-timeline-step" data-step="4">
                     <div class="rv-timeline-dot">4</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Recovery</h4>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Adapting to daily residential living</p>
+                    <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Adapting to daily residential living</p>
                 </div>
                 <div class="rv-timeline-step" data-step="5">
                     <div class="rv-timeline-dot">5</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Independence</h4>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.5);">Returning to life with full confidence</p>
+                    <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Returning to life with full confidence</p>
                 </div>
             </div>
         </div>
     </section>
-
+ 
     <!-- SECTION 3: THE REHAB VILLAGE EXPERIENCE BENTO GRID -->
-    <section class="rv-section" style="background: #03060f;">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
                 <span class="rv-tagline">Integrated Stay</span>
@@ -5393,9 +5518,9 @@
             </div>
         </div>
     </section>
-
+ 
     <!-- SECTION 4: VISION & MISSION -->
-    <section class="rv-section" style="background: radial-gradient(circle at 50% 50%, rgba(43, 196, 109, 0.05) 0%, transparent 60%); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section class="rv-section" style="background: radial-gradient(circle at 50% 50%, rgba(38, 38, 38, 0.04) 0%, transparent 60%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div class="rv-vm-grid">
                 <!-- SVG connecting paths -->
@@ -5408,27 +5533,27 @@
                 <div class="rv-glass-panel" style="position: relative; z-index: 5;">
                     <span class="rv-tagline">The Vision</span>
                     <h3 class="rv-title-medium text-gradient" style="font-size: 28px;">To Redefine Community Rehabilitation Globally</h3>
-                    <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85);">To be a globally recognized leader in community-integrated rehabilitation, blending advanced therapeutic care with a supportive village atmosphere. Rehab Village strives to empower patients to regain independence while contributing to local economic development through sustainable partnerships with the community, enhancing both healthcare and livelihoods.</p>
+                    <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: var(--text-muted, #6B7280);">To be a globally recognized leader in community-integrated rehabilitation, blending advanced therapeutic care with a supportive village atmosphere. Rehab Village strives to empower patients to regain independence while contributing to local economic development through sustainable partnerships with the community, enhancing both healthcare and livelihoods.</p>
                 </div>
                 <!-- Mission Panel -->
                 <div class="rv-glass-panel" style="position: relative; z-index: 5;">
                     <span class="rv-tagline">The Mission</span>
                     <h3 class="rv-title-medium text-gradient" style="font-size: 28px;">Holistic, Patient-Centered Clinical Pathways</h3>
-                    <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.85);">To provide accessible, affordable and holistic rehabilitation services through state-of-the-art facilities, expert care, and partnerships with local communities. Ayurgreen Rehab village is committed to enhancing patient well-being by combining traditional and modern therapies, prioritizing personalized care, and promoting responsible tourism that contributes to economic and social growth.</p>
+                    <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: var(--text-muted, #6B7280);">To provide accessible, affordable and holistic rehabilitation services through state-of-the-art facilities, expert care, and partnerships with local communities. Ayurgreen Rehab village is committed to enhancing patient well-being by combining traditional and modern therapies, prioritizing personalized care, and promoting responsible tourism that contributes to economic and social growth.</p>
                 </div>
             </div>
         </div>
     </section>
-
+ 
     <!-- SECTION 5: HOW REHAB VILLAGE WORKS -->
-    <section class="rv-section" style="background: #03060f;">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
                 <span class="rv-tagline">The Process</span>
                 <h2 class="rv-title-medium text-gradient">How Rehab Village Works</h2>
                 <p class="rv-para-medium">Our structured operational pathway ensures seamless transitioning from diagnostic assessment to clinical recovery.</p>
             </div>
-
+ 
             <div class="rv-process-timeline">
                 <!-- Step 1 -->
                 <div class="rv-process-card-wrapper">
@@ -5505,10 +5630,9 @@
                     <p class="rv-para-medium">Patients receive visits from doctors once a day directly at their accommodation, as per their health status. This ensures continuous clinical monitoring while giving the comfort of homelike living.</p>
                 </div>
                 <div class="rv-lifestyle-visual">
-                    <!-- High-fidelity visual styling using linear-gradients as assets framework -->
-                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
-                        <i data-lucide="stethoscope" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
-                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Diagnostic Visual Representation</span>
+                    <div class="rv-lifestyle-visual-overlay">
+                        <i data-lucide="stethoscope" size="48"></i>
+                        <span>Diagnostic Visual Representation</span>
                     </div>
                 </div>
             </div>
@@ -5521,9 +5645,9 @@
                     <p class="rv-para-medium">Healthy recovery requires balanced nutrition. We provide door-to-door delivery support directly from our specialized restaurant partners. Enjoy customized meal plans delivered directly to your doorstep.</p>
                 </div>
                 <div class="rv-lifestyle-visual">
-                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
-                        <i data-lucide="utensils-crosskeys" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
-                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Nutritional Visual Representation</span>
+                    <div class="rv-lifestyle-visual-overlay">
+                        <i data-lucide="utensils-crosskeys" size="48"></i>
+                        <span>Nutritional Visual Representation</span>
                     </div>
                 </div>
             </div>
@@ -5536,9 +5660,9 @@
                     <p class="rv-para-medium">Long-term stay is made completely comfortable. Additional services include professional housekeeping and laundry, keeping your living space clean and sanitized without you lifting a finger.</p>
                 </div>
                 <div class="rv-lifestyle-visual">
-                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
-                        <i data-lucide="shirt" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
-                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Housekeeping Visual Representation</span>
+                    <div class="rv-lifestyle-visual-overlay">
+                        <i data-lucide="shirt" size="48"></i>
+                        <span>Housekeeping Visual Representation</span>
                     </div>
                 </div>
             </div>
@@ -5551,9 +5675,9 @@
                     <p class="rv-para-medium">While accommodations are residential, all specialized treatments are provided exclusively at Ayurgreen Hospital. Patients can access state-of-the-art robotic systems, physical rehab, speech therapy, and clinical supervision.</p>
                 </div>
                 <div class="rv-lifestyle-visual">
-                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
-                        <i data-lucide="hospital" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
-                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Clinical Visual Representation</span>
+                    <div class="rv-lifestyle-visual-overlay">
+                        <i data-lucide="hospital" size="48"></i>
+                        <span>Clinical Visual Representation</span>
                     </div>
                 </div>
             </div>
@@ -5566,9 +5690,9 @@
                     <p class="rv-para-medium">Patients are supported by our active volunteer network, helping them join community gatherings, interact with neighbors, and participate in rehabilitation exercises for emotional well-being.</p>
                 </div>
                 <div class="rv-lifestyle-visual">
-                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
-                        <i data-lucide="heart" size="48" style="color:var(--accent-green); margin-bottom:16px;"></i>
-                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:12px; color:rgba(255,255,255,0.4);">Support Visual Representation</span>
+                    <div class="rv-lifestyle-visual-overlay">
+                        <i data-lucide="heart" size="48"></i>
+                        <span>Support Visual Representation</span>
                     </div>
                 </div>
             </div>
@@ -5576,7 +5700,7 @@
     </section>
 
     <!-- SECTION 7: WHO BENEFITS (ECOSYSTEM WHEEL) -->
-    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div class="rv-wheel-wrap">
                 <!-- Left: Circular Orbit Wheel -->
@@ -5588,27 +5712,27 @@
                         <!-- Orbit line -->
                     </div>
                     <!-- Nodes -->
-                    <div class="rv-wheel-node active" data-node="patients">
+                    <div class="rv-wheel-node active node-1" data-node="patients">
                         <i data-lucide="user" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Patients</span>
                     </div>
-                    <div class="rv-wheel-node" data-node="families">
+                    <div class="rv-wheel-node node-2" data-node="families">
                         <i data-lucide="users" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Families</span>
                     </div>
-                    <div class="rv-wheel-node" data-node="healthcare">
+                    <div class="rv-wheel-node node-3" data-node="healthcare">
                         <i data-lucide="stethoscope" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Professionals</span>
                     </div>
-                    <div class="rv-wheel-node" data-node="accommodation">
+                    <div class="rv-wheel-node node-4" data-node="accommodation">
                         <i data-lucide="home" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Partners</span>
                     </div>
-                    <div class="rv-wheel-node" data-node="community">
+                    <div class="rv-wheel-node node-5" data-node="community">
                         <i data-lucide="building" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Community</span>
                     </div>
-                    <div class="rv-wheel-node" data-node="volunteers">
+                    <div class="rv-wheel-node node-6" data-node="volunteers">
                         <i data-lucide="heart" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Volunteers</span>
                     </div>
@@ -5705,7 +5829,7 @@
     </section>
 
     <!-- SECTION 9: ACCOMMODATION ECOSYSTEM -->
-    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
                 <span class="rv-tagline">Stay Options</span>
@@ -5923,15 +6047,15 @@
     </section>
 
     <!-- SECTION 11: VOLUNTEER PROGRAM -->
-    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div class="rv-split-layout">
                 <!-- Visual -->
                 <div class="rv-volunteer-visual">
-                    <div style="position: absolute; inset:0; background: linear-gradient(135deg, rgba(31,90,68,0.4) 0%, rgba(5,8,20,0.8) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
-                        <i data-lucide="heart" size="64" style="color:var(--accent-green); margin-bottom:16px; filter: drop-shadow(0 0 10px rgba(43,196,109,0.4));"></i>
-                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:1.5px; font-size:13px; color:#ffffff;">Supporting Patient Journeys</span>
-                        <p style="font-size:13px; color:rgba(255,255,255,0.5); text-align:center; max-width:320px; margin-top:8px;">Volunteers helping patients transition to daily independent routines.</p>
+                    <div class="rv-volunteer-visual-overlay">
+                        <i data-lucide="heart" size="64"></i>
+                        <span>Supporting Patient Journeys</span>
+                        <p>Volunteers helping patients transition to daily independent routines.</p>
                     </div>
                 </div>
                 <!-- Content -->
@@ -5948,22 +6072,22 @@
                         <div class="rv-v-card">
                             <i data-lucide="check" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Daily Assistance</h4>
-                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Assisting patients with daily activities and therapeutic sessions.</p>
+                            <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Assisting patients with daily activities and therapeutic sessions.</p>
                         </div>
                         <div class="rv-v-card">
                             <i data-lucide="sparkles" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Community Events</h4>
-                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Organizing and participating in recreational and community events.</p>
+                            <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Organizing and participating in recreational and community events.</p>
                         </div>
                         <div class="rv-v-card">
                             <i data-lucide="file-text" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Administrative Support</h4>
-                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Providing administrative support and coordinating stakeholder networks.</p>
+                            <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Providing administrative support and coordinating stakeholder networks.</p>
                         </div>
                         <div class="rv-v-card">
                             <i data-lucide="book-open" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Research Support</h4>
-                            <p style="font-size:12.5px; color:rgba(255,255,255,0.5); margin:0;">Contributing to rehabilitation research and outcome documentation.</p>
+                            <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Contributing to rehabilitation research and outcome documentation.</p>
                         </div>
                     </div>
 
@@ -6032,7 +6156,7 @@
     </section>
 
     <!-- SECTION 13: PATIENT JOURNEY STORY -->
-    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
                 <span class="rv-tagline">Visual Storytelling</span>
@@ -6109,26 +6233,26 @@
             <div class="rv-metric-grid">
                 <div class="rv-glass-panel rv-metric-card">
                     <div class="rv-metric-number" data-target="45">0</div>
-                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">Accommodation Partners</div>
+                    <div style="font-size:14px; font-weight:600; color:var(--text-muted, #6B7280);">Accommodation Partners</div>
                 </div>
                 <div class="rv-glass-panel rv-metric-card">
                     <div class="rv-metric-number" data-target="250">0</div>
-                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">Community Members</div>
+                    <div style="font-size:14px; font-weight:600; color:var(--text-muted, #6B7280);">Community Members</div>
                 </div>
                 <div class="rv-glass-panel rv-metric-card">
                     <div class="rv-metric-number" data-target="1800">0</div>
-                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">Rehabilitation Patients</div>
+                    <div style="font-size:14px; font-weight:600; color:var(--text-muted, #6B7280);">Rehabilitation Patients</div>
                 </div>
                 <div class="rv-glass-panel rv-metric-card">
                     <div class="rv-metric-number" data-target="420">0</div>
-                    <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.6);">International Visitors</div>
+                    <div style="font-size:14px; font-weight:600; color:var(--text-muted, #6B7280);">International Visitors</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 15: TESTIMONIALS -->
-    <section class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
                 <span class="rv-tagline">Testimonials</span>
@@ -6149,7 +6273,7 @@
                         </div>
                         <p class="rv-para-medium" style="font-size:15px; font-style:italic; margin-bottom:20px;">"Living in a service villa during my stroke rehabilitation allowed my wife and children to stay with me in a normal home environment, while I received premium therapy at the hospital daily. It changed everything."</p>
                         <h4 style="margin:0; font-size:16px;">Abdul Rahman</h4>
-                        <span style="font-size:12px; color:rgba(255,255,255,0.4);">Stroke Recovery Patient, UAE</span>
+                        <span style="font-size:12px; color:var(--text-muted, #6B7280);">Stroke Recovery Patient, UAE</span>
                     </div>
                     <!-- Slide 2 -->
                     <div class="rv-glass-panel rv-carousel-slide">
@@ -6162,7 +6286,7 @@
                         </div>
                         <p class="rv-para-medium" style="font-size:15px; font-style:italic; margin-bottom:20px;">"As a caregiver, having doctor visits right at our homestay stay gave me immense peace of mind. I could manage my work remotely while knowing professional medical supervision was available once a day."</p>
                         <h4 style="margin:0; font-size:16px;">Sarah Mitchell</h4>
-                        <span style="font-size:12px; color:rgba(255,255,255,0.4);">Caregiver for Parkinson's Patient, UK</span>
+                        <span style="font-size:12px; color:var(--text-muted, #6B7280);">Caregiver for Parkinson's Patient, UK</span>
                     </div>
                     <!-- Slide 3 -->
                     <div class="rv-glass-panel rv-carousel-slide">
@@ -6175,7 +6299,7 @@
                         </div>
                         <p class="rv-para-medium" style="font-size:15px; font-style:italic; margin-bottom:20px;">"Registering our cottage as an accommodation partner was simple and has brought steady rental support to our family, while giving us the privilege of helping patient families feel at home in Edappal."</p>
                         <h4 style="margin:0; font-size:16px;">K. Raghavan</h4>
-                        <span style="font-size:12px; color:rgba(255,255,255,0.4);">Accommodation Provider, Edappal</span>
+                        <span style="font-size:12px; color:var(--text-muted, #6B7280);">Accommodation Provider, Edappal</span>
                     </div>
                 </div>
             </div>
@@ -6283,7 +6407,7 @@
     </section>
 
     <!-- SECTION 17: STAKEHOLDER REGISTRATION FORM -->
-    <section id="stakeholder-registration" class="rv-section" style="background: #03060f; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <section id="stakeholder-registration" class="rv-section" style="background: var(--bg-main); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="rv-container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
                 <span class="rv-tagline">Onboarding</span>
@@ -6440,14 +6564,14 @@
                 <a href="tel:+918943055518" class="rv-contact-card">
                     <i data-lucide="phone-call" size="24"></i>
                     <div style="text-align: left;">
-                        <div style="font-size:12px; color:rgba(255,255,255,0.4);">Call or WhatsApp</div>
+                        <div style="font-size:12px; color:var(--text-muted, #6B7280);">Call or WhatsApp</div>
                         <div style="font-weight:600; font-size:16px;">+91 89430 55518</div>
                     </div>
                 </a>
                 <a href="mailto:rehabvillage@ayurgreenhospitals.com" class="rv-contact-card">
                     <i data-lucide="mail" size="24"></i>
                     <div style="text-align: left;">
-                        <div style="font-size:12px; color:rgba(255,255,255,0.4);">Email Us</div>
+                        <div style="font-size:12px; color:var(--text-muted, #6B7280);">Email Us</div>
                         <div style="font-weight:600; font-size:16px;">rehabvillage@ayurgreenhospitals.com</div>
                     </div>
                 </a>

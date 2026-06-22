@@ -103,7 +103,7 @@ for file, color in colors.items():
         card_hover_bg = "rgba(255, 255, 255, 0.65) !important"
         card_hover_border = "rgba(255, 255, 255, 0.7) !important"
         cta_border = "rgba(0, 0, 0, 0.08)"
-        gradient = f"linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%), {color}"
+        gradient = f"linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%), {color}"
         shadow = "0 20px 50px rgba(0, 0, 0, 0.06)"
     else:
         text_color = "#ffffff"

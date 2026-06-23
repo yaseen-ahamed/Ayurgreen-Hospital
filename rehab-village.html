@@ -47,70 +47,70 @@
     <!-- Structured Data: Unified JSON-LD Schema Graph -->
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+"@context":"https://schema.org",
+"@graph": [
     {
-      "@type": "MedicalOrganization",
-      "@id": "https://ayurgreenhospital.com/#organization",
-      "name": "Ayurgreen Hospital",
-      "url": "https://ayurgreenhospital.com/",
-      "logo": "https://ayurgreenhospital.com/Assets/Ayurgreen_Logo.webp",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-8080-808080",
-        "contactType": "customer service",
-        "email": "info@ayurgreen.com",
-        "availableLanguage": [
-          "en",
-          "ar"
+"@type":"MedicalOrganization",
+"@id":"https://ayurgreenhospital.com/#organization",
+"name":"Ayurgreen Hospital",
+"url":"https://ayurgreenhospital.com/",
+"logo":"https://ayurgreenhospital.com/Assets/Ayurgreen_Logo.webp",
+"contactPoint": {
+"@type":"ContactPoint",
+"telephone":"+91-8080-808080",
+"contactType":"customer service",
+"email":"info@ayurgreen.com",
+"availableLanguage": [
+"en",
+"ar"
         ]
       }
     },
     {
-      "@type": "MedicalWebPage",
-      "@id": "https://ayurgreenhospital.com/rehab-village.html#webpage",
-      "url": "https://ayurgreenhospital.com/rehab-village.html",
-      "name": "Rehab Village Rehabilitation & Care | Ayurgreen Hospital",
-      "description": "A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.",
-      "about": {
-        "@type": "MedicalSpecialty",
-        "name": "Integrated Rehab Village Rehabilitation"
+"@type":"MedicalWebPage",
+"@id":"https://ayurgreenhospital.com/rehab-village.html#webpage",
+"url":"https://ayurgreenhospital.com/rehab-village.html",
+"name":"Rehab Village Rehabilitation & Care | Ayurgreen Hospital",
+"description":"A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.",
+"about": {
+"@type":"MedicalSpecialty",
+"name":"Integrated Rehab Village Rehabilitation"
       }
     },
     {
-      "@type": "BreadcrumbList",
-      "@id": "https://ayurgreenhospital.com/rehab-village.html#breadcrumb",
-      "itemListElement": [
+"@type":"BreadcrumbList",
+"@id":"https://ayurgreenhospital.com/rehab-village.html#breadcrumb",
+"itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ayurgreenhospital.com/"
+"@type":"ListItem",
+"position": 1,
+"name":"Home",
+"item":"https://ayurgreenhospital.com/"
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Rehab Village",
-          "item": "https://ayurgreenhospital.com/therapies.html"
+"@type":"ListItem",
+"position": 2,
+"name":"Rehab Village",
+"item":"https://ayurgreenhospital.com/therapies.html"
         },
         {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Rehab Village",
-          "item": "https://ayurgreenhospital.com/rehab-village.html"
+"@type":"ListItem",
+"position": 3,
+"name":"Rehab Village",
+"item":"https://ayurgreenhospital.com/rehab-village.html"
         }
       ]
     },
     {
-      "@type": "Service",
-      "@id": "https://ayurgreenhospital.com/rehab-village.html#service",
-      "name": "Rehab Village Rehabilitation Service",
-      "provider": {
-        "@type": "Hospital",
-        "name": "Ayurgreen Hospital"
+"@type":"Service",
+"@id":"https://ayurgreenhospital.com/rehab-village.html#service",
+"name":"Rehab Village Rehabilitation Service",
+"provider": {
+"@type":"Hospital",
+"name":"Ayurgreen Hospital"
       },
-      "serviceType": "Rehabilitation Service",
-      "description": "A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence."
+"serviceType":"Rehabilitation Service",
+"description":"A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence."
     }
   ]
 }
@@ -427,7 +427,6 @@
             padding: 6px !important;
         }
 
-
         .mega-menu-3-col {
             min-width: 760px;
             display: grid;
@@ -519,7 +518,6 @@
             cursor: pointer;
             transition: width 0.3s, height 0.3s;
         }
-
 
         /* Main Content Block */
         .main-content-block {
@@ -1682,7 +1680,6 @@
             cursor: default;
             pointer-events: none;
         }
-
 
         /* Rehab Card */
         .rehab-card {
@@ -3332,7 +3329,118 @@
             }
         }
 
-    </style>
+    
+
+
+
+
+
+
+
+
+/* --- CREATIVE COLOR SYSTEM --- */
+:root {
+    --color-rgb-0: 249, 115, 22;   /* Orange */
+    --color-rgb-1: 16, 185, 129;   /* Green */
+    --color-rgb-2: 139, 92, 246;   /* Purple */
+    --color-rgb-3: 132, 204, 22;   /* Lime */
+    --color-rgb-4: 190, 24, 93;    /* Maroon */
+    --color-rgb-5: 245, 158, 11;   /* Golden */
+    --color-rgb-6: 59, 130, 246;   /* Blue */
+    --color-rgb-7: 236, 72, 153;   /* Pink */
+
+    --color-hex-0: #f97316;
+    --color-hex-1: #10b981;
+    --color-hex-2: #8b5cf6;
+    --color-hex-3: #84cc16;
+    --color-hex-4: #be185d;
+    --color-hex-5: #f59e0b;
+    --color-hex-6: #3b82f6;
+    --color-hex-7: #ec4899;
+}
+
+/* Base mappings */
+.color-theme-0 { --theme-rgb: var(--color-rgb-0); --theme-hex: var(--color-hex-0); }
+.color-theme-1 { --theme-rgb: var(--color-rgb-1); --theme-hex: var(--color-hex-1); }
+.color-theme-2 { --theme-rgb: var(--color-rgb-2); --theme-hex: var(--color-hex-2); }
+.color-theme-3 { --theme-rgb: var(--color-rgb-3); --theme-hex: var(--color-hex-3); }
+.color-theme-4 { --theme-rgb: var(--color-rgb-4); --theme-hex: var(--color-hex-4); }
+.color-theme-5 { --theme-rgb: var(--color-rgb-5); --theme-hex: var(--color-hex-5); }
+.color-theme-6 { --theme-rgb: var(--color-rgb-6); --theme-hex: var(--color-hex-6); }
+.color-theme-7 { --theme-rgb: var(--color-rgb-7); --theme-hex: var(--color-hex-7); }
+
+
+
+/* =========================================
+   SOLID VIBRANT COLORS FOR CARDS 
+   ========================================= */
+.card-vibrant, .vision-vibrant {
+    background-color: var(--theme-hex) !important;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.1) 100%) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: #ffffff !important;
+    position: relative !important;
+    top: 0 !important;
+    transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, filter 0.4s ease !important;
+}
+
+.card-vibrant *, .vision-vibrant * {
+    color: #ffffff !important;
+}
+
+.card-icon-wrap, .rv-acc-tag, .rv-acc-badge {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.card-vibrant:hover, .vision-vibrant:hover {
+    top: -6px !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 25px var(--theme-hex) !important;
+    filter: brightness(1.1) saturate(1.05);
+}
+
+.card-icon-wrap i, .rv-stack-icon i {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.card-vibrant:hover .card-icon-wrap i, .card-vibrant:hover .rv-stack-icon i {
+    transform: scale(1.2) rotate(8deg) !important;
+}
+
+/* =========================================
+   ATTACHED SECTIONS: MINIMAL OPAQUE TINT
+   (Path, Timeline, Wheel)
+   ========================================= */
+.path-vibrant, .wheel-vibrant {
+    background-color: #ffffff !important;
+    background-image: linear-gradient(0deg, rgba(var(--theme-rgb), 0.25), rgba(var(--theme-rgb), 0.25)) !important;
+    border: 2px solid rgba(var(--theme-rgb), 0.6) !important;
+    color: var(--theme-hex) !important;
+    position: relative; 
+    z-index: 5; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.path-vibrant i, .wheel-vibrant i, .wheel-vibrant span, .rv-timeline-dot {
+    color: var(--theme-hex) !important;
+}
+
+.wheel-vibrant:hover {
+    transform: scale(1.08) !important;
+    background-image: linear-gradient(0deg, rgba(var(--theme-rgb), 0.35), rgba(var(--theme-rgb), 0.35)) !important;
+    box-shadow: 0 0 20px rgba(var(--theme-rgb), 0.3) !important;
+    border-color: rgba(var(--theme-rgb), 0.8) !important;
+}
+
+.rv-path-item:hover .path-vibrant, .rv-timeline-step:hover .path-vibrant {
+    transform: scale(1.15) !important;
+    background-image: linear-gradient(0deg, rgba(var(--theme-rgb), 0.35), rgba(var(--theme-rgb), 0.35)) !important;
+    box-shadow: 0 0 20px rgba(var(--theme-rgb), 0.4) !important;
+    border-color: rgba(var(--theme-rgb), 0.9) !important;
+}
+
+</style>
 </head>
 
 <body>
@@ -5267,11 +5375,7 @@
             <div class="ayur-hero-overlay" style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);"></div>
             <div class="ayur-container">
                 <div class="ayur-hero-content">
-                    <div class="ayur-hero-breadcrumb">
-                        <a href="index.html">Home</a> &gt; <span>Rehab Village</span>
-                    </div>
-                    <span class="rv-tagline">Nature-Integrated Recovery</span>
-                    <h1 class="rv-title-large">Welcome to Ayurgreen<br>Rehab Village</h1>
+                    <h1 class="rv-title-large">Rehab Village</h1>
                     <p class="rv-para-large">A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.</p>
                     <div class="rv-hero-actions">
                         <a href="#about" class="rv-btn-primary">
@@ -5293,7 +5397,7 @@
                 <!-- Left: Path Illustration -->
                 <div class="rv-illustration-box">
                     <div class="rv-path-item rv-path-1">
-                        <div class="rv-path-icon"><i data-lucide="building-2" size="24"></i></div>
+                        <div class="rv-path-icon path-vibrant color-theme-0"><i data-lucide="building-2" size="24"></i></div>
                         <div>
                             <h4 class="rv-title-small" style="margin:0;">1. Specialized Hospital</h4>
                             <p style="font-size: 12px; color: var(--text-muted, #6B7280); margin: 4px 0 0 0;">Intensive ortho-neuro clinical therapy</p>
@@ -5301,7 +5405,7 @@
                         <div class="rv-path-connector"></div>
                     </div>
                     <div class="rv-path-item rv-path-2">
-                        <div class="rv-path-icon"><i data-lucide="home" size="24"></i></div>
+                        <div class="rv-path-icon path-vibrant color-theme-1"><i data-lucide="home" size="24"></i></div>
                         <div>
                             <h4 class="rv-title-small" style="margin:0;">2. Accommodations</h4>
                             <p style="font-size: 12px; color: var(--text-muted, #6B7280); margin: 4px 0 0 0;">Service villas, homestays, and apartments</p>
@@ -5309,7 +5413,7 @@
                         <div class="rv-path-connector"></div>
                     </div>
                     <div class="rv-path-item rv-path-3">
-                        <div class="rv-path-icon"><i data-lucide="sparkles" size="24"></i></div>
+                        <div class="rv-path-icon path-vibrant color-theme-2"><i data-lucide="sparkles" size="24"></i></div>
                         <div>
                             <h4 class="rv-title-small" style="margin:0;">3. Recovery & Independence</h4>
                             <p style="font-size: 12px; color: var(--text-muted, #6B7280); margin: 4px 0 0 0;">Community support and complete integration</p>
@@ -5342,27 +5446,27 @@
                 </div>
                 
                 <div class="rv-timeline-step" data-step="1">
-                    <div class="rv-timeline-dot">1</div>
+                    <div class="rv-timeline-dot path-vibrant color-theme-0">1</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Admission</h4>
                     <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Clinical consultation & onboarding</p>
                 </div>
                 <div class="rv-timeline-step" data-step="2">
-                    <div class="rv-timeline-dot">2</div>
+                    <div class="rv-timeline-dot path-vibrant color-theme-1">2</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Accommodation</h4>
                     <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Allocating specialized village stay</p>
                 </div>
                 <div class="rv-timeline-step" data-step="3">
-                    <div class="rv-timeline-dot">3</div>
+                    <div class="rv-timeline-dot path-vibrant color-theme-2">3</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Therapy</h4>
                     <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Integrated clinic-based treatments</p>
                 </div>
                 <div class="rv-timeline-step" data-step="4">
-                    <div class="rv-timeline-dot">4</div>
+                    <div class="rv-timeline-dot path-vibrant color-theme-3">4</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Recovery</h4>
                     <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Adapting to daily residential living</p>
                 </div>
                 <div class="rv-timeline-step" data-step="5">
-                    <div class="rv-timeline-dot">5</div>
+                    <div class="rv-timeline-dot path-vibrant color-theme-4">5</div>
                     <h4 class="rv-title-small" style="font-size: 16px;">Independence</h4>
                     <p style="font-size: 12px; color: var(--text-muted, #6B7280);">Returning to life with full confidence</p>
                 </div>
@@ -5381,7 +5485,7 @@
             
             <div class="rv-bento-grid">
                 <!-- Card 1: Service Villas -->
-                <div class="rv-glass-panel rv-bento-card col-2">
+                <div class="rv-glass-panel rv-bento-card col-2  card-vibrant color-theme-0">
                     <div class="ripple-bg"></div>
                     <div>
                         <div class="card-icon-wrap"><i data-lucide="home" size="24"></i></div>
@@ -5390,7 +5494,7 @@
                     </div>
                 </div>
                 <!-- Card 2: Homestays -->
-                <div class="rv-glass-panel rv-bento-card">
+                <div class="rv-glass-panel rv-bento-card  card-vibrant color-theme-1">
                     <div class="ripple-bg"></div>
                     <div>
                         <div class="card-icon-wrap"><i data-lucide="users" size="24"></i></div>
@@ -5399,7 +5503,7 @@
                     </div>
                 </div>
                 <!-- Card 3: Doctor Visits -->
-                <div class="rv-glass-panel rv-bento-card">
+                <div class="rv-glass-panel rv-bento-card  card-vibrant color-theme-2">
                     <div class="ripple-bg"></div>
                     <div>
                         <div class="card-icon-wrap"><i data-lucide="stethoscope" size="24"></i></div>
@@ -5408,7 +5512,7 @@
                     </div>
                 </div>
                 <!-- Card 4: Food Support -->
-                <div class="rv-glass-panel rv-bento-card col-2">
+                <div class="rv-glass-panel rv-bento-card col-2  card-vibrant color-theme-3">
                     <div class="ripple-bg"></div>
                     <div>
                         <div class="card-icon-wrap"><i data-lucide="utensils" size="24"></i></div>
@@ -5417,7 +5521,7 @@
                     </div>
                 </div>
                 <!-- Card 5: Housekeeping -->
-                <div class="rv-glass-panel rv-bento-card col-2">
+                <div class="rv-glass-panel rv-bento-card col-2  card-vibrant color-theme-4">
                     <div class="ripple-bg"></div>
                     <div>
                         <div class="card-icon-wrap"><i data-lucide="sparkles" size="24"></i></div>
@@ -5426,7 +5530,7 @@
                     </div>
                 </div>
                 <!-- Card 6: Transportation Support -->
-                <div class="rv-glass-panel rv-bento-card">
+                <div class="rv-glass-panel rv-bento-card  card-vibrant color-theme-5">
                     <div class="ripple-bg"></div>
                     <div>
                         <div class="card-icon-wrap"><i data-lucide="car" size="24"></i></div>
@@ -5449,13 +5553,13 @@
                     </svg>
                 </div>
                 <!-- Vision Panel -->
-                <div class="rv-glass-panel" style="position: relative; z-index: 5;">
+                <div class="rv-glass-panel " style="position: relative; z-index: 5;">
                     <span class="rv-tagline">The Vision</span>
                     <h3 class="rv-title-medium text-gradient" style="font-size: 28px;">To Redefine Community Rehabilitation Globally</h3>
                     <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: var(--text-muted, #6B7280);">To be a globally recognized leader in community-integrated rehabilitation, blending advanced therapeutic care with a supportive village atmosphere. Rehab Village strives to empower patients to regain independence while contributing to local economic development through sustainable partnerships with the community, enhancing both healthcare and livelihoods.</p>
                 </div>
                 <!-- Mission Panel -->
-                <div class="rv-glass-panel" style="position: relative; z-index: 5;">
+                <div class="rv-glass-panel " style="position: relative; z-index: 5;">
                     <span class="rv-tagline">The Mission</span>
                     <h3 class="rv-title-medium text-gradient" style="font-size: 28px;">Holistic, Patient-Centered Clinical Pathways</h3>
                     <p class="rv-para-medium" style="font-size: 16px; line-height: 1.7; color: var(--text-muted, #6B7280);">To provide accessible, affordable and holistic rehabilitation services through state-of-the-art facilities, expert care, and partnerships with local communities. Ayurgreen Rehab village is committed to enhancing patient well-being by combining traditional and modern therapies, prioritizing personalized care, and promoting responsible tourism that contributes to economic and social growth.</p>
@@ -5476,7 +5580,7 @@
             <div class="rv-process-timeline">
                 <!-- Step 1 -->
                 <div class="rv-process-card-wrapper">
-                    <div class="rv-glass-panel rv-process-card">
+                    <div class="rv-glass-panel rv-process-card  card-vibrant color-theme-0">
                         <span class="card-step-num">Step 01</span>
                         <i data-lucide="message-square-plus" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
                         <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Patient Consultation</h4>
@@ -5485,7 +5589,7 @@
                 </div>
                 <!-- Step 2 -->
                 <div class="rv-process-card-wrapper">
-                    <div class="rv-glass-panel rv-process-card">
+                    <div class="rv-glass-panel rv-process-card  card-vibrant color-theme-1">
                         <span class="card-step-num">Step 02</span>
                         <i data-lucide="clipboard-check" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
                         <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Treatment Assessment</h4>
@@ -5494,7 +5598,7 @@
                 </div>
                 <!-- Step 3 -->
                 <div class="rv-process-card-wrapper">
-                    <div class="rv-glass-panel rv-process-card">
+                    <div class="rv-glass-panel rv-process-card  card-vibrant color-theme-2">
                         <span class="card-step-num">Step 03</span>
                         <i data-lucide="key" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
                         <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Accommodation Selection</h4>
@@ -5503,7 +5607,7 @@
                 </div>
                 <!-- Step 4 -->
                 <div class="rv-process-card-wrapper">
-                    <div class="rv-glass-panel rv-process-card">
+                    <div class="rv-glass-panel rv-process-card  card-vibrant color-theme-3">
                         <span class="card-step-num">Step 04</span>
                         <i data-lucide="activity" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
                         <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Daily Rehabilitation</h4>
@@ -5512,7 +5616,7 @@
                 </div>
                 <!-- Step 5 -->
                 <div class="rv-process-card-wrapper">
-                    <div class="rv-glass-panel rv-process-card">
+                    <div class="rv-glass-panel rv-process-card  card-vibrant color-theme-4">
                         <span class="card-step-num">Step 05</span>
                         <i data-lucide="users-2" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
                         <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Community Living</h4>
@@ -5521,7 +5625,7 @@
                 </div>
                 <!-- Step 6 -->
                 <div class="rv-process-card-wrapper">
-                    <div class="rv-glass-panel rv-process-card">
+                    <div class="rv-glass-panel rv-process-card  card-vibrant color-theme-5">
                         <span class="card-step-num">Step 06</span>
                         <i data-lucide="award" size="28" style="color: var(--accent-green); margin-bottom: 12px;"></i>
                         <h4 class="rv-title-small" style="font-size: 16px; margin-bottom: 0;">Independence</h4>
@@ -5631,27 +5735,27 @@
                         <!-- Orbit line -->
                     </div>
                     <!-- Nodes -->
-                    <div class="rv-wheel-node active node-1" data-node="patients">
+                    <div class="rv-wheel-node active node-1 wheel-vibrant color-theme-0" data-node="patients">
                         <i data-lucide="user" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Patients</span>
                     </div>
-                    <div class="rv-wheel-node node-2" data-node="families">
+                    <div class="rv-wheel-node node-2 wheel-vibrant color-theme-1" data-node="families">
                         <i data-lucide="users" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Families</span>
                     </div>
-                    <div class="rv-wheel-node node-3" data-node="healthcare">
+                    <div class="rv-wheel-node node-3 wheel-vibrant color-theme-2" data-node="healthcare">
                         <i data-lucide="stethoscope" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Professionals</span>
                     </div>
-                    <div class="rv-wheel-node node-4" data-node="accommodation">
+                    <div class="rv-wheel-node node-4 wheel-vibrant color-theme-3" data-node="accommodation">
                         <i data-lucide="home" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Partners</span>
                     </div>
-                    <div class="rv-wheel-node node-5" data-node="community">
+                    <div class="rv-wheel-node node-5 wheel-vibrant color-theme-4" data-node="community">
                         <i data-lucide="building" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Community</span>
                     </div>
-                    <div class="rv-wheel-node node-6" data-node="volunteers">
+                    <div class="rv-wheel-node node-6 wheel-vibrant color-theme-5" data-node="volunteers">
                         <i data-lucide="heart" size="28"></i>
                         <span class="rv-map-label" style="position:absolute; bottom:-30px;">Volunteers</span>
                     </div>
@@ -5678,7 +5782,7 @@
 
             <div class="rv-stack-container">
                 <!-- Row 1: Patients -->
-                <div class="rv-stack-card active" data-index="0">
+                <div class="rv-stack-card active  card-vibrant color-theme-0" data-index="0">
                     <div class="rv-stack-card-left">
                         <div class="rv-stack-icon"><i data-lucide="user" size="20"></i></div>
                         <h3>For Patients</h3>
@@ -5689,7 +5793,7 @@
                     <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
                 </div>
                 <!-- Row 2: Caregivers -->
-                <div class="rv-stack-card" data-index="1">
+                <div class="rv-stack-card  card-vibrant color-theme-1" data-index="1">
                     <div class="rv-stack-card-left">
                         <div class="rv-stack-icon"><i data-lucide="heart" size="20"></i></div>
                         <h3>For Caregivers</h3>
@@ -5700,7 +5804,7 @@
                     <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
                 </div>
                 <!-- Row 3: Healthcare Professionals -->
-                <div class="rv-stack-card" data-index="2">
+                <div class="rv-stack-card  card-vibrant color-theme-2" data-index="2">
                     <div class="rv-stack-card-left">
                         <div class="rv-stack-icon"><i data-lucide="stethoscope" size="20"></i></div>
                         <h3>For Healthcare Professionals</h3>
@@ -5711,7 +5815,7 @@
                     <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
                 </div>
                 <!-- Row 4: Local Businesses -->
-                <div class="rv-stack-card" data-index="3">
+                <div class="rv-stack-card  card-vibrant color-theme-3" data-index="3">
                     <div class="rv-stack-card-left">
                         <div class="rv-stack-icon"><i data-lucide="trending-up" size="20"></i></div>
                         <h3>For Local Businesses</h3>
@@ -5722,7 +5826,7 @@
                     <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
                 </div>
                 <!-- Row 5: Volunteers -->
-                <div class="rv-stack-card" data-index="4">
+                <div class="rv-stack-card  card-vibrant color-theme-4" data-index="4">
                     <div class="rv-stack-card-left">
                         <div class="rv-stack-icon"><i data-lucide="users" size="20"></i></div>
                         <h3>For Volunteers</h3>
@@ -5733,7 +5837,7 @@
                     <div class="rv-stack-arrow"><i data-lucide="chevron-down" size="20"></i></div>
                 </div>
                 <!-- Row 6: Gov & Tourism -->
-                <div class="rv-stack-card" data-index="5">
+                <div class="rv-stack-card  card-vibrant color-theme-5" data-index="5">
                     <div class="rv-stack-card-left">
                         <div class="rv-stack-icon"><i data-lucide="globe" size="20"></i></div>
                         <h3>Government & Tourism Integration</h3>
@@ -5767,7 +5871,7 @@
             <div class="rv-tab-content active" id="tab-homestays">
                 <div class="rv-acc-grid">
                     <!-- Villa Card 1 -->
-                    <div class="rv-acc-card">
+                    <div class="rv-acc-card  card-vibrant color-theme-0">
                         <div class="rv-acc-img-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             <span class="rv-acc-tag">Homestay Premium</span>
@@ -5788,7 +5892,7 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="rv-acc-card">
+                    <div class="rv-acc-card  card-vibrant color-theme-1">
                         <div class="rv-acc-img-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             <span class="rv-acc-tag">Homestay Standard</span>
@@ -5808,7 +5912,7 @@
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="rv-acc-card">
+                    <div class="rv-acc-card  card-vibrant color-theme-2">
                         <div class="rv-acc-img-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             <span class="rv-acc-tag">Homestay Premium</span>
@@ -5835,7 +5939,7 @@
             <div class="rv-tab-content" id="tab-villas">
                 <div class="rv-acc-grid">
                     <!-- Villa Card 1 -->
-                    <div class="rv-acc-card">
+                    <div class="rv-acc-card  card-vibrant color-theme-3">
                         <div class="rv-acc-img-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             <span class="rv-acc-tag">Service Villa VIP</span>
@@ -5855,7 +5959,7 @@
                         </div>
                     </div>
                     <!-- Villa Card 2 -->
-                    <div class="rv-acc-card">
+                    <div class="rv-acc-card  card-vibrant color-theme-4">
                         <div class="rv-acc-img-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             <span class="rv-acc-tag">Service Villa Standard</span>
@@ -5881,7 +5985,7 @@
             <div class="rv-tab-content" id="tab-apartments">
                 <div class="rv-acc-grid">
                     <!-- Apt Card 1 -->
-                    <div class="rv-acc-card">
+                    <div class="rv-acc-card  card-vibrant color-theme-5">
                         <div class="rv-acc-img-wrap">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             <span class="rv-acc-tag">Apartment 1 BHK</span>
@@ -5984,26 +6088,26 @@
                     <p class="rv-para-medium">Volunteering at Ayurgreen Hospital & Rehab Village is a mutually beneficial experience. The organization gains valuable support in patient care and daily operations, while volunteers receive practical experience, skill development, and opportunities for personal and career growth.</p>
                     
                     <div class="rv-quote-box">
-                        "Make a meaningful impact while gaining valuable healthcare and rehabilitation experience."
+"Make a meaningful impact while gaining valuable healthcare and rehabilitation experience."
                     </div>
 
                     <div class="rv-v-grid">
-                        <div class="rv-v-card">
+                        <div class="rv-v-card  vision-vibrant color-theme-0">
                             <i data-lucide="check" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Daily Assistance</h4>
                             <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Assisting patients with daily activities and therapeutic sessions.</p>
                         </div>
-                        <div class="rv-v-card">
+                        <div class="rv-v-card  vision-vibrant color-theme-1">
                             <i data-lucide="sparkles" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Community Events</h4>
                             <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Organizing and participating in recreational and community events.</p>
                         </div>
-                        <div class="rv-v-card">
+                        <div class="rv-v-card  vision-vibrant color-theme-2">
                             <i data-lucide="file-text" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Administrative Support</h4>
                             <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Providing administrative support and coordinating stakeholder networks.</p>
                         </div>
-                        <div class="rv-v-card">
+                        <div class="rv-v-card  vision-vibrant color-theme-3">
                             <i data-lucide="book-open" size="18"></i>
                             <h4 style="margin:0; font-size:15px;">Research Support</h4>
                             <p style="font-size:12.5px; color:var(--text-muted, #6B7280); margin:0;">Contributing to rehabilitation research and outcome documentation.</p>
@@ -6308,7 +6412,7 @@
                         <i data-lucide="chevron-down" size="20"></i>
                     </button>
                     <div class="rv-faq-content">
-                        <p>You can apply using our multi-step Stakeholder Registration form below. Choose the "Volunteer" tab, complete the required details, and our coordinator will schedule an orientation session.</p>
+                        <p>You can apply using our multi-step Stakeholder Registration form below. Choose the"Volunteer" tab, complete the required details, and our coordinator will schedule an orientation session.</p>
                     </div>
                 </div>
                 <!-- Item 8 -->
@@ -6358,19 +6462,19 @@
                     <div class="rv-form-pane active" id="pane-step-1">
                         <div class="rv-form-grid">
                             <div class="rv-form-group">
-                                <input type="text" id="reg-name" class="rv-input" placeholder=" " required>
+                                <input type="text" id="reg-name" class="rv-input" placeholder="" required>
                                 <label for="reg-name" class="rv-label">Full Name</label>
                             </div>
                             <div class="rv-form-group">
-                                <input type="email" id="reg-email" class="rv-input" placeholder=" " required>
+                                <input type="email" id="reg-email" class="rv-input" placeholder="" required>
                                 <label for="reg-email" class="rv-label">Email Address</label>
                             </div>
                             <div class="rv-form-group">
-                                <input type="tel" id="reg-phone" class="rv-input" placeholder=" " required>
+                                <input type="tel" id="reg-phone" class="rv-input" placeholder="" required>
                                 <label for="reg-phone" class="rv-label">Phone / WhatsApp</label>
                             </div>
                             <div class="rv-form-group">
-                                <input type="text" id="reg-location" class="rv-input" placeholder=" " required>
+                                <input type="text" id="reg-location" class="rv-input" placeholder="" required>
                                 <label for="reg-location" class="rv-label">City, Country</label>
                             </div>
                         </div>
@@ -6382,15 +6486,15 @@
                         <div class="form-dynamic-details" id="details-patient">
                             <div class="rv-form-grid">
                                 <div class="rv-form-group">
-                                    <input type="text" id="pat-condition" class="rv-input" placeholder=" ">
+                                    <input type="text" id="pat-condition" class="rv-input" placeholder="">
                                     <label for="pat-condition" class="rv-label">Medical Condition (e.g., Stroke, Parkinson's)</label>
                                 </div>
                                 <div class="rv-form-group">
-                                    <input type="text" id="pat-duration" class="rv-input" placeholder=" ">
+                                    <input type="text" id="pat-duration" class="rv-input" placeholder="">
                                     <label for="pat-duration" class="rv-label">Expected Duration (e.g., 1 Month)</label>
                                 </div>
                                 <div class="rv-form-group full-width">
-                                    <textarea id="pat-needs" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <textarea id="pat-needs" class="rv-input" placeholder="" style="height:100px; resize:none;"></textarea>
                                     <label for="pat-needs" class="rv-label">Special Needs or Mobility Assistance Required</label>
                                 </div>
                             </div>
@@ -6400,15 +6504,15 @@
                         <div class="form-dynamic-details" id="details-volunteer" style="display:none;">
                             <div class="rv-form-grid">
                                 <div class="rv-form-group">
-                                    <input type="text" id="vol-exp" class="rv-input" placeholder=" ">
+                                    <input type="text" id="vol-exp" class="rv-input" placeholder="">
                                     <label for="vol-exp" class="rv-label">Prior Healthcare Experience (if any)</label>
                                 </div>
                                 <div class="rv-form-group">
-                                    <input type="text" id="vol-time" class="rv-input" placeholder=" ">
+                                    <input type="text" id="vol-time" class="rv-input" placeholder="">
                                     <label for="vol-time" class="rv-label">Availability (Hours per week)</label>
                                 </div>
                                 <div class="rv-form-group full-width">
-                                    <textarea id="vol-reason" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <textarea id="vol-reason" class="rv-input" placeholder="" style="height:100px; resize:none;"></textarea>
                                     <label for="vol-reason" class="rv-label">Why do you want to volunteer at Ayurgreen?</label>
                                 </div>
                             </div>
@@ -6418,15 +6522,15 @@
                         <div class="form-dynamic-details" id="details-stay-partner" style="display:none;">
                             <div class="rv-form-grid">
                                 <div class="rv-form-group">
-                                    <input type="text" id="stay-type" class="rv-input" placeholder=" ">
+                                    <input type="text" id="stay-type" class="rv-input" placeholder="">
                                     <label for="stay-type" class="rv-label">Property Type (Villa, Homestay, Apartment)</label>
                                 </div>
                                 <div class="rv-form-group">
-                                    <input type="text" id="stay-dist" class="rv-input" placeholder=" ">
+                                    <input type="text" id="stay-dist" class="rv-input" placeholder="">
                                     <label for="stay-dist" class="rv-label">Distance from Edappal Hospital (km)</label>
                                 </div>
                                 <div class="rv-form-group full-width">
-                                    <textarea id="stay-amenities" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <textarea id="stay-amenities" class="rv-input" placeholder="" style="height:100px; resize:none;"></textarea>
                                     <label for="stay-amenities" class="rv-label">Accessibility Features (Ramp, Grab bars, elevator, etc.)</label>
                                 </div>
                             </div>
@@ -6436,11 +6540,11 @@
                         <div class="form-dynamic-details" id="details-transit-partner" style="display:none;">
                             <div class="rv-form-grid">
                                 <div class="rv-form-group">
-                                    <input type="text" id="trans-vehicles" class="rv-input" placeholder=" ">
+                                    <input type="text" id="trans-vehicles" class="rv-input" placeholder="">
                                     <label for="trans-vehicles" class="rv-label">Number of Available Vehicles</label>
                                 </div>
                                 <div class="rv-form-group">
-                                    <input type="text" id="trans-type" class="rv-input" placeholder=" ">
+                                    <input type="text" id="trans-type" class="rv-input" placeholder="">
                                     <label for="trans-type" class="rv-label">Vehicle Models & Accessibility Features</label>
                                 </div>
                             </div>
@@ -6450,11 +6554,11 @@
                         <div class="form-dynamic-details" id="details-community-partner" style="display:none;">
                             <div class="rv-form-grid">
                                 <div class="rv-form-group full-width">
-                                    <input type="text" id="comm-org" class="rv-input" placeholder=" ">
+                                    <input type="text" id="comm-org" class="rv-input" placeholder="">
                                     <label for="comm-org" class="rv-label">Organization Name / Tourism Board</label>
                                 </div>
                                 <div class="rv-form-group full-width">
-                                    <textarea id="comm-collab" class="rv-input" placeholder=" " style="height:100px; resize:none;"></textarea>
+                                    <textarea id="comm-collab" class="rv-input" placeholder="" style="height:100px; resize:none;"></textarea>
                                     <label for="comm-collab" class="rv-label">Proposed Scope of Collaboration</label>
                                 </div>
                             </div>
@@ -6698,15 +6802,15 @@
                     
                     ScrollTrigger.create({
                         trigger: counter,
-                        start: "top 85%",
+                        start:"top 85%",
                         onEnter: () => {
                             let obj = { val: 0 };
                             gsap.to(obj, {
                                 val: target,
                                 duration: 2,
-                                ease: "power2.out",
+                                ease:"power2.out",
                                 onUpdate: () => {
-                                    counter.innerText = Math.ceil(obj.val) + "+";
+                                    counter.innerText = Math.ceil(obj.val) +"+";
                                 }
                             });
                         }
@@ -6715,8 +6819,8 @@
 
                 // Timeline Line reveal
                 ScrollTrigger.create({
-                    trigger: ".rv-timeline-horizontal",
-                    start: "top 80%",
+                    trigger:".rv-timeline-horizontal",
+                    start:"top 80%",
                     onEnter: () => {
                         document.getElementById('timeline-progress').style.width = '100%';
                         const steps = document.querySelectorAll('.rv-timeline-step');
@@ -6731,12 +6835,12 @@
 
                 // Journey Vertical Line progress
                 gsap.to("#journey-progress-line", {
-                    height: "100%",
-                    ease: "none",
+                    height:"100%",
+                    ease:"none",
                     scrollTrigger: {
-                        trigger: ".rv-journey-track",
-                        start: "top 40%",
-                        end: "bottom 60%",
+                        trigger:".rv-journey-track",
+                        start:"top 40%",
+                        end:"bottom 60%",
                         scrub: true
                     }
                 });
@@ -6746,7 +6850,7 @@
                 blocks.forEach(block => {
                     ScrollTrigger.create({
                         trigger: block,
-                        start: "top 65%",
+                        start:"top 65%",
                         onEnter: () => block.classList.add('active'),
                         onLeaveBack: () => block.classList.remove('active')
                     });
@@ -6758,10 +6862,10 @@
                     y: 40,
                     duration: 0.8,
                     stagger: 0.15,
-                    ease: "power2.out",
+                    ease:"power2.out",
                     scrollTrigger: {
-                        trigger: ".rv-bento-grid",
-                        start: "top 80%"
+                        trigger:".rv-bento-grid",
+                        start:"top 80%"
                     }
                 });
 
@@ -6770,10 +6874,10 @@
                     y: 40,
                     duration: 0.8,
                     stagger: 0.15,
-                    ease: "power2.out",
+                    ease:"power2.out",
                     scrollTrigger: {
-                        trigger: ".rv-partner-grid",
-                        start: "top 80%"
+                        trigger:".rv-partner-grid",
+                        start:"top 80%"
                     }
                 });
             }
@@ -6827,7 +6931,6 @@
         });
     </script>
 </main>
-
 
     <script>
         // ── Card width: exactly 5 visible ────────────────────────────
@@ -6937,7 +7040,6 @@
             ['programs', 'therapies'].forEach(t => initSliderWidth('scroll-' + t));
         });
     </script>
-
 
         <!-- Minimalist White Footer -->
     <style>
@@ -7396,55 +7498,55 @@
         const STORIES_DATA = [
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 1.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DUfjDAYAYyj/?igsh=MWp5Y2YxdHZ1ZG0yMg=="
+                instagramUrl:"https://www.instagram.com/reel/DUfjDAYAYyj/?igsh=MWp5Y2YxdHZ1ZG0yMg=="
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 2.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DUqTXCjCLf9/?igsh=YjNpbHltc2ZpdnFs"
+                instagramUrl:"https://www.instagram.com/reel/DUqTXCjCLf9/?igsh=YjNpbHltc2ZpdnFs"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 3.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DVKpXc8CI2O/?igsh=ZjVlMjlnaHp6MDhz"
+                instagramUrl:"https://www.instagram.com/reel/DVKpXc8CI2O/?igsh=ZjVlMjlnaHp6MDhz"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 4.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DVNhzc7CI4s/?igsh=ODdwaDI4dGMwbW40"
+                instagramUrl:"https://www.instagram.com/reel/DVNhzc7CI4s/?igsh=ODdwaDI4dGMwbW40"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 5.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DVa26Hvgddv/?igsh=eWloN2s0dmZta2sx"
+                instagramUrl:"https://www.instagram.com/reel/DVa26Hvgddv/?igsh=eWloN2s0dmZta2sx"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 6.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DVnPsqkAQv2/?igsh=MTR1NWljazIzbDVmdg=="
+                instagramUrl:"https://www.instagram.com/reel/DVnPsqkAQv2/?igsh=MTR1NWljazIzbDVmdg=="
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 7.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DVnoVftAYsW/?igsh=Z2R5cmZ2ODNlZmlx"
+                instagramUrl:"https://www.instagram.com/reel/DVnoVftAYsW/?igsh=Z2R5cmZ2ODNlZmlx"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 8.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DWT3WNMAU8_/?igsh=MXY0ZzZzM2xsZ3Fnaw=="
+                instagramUrl:"https://www.instagram.com/reel/DWT3WNMAU8_/?igsh=MXY0ZzZzM2xsZ3Fnaw=="
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 9.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DWgAjJhgUty/?igsh=MWt4OTVkcTNmbGFnNg=="
+                instagramUrl:"https://www.instagram.com/reel/DWgAjJhgUty/?igsh=MWt4OTVkcTNmbGFnNg=="
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 10.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DWjEZG6Aaj3/?igsh=anUyMW04cm45NW8w"
+                instagramUrl:"https://www.instagram.com/reel/DWjEZG6Aaj3/?igsh=anUyMW04cm45NW8w"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 11.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DWlhRvEAf59/?igsh=MTV0Y2poajhia2Q4MQ=="
+                instagramUrl:"https://www.instagram.com/reel/DWlhRvEAf59/?igsh=MTV0Y2poajhia2Q4MQ=="
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 12.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DXvaUWyzm3i/?igsh=MW93a3hoMmZ5OG53"
+                instagramUrl:"https://www.instagram.com/reel/DXvaUWyzm3i/?igsh=MW93a3hoMmZ5OG53"
             },
             {
                 videoUrl: new URL('./Assets/Patients/Stories of Relearning/Stories of Relearning 13.mp4', import.meta.url).href,
-                instagramUrl: "https://www.instagram.com/reel/DX4Knwshg8V/?igsh=cTN1emJ1MGJrdDJ2"
+                instagramUrl:"https://www.instagram.com/reel/DX4Knwshg8V/?igsh=cTN1emJ1MGJrdDJ2"
             }
         ];
 
@@ -7533,7 +7635,7 @@
                         document.querySelectorAll('.story-card-video').forEach(otherVideo => {
                             if (otherVideo !== video) {
                                 otherVideo.pause();
-                                otherVideo.src = ""; // Clears the source to show poster
+                                otherVideo.src =""; // Clears the source to show poster
                                 otherVideo.load();
                                 const otherCard = otherVideo.closest('.story-card');
                                 otherCard.classList.remove('playing');
@@ -7544,7 +7646,7 @@
 
                         // Dynamically set source if not set
                         if (!video.src || video.src === window.location.href) {
-                            video.src = video.getAttribute('data-src') + "#t=0.001";
+                            video.src = video.getAttribute('data-src') +"#t=0.001";
                             video.load();
                         }
 
@@ -7555,7 +7657,7 @@
                     } else {
                         // Stop current video
                         video.pause();
-                        video.src = ""; // Clear src to restore patient cover thumbnail
+                        video.src =""; // Clear src to restore patient cover thumbnail
                         video.load();
                         card.classList.remove('playing');
                         setMiniPlayIcon(miniPlay, false);
@@ -7563,7 +7665,7 @@
                         // Restart auto-slider if no card is playing
                         let anyPlaying = false;
                         document.querySelectorAll('.story-card-video').forEach(v => {
-                            if (v.src && v.src !== "" && !v.paused) anyPlaying = true;
+                            if (v.src && v.src !=="" && !v.paused) anyPlaying = true;
                         });
                         if (!anyPlaying) {
                             clearInterval(videoSliderInterval);
@@ -7768,12 +7870,12 @@
             gsap.to(".understanding-title", {
                 opacity: 1,
                 y: 0,
-                filter: "blur(0px)",
-                ease: "power2.out",
+                filter:"blur(0px)",
+                ease:"power2.out",
                 scrollTrigger: {
-                    trigger: "#understanding-pin-trigger",
-                    start: "top 95%", // Starts revealing immediately when it starts entering the viewport
-                    end: "top 40%",   // Fully revealed by the time it reaches top 40%
+                    trigger:"#understanding-pin-trigger",
+                    start:"top 95%", // Starts revealing immediately when it starts entering the viewport
+                    end:"top 40%",   // Fully revealed by the time it reaches top 40%
                     scrub: 1.0
                 }
             });
@@ -7781,9 +7883,9 @@
             // Pinned timeline starting at top top
             let tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#understanding-pin-trigger",
-                    start: "top top",
-                    end: "+=250%",
+                    trigger:"#understanding-pin-trigger",
+                    start:"top top",
+                    end:"+=250%",
                     pin: true,
                     scrub: 1.2,
                     invalidateOnRefresh: true
@@ -7791,45 +7893,45 @@
             });
 
             // Timeline starts directly with video reveal and scales up centered
-            tl.to(".storytelling-video-box", { opacity: 1, scale: 1, duration: 1.6, ease: "power2.out" })
+            tl.to(".storytelling-video-box", { opacity: 1, scale: 1, duration: 1.6, ease:"power2.out" })
                 .to({}, { duration: 2.0 }) // Pause to let the video settle in the center focus
 
                 // Video shifts left, title stays at the top, card reveals
-                .to(".storytelling-video-box", { xPercent: -15, scale: 0.95, duration: 1.8, ease: "power2.inOut" })
-                .to(".storytelling-card", { opacity: 1, x: 0, y: 30, scale: 1, duration: 1.8, ease: "power2.out" }, "-=0.8")
+                .to(".storytelling-video-box", { xPercent: -15, scale: 0.95, duration: 1.8, ease:"power2.inOut" })
+                .to(".storytelling-card", { opacity: 1, x: 0, y: 30, scale: 1, duration: 1.8, ease:"power2.out" },"-=0.8")
                 .to({}, { duration: 0.8 }) // Settle card
-                .to(".story-para", { opacity: 1, y: 0, duration: 1.0, stagger: 0.5, ease: "power2.out" })
-                .to(".story-cta-wrap", { opacity: 1, y: 0, duration: 1.0, ease: "power2.out" }, "-=0.3")
+                .to(".story-para", { opacity: 1, y: 0, duration: 1.0, stagger: 0.5, ease:"power2.out" })
+                .to(".story-cta-wrap", { opacity: 1, y: 0, duration: 1.0, ease:"power2.out" },"-=0.3")
                 .to({}, { duration: 1.5 }); // Hold at final state
         });
 
         mm.add("(max-width: 991px)", () => {
             let tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#understanding-pin-trigger",
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play reverse play reverse"
+                    trigger:"#understanding-pin-trigger",
+                    start:"top 80%",
+                    end:"bottom 20%",
+                    toggleActions:"play reverse play reverse"
                 }
             });
 
-            tl.to(".understanding-title", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6 })
-                .to(".storytelling-video-box", { opacity: 1, scale: 1, duration: 0.8 }, "-=0.4")
-                .to(".storytelling-card", { opacity: 1, scale: 1, duration: 0.8 }, "-=0.4")
-                .to(".story-para", { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 }, "-=0.4")
-                .to(".story-cta-wrap", { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
+            tl.to(".understanding-title", { opacity: 1, y: 0, filter:"blur(0px)", duration: 0.6 })
+                .to(".storytelling-video-box", { opacity: 1, scale: 1, duration: 0.8 },"-=0.4")
+                .to(".storytelling-card", { opacity: 1, scale: 1, duration: 0.8 },"-=0.4")
+                .to(".story-para", { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 },"-=0.4")
+                .to(".story-cta-wrap", { opacity: 1, y: 0, duration: 0.6 },"-=0.2");
         });
         gsap.fromTo(".stories-bg-shape",
             {
-                width: "70%"
+                width:"70%"
             },
             {
-                width: "100%",
-                ease: "power1.out",
+                width:"100%",
+                ease:"power1.out",
                 scrollTrigger: {
-                    trigger: ".stories-relearning-section",
-                    start: "top bottom-=10%",
-                    end: "center center",
+                    trigger:".stories-relearning-section",
+                    start:"top bottom-=10%",
+                    end:"center center",
                     scrub: 1.2, // Ultra smooth scroll scrubbing with lag
                     invalidateOnRefresh: true
                 }
@@ -7843,57 +7945,57 @@
             // Desktop entry timeline
             let admireTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#admire-ecosystem-section",
-                    start: "top 75%",
-                    end: "bottom 20%",
-                    toggleActions: "play reverse play reverse"
+                    trigger:"#admire-ecosystem-section",
+                    start:"top 75%",
+                    end:"bottom 20%",
+                    toggleActions:"play reverse play reverse"
                 }
             });
 
             gsap.set("#admire-centerpiece", { scale: 0.9, opacity: 0 });
-            gsap.set([".left-col .admire-info-card", ".right-col .admire-info-card"], { opacity: 0, y: 35 });
+            gsap.set([".left-col .admire-info-card",".right-col .admire-info-card"], { opacity: 0, y: 35 });
             gsap.set(".admire-tag-pill", { scale: 0, opacity: 0 });
             gsap.set(".admire-connecting-lines path", { opacity: 0 });
 
-            admireTl.to("#admire-centerpiece", { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.2)" }, 0)
+            admireTl.to("#admire-centerpiece", { scale: 1, opacity: 1, duration: 0.7, ease:"back.out(1.2)" }, 0)
                 .to(".admire-connecting-lines path", { opacity: 1, duration: 0.5, stagger: 0.1 }, 0)
-                .to([".left-col .admire-info-card", ".right-col .admire-info-card"], { opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease: "power2.out" }, 0)
-                .to(".admire-tag-pill", { scale: 1, opacity: 1, duration: 0.4, stagger: 0.08, ease: "back.out(1.5)" }, 0.2);
+                .to([".left-col .admire-info-card",".right-col .admire-info-card"], { opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease:"power2.out" }, 0)
+                .to(".admire-tag-pill", { scale: 1, opacity: 1, duration: 0.4, stagger: 0.08, ease:"back.out(1.5)" }, 0.2);
 
             // Parallax scroll effect on cards
             gsap.to(".left-col #admire-card-1", {
                 y: -25,
                 scrollTrigger: {
-                    trigger: "#admire-ecosystem-section",
-                    start: "top bottom",
-                    end: "bottom top",
+                    trigger:"#admire-ecosystem-section",
+                    start:"top bottom",
+                    end:"bottom top",
                     scrub: 1.2
                 }
             });
             gsap.to(".left-col #admire-card-2", {
                 y: 15,
                 scrollTrigger: {
-                    trigger: "#admire-ecosystem-section",
-                    start: "top bottom",
-                    end: "bottom top",
+                    trigger:"#admire-ecosystem-section",
+                    start:"top bottom",
+                    end:"bottom top",
                     scrub: 1.2
                 }
             });
             gsap.to(".right-col #admire-card-3", {
                 y: -15,
                 scrollTrigger: {
-                    trigger: "#admire-ecosystem-section",
-                    start: "top bottom",
-                    end: "bottom top",
+                    trigger:"#admire-ecosystem-section",
+                    start:"top bottom",
+                    end:"bottom top",
                     scrub: 1.2
                 }
             });
             gsap.to(".right-col #admire-card-4", {
                 y: 25,
                 scrollTrigger: {
-                    trigger: "#admire-ecosystem-section",
-                    start: "top bottom",
-                    end: "bottom top",
+                    trigger:"#admire-ecosystem-section",
+                    start:"top bottom",
+                    end:"bottom top",
                     scrub: 1.2
                 }
             });
@@ -7903,7 +8005,7 @@
                 strokeDashoffset: -30,
                 duration: 2.5,
                 repeat: -1,
-                ease: "none"
+                ease:"none"
             });
             
             return () => {
@@ -7915,17 +8017,17 @@
             // Mobile entry timeline (simplified stacking animations)
             let admireTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#admire-ecosystem-section",
-                    start: "top 80%",
-                    toggleActions: "play none none none"
+                    trigger:"#admire-ecosystem-section",
+                    start:"top 80%",
+                    toggleActions:"play none none none"
                 }
             });
 
-            gsap.set(["#admire-centerpiece", ".admire-info-card", ".admire-tag-pill"], { opacity: 0, y: 30 });
+            gsap.set(["#admire-centerpiece",".admire-info-card",".admire-tag-pill"], { opacity: 0, y: 30 });
 
             admireTl.to("#admire-centerpiece", { opacity: 1, y: 0, duration: 0.6 })
-                .to(".admire-tag-pill", { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.08 }, "-=0.3")
-                .to(".admire-info-card", { opacity: 1, y: 0, duration: 0.5, stagger: 0.15 }, "-=0.3");
+                .to(".admire-tag-pill", { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.08 },"-=0.3")
+                .to(".admire-info-card", { opacity: 1, y: 0, duration: 0.5, stagger: 0.15 },"-=0.3");
         });
 
         window.addEventListener('resize', initVideoSlider);
@@ -8095,3 +8197,6 @@
 </body>
 
 </html><!-- test -->
+
+<!-- CSS FORCE RELOAD V1 -->
+<!-- CSS FORCE RELOAD V2 -->

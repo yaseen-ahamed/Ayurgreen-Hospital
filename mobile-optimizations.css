@@ -92,3 +92,60 @@
         flex-wrap: wrap !important;
     }
 }
+
+/* Condition Pages & Rehab Village Mobile Fixes */
+@media (max-width: 1023px) {
+    /* 1. Banner padding matching homepage */
+    .ayur-page-main .ayur-hero-wrapper,
+    .rv-main .ayur-hero-wrapper {
+        padding: 8px !important;
+    }
+    .ayur-page-main .ayur-hero-banner,
+    .rv-main .rv-hero {
+        border-radius: 24px !important;
+        min-height: 600px !important;
+        height: auto !important;
+    }
+    
+    /* 2. Banner texts aligned aesthetically */
+    .ayur-page-main .ayur-hero-content,
+    .rv-main .ayur-hero-content {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+    .ayur-page-main .ayur-hero-breadcrumb,
+    .rv-main .ayur-hero-content {
+        margin-top: 40px !important;
+    }
+
+    /* 3. Place hamburger and search perfectly as in homepage */
+    body:has(.ayur-page-main) .hero-header,
+    body:has(.rv-main) .hero-header {
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        top: calc(clamp(16px, 4vw, 24px) + 8px) !important;
+        left: calc(clamp(16px, 4vw, 32px) + 8px) !important;
+        right: calc(clamp(16px, 4vw, 32px) + 8px) !important;
+    }
+
+    /* 4. Remove explore specialities and quick access */
+    .ayur-page-main div:has(> .mobile-sidebar-toggle) {
+        display: none !important;
+    }
+    .mobile-sidebar-toggle {
+        display: none !important;
+    }
+    .ayur-page-main .ayur-qdept-sidebar {
+        display: none !important;
+    }
+
+    /* 5. Full width for sections and cards */
+    .ayur-page-main .ayur-sidebar-container {
+        padding: 40px 0 80px 0 !important;
+    }
+    .ayur-page-main .ayur-page-body {
+        grid-template-columns: 1fr !important;
+        padding: 0 !important;
+    }
+}

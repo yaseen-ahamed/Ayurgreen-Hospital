@@ -213,65 +213,104 @@ function initSearch() {
             .desktop-only-search { display: none !important; }
             .mobile-only-search { display: flex !important; }
         }
+
         .search-modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(5, 8, 20, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(4, 7, 18, 0.7);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
             z-index: 10000;
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: flex-start;
-            padding-top: 12vh;
+            padding-top: 10vh;
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .search-modal-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
+
         .search-modal-container {
-            width: 90%;
-            max-width: 680px;
-            background: rgba(255, 255, 255, 0.06);
+            width: 92%;
+            max-width: 720px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 28px;
-            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-24px) scale(0.96);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 24px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1),
+                        0 0 30px rgba(43, 196, 109, 0.08);
             overflow: hidden;
             color: #fff;
-            font-family: 'Inter', sans-serif;
-            backdrop-filter: blur(35px);
-            -webkit-backdrop-filter: blur(35px);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.94) translateY(-30px);
+            opacity: 0;
         }
-        .search-modal-overlay.open .search-modal-container {
-            transform: translateY(0) scale(1);
+
+        @media (max-width: 768px) {
+            .search-modal-overlay {
+                padding-top: 0;
+            }
+            .search-modal-container {
+                width: 100vw;
+                height: 100vh;
+                max-width: 100vw;
+                border-radius: 0;
+                border: none;
+            }
         }
+
         .search-input-wrapper {
             display: flex;
             align-items: center;
-            padding: 20px 24px;
+            padding: 22px 26px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             gap: 16px;
+            position: relative;
         }
+
+        .search-input-icon {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
         .search-input-wrapper input {
             flex: 1;
             background: transparent;
             border: none;
             color: #fff;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 500;
             outline: none;
+            padding: 0;
+            width: 100%;
         }
+
         .search-input-wrapper input::placeholder {
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.3);
         }
+
+        .search-kbd-hint {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
+            user-select: none;
+        }
+
+        @media (max-width: 768px) {
+            .search-kbd-hint {
+                display: none;
+            }
+        }
+
         .search-close-btn {
             background: transparent;
             border: none;
@@ -284,86 +323,342 @@ function initSearch() {
             align-items: center;
             justify-content: center;
         }
+
         .search-close-btn:hover {
             color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            transform: rotate(90deg);
+        }
+
+        .search-categories-bar {
+            display: flex;
+            gap: 8px;
+            padding: 14px 26px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .search-categories-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            outline: none;
+        }
+
+        .category-pill:hover {
             background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            transform: translateY(-1px);
         }
+
+        .category-pill.active {
+            background: #2BC46D;
+            border-color: #2BC46D;
+            color: #030a06;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(43, 196, 109, 0.25);
+        }
+
         .search-results-wrapper {
-            max-height: 52vh;
+            max-height: 60vh;
             overflow-y: auto;
-            padding: 20px 24px;
+            padding: 22px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
+
+        @media (max-width: 768px) {
+            .search-results-wrapper {
+                max-height: calc(100vh - 130px);
+            }
+        }
+
         .search-results-wrapper::-webkit-scrollbar {
             width: 6px;
         }
+
         .search-results-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
         }
+
         .search-result-group {
-            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
-        .search-result-group:last-child {
-            margin-bottom: 0;
-        }
+
         .search-result-group-title {
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #2BC46D;
-            margin-bottom: 10px;
-            padding-left: 6px;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 4px;
+            padding-left: 4px;
         }
+
         .search-result-item {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 14px 18px;
             border-radius: 16px;
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            margin-bottom: 8px;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             text-decoration: none;
+            color: inherit;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            gap: 16px;
         }
-        .search-result-item:hover, .search-result-item.selected {
+
+        .search-result-item:hover, 
+        .search-result-item.selected {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
             transform: translateX(4px);
         }
-        .search-result-item-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-        .search-result-item-heading {
-            font-size: 12px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 6px;
+
+        .search-result-item-left {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 14px;
+            flex: 1;
         }
-        .search-result-item-snippet {
+
+        .search-result-icon-wrapper {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            flex-shrink: 0;
+        }
+
+        .search-result-item[data-cat="Treatments"] .search-result-icon-wrapper { background: rgba(147, 51, 234, 0.12); border-color: rgba(147, 51, 234, 0.25); color: #c084fc; }
+        .search-result-item[data-cat="Conditions"] .search-result-icon-wrapper { background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.25); color: #f87171; }
+        .search-result-item[data-cat="Specialities"] .search-result-icon-wrapper { background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.25); color: #60a5fa; }
+        .search-result-item[data-cat="Technologies"] .search-result-icon-wrapper { background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.25); color: #34d399; }
+        .search-result-item[data-cat="Departments"] .search-result-icon-wrapper { background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.25); color: #fbbf24; }
+        .search-result-item[data-cat="Doctors"] .search-result-icon-wrapper { background: rgba(236, 72, 153, 0.12); border-color: rgba(236, 72, 153, 0.25); color: #f472b6; }
+        .search-result-item[data-cat="Facilities"] .search-result-icon-wrapper { background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.25); color: #22d3ee; }
+        .search-result-item[data-cat="Rehab Village"] .search-result-icon-wrapper { background: rgba(244, 63, 94, 0.12); border-color: rgba(244, 63, 94, 0.25); color: #fb7185; }
+        .search-result-item[data-cat="FAQs"] .search-result-icon-wrapper { background: rgba(100, 116, 139, 0.12); border-color: rgba(100, 116, 139, 0.25); color: #94a3b8; }
+        .search-result-item[data-cat="Blogs"] .search-result-icon-wrapper { background: rgba(124, 58, 237, 0.12); border-color: rgba(124, 58, 237, 0.25); color: #a78bfa; }
+        .search-result-item[data-cat="Pages"] .search-result-icon-wrapper { background: rgba(107, 114, 128, 0.12); border-color: rgba(107, 114, 128, 0.25); color: #9ca3af; }
+
+        .search-result-text {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .search-result-badge {
+            align-self: flex-start;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 2px;
+        }
+
+        .search-result-item[data-cat="Treatments"] .search-result-badge { color: #d8b4fe; background: rgba(147, 51, 234, 0.15); }
+        .search-result-item[data-cat="Conditions"] .search-result-badge { color: #fca5a5; background: rgba(239, 68, 68, 0.15); }
+        .search-result-item[data-cat="Specialities"] .search-result-badge { color: #93c5fd; background: rgba(59, 130, 246, 0.15); }
+        .search-result-item[data-cat="Technologies"] .search-result-badge { color: #6ee7b7; background: rgba(16, 185, 129, 0.15); }
+        .search-result-item[data-cat="Departments"] .search-result-badge { color: #fde047; background: rgba(245, 158, 11, 0.15); }
+        .search-result-item[data-cat="Doctors"] .search-result-badge { color: #fbcfe8; background: rgba(236, 72, 153, 0.15); }
+        .search-result-item[data-cat="Facilities"] .search-result-badge { color: #67e8f9; background: rgba(6, 182, 212, 0.15); }
+        .search-result-item[data-cat="Rehab Village"] .search-result-badge { color: #fecdd3; background: rgba(244, 63, 94, 0.15); }
+        .search-result-item[data-cat="FAQs"] .search-result-badge { color: #cbd5e1; background: rgba(100, 116, 139, 0.15); }
+        .search-result-item[data-cat="Blogs"] .search-result-badge { color: #ddd6fe; background: rgba(124, 58, 237, 0.15); }
+        .search-result-item[data-cat="Pages"] .search-result-badge { color: #e5e7eb; background: rgba(107, 114, 128, 0.15); }
+
+        .search-result-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .search-result-desc {
             font-size: 12.5px;
             color: rgba(255, 255, 255, 0.45);
-            line-height: 1.5;
+            line-height: 1.4;
         }
+
+        .search-result-cta {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            opacity: 0;
+            transform: translateX(-4px);
+        }
+
+        .search-result-item:hover .search-result-cta,
+        .search-result-item.selected .search-result-cta {
+            opacity: 1;
+            transform: translateX(0);
+            color: #2BC46D;
+        }
+
+        .search-empty-state {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 10px 4px;
+        }
+
+        .search-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 12px;
+        }
+
+        .search-popular-list, .search-recent-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .popular-search-item, .recent-search-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 10px 14px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13.5px;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            outline: none;
+            display: block;
+            text-decoration: none;
+        }
+
+        .popular-search-item:hover, .recent-search-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
         .search-highlight {
             color: #2BC46D;
+            background: rgba(43, 196, 109, 0.1);
             font-weight: 600;
-            background: rgba(43, 196, 109, 0.12);
-            padding: 1px 4px;
-            border-radius: 4px;
+            padding: 1px 3px;
+            border-radius: 3px;
         }
-        .search-no-results, .search-loading {
+
+        .search-did-you-mean {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .search-did-you-mean-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-did-you-mean-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .did-you-mean-btn {
+            background: rgba(43, 196, 109, 0.1);
+            border: 1px solid rgba(43, 196, 109, 0.2);
+            color: #2BC46D;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .did-you-mean-btn:hover {
+            background: #2BC46D;
+            color: #030a06;
+            box-shadow: 0 4px 12px rgba(43, 196, 109, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .search-loading, .search-error-msg {
             text-align: center;
             padding: 40px 16px;
             color: rgba(255, 255, 255, 0.4);
             font-size: 14px;
             font-weight: 500;
+        }
+
+        .search-suggested-section {
+            background: rgba(43, 196, 109, 0.05);
+            border: 1px solid rgba(43, 196, 109, 0.15);
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .search-suggested-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .suggested-item {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border-color: rgba(255, 255, 255, 0.05) !important;
+            margin-bottom: 0 !important;
+        }
+
+        .suggested-item:hover, .suggested-item.selected {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
         }
     `;
     document.head.appendChild(styleSheet);
@@ -375,14 +670,31 @@ function initSearch() {
     modalOverlay.innerHTML = `
         <div class="search-modal-container">
             <div class="search-input-wrapper">
-                <i data-lucide="search" size="18" style="color: rgba(255, 255, 255, 0.4);"></i>
-                <input type="text" id="search-input" placeholder="Search anything available in the website..." autocomplete="off">
+                <i data-lucide="search" size="20" class="search-input-icon"></i>
+                <input type="text" id="search-input" placeholder="Search treatments, departments, doctors, conditions, specialities, technologies, facilities, FAQs..." autocomplete="off">
+                <span class="search-kbd-hint">ESC</span>
                 <button class="search-close-btn" id="search-close" aria-label="Close search">
-                    <i data-lucide="x" size="18"></i>
+                    <i data-lucide="x" size="20"></i>
                 </button>
             </div>
+            
+            <div class="search-categories-bar">
+                <button class="category-pill active" data-category="all">All</button>
+                <button class="category-pill" data-category="Treatments">Treatments</button>
+                <button class="category-pill" data-category="Conditions">Conditions</button>
+                <button class="category-pill" data-category="Departments">Departments</button>
+                <button class="category-pill" data-category="Specialities">Specialities</button>
+                <button class="category-pill" data-category="Technologies">Technologies</button>
+                <button class="category-pill" data-category="Doctors">Doctors</button>
+                <button class="category-pill" data-category="Facilities">Facilities</button>
+                <button class="category-pill" data-category="Rehab Village">Rehab Village</button>
+                <button class="category-pill" data-category="FAQs">FAQs</button>
+                <button class="category-pill" data-category="Blogs">Blogs</button>
+                <button class="category-pill" data-category="Pages">Pages</button>
+            </div>
+
             <div class="search-results-wrapper" id="search-results">
-                <div class="search-no-results">Type keywords to search...</div>
+                <!-- Initial list of suggestions inside js -->
             </div>
         </div>
     `;
@@ -392,15 +704,128 @@ function initSearch() {
         window.lucide.createIcons();
     }
 
+    // Synonym Search Dictionary
+    const SYNONYMS = {
+        'stroke': ['brain stroke', 'cva', 'hemiplegia', 'stroke rehabilitation', 'paralysis'],
+        'brain stroke': ['stroke', 'cva', 'hemiplegia', 'stroke rehabilitation'],
+        'cva': ['stroke', 'brain stroke', 'hemiplegia', 'stroke rehabilitation'],
+        'hemiplegia': ['stroke', 'brain stroke', 'cva', 'paralysis'],
+        'speech problem': ['speech therapy', 'dysphagia management', 'slurred speech', 'difficulty speaking', 'aphasia', 'dysarthria'],
+        'difficulty speaking': ['speech therapy', 'speech problem', 'slurred speech', 'aphasia', 'dysarthria'],
+        'slurred speech': ['speech therapy', 'speech problem', 'difficulty speaking', 'stroke rehab', 'parkinsons'],
+        'walking difficulty': ['gait dysfunction', 'mobility impairment', 'robotic gait training', 'sci rehabilitation', 'parkinson', 'balance disorder', 'physiotherapy'],
+        'mobility impairment': ['walking difficulty', 'gait dysfunction', 'robotic gait training', 'sci', 'physiotherapy'],
+        'gait dysfunction': ['walking difficulty', 'mobility impairment', 'robotic gait training', 'physiotherapy'],
+        'hand weakness': ['stroke', 'cervical myelopathy', 'sci', 'occupational therapy', 'arm weakness', 'dexterity'],
+        'medical visa': ['international patient services', 'visa assistance', 'accommodation', 'travel support', 'travel desk'],
+        'visa': ['medical visa', 'international patient services', 'visa assistance', 'travel support'],
+        'parkinson': ['parkinson\'s disease', 'neuro rehabilitation', 'physiotherapy', 'occupational therapy', 'speech therapy', 'robotic rehabilitation', 'huber 360']
+    };
+
+    // Symptom Search Mapping
+    const SYMPTOMS_MAP = {
+        'hand weakness': ['stroke-rehab.html', 'myopathy.html', 'spinal-cord-injury.html', 'occupational-therapy.html'],
+        'arm weakness': ['stroke-rehab.html', 'spinal-cord-injury.html', 'occupational-therapy.html'],
+        'slurred speech': ['speech-therapy.html', 'stroke-rehab.html', 'parkinsons-disease.html'],
+        'difficulty speaking': ['speech-therapy.html', 'stroke-rehab.html', 'parkinsons-disease.html'],
+        'difficulty swallowing': ['speech-therapy.html'],
+        'walking difficulty': ['parkinsons-disease.html', 'stroke-rehab.html', 'spinal-cord-injury.html', 'robotic-rehab.html', 'physiotherapy.html'],
+        'balance issue': ['physiotherapy.html', 'robotic-rehab.html', 'yoga-meditation.html'],
+        'back pain': ['sciatica.html', 'disc-spine-problems.html', 'physiotherapy.html', 'pain-management.html'],
+        'joint pain': ['osteoarthritis.html', 'rheumatoid-arthritis.html', 'ayurveda.html', 'pain-management.html']
+    };
+
+    // Levenshtein suggestable terms
+    const SUGGESTABLE_TERMS = [
+        'stroke rehabilitation',
+        'parkinson\'s disease',
+        'physiotherapy',
+        'neuro rehabilitation',
+        'robotic rehabilitation',
+        'occupational therapy',
+        'speech therapy',
+        'ayurveda',
+        'rehab village',
+        'international patients',
+        'spinal cord injury'
+    ];
+
+    // Category CTAs
+    const CTAS = {
+        Treatments: 'View Program',
+        Conditions: 'Learn More',
+        Specialities: 'View Speciality',
+        Technologies: 'Learn More',
+        Departments: 'Visit Department',
+        Doctors: 'View Profile',
+        Facilities: 'Learn More',
+        'Rehab Village': 'Explore Village',
+        FAQs: 'View FAQ',
+        Blogs: 'Read Article',
+        Pages: 'Visit Page'
+    };
+
+    // Medical Concept Ontology mapping for intelligent semantic suggestions
+    const MEDICAL_CONCEPTS = [
+        {
+            keywords: ['speaking', 'speech', 'slurred', 'talk', 'talking', 'voice', 'swallow', 'swallowing', 'dysphagia', 'communication', 'stutter', 'aphasia', 'dysarthria'],
+            suggestions: [
+                { title: 'Speech Therapy', url: 'speech-therapy.html', category: 'Specialities', icon: '🏃' },
+                { title: 'Stroke Rehabilitation', url: 'stroke-rehab.html', category: 'Treatments', icon: '🧠' },
+                { title: 'Dysphagia Management FAQ', url: 'speech-therapy.html#faq-is-swallowing-therapy-part-of-speech-pathology', category: 'FAQs', icon: '❓' }
+            ]
+        },
+        {
+            keywords: ['walking', 'walk', 'gait', 'foot', 'leg', 'movement', 'run', 'balance', 'fall', 'mobility', 'paralysis', 'weakness', 'hemiplegia', 'quadriplegia', 'limp'],
+            suggestions: [
+                { title: 'Robotic Gait Trainer', url: 'robotic-rehab.html#robotic-gait-trainer', category: 'Technologies', icon: '🤖' },
+                { title: 'Physiotherapy', url: 'physiotherapy.html', category: 'Specialities', icon: '🏃' },
+                { title: 'Stroke Rehabilitation', url: 'stroke-rehab.html', category: 'Treatments', icon: '🧠' },
+                { title: 'Parkinson\'s Disease', url: 'parkinsons-disease.html', category: 'Treatments', icon: '🧠' },
+                { title: 'Spinal Cord Injury', url: 'spinal-cord-injury.html', category: 'Treatments', icon: '🧠' }
+            ]
+        },
+        {
+            keywords: ['hand', 'arm', 'finger', 'grip', 'hold', 'reach', 'dexterity', 'weakness', 'eating', 'dressing', 'writing'],
+            suggestions: [
+                { title: 'Occupational Therapy', url: 'occupational-therapy.html', category: 'Specialities', icon: '🏃' },
+                { title: 'Stroke Rehabilitation', url: 'stroke-rehab.html', category: 'Treatments', icon: '🧠' },
+                { title: 'Robotic Arm Trainer', url: 'robotic-rehab.html#robotic-arm-trainer', category: 'Technologies', icon: '🤖' }
+            ]
+        },
+        {
+            keywords: ['visa', 'passport', 'medical visa', 'travel', 'flight', 'ticket', 'airport', 'hotel', 'stay', 'accommodation', 'mosque', 'foreigner', 'international', 'arab', 'gulf'],
+            suggestions: [
+                { title: 'International Patient Services', url: 'international-patients.html', category: 'Facilities', icon: '🏨' },
+                { title: 'Visa Assistance', url: 'international-patients.html#visa-assistance', category: 'Facilities', icon: '🏨' },
+                { title: 'Accommodation Options', url: 'international-patients.html#accommodation', category: 'Facilities', icon: '🏨' }
+            ]
+        },
+        {
+            keywords: ['pain', 'back', 'neck', 'spine', 'sci', 'disc', 'lumbago', 'sciatica', 'slip', 'ache', 'sore', 'joint', 'arthritis', 'knee', 'stiffness'],
+            suggestions: [
+                { title: 'Pain Management', url: 'pain-management.html', category: 'Specialities', icon: '🏃' },
+                { title: 'Disc & Spine Problems', url: 'disc-spine-problems.html', category: 'Treatments', icon: '🧠' },
+                { title: 'Sciatica Treatment', url: 'sciatica.html', category: 'Treatments', icon: '🧠' },
+                { title: 'Physiotherapy', url: 'physiotherapy.html', category: 'Specialities', icon: '🏃' },
+                { title: 'Osteoarthritis Program', url: 'osteoarthritis.html', category: 'Treatments', icon: '🧠' }
+            ]
+        }
+    ];
+
     // 4. Variables & Event Listeners
     let searchIndex = null;
     let isLoading = false;
+    let selectedCategory = 'all';
+    let selectedIndex = -1;
+    let currentResults = [];
+
     const triggers = document.querySelectorAll('.search-trigger-btn');
     const modal = document.getElementById('search-modal');
     const closeBtn = document.getElementById('search-close');
     const input = document.getElementById('search-input');
     const resultsContainer = document.getElementById('search-results');
-    let selectedIndex = -1;
+    const categoryPills = document.querySelectorAll('.category-pill');
 
     async function loadIndex() {
         if (searchIndex || isLoading) return;
@@ -409,27 +834,130 @@ function initSearch() {
         try {
             const response = await fetch('/search-index.json');
             searchIndex = await response.json();
-            resultsContainer.innerHTML = '<div class="search-no-results">Type keywords to search...</div>';
+            renderInitialState();
         } catch (err) {
             console.error("Failed to load search index:", err);
-            resultsContainer.innerHTML = '<div class="search-no-results" style="color: #ff6b6b;">Failed to load search database.</div>';
+            resultsContainer.innerHTML = '<div class="search-error-msg">Failed to load search database. Please refresh.</div>';
         } finally {
             isLoading = false;
         }
     }
 
+    function renderInitialState() {
+        selectedIndex = -1;
+        currentResults = [];
+        
+        let html = '<div class="search-empty-state">';
+        
+        // Popular searches
+        html += `
+            <div>
+                <div class="search-section-title">Popular Searches</div>
+                <div class="search-popular-list">
+                    <button class="popular-search-item" data-query="Stroke Rehabilitation">🧠 Stroke Rehabilitation</button>
+                    <button class="popular-search-item" data-query="Parkinson's Disease">🤒 Parkinson's Treatment</button>
+                    <button class="popular-search-item" data-query="Speech Therapy">🏃 Speech Therapy</button>
+                    <button class="popular-search-item" data-query="Robotic Rehabilitation">🤖 Robotic Rehabilitation</button>
+                    <button class="popular-search-item" data-query="Physiotherapy">🏃 Physiotherapy</button>
+                    <button class="popular-search-item" data-query="Rehab Village">🏡 Rehab Village</button>
+                </div>
+            </div>
+        `;
+
+        // Recently viewed
+        const recents = getRecents();
+        if (recents && recents.length > 0) {
+            html += `
+                <div class="search-recent-section">
+                    <div class="search-section-title">Recently Viewed</div>
+                    <div class="search-recent-list">
+            `;
+            recents.forEach(item => {
+                html += `
+                    <a href="${item.url}" class="recent-search-item" data-recent-url="${item.url}">
+                        ${item.icon || '📄'} ${item.title}
+                    </a>
+                `;
+            });
+            html += `
+                    </div>
+                </div>
+            `;
+        }
+        
+        html += '</div>';
+        resultsContainer.innerHTML = html;
+
+        // Bind clicks to suggestions
+        resultsContainer.querySelectorAll('.popular-search-item').forEach(btn => {
+            btn.addEventListener('click', () => {
+                input.value = btn.getAttribute('data-query');
+                performSearch();
+            });
+        });
+
+        resultsContainer.querySelectorAll('.recent-search-item').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const url = btn.getAttribute('href');
+                const recents = getRecents();
+                const matched = recents.find(r => r.url === url);
+                if (matched) {
+                    saveRecent(matched);
+                }
+            });
+        });
+    }
+
     function openSearch() {
-        modal.classList.add('open');
         document.body.style.overflow = 'hidden';
+        
+        if (window.gsap) {
+            gsap.set(modal, { display: 'flex' });
+            gsap.timeline()
+                .to(modal, { opacity: 1, duration: 0.3, ease: 'power2.out' })
+                .to(modal.querySelector('.search-modal-container'), {
+                    scale: 1,
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: 'power3.out'
+                }, '-=0.15');
+        } else {
+            modal.style.display = 'flex';
+            modal.style.opacity = '1';
+            const container = modal.querySelector('.search-modal-container');
+            container.style.opacity = '1';
+            container.style.transform = 'scale(1) translateY(0)';
+        }
+
         setTimeout(() => input.focus(), 100);
         loadIndex();
     }
 
     function closeSearch() {
-        modal.classList.remove('open');
         document.body.style.overflow = '';
         input.value = '';
-        resultsContainer.innerHTML = '<div class="search-no-results">Type keywords to search...</div>';
+        selectedCategory = 'all';
+        categoryPills.forEach(p => p.classList.remove('active'));
+        document.querySelector('.category-pill[data-category="all"]').classList.add('active');
+
+        if (window.gsap) {
+            gsap.timeline({
+                onComplete: () => {
+                    modal.style.display = 'none';
+                }
+            })
+            .to(modal.querySelector('.search-modal-container'), {
+                scale: 0.94,
+                y: -30,
+                opacity: 0,
+                duration: 0.25,
+                ease: 'power2.in'
+            })
+            .to(modal, { opacity: 0, duration: 0.2, ease: 'power2.in' }, '-=0.1');
+        } else {
+            modal.style.display = 'none';
+        }
         selectedIndex = -1;
     }
 
@@ -439,133 +967,379 @@ function initSearch() {
         if (e.target === modal) closeSearch();
     });
 
-    // 5. Search Logic
+    // Handle Category Filter Click
+    categoryPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            categoryPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            selectedCategory = pill.getAttribute('data-category');
+            performSearch();
+        });
+    });
+
+    // 5. Intelligent Search Logic
+    let debounceTimer;
     input.addEventListener('input', () => {
-        const query = input.value.trim().toLowerCase();
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(performSearch, 80);
+    });
+
+    function cleanQuestion(query) {
+        // Strip question helper words to reveal semantic search terms
+        return query
+            .replace(/\b(can|be|treated|is|there|a|cure|for|how|long|does|take|to|what|why|should|who|do|help|after)\b/gi, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function performSearch() {
+        let query = input.value.trim().toLowerCase();
         if (!query) {
-            resultsContainer.innerHTML = '<div class="search-no-results">Type keywords to search...</div>';
-            selectedIndex = -1;
+            renderInitialState();
             return;
         }
+
         if (!searchIndex) return;
 
-        const keywords = query.split(/\s+/).filter(k => k.length > 0);
-        const matches = [];
+        // Clean query if it is a question
+        const isQuestion = query.includes('?') || query.startsWith('how') || query.startsWith('can') || query.startsWith('is');
+        const semanticQuery = isQuestion ? cleanQuestion(query) : query;
 
-        searchIndex.forEach(page => {
-            let score = 0;
-            let matchedHeading = null;
-            let snippet = '';
-
-            let firstMatchIndex = -1;
-            let allKeywordsMatch = true;
-
-            keywords.forEach(kw => {
-                let kwMatched = false;
-
-                if (page.title.toLowerCase().includes(kw)) {
-                    score += 100;
-                    kwMatched = true;
+        const tokens = semanticQuery.split(/\s+/).filter(t => t.length > 0);
+        
+        // Find synonyms for any of the tokens
+        let expandedTokens = [...tokens];
+        tokens.forEach(tok => {
+            // Direct match check first
+            if (SYNONYMS[tok]) {
+                expandedTokens.push(...SYNONYMS[tok]);
+            }
+            // Substring check for tokens of length >= 3
+            if (tok.length >= 3) {
+                for (const [key, synList] of Object.entries(SYNONYMS)) {
+                    if (key.includes(tok) || tok.includes(key)) {
+                        expandedTokens.push(...synList);
+                        expandedTokens.push(key);
+                    }
                 }
+            }
+        });
+        expandedTokens = Array.from(new Set(expandedTokens));
 
-                if (page.desc && page.desc.toLowerCase().includes(kw)) {
-                    score += 30;
-                    kwMatched = true;
-                }
-
-                page.headings.forEach(heading => {
-                    if (heading.text.toLowerCase().includes(kw)) {
-                        score += 50;
-                        kwMatched = true;
-                        if (!matchedHeading) {
-                            matchedHeading = heading;
-                        }
+        // Find matching symptoms
+        let symptomMatches = [];
+        for (const [symptom, urls] of Object.entries(SYMPTOMS_MAP)) {
+            const symptomLower = symptom.toLowerCase();
+            if (semanticQuery.includes(symptomLower) || (semanticQuery.length >= 3 && symptomLower.includes(semanticQuery))) {
+                symptomMatches.push(...urls);
+            } else {
+                tokens.forEach(tok => {
+                    if (tok.length >= 3 && symptomLower.includes(tok)) {
+                        symptomMatches.push(...urls);
                     }
                 });
+            }
+        }
+        symptomMatches = Array.from(new Set(symptomMatches));
 
-                const idx = page.content.toLowerCase().indexOf(kw);
-                if (idx !== -1) {
-                    score += 5;
-                    kwMatched = true;
-                    if (firstMatchIndex === -1 || idx < firstMatchIndex) {
-                        firstMatchIndex = idx;
-                    }
+        const matches = [];
+
+        searchIndex.forEach(item => {
+            let score = 0;
+            const titleLower = item.title.toLowerCase();
+            const descLower = item.desc.toLowerCase();
+            const contentLower = item.content.toLowerCase();
+            const urlLower = item.url.toLowerCase();
+
+            // Filter category first
+            if (selectedCategory !== 'all' && item.category !== selectedCategory) {
+                return;
+            }
+
+            // Title matches tokens
+            tokens.forEach(tok => {
+                if (titleLower.includes(tok)) {
+                    score += 250;
                 }
-
-                if (!kwMatched) {
-                    allKeywordsMatch = false;
+                if (descLower.includes(tok)) {
+                    score += 80;
+                }
+                if (contentLower.includes(tok)) {
+                    score += 15;
                 }
             });
 
-            if (allKeywordsMatch && score > 0) {
-                // Generate snippet
-                if (firstMatchIndex !== -1) {
-                    const start = Math.max(0, firstMatchIndex - 50);
-                    const end = Math.min(page.content.length, firstMatchIndex + 80);
-                    snippet = page.content.substring(start, end);
+            // Exact match
+            if (titleLower === semanticQuery) {
+                score += 600;
+            } else if (titleLower.includes(semanticQuery)) {
+                score += 350;
+            }
+
+            // Synonym matches
+            expandedTokens.forEach(exp => {
+                if (titleLower.includes(exp)) {
+                    score += 120;
+                }
+                if (contentLower.includes(exp)) {
+                    score += 10;
+                }
+            });
+
+            // Symptom / country matches
+            symptomMatches.forEach(urlMatch => {
+                if (urlLower.includes(urlMatch)) {
+                    score += 400; // Force high boost for matches containing specified treatments
+                }
+            });
+
+            // Specific category matching boost
+            if (tokens.some(tok => item.category.toLowerCase().includes(tok))) {
+                score += 100;
+            }
+
+            if (score > 0) {
+                // Generate snippet highlight anchor
+                let snippet = item.desc;
+                let firstMatchIdx = -1;
+                tokens.forEach(tok => {
+                    const idx = contentLower.indexOf(tok);
+                    if (idx !== -1 && (firstMatchIdx === -1 || idx < firstMatchIdx)) {
+                        firstMatchIdx = idx;
+                    }
+                });
+
+                if (firstMatchIdx !== -1 && firstMatchIdx < contentLower.length) {
+                    const start = Math.max(0, firstMatchIdx - 40);
+                    const end = Math.min(item.content.length, firstMatchIdx + 100);
+                    snippet = item.content.substring(start, end);
                     if (start > 0) snippet = '...' + snippet;
-                    if (end < page.content.length) snippet = snippet + '...';
-                } else if (page.desc) {
-                    snippet = page.desc;
+                    if (end < item.content.length) snippet += '...';
                 }
 
-                matches.push({ page, score, matchedHeading, snippet });
+                matches.push({ item, score, snippet });
             }
         });
 
         // Sort by score
         matches.sort((a, b) => b.score - a.score);
 
-        if (matches.length === 0) {
-            resultsContainer.innerHTML = '<div class="search-no-results">No results found for "' + input.value + '"</div>';
-            selectedIndex = -1;
+        // Find intelligent medical concept suggestions
+        let conceptSuggestions = [];
+        MEDICAL_CONCEPTS.forEach(concept => {
+            const hasKeyword = concept.keywords.some(kw => {
+                const kwLower = kw.toLowerCase();
+                if (semanticQuery.length >= 3) {
+                    return kwLower.includes(semanticQuery) || semanticQuery.includes(kwLower);
+                }
+                return kwLower === semanticQuery;
+            });
+            
+            let tokenMatch = false;
+            if (!hasKeyword && tokens.length > 1) {
+                tokenMatch = concept.keywords.some(kw => {
+                    const kwLower = kw.toLowerCase();
+                    return tokens.some(tok => {
+                        if (tok.length >= 3) {
+                            return kwLower.includes(tok) || tok.includes(kwLower);
+                        }
+                        return kwLower === tok;
+                    });
+                });
+            }
+
+            if (hasKeyword || tokenMatch) {
+                concept.suggestions.forEach(sug => {
+                    if (!conceptSuggestions.some(s => s.title === sug.title)) {
+                        conceptSuggestions.push(sug);
+                    }
+                });
+            }
+        });
+
+        if (matches.length === 0 && conceptSuggestions.length === 0) {
+            renderDidYouMean(query);
             return;
         }
 
-        // Render matches
-        let html = '';
-        html += '<div class="search-result-group">';
-        html += '<div class="search-result-group-title">Search Results (' + matches.length + ')</div>';
+        renderResults(matches, tokens, conceptSuggestions);
+    }
 
-        matches.forEach((m, idx) => {
-            const url = m.matchedHeading && m.matchedHeading.id ? `${m.page.url}#${m.matchedHeading.id}` : m.page.url;
-            
-            let headingPath = m.page.title.split('|')[0].trim();
-            if (m.matchedHeading) {
-                headingPath += ' > ' + m.matchedHeading.text;
+    function getLevenshteinDistance(a, b) {
+        const matrix = [];
+        for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+        for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1, // substitution
+                        matrix[i][j - 1] + 1,     // insertion
+                        matrix[i - 1][j] + 1      // deletion
+                    );
+                }
             }
+        }
+        return matrix[b.length][a.length];
+    }
 
-            let highlightedHeading = headingPath;
-            let highlightedSnippet = m.snippet;
-            
-            keywords.forEach(kw => {
-                const regex = new RegExp('(' + kw.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'gi');
-                highlightedHeading = highlightedHeading.replace(regex, '<mark class="search-highlight">$1</mark>');
-                highlightedSnippet = highlightedSnippet.replace(regex, '<mark class="search-highlight">$1</mark>');
-            });
+    function renderDidYouMean(query) {
+        selectedIndex = -1;
+        currentResults = [];
 
+        // Compute similar keywords
+        const suggestions = SUGGESTABLE_TERMS.filter(term => {
+            const dist = getLevenshteinDistance(query, term);
+            return dist <= 5 || term.includes(query) || query.includes(term);
+        }).slice(0, 3);
+
+        let html = `
+            <div class="search-did-you-mean">
+                <div class="search-did-you-mean-title">No results found for "<strong>${input.value}</strong>".</div>
+        `;
+        
+        if (suggestions.length > 0) {
             html += `
-                <a href="${url}" class="search-result-item" data-index="${idx}">
-                    <div class="search-result-item-heading">
-                        <i data-lucide="file-text" size="14"></i>
-                        <span>${highlightedHeading}</span>
-                    </div>
-                    ${highlightedSnippet ? `<div class="search-result-item-snippet">${highlightedSnippet}</div>` : ''}
-                </a>
+                <div class="search-did-you-mean-title">Did you mean:</div>
+                <div class="search-did-you-mean-suggestions">
             `;
+            suggestions.forEach(sug => {
+                html += `<button class="did-you-mean-btn" data-sug="${sug}">${sug}</button>`;
+            });
+            html += `
+                </div>
+            `;
+        } else {
+            html += `
+                <div class="search-did-you-mean-title">Try searching for other treatments, specialities, or symptoms like "Stroke Rehabilitation", "walking difficulty" or "robotic rehab".</div>
+            `;
+        }
+
+        html += `</div>`;
+        resultsContainer.innerHTML = html;
+
+        resultsContainer.querySelectorAll('.did-you-mean-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                input.value = btn.getAttribute('data-sug');
+                performSearch();
+            });
         });
-        html += '</div>';
+    }
+
+    function renderResults(matches, tokens, conceptSuggestions = []) {
+        selectedIndex = -1;
+        // Merge suggested items at the beginning of currentResults
+        currentResults = [...conceptSuggestions, ...matches.map(m => m.item)];
+
+        let html = '';
+
+        if (conceptSuggestions.length > 0) {
+            html += `<div class="search-suggested-section">`;
+            html += `<div class="search-section-title" style="color: #2BC46D; margin-bottom: 4px;">💡 Maybe this is what you're looking for:</div>`;
+            html += `<div class="search-suggested-list">`;
+            
+            conceptSuggestions.forEach((sug, idx) => {
+                const ctaText = CTAS[sug.category] || 'View Detail';
+                html += `
+                    <a href="${sug.url}" class="search-result-item suggested-item" data-index="${idx}" data-cat="${sug.category}">
+                        <div class="search-result-item-left">
+                            <div class="search-result-icon-wrapper">
+                                ${sug.icon || '📄'}
+                            </div>
+                            <div class="search-result-text">
+                                <span class="search-result-badge">${sug.category}</span>
+                                <div class="search-result-title">${sug.title}</div>
+                            </div>
+                        </div>
+                        <div class="search-result-cta" style="opacity: 1; transform: translateX(0); color: #2BC46D;">
+                            ${ctaText} <i data-lucide="arrow-right" size="14"></i>
+                        </div>
+                    </a>
+                `;
+            });
+            html += `</div></div>`;
+        }
+
+        // Group by category
+        const groups = {};
+        matches.forEach((match, indexInMatches) => {
+            const cat = match.item.category;
+            if (!groups[cat]) groups[cat] = [];
+            groups[cat].push({ match, indexInMatches });
+        });
+
+        // Render groups in deterministic order of categories
+        const catOrder = ['Treatments', 'Conditions', 'Specialities', 'Departments', 'Technologies', 'Doctors', 'Facilities', 'Rehab Village', 'FAQs', 'Blogs', 'Pages'];
+        
+        catOrder.forEach(cat => {
+            if (groups[cat]) {
+                html += `<div class="search-result-group">`;
+                html += `<div class="search-result-group-title">${cat}</div>`;
+                
+                groups[cat].forEach(({ match, indexInMatches }) => {
+                    const item = match.item;
+                    let title = item.title;
+                    let snippet = match.snippet || '';
+
+                    // Highlight matched words
+                    tokens.forEach(tok => {
+                        if (tok.length > 1) {
+                            const regex = new RegExp('(' + tok.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'gi');
+                            title = title.replace(regex, '<mark class="search-highlight">$1</mark>');
+                            snippet = snippet.replace(regex, '<mark class="search-highlight">$1</mark>');
+                        }
+                    });
+
+                    const ctaText = CTAS[item.category] || 'View Detail';
+                    const globalIdx = conceptSuggestions.length + indexInMatches;
+
+                    html += `
+                        <a href="${item.url}" class="search-result-item" data-index="${globalIdx}" data-cat="${item.category}">
+                            <div class="search-result-item-left">
+                                <div class="search-result-icon-wrapper">
+                                    ${item.icon || '📄'}
+                                </div>
+                                <div class="search-result-text">
+                                    <span class="search-result-badge">${item.category}</span>
+                                    <div class="search-result-title">${title}</div>
+                                    ${snippet ? `<div class="search-result-desc">${snippet}</div>` : ''}
+                                </div>
+                            </div>
+                            <div class="search-result-cta">
+                                ${ctaText} <i data-lucide="arrow-right" size="14"></i>
+                            </div>
+                        </a>
+                    `;
+                });
+                
+                html += `</div>`;
+            }
+        });
 
         resultsContainer.innerHTML = html;
         if (window.lucide) {
             window.lucide.createIcons();
         }
-        selectedIndex = -1;
-    });
 
-    // 6. Global Keys
+        // Bind clicks to items to save recent searches
+        resultsContainer.querySelectorAll('.search-result-item').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const idx = parseInt(el.getAttribute('data-index'));
+                const clickedItem = currentResults[idx];
+                if (clickedItem) {
+                    saveRecent(clickedItem);
+                }
+            });
+        });
+    }
+
+    // 6. Keyboard & Mouse Selection Handlers
     window.addEventListener('keydown', (e) => {
-        if (!modal.classList.contains('open')) {
+        if (modal.style.display !== 'flex') {
+            // Meta+K or Ctrl+K to open
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
                 openSearch();
@@ -573,11 +1347,13 @@ function initSearch() {
             return;
         }
 
+        const items = resultsContainer.querySelectorAll('.search-result-item');
+
         if (e.key === 'Escape') {
+            e.preventDefault();
             closeSearch();
         } else if (e.key === 'ArrowDown') {
             e.preventDefault();
-            const items = resultsContainer.querySelectorAll('.search-result-item');
             if (items.length > 0) {
                 if (selectedIndex < items.length - 1) {
                     if (selectedIndex >= 0) items[selectedIndex].classList.remove('selected');
@@ -588,7 +1364,6 @@ function initSearch() {
             }
         } else if (e.key === 'ArrowUp') {
             e.preventDefault();
-            const items = resultsContainer.querySelectorAll('.search-result-item');
             if (items.length > 0) {
                 if (selectedIndex > 0) {
                     items[selectedIndex].classList.remove('selected');
@@ -598,15 +1373,95 @@ function initSearch() {
                 }
             }
         } else if (e.key === 'Enter') {
-            if (selectedIndex >= 0) {
-                e.preventDefault();
-                const items = resultsContainer.querySelectorAll('.search-result-item');
-                if (items[selectedIndex]) {
-                    items[selectedIndex].click();
-                }
+            e.preventDefault();
+            if (items.length > 0) {
+                const targetIndex = selectedIndex >= 0 ? selectedIndex : 0;
+                items[targetIndex].click();
+                const link = items[targetIndex].getAttribute('href');
+                if (link) window.location.href = link;
             }
         }
     });
+
+    // 7. Recent Items Management (localStorage)
+    function getRecents() {
+        try {
+            return JSON.parse(localStorage.getItem('ayurgreen_recent_searches')) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveRecent(item) {
+        try {
+            let recents = getRecents();
+            // Filter out existing matching URL
+            recents = recents.filter(r => r.url !== item.url);
+            // Put latest on top
+            recents.unshift({
+                url: item.url,
+                title: item.title,
+                icon: item.icon,
+                category: item.category
+            });
+            // Limit to 5
+            recents = recents.slice(0, 5);
+            localStorage.setItem('ayurgreen_recent_searches', JSON.stringify(recents));
+        } catch (e) {
+            console.warn("Storage write blocked:", e);
+        }
+    }
+
+    // 8. Dynamic hash listener to open FAQs on page arrival/hashchange
+    function checkAndOpenHashFAQ() {
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#faq-')) {
+            // Find accordion item
+            const id = hash.substring(1);
+            let targetEl = document.getElementById(id);
+            
+            // If targetEl not directly found, search containing faq-item by slug
+            if (!targetEl) {
+                const faqs = document.querySelectorAll('.ayur-faq-item');
+                faqs.forEach(faq => {
+                    const text = faq.querySelector('.ayur-faq-trigger').textContent;
+                    const slug = `faq-${slugify(text.substring(0, 30))}`;
+                    if (slug === id) {
+                        targetEl = faq;
+                    }
+                });
+            }
+
+            if (targetEl) {
+                const trigger = targetEl.querySelector('.ayur-faq-trigger');
+                const content = targetEl.querySelector('.ayur-faq-content');
+                
+                if (trigger && content) {
+                    // Close others
+                    document.querySelectorAll('.ayur-faq-item').forEach(otherItem => {
+                        if (otherItem !== targetEl) {
+                            otherItem.classList.remove('active');
+                            const otherContent = otherItem.querySelector('.ayur-faq-content');
+                            if (otherContent) otherContent.style.maxHeight = null;
+                        }
+                    });
+
+                    // Activate target
+                    targetEl.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    
+                    // Smooth scroll to it
+                    setTimeout(() => {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
+            }
+        }
+    }
+
+    // Bind hashchange events
+    window.addEventListener('hashchange', checkAndOpenHashFAQ);
+    setTimeout(checkAndOpenHashFAQ, 400); // Trigger once loaded
 }
 
 

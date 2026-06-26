@@ -450,9 +450,12 @@ function initSearch() {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
+            flex-shrink: 0;
+        }
+
+        .search-result-icon-wrapper svg {
             flex-shrink: 0;
         }
 
@@ -565,8 +568,14 @@ function initSearch() {
             cursor: pointer;
             transition: all 0.2s;
             outline: none;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             text-decoration: none;
+        }
+
+        .popular-search-item svg, .recent-search-item svg {
+            flex-shrink: 0;
         }
 
         .popular-search-item:hover, .recent-search-item:hover {
@@ -843,6 +852,86 @@ function initSearch() {
         }
     }
 
+    // Map URLs and categories to the same Lucide icons used in the header nav dropdown
+    function getLucideIconForItem(item) {
+        const url = (item.url || '').split('#')[0].split('?')[0];
+        const cat = item.category || '';
+
+        // URL-specific icons — exact matches from the nav dropdown
+        const urlIconMap = {
+            'stroke-rehab.html':              { icon: 'activity',          color: '#E91E63' },
+            'spinal-cord-injury.html':        { icon: 'bone',              color: '#9C27B0' },
+            'traumatic-brain-injury.html':    { icon: 'brain',             color: '#FF9800' },
+            'hemiplegia.html':                { icon: 'person-standing',   color: '#00BCD4' },
+            'quadriplegia-paraplegia.html':   { icon: 'accessibility',     color: '#3F51B5' },
+            'post-surgical-complications.html': { icon: 'stethoscope',     color: '#009688' },
+            'motor-neuron-diseases.html':     { icon: 'network',           color: '#607D8B' },
+            'cerebral-palsy.html':            { icon: 'flower-2',         color: '#E040FB' },
+            'parkinsons-disease.html':        { icon: 'zap',               color: '#FFEB3B' },
+            'myopathy.html':                  { icon: 'dna',               color: '#8BC34A' },
+            'disc-spine-problems.html':       { icon: 'git-commit',        color: '#FF5722' },
+            'sciatica.html':                  { icon: 'zap-off',           color: '#795548' },
+            'obesity.html':                   { icon: 'scale',             color: '#F44336' },
+            'post-covid-complications.html':  { icon: 'shield-alert',      color: '#FFC107' },
+            'muscular-dystrophy.html':        { icon: 'heart-pulse',       color: '#E91E63' },
+            'osteoarthritis.html':            { icon: 'target',            color: '#9E9E9E' },
+            'rheumatoid-arthritis.html':      { icon: 'flame',             color: '#FF5722' },
+            'developmental-delay.html':       { icon: 'sprout',            color: '#8BC34A' },
+            'psychological-problems.html':    { icon: 'lightbulb',         color: '#FFEB3B' },
+            'autism.html':                    { icon: 'heart',             color: '#E91E63' },
+            'psychiatry.html':               { icon: 'brain',             color: '#9C27B0' },
+            'ayurveda.html':                  { icon: 'leaf',              color: '#4CAF50' },
+            'physiotherapy.html':             { icon: 'dumbbell',          color: '#FF9800' },
+            'robotic-rehab.html':             { icon: 'bot',               color: '#00BCD4' },
+            'occupational-therapy.html':      { icon: 'puzzle',            color: '#9C27B0' },
+            'speech-therapy.html':            { icon: 'message-circle',    color: '#2196F3' },
+            'virtual-reality.html':           { icon: 'headset',           color: '#E91E63' },
+            'yoga-meditation.html':           { icon: 'sun',               color: '#FFC107' },
+            'acupuncture.html':               { icon: 'map-pin',           color: '#F44336' },
+            'reflexology.html':              { icon: 'footprints',         color: '#795548' },
+            'hydro-therapy.html':             { icon: 'waves',             color: '#03A9F4' },
+            'pediatrics.html':               { icon: 'baby',              color: '#E040FB' },
+            'slimming-treatment.html':        { icon: 'ruler',             color: '#009688' },
+            'pain-management.html':           { icon: 'shield-plus',       color: '#4CAF50' },
+            'diet-nutrition.html':            { icon: 'utensils',          color: '#FF5722' },
+            'counseling.html':               { icon: 'heart-handshake',   color: '#E91E63' },
+            'dentistry.html':                { icon: 'smile',             color: '#00BCD4' },
+            'modern-medicine.html':           { icon: 'pill',              color: '#9C27B0' },
+            'assistive-devices.html':         { icon: 'accessibility',     color: '#3F51B5' },
+            'neurology.html':                { icon: 'brain-circuit',     color: '#607D8B' },
+            'neurosurgery.html':             { icon: 'microscope',        color: '#009688' },
+            'orthopedic.html':               { icon: 'hammer',            color: '#795548' },
+            'ent.html':                       { icon: 'ear',               color: '#FF9800' },
+            'general-medicine.html':          { icon: 'syringe',           color: '#F44336' },
+            'urology.html':                   { icon: 'droplet',           color: '#03A9F4' },
+            'cardiology.html':               { icon: 'heart',             color: '#E91E63' },
+            'respiratory-therapy.html':       { icon: 'wind',              color: '#00BCD4' },
+            'neuro-psychology.html':          { icon: 'brain',             color: '#9C27B0' },
+            'rehab-village.html':             { icon: 'tree-pine',         color: '#4CAF50' },
+            'international-patients.html':    { icon: 'plane',             color: '#2196F3' },
+            'about.html':                     { icon: 'award',             color: '#FFD700' },
+            'index.html':                     { icon: 'home',              color: '#4CAF50' },
+        };
+
+        // Category fallbacks for items without specific URL matches
+        const catIconMap = {
+            'Treatments':    { icon: 'activity',    color: '#E91E63' },
+            'Conditions':    { icon: 'stethoscope', color: '#FF9800' },
+            'Departments':   { icon: 'building-2',  color: '#2196F3' },
+            'Specialities':  { icon: 'dumbbell',    color: '#FF9800' },
+            'Technologies':  { icon: 'bot',         color: '#00BCD4' },
+            'Doctors':       { icon: 'user-round',  color: '#E91E63' },
+            'Facilities':    { icon: 'building',    color: '#2196F3' },
+            'Rehab Village': { icon: 'tree-pine',   color: '#4CAF50' },
+            'FAQs':          { icon: 'help-circle', color: '#9C27B0' },
+            'Blogs':         { icon: 'book-open',   color: '#FF9800' },
+            'Pages':         { icon: 'file-text',   color: '#607D8B' },
+        };
+
+        const match = urlIconMap[url] || catIconMap[cat] || { icon: 'file-text', color: '#607D8B' };
+        return `<i data-lucide="${match.icon}" style="color: ${match.color}; width: 16px; height: 16px;"></i>`;
+    }
+
     function renderInitialState() {
         selectedIndex = -1;
         currentResults = [];
@@ -854,12 +943,12 @@ function initSearch() {
             <div>
                 <div class="search-section-title">Popular Searches</div>
                 <div class="search-popular-list">
-                    <button class="popular-search-item" data-query="Stroke Rehabilitation">🧠 Stroke Rehabilitation</button>
-                    <button class="popular-search-item" data-query="Parkinson's Disease">🤒 Parkinson's Treatment</button>
-                    <button class="popular-search-item" data-query="Speech Therapy">🏃 Speech Therapy</button>
-                    <button class="popular-search-item" data-query="Robotic Rehabilitation">🤖 Robotic Rehabilitation</button>
-                    <button class="popular-search-item" data-query="Physiotherapy">🏃 Physiotherapy</button>
-                    <button class="popular-search-item" data-query="Rehab Village">🏡 Rehab Village</button>
+                    <button class="popular-search-item" data-query="Stroke Rehabilitation"><i data-lucide="activity" style="color: #E91E63; width: 14px; height: 14px;"></i> Stroke Rehabilitation</button>
+                    <button class="popular-search-item" data-query="Parkinson's Disease"><i data-lucide="zap" style="color: #FFEB3B; width: 14px; height: 14px;"></i> Parkinson's Treatment</button>
+                    <button class="popular-search-item" data-query="Speech Therapy"><i data-lucide="message-circle" style="color: #2196F3; width: 14px; height: 14px;"></i> Speech Therapy</button>
+                    <button class="popular-search-item" data-query="Robotic Rehabilitation"><i data-lucide="bot" style="color: #00BCD4; width: 14px; height: 14px;"></i> Robotic Rehabilitation</button>
+                    <button class="popular-search-item" data-query="Physiotherapy"><i data-lucide="dumbbell" style="color: #FF9800; width: 14px; height: 14px;"></i> Physiotherapy</button>
+                    <button class="popular-search-item" data-query="Rehab Village"><i data-lucide="tree-pine" style="color: #4CAF50; width: 14px; height: 14px;"></i> Rehab Village</button>
                 </div>
             </div>
         `;
@@ -875,7 +964,7 @@ function initSearch() {
             recents.forEach(item => {
                 html += `
                     <a href="${item.url}" class="recent-search-item" data-recent-url="${item.url}">
-                        ${item.icon || '📄'} ${item.title}
+                        ${getLucideIconForItem(item)} ${item.title}
                     </a>
                 `;
             });
@@ -887,6 +976,10 @@ function initSearch() {
         
         html += '</div>';
         resultsContainer.innerHTML = html;
+
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
 
         // Bind clicks to suggestions
         resultsContainer.querySelectorAll('.popular-search-item').forEach(btn => {
@@ -1247,7 +1340,7 @@ function initSearch() {
                     <a href="${sug.url}" class="search-result-item suggested-item" data-index="${idx}" data-cat="${sug.category}">
                         <div class="search-result-item-left">
                             <div class="search-result-icon-wrapper">
-                                ${sug.icon || '📄'}
+                                ${getLucideIconForItem(sug)}
                             </div>
                             <div class="search-result-text">
                                 <span class="search-result-badge">${sug.category}</span>
@@ -1300,7 +1393,7 @@ function initSearch() {
                         <a href="${item.url}" class="search-result-item" data-index="${globalIdx}" data-cat="${item.category}">
                             <div class="search-result-item-left">
                                 <div class="search-result-icon-wrapper">
-                                    ${item.icon || '📄'}
+                                    ${getLucideIconForItem(item)}
                                 </div>
                                 <div class="search-result-text">
                                     <span class="search-result-badge">${item.category}</span>

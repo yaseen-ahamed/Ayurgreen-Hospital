@@ -893,7 +893,7 @@
                 object-fit: cover !important;
                 aspect-ratio: auto !important;
             }
-            
+
             .hero-img:not(.active) {
                 display: none !important;
             }
@@ -3480,7 +3480,10 @@
         <h1 class="sr-only">Ayurgreen Hospital – Integrated Ortho-Neuro Rehabilitation &amp; Ayurveda Hospital in Kerala</h1>
         <div class="hero-canvas-card">
             <img src="Assets/ayurgreen-hospital.webp" alt="Front view of Ayurgreen Hospital, integrated ortho-neuro rehabilitation and Ayurveda center in Kerala, India" class="hero-img active" width="2726" height="1536" loading="eager">
-            <img src="Assets/Rehab_Stories_Banner.webp" alt="Ayurgreen Hospital patient recovery success stories and integrated rehabilitation journey in Kerala" class="hero-img" width="2612" height="1469" loading="eager">
+            <picture>
+                <source media="(max-width: 768px)" srcset="Assets/AG%20Home%20Banner%20-%20Mobile.png">
+                <img src="Assets/Rehab_Stories_Banner.webp" alt="Ayurgreen Hospital patient recovery success stories and integrated rehabilitation journey in Kerala" class="hero-img" width="2612" height="1469" loading="eager">
+            </picture>
             <div class="hero-overlay-gradient"></div>
 
             <header class="hero-header">

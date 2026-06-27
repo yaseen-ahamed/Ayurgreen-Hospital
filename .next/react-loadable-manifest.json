@@ -1,0 +1,68 @@
+{
+  "components/hero/Hero.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/layout/Footer.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/layout/MegaMenu.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/AdmireEcosystemSection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/AyurgreenEcosystemSection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/LifeGallerySection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/OurAssociationsSection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/RehabVillagePreview.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/RehabilitationJourneySection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/StoriesSection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  },
+  "components/sections/UnderstandingSection.tsx -> ../../main.js": {
+    "id": 3628,
+    "files": [
+      "static/chunks/247.093c7c4c1d79ab2a.js"
+    ]
+  }
+}

@@ -1,14 +1,16 @@
 import { mountSidebarGlow } from './mount-sidebar-glow';
 
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
     mountSidebarGlow();
     // Initialize Lucide Icons
-    lucide.createIcons({
-      strokeWidth: 1.5,
-      attrs: {
-        'aria-hidden': 'true'
-      }
-    });
+    if (typeof window !== 'undefined' && window.lucide) {
+      window.lucide.createIcons({
+        strokeWidth: 1.5,
+        attrs: {
+          'aria-hidden': 'true'
+        }
+      });
+    }
   
     // Sticky Header Logic
     const header = document.querySelector('.hero-header');
@@ -156,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Search
     initSearch();
-});
+}
 
 // --- Liquid Glass Search Feature ---
 function initSearch() {
@@ -1555,6 +1557,14 @@ function initSearch() {
     // Bind hashchange events
     window.addEventListener('hashchange', checkAndOpenHashFAQ);
     setTimeout(checkAndOpenHashFAQ, 400); // Trigger once loaded
+}
+
+if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 }
 
 

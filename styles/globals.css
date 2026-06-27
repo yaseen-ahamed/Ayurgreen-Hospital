@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@import "./style.css";
+@import "./homepage-custom.css";
+@import "./mobile-optimizations.css";

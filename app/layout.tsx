@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   }
 };
 
+import Header from '@/components/layout/Header';
+import MegaMenu from '@/components/layout/MegaMenu';
+import Footer from '@/components/layout/Footer';
+
 export default function RootLayout({
   children,
 }: {
@@ -54,8 +58,11 @@ export default function RootLayout({
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="beforeInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="beforeInteractive" />
       </head>
-      <body>
-        {children}
+      <body suppressHydrationWarning>
+        <Header />
+        <MegaMenu />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

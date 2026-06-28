@@ -11,13 +11,12 @@ import StoriesSection from "@/components/sections/StoriesSection";
 import LifeGallerySection from "@/components/sections/LifeGallerySection";
 import AyurgreenEcosystemSection from "@/components/sections/AyurgreenEcosystemSection";
 import OurAssociationsSection from "@/components/sections/OurAssociationsSection";
-import Footer from "@/components/layout/Footer";
-import MegaMenu from "@/components/layout/MegaMenu";
 
 export default function Home() {
   return (
     <div className="w-full relative">
       <Hero />
+      <DifferentNationsSection />
       <UnderstandingSection />
       <AdmireEcosystemSection />
       <RehabilitationJourneySection />
@@ -26,9 +25,6 @@ export default function Home() {
       <LifeGallerySection />
       <AyurgreenEcosystemSection />
       <OurAssociationsSection />
-      <DifferentNationsSection />
-      <Footer />
-      <MegaMenu />
     </div>
   );
 }

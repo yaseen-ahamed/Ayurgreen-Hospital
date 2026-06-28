@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { galleryImages } from "../../gallery_data.js";
+import React, { useEffect } from 'react';
+import { galleryImages } from '../../gallery_data.js';
 
-export default function Hero() {
+export default function HomepageScripts() {
   useEffect(() => {
     let active = true;
     let videoSliderInterval: any;
@@ -1086,65 +1086,5 @@ export default function Hero() {
     };
   }, []);
 
-  return (
-    <>
-<section className="hero-canvas-wrapper" id="hero-section" aria-label="Hero Slider Banner">
-        <h1 className="sr-only">Ayurgreen Hospital – Integrated Ortho-Neuro Rehabilitation &amp; Ayurveda Hospital in Kerala
-        </h1>
-        <div className="hero-canvas-card">
-            <img src="Assets/ayurgreen-hospital.webp"
-                alt="Front view of Ayurgreen Hospital, integrated ortho-neuro rehabilitation and Ayurveda center in Kerala, India"
-                className="hero-img active" width="2726" height="1536" loading="eager" />
-            <picture>
-                <source media="(max-width: 768px)" srcSet="Assets/ag-home-banner-mobile.png" />
-                <img src="Assets/Rehab_Stories_Banner.webp"
-                    alt="Ayurgreen Hospital patient recovery success stories and integrated rehabilitation journey in Kerala"
-                    className="hero-img" width="2612" height="1469" loading="eager" />
-            </picture>
-            <div className="hero-overlay-gradient"></div>
-
-            <div className="main-content-block fade-up" style={{ "transitionDelay": "0.1s" }}>
-                <h2 className="main-title" id="hero-title">India’s First Robotic Integrated Neuro Rehabilitation Hospital
-                </h2>
-                <div className="main-sub" id="hero-sub" style={{ "marginTop": "16px" }}>
-                    Advanced robotic rehab, Ayurveda, and multidisciplinary care designed to restore independence and
-                    quality of life.
-                </div>
-            </div>
-
-
-            <div className="weather-widget fade-up" style={{ "transitionDelay": "0.15s" }} id="weather-widget">
-                <div className="weather-icon"><i data-lucide="cloud-sun" size="20"></i></div>
-                <div>
-                    <div className="weather-temp" id="weather-temp">--°C</div>
-                    <div className="weather-loc">Ayurgreen, Kerala</div>
-                </div>
-            </div>
-            <div className="bottom-left-badge fade-up" style={{ "transitionDelay": "0.2s" }}>
-                <div className="badge-avatars">
-                    <img src="https://flagcdn.com/w80/ae.webp" alt="United Arab Emirates flag" width="32" height="32" />
-                    <img src="https://flagcdn.com/w80/sa.webp" alt="Saudi Arabia flag" width="32" height="32" />
-                    <img src="https://flagcdn.com/w80/om.webp" alt="Oman flag" width="32" height="32" />
-                    <img src="https://flagcdn.com/w80/qa.webp" alt="Qatar flag" width="32" height="32" />
-                    <div className="plus-icon"><i data-lucide="check" size="14"></i></div>
-                </div>
-                <span>PATIENTS FROM 50+ COUNTRIES</span>
-            </div>
-
-            <div className="bottom-right-action fade-up" style={{ "transitionDelay": "0.3s" }}>
-                <a href="stroke-rehab.html" className="main-cta"><span className="cta-text" id="hero-cta-text">Stroke
-                        Rehabilitation</span>
-                    <span className="arrow-btn"><i data-lucide="arrow-up-right" size="14"></i></span></a>
-            </div>
-
-            <div className="hero-slider-nav fade-up" style={{ "transitionDelay": "0.3s" }}>
-                <button className="slider-nav-btn" id="hero-prev" aria-label="Previous Slide"><i data-lucide="arrow-left"
-                        size="18"></i></button>
-                <button className="slider-nav-btn" id="hero-next" aria-label="Next Slide"><i data-lucide="arrow-right"
-                        size="18"></i></button>
-            </div>
-        </div>
-    </section>
-    </>
-  );
+  return null;
 }

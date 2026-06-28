@@ -25,7 +25,7 @@ export function mountSidebarGlow() {
   const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
   if (isHomepage) return;
 
-  // Insert global style to ensure text inside dark cards is readable
+  // Insert global style to ensure text inside dark cards is readable and utility classes work
   if (!document.getElementById('glow-dark-theme-style')) {
     const style = document.createElement('style');
     style.id = 'glow-dark-theme-style';
@@ -58,6 +58,18 @@ export function mountSidebarGlow() {
       }
       .glow-dark-theme p, .glow-dark-theme .text-muted {
         color: rgba(255, 255, 255, 0.8) !important;
+      }
+      /* Tailwind utility fallbacks for legacy pages lacking Tailwind CSS */
+      .glow-card-bg-root .w-full { width: 100% !important; }
+      .glow-card-bg-root .h-full { height: 100% !important; }
+      .glow-card-bg-root .m-0 { margin: 0 !important; }
+      .glow-card-bg-root .p-0 { padding: 0 !important; }
+      .glow-card-bg-root .rounded-3xl { border-radius: 24px !important; }
+      .glow-card-bg-root .relative { position: relative !important; }
+      .glow-card-bg-root .grid { display: grid !important; }
+      .glow-card-bg-root .backdrop-blur-\\[5px\\] {
+        backdrop-filter: blur(5px) !important;
+        -webkit-backdrop-filter: blur(5px) !important;
       }
     `;
     document.head.appendChild(style);

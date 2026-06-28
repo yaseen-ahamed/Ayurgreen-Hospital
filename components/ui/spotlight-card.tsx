@@ -27,7 +27,7 @@ const sizeMap = {
 const GlowCard: React.FC<GlowCardProps> = ({ 
   children, 
   className = '', 
-  glowColor = 'green',
+  glowColor = 'blue',
   size = 'md',
   width,
   height,
@@ -41,10 +41,14 @@ const GlowCard: React.FC<GlowCardProps> = ({
       const { clientX: x, clientY: y } = e;
       
       if (cardRef.current) {
-        cardRef.current.style.setProperty('--x', x.toFixed(2));
-        cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
-        cardRef.current.style.setProperty('--y', y.toFixed(2));
-        cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
+        // Use local coordinates to prevent background-attachment: fixed bugs with backdrop-filter
+        const rect = cardRef.current.getBoundingClientRect();
+        const localX = x - rect.left;
+        const localY = y - rect.top;
+        cardRef.current.style.setProperty('--x', localX.toFixed(2));
+        cardRef.current.style.setProperty('--xp', (localX / rect.width).toFixed(2));
+        cardRef.current.style.setProperty('--y', localY.toFixed(2));
+        cardRef.current.style.setProperty('--yp', (localY / rect.height).toFixed(2));
       }
     };
 
@@ -67,8 +71,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
       '--base': base,
       '--spread': spread,
       '--radius': '14',
-      '--border': '1',
-      '--backdrop': 'rgba(20, 20, 20, 0.95)',
+      '--border': '3',
+      '--backdrop': 'hsl(0 0% 60% / 0.12)',
       '--backup-border': 'var(--backdrop)',
       '--size': '200',
       '--outer': '1',
@@ -82,12 +86,12 @@ const GlowCard: React.FC<GlowCardProps> = ({
         hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
       )`,
       backgroundColor: 'var(--backdrop, transparent)',
-      backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
-      backgroundPosition: '50% 50%',
-      backgroundAttachment: 'fixed',
+      backgroundSize: '100% 100%',
+      backgroundPosition: '0 0',
+      backgroundAttachment: 'scroll',
       border: 'var(--border-size) solid var(--backup-border)',
-      position: 'relative',
-      touchAction: 'none',
+      position: 'relative' as const,
+      touchAction: 'none' as const,
     };
 
     // Add width and height if provided
@@ -110,10 +114,16 @@ const GlowCard: React.FC<GlowCardProps> = ({
       inset: calc(var(--border-size) * -1);
       border: var(--border-size) solid transparent;
       border-radius: calc(var(--radius) * 1px);
-      background-attachment: fixed;
-      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+      background-attachment: scroll;
+      background-size: 100% 100%;
       background-repeat: no-repeat;
-      background-position: 50% 50%;
+      background-position: 0 0;
+      
+      /* Webkit prefix required for Chrome/Safari */
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      -webkit-mask-clip: padding-box, border-box;
+      
       mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
       mask-clip: padding-box, border-box;
       mask-composite: intersect;
@@ -167,10 +177,13 @@ const GlowCard: React.FC<GlowCardProps> = ({
         className={`
           ${getSizeClasses()}
           ${!customSize ? 'aspect-[3/4]' : ''}
-          rounded-3xl
+          rounded-2xl 
           relative 
           grid 
+          grid-rows-[1fr_auto] 
           shadow-[0_1rem_2rem_-1rem_black] 
+          p-4 
+          gap-4 
           backdrop-blur-[5px]
           ${className}
         `}

@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/occupational-therapy",
   hero: {
     bannerImage: "Assets/rehab/th_ot.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Occupational Therapy",

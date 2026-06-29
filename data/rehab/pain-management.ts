@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/pain-management",
   hero: {
     bannerImage: "Assets/rehab/prog_sciatica.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Pain Management",

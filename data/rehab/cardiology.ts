@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/cardiology",
   hero: {
     bannerImage: "Assets/rehab/th_physiotherapy.webp",
+    bannerType: "photo",
     label: "Modern Integrations",
     breadcrumbCategory: "Modern Integrations",
     title: "Cardiology",

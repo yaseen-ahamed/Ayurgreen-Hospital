@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/spinal-cord-injury",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/New/Spinal Cord Injury.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Spinal Cord Injury",

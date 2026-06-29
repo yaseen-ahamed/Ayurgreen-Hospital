@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/hydro-therapy",
   hero: {
     bannerImage: "Assets/rehab/th_aquatic.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Hydro / Aquatic Therapy",

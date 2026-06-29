@@ -2979,11 +2979,18 @@
             width: 100%;
             overflow: hidden;
             background-size: cover;
-            background-position: right center;
+            background-position: right center; /* Good for wide photos */
             display: flex;
             align-items: center;
             border-radius: 36px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .ayur-hero-banner.is-illustration {
+            background-size: contain;
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-color: #EBF4F9; /* Subtle matching background color */
         }
 
         @media (max-width: 1024px) {

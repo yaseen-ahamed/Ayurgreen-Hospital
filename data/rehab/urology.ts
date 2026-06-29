@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/urology",
   hero: {
     bannerImage: "Assets/rehab/prog_spinal_cord.webp",
+    bannerType: "photo",
     label: "Modern Integrations",
     breadcrumbCategory: "Modern Integrations",
     title: "Urology",

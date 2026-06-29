@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/counseling",
   hero: {
     bannerImage: "Assets/rehab/th_vr.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Counseling",

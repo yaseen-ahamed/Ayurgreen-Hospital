@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/rheumatoid-arthritis",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Rheumatoid Arthritis.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Rheumatoid Arthritis",

@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/muscular-dystrophy",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Muscular Dystrophy.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Muscular Dystrophy",

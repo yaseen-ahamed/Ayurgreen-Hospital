@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/quadriplegia-paraplegia",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Quadriplegia %26 Paraplegia.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Quadriplegia & Paraplegia",

@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/disc-spine-problems",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Disc %26 Spine Problems.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Disc & Spine Problems",

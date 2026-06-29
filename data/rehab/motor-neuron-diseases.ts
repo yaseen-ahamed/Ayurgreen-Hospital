@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/motor-neuron-diseases",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Motor Neuron Disease.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Motor Neuron Diseases",

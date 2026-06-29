@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/neuro-psychology",
   hero: {
     bannerImage: "Assets/rehab/th_vr.webp",
+    bannerType: "photo",
     label: "Modern Integrations",
     breadcrumbCategory: "Modern Integrations",
     title: "Neuro Psychology",

@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/parkinsons-disease",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Parkinson%27s Disease.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Parkinson's Disease",

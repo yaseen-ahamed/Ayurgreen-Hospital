@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/post-covid-complications",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/New/Post-Covid Complications.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Post-Covid Complications",

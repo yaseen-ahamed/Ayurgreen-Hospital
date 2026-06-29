@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/post-surgical-complications",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/New/Post-Surgical Complications.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Post-Surgical Complications",

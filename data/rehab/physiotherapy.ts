@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/physiotherapy",
   hero: {
     bannerImage: "Assets/rehab/th_physiotherapy.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Physiotherapy",

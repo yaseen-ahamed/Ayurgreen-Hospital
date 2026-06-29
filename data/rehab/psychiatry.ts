@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/psychiatry",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Psychiatry.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Psychiatry",

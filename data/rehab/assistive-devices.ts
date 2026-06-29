@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/assistive-devices",
   hero: {
     bannerImage: "Assets/rehab/th_ot.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Assistive Devices",

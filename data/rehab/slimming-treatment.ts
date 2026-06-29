@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/slimming-treatment",
   hero: {
     bannerImage: "Assets/rehab/th_aquatic.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Slimming Treatment",

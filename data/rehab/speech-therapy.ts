@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/speech-therapy",
   hero: {
     bannerImage: "Assets/rehab/th_speech.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Speech Therapy",

@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/cerebral-palsy",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Cerebral Palsy.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Cerebral Palsy",

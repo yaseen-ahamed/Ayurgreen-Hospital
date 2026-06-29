@@ -12,7 +12,7 @@ export default function RehabHero({ hero }: RehabHeroProps) {
   return (
     <div className="ayur-hero-wrapper">
       <div
-        className="ayur-hero-banner"
+        className={`ayur-hero-banner ${hero.bannerType === 'illustration' ? 'is-illustration' : ''}`}
         style={{ backgroundImage: `url('/${hero.bannerImage}')` }}
       >
         <div className="ayur-hero-overlay"></div>

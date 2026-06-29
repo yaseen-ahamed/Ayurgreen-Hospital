@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/developmental-delay",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Developmental Delay.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Developmental Delay",

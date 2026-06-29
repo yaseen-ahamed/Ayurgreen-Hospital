@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/osteoarthritis",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Osteoarthritis.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Osteoarthritis",

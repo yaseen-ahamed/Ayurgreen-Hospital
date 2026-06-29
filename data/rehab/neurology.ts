@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/neurology",
   hero: {
     bannerImage: "Assets/rehab/prog_stroke.webp",
+    bannerType: "photo",
     label: "Modern Integrations",
     breadcrumbCategory: "Modern Integrations",
     title: "Neurology",

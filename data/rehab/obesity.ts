@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/obesity",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Obesity.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Obesity",

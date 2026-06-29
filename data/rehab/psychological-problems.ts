@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/psychological-problems",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/New/Psychological Problems.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Psychological Problems",

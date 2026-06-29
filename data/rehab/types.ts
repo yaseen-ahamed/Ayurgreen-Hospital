@@ -2,6 +2,7 @@
 
 export interface HeroData {
   bannerImage: string;
+  bannerType?: "illustration" | "photo";
   label: string;
   breadcrumbCategory: string;
   title: string;

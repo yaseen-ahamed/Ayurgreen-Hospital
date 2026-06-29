@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/ayurveda",
   hero: {
     bannerImage: "Assets/rehab/th_shirodhara.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Ayurveda",

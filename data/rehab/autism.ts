@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/autism",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Autism.webp",
+    bannerType: "illustration",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Autism",

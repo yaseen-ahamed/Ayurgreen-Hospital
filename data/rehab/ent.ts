@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/ent",
   hero: {
     bannerImage: "Assets/rehab/th_speech.webp",
+    bannerType: "photo",
     label: "Modern Integrations",
     breadcrumbCategory: "Modern Integrations",
     title: "ENT",

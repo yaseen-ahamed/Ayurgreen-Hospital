@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/traumatic-brain-injury",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/New/Traumatic Brain Injury.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Traumatic Brain Injury",

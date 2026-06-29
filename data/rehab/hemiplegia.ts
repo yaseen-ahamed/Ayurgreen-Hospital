@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/hemiplegia",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Hemiplegia.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Hemiplegia",

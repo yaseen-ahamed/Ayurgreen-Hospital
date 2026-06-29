@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/robotic-rehab",
   hero: {
     bannerImage: "Assets/generated/robotic_rehab_exo_1776281782213.webp",
+    bannerType: "illustration",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Robotic Exoskeleton Therapy",

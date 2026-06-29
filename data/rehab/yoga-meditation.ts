@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/yoga-meditation",
   hero: {
     bannerImage: "Assets/generated/yoga_therapy.webp",
+    bannerType: "illustration",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Yoga and Meditation",

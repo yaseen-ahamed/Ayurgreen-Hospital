@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/acupuncture",
   hero: {
     bannerImage: "Assets/rehab/th_panchakarma.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Acupuncture",

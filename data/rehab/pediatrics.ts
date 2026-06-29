@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/pediatrics",
   hero: {
     bannerImage: "Assets/rehab/prog_cerebral_palsy.webp",
+    bannerType: "photo",
     label: "Departments",
     breadcrumbCategory: "Departments",
     title: "Pediatrics",

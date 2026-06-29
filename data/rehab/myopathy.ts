@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/myopathy",
   hero: {
     bannerImage: "Assets/AG Sub-pages Banner/Myopathy.webp",
+    bannerType: "photo",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Myopathy",

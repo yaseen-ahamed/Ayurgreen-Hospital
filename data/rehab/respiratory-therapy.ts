@@ -8,6 +8,7 @@ export const pageData: RehabPageData = {
   canonicalPath: "/respiratory-therapy",
   hero: {
     bannerImage: "Assets/rehab/th_physiotherapy.webp",
+    bannerType: "photo",
     label: "Modern Integrations",
     breadcrumbCategory: "Modern Integrations",
     title: "Respiratory Therapy",

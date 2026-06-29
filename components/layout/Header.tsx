@@ -1,8 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Header() {
+  useEffect(() => {
+    import('../../main.js')
+      .then(() => {
+        const win = window as any;
+        if (typeof win.initAyurgreen === 'function') {
+          win.initAyurgreen();
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to load main.js in Header:", err);
+      });
+  }, []);
+
   return (
     <header className="hero-header">
       <div className="header-left">

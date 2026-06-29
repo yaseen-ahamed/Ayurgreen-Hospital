@@ -1560,6 +1560,7 @@ function initSearch() {
 }
 
 if (typeof window !== 'undefined') {
+    window.initAyurgreen = init;
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

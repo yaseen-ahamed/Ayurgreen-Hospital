@@ -1161,31 +1161,33 @@ body {
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease, margin 0.3s ease, border-color 0.3s ease;
   background: rgba(0, 0, 0, 0.6) !important; /* Premium dark black card background */
+  backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0) !important;
-  border-radius: 24px !important;
+  border-radius: 32px !important;
   padding: 0 !important;
   margin: 0 !important;
   display: flex;
   flex-direction: column;
+  gap: 6px;
 }
 
 .mobile-nav-group.active .mobile-nav-dropdown-content {
-  padding: 8px !important;
+  padding: 16px !important;
   margin: 10px 8px !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .mobile-nav-dropdown-content a {
   display: flex !important;
   align-items: center !important;
   gap: 12px !important;
-  color: rgba(255, 255, 255, 0.75) !important;
-  padding: 6px 12px !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  border-radius: 99px !important; /* Capsule style border radius */
+  color: rgba(255, 255, 255, 0.85) !important;
+  padding: 8px 16px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  border-radius: 40px !important; /* Capsule style border radius */
   border: 1px solid transparent !important;
-  margin: 4px 0 !important;
+  margin: 0 !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   text-decoration: none;
 }
@@ -1194,7 +1196,7 @@ body {
 .mobile-nav-dropdown-content a i {
   width: 28px !important;
   height: 28px !important;
-  padding: 6px !important;
+  padding: 7px !important;
   box-sizing: border-box !important;
   border-radius: 50% !important;
   background: transparent !important;
@@ -1206,14 +1208,15 @@ body {
 }
 
 .mobile-nav-dropdown-content a:hover {
-  background: rgba(255, 255, 255, 0.08) !important; /* Subtle gray/white overlay */
-  border: 1px solid rgba(255, 255, 255, 0.15) !important; /* Premium capsule border outline */
+  background: rgba(255, 255, 255, 0.15) !important; /* Subtle gray/white overlay */
+  border: 1px solid rgba(255, 255, 255, 0.25) !important; /* Premium capsule border outline */
   color: #ffffff !important;
 }
 
 .mobile-nav-dropdown-content a:hover svg.lucide,
 .mobile-nav-dropdown-content a:hover i {
   background: #ffffff !important; /* Morph icon background into white circle */
+  padding: 6px !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
 }
 

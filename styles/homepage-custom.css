@@ -198,7 +198,6 @@
             gap: clamp(4px, 0.6vw, 6px);
             cursor: pointer;
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         .individual-pill:hover,
@@ -243,7 +242,6 @@
             margin-top: 16px;
             background: rgba(0, 0, 0, 0.6) !important;
             backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
             border: 1px solid rgba(255, 255, 255, 0.15) !important;
             border-radius: 32px;
             padding: 16px;
@@ -2345,7 +2343,6 @@
             padding: 5px 11px;
             background: rgba(0, 0, 0, 0.65);
             backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
             border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 20px;
             color: #fff !important;
@@ -2376,7 +2373,6 @@
             cursor: pointer;
             transition: background 0.2s;
             backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
             flex-shrink: 0;
             padding: 0;
         }
@@ -3068,7 +3064,6 @@
             padding: 0 24px;
             text-decoration: none;
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -3243,7 +3238,6 @@
             z-index: 10;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 8px 16px;
             border-radius: 30px;

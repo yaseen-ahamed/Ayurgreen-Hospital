@@ -778,7 +778,6 @@ body {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
@@ -900,7 +899,6 @@ body {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1.5px solid rgba(16, 185, 129, 0.15);
   padding: 8px 16px;
   border-radius: 99px;
@@ -1057,7 +1055,6 @@ body {
   max-height: calc(100vh - 120px);
   background: rgba(10, 17, 32, 0.98) !important;
   backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 28px !important;
   z-index: 1000;
@@ -1085,7 +1082,6 @@ body {
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -2061,4 +2057,4 @@ body {
 }
 
 
-
+

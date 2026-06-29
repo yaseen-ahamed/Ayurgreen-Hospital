@@ -11,9 +11,13 @@ export function middleware(request: NextRequest) {
   if (pathname === '/rehab-village.html') {
     return NextResponse.redirect(new URL('/rehab-village', request.url), 302);
   }
+
+  if (pathname === '/stroke-rehab.html') {
+    return NextResponse.redirect(new URL('/stroke-rehab', request.url), 302);
+  }
   
   // Fallback for unmigrated routes to recover from cached browser 301 redirects
-  const isMigratedRoute = pathname === '/' || pathname === '/rehab-village';
+  const isMigratedRoute = pathname === '/' || pathname === '/rehab-village' || pathname === '/stroke-rehab';
   const hasExtension = pathname.includes('.');
   const isNextInternal = pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname === '/favicon.ico';
   

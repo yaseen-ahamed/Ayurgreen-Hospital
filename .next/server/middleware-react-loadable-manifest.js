@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/hero/Hero.tsx -> ../../main.js\":{\"id\":\"components/hero/Hero.tsx -> ../../main.js\",\"files\":[\"static/chunks/_app-pages-browser_main_js.js\"]},\"components/layout/Header.tsx -> ../../main.js\":{\"id\":\"components/layout/Header.tsx -> ../../main.js\",\"files\":[\"static/chunks/_app-pages-browser_main_js.js\"]}}"

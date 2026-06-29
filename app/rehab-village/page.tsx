@@ -1024,7 +1024,7 @@ export default function RehabVillagePage() {
                 
                 <div className="rv-map-graphic">
                     
-                    <div style={{"position":"absolute","inset":"0","background":"url('Assets/generated/world_map_dots.webp') center/cover no-repeat","opacity":"0.15"}}></div>
+                    <div style={{"position":"absolute","inset":"0","background":"url(/Assets/generated/world_map_dots.webp') center/cover no-repeat","opacity":"0.15"}}></div>
                     <svg className="rv-map-connection" viewBox="0 0 500 400">
                         
                         

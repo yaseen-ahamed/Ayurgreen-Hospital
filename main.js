@@ -53,7 +53,7 @@ function init() {
         ];
         const subContents = [
             "India's integrated robotic-assisted ortho-neuro rehabilitation hospital combining advanced rehabilitation technology with Ayurveda and multidisciplinary care.",
-            `<img src="Assets/Rehab_Process_Transparent.webp" alt="Rehab Process Steps" width="1408" height="156" style="max-width: 100%; height: auto; display: block; margin-top: 24px;">`
+            `<img src="/Assets/Rehab_Process_Transparent.webp" alt="Rehab Process Steps" width="1408" height="156" style="max-width: 100%; height: auto; display: block; margin-top: 24px;">`
         ];
         
         function showSlide(index) {

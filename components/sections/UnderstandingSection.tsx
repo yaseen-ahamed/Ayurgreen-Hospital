@@ -32,7 +32,7 @@ export default function UnderstandingSection() {
                                 }
                             ` }} />
 
-                            <video id="ayurgreen-promo-video" src="Assets/Ayurgreen_Hospitals.webm" autoPlay loop
+                            <video id="ayurgreen-promo-video" src="/Assets/Ayurgreen_Hospitals.webm" autoPlay loop
                                 muted playsInline
                                 style={{ "width": "100%", "height": "100%", "objectFit": "cover", "display": "block" }}
                                 title="Ayurgreen Hospital Promotional Video"

@@ -38,7 +38,7 @@ export default function RehabilitationJourneySection() {
                     <div className="rehab-slider-clip" id="clip-programs">
                         <div className="rehab-cards-scroll" id="scroll-programs">
                             <a href="stroke-rehab.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Stroke.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Stroke.webp"
                                     alt="Stroke Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -55,7 +55,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="spinal-cord-injury.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Spinal Cord Injury.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Spinal Cord Injury.webp"
                                     alt="Spinal Cord Injury Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -71,7 +71,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="traumatic-brain-injury.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Traumatic Brain Injury.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Traumatic Brain Injury.webp"
                                     alt="Traumatic Brain Injury Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -87,7 +87,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="hemiplegia.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Hemiplegia.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Hemiplegia.webp"
                                     alt="Hemiplegia Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -103,7 +103,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="quadriplegia-paraplegia.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Quadriplegia &amp; Paraplegia.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Quadriplegia &amp; Paraplegia.webp"
                                     alt="Quadriplegia &amp; Paraplegia Rehabilitation at Ayurgreen Hospital"
                                     loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
@@ -120,7 +120,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="post-surgical-complications.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Post-Surgical Complications.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Post-Surgical Complications.webp"
                                     alt="Post-Surgical Complications Rehabilitation at Ayurgreen Hospital"
                                     loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
@@ -137,7 +137,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="motor-neuron-diseases.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Motor Neuron Disease.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Motor Neuron Disease.webp"
                                     alt="Motor Neuron Diseases Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -153,7 +153,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="cerebral-palsy.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Cerebral Palsy.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Cerebral Palsy.webp"
                                     alt="Cerebral Palsy Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -169,7 +169,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="parkinsons-disease.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Parkinson's Disease.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Parkinson's Disease.webp"
                                     alt="Parkinson's Disease Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -185,7 +185,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="myopathy.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Myopathy.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Myopathy.webp"
                                     alt="Myopathy Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -201,7 +201,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="disc-spine-problems.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Disc &amp; Spine Problems.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Disc &amp; Spine Problems.webp"
                                     alt="Disc &amp; Spine Problems treatment at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -217,7 +217,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="sciatica.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Sciatica.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Sciatica.webp"
                                     alt="Sciatica treatment at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -233,7 +233,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="obesity.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Obesity.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Obesity.webp"
                                     alt="Obesity treatment at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -249,7 +249,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="post-covid-complications.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Post-Covid Complications.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Post-Covid Complications.webp"
                                     alt="Post-Covid Complications Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -265,7 +265,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="muscular-dystrophy.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Muscular Dystrophy.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Muscular Dystrophy.webp"
                                     alt="Muscular Dystrophy Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -281,7 +281,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="osteoarthritis.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Osteoarthritis.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Osteoarthritis.webp"
                                     alt="Osteoarthritis Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -297,7 +297,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="rheumatoid-arthritis.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Rheumatoid Arthritis.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Rheumatoid Arthritis.webp"
                                     alt="Rheumatoid Arthritis Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -313,7 +313,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="developmental-delay.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Developmental Delay.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Developmental Delay.webp"
                                     alt="Developmental Delay Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -329,7 +329,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="psychological-problems.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Psychological Problems.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Psychological Problems.webp"
                                     alt="Psychological Problems Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -345,7 +345,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="autism.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Autism.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Autism.webp"
                                     alt="Autism Rehabilitation at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -361,7 +361,7 @@ export default function RehabilitationJourneySection() {
                             </a>
 
                             <a href="psychiatry.html" className="rehab-card">
-                                <img src="Assets/AG Sub-pages Banner/Psychiatry.webp"
+                                <img src="/Assets/AG Sub-pages Banner/Psychiatry.webp"
                                     alt="Psychiatry at Ayurgreen Hospital" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
                                 <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
@@ -395,7 +395,7 @@ export default function RehabilitationJourneySection() {
                         <div className="rehab-cards-scroll" id="scroll-therapies">
 
                             <a href="ayurveda.html" className="rehab-card">
-                                <img src="Assets/rehab/th_ayurveda.webp"
+                                <img src="/Assets/rehab/th_ayurveda.webp"
                                     alt="Authentic Kerala Ayurveda oil treatment at Ayurgreen Hospital" width="768"
                                     height="576" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>
@@ -420,7 +420,7 @@ export default function RehabilitationJourneySection() {
                                 mobility and function.</a>
 
                             <a href="robotic-rehab.html" className="rehab-card">
-                                <img src="Assets/rehab/th_robotic.webp"
+                                <img src="/Assets/rehab/th_robotic.webp"
                                     alt="High-repetition sensor-guided robotic gait training session" width="5333"
                                     height="4000" loading="lazy" />
                                 <div className="rehab-card-gradient"></div>

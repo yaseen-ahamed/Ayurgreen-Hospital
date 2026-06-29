@@ -30,7 +30,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="hospitals"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #059669" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/Logomark Ayurgreen.webp" alt="Ayurgreen Hospitals Logo"
+                            <img src="/Assets/Ayurgreen Ecosystem/Logomark Ayurgreen.webp" alt="Ayurgreen Hospitals Logo"
                                 width="379" height="401" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Ayurgreen Hospitals</h3>
@@ -50,7 +50,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="getwell"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #2563eb" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/Getwell Logo.webp" alt="Getwell Hospitals Logo"
+                            <img src="/Assets/Ayurgreen Ecosystem/Getwell Logo.webp" alt="Getwell Hospitals Logo"
                                 width="150" height="150" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Getwell Hospitals</h3>
@@ -70,7 +70,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="niramaya"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #0d9488" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/logo Niramaya.webp" alt="Niramaya Hospital Logo"
+                            <img src="/Assets/Ayurgreen Ecosystem/logo Niramaya.webp" alt="Niramaya Hospital Logo"
                                 width="2364" height="524" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Niramaya Hospital</h3>
@@ -90,7 +90,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="herbals"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #15803d" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/Green Health Logo.webp" alt="Green Health Herbals Logo"
+                            <img src="/Assets/Ayurgreen Ecosystem/Green Health Logo.webp" alt="Green Health Herbals Logo"
                                 width="150" height="38" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Green Health Herbals</h3>
@@ -110,7 +110,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="college"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #4f46e5" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/Ayurgreen College.webp"
+                            <img src="/Assets/Ayurgreen Ecosystem/Ayurgreen College.webp"
                                 alt="Ayurgreen College of Life Sciences Logo" width="250" height="250" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Ayurgreen College of Life Sciences</h3>
@@ -130,7 +130,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="scientifica"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #7c3aed" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/ayurgreen Scientifica Logo.webp"
+                            <img src="/Assets/Ayurgreen Ecosystem/ayurgreen Scientifica Logo.webp"
                                 alt="Ayurgreen Scientifica Logo" width="173" height="300" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Ayurgreen Scientifica</h3>
@@ -150,7 +150,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="shadarasa"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #db2777" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/Shadrasa Logo.webp" alt="Shadarasa Logo" width="150"
+                            <img src="/Assets/Ayurgreen Ecosystem/Shadrasa Logo.webp" alt="Shadarasa Logo" width="150"
                                 height="120" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Shadarasa</h3>
@@ -190,7 +190,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="foundation"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #b91c1c" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/AG Foundation Logo.webp"
+                            <img src="/Assets/Ayurgreen Ecosystem/AG Foundation Logo.webp"
                                 alt="Ayurgreen Foundation Logo" width="150" height="72" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">Ayurgreen Foundation</h3>
@@ -210,7 +210,7 @@ export default function AyurgreenEcosystemSection() {
                     <div className="eco-card" data-eco-card="acfhe"
                         style={{ "background": "linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%), #0284c7" }}>
                         <div className="eco-card-logo-badge">
-                            <img src="Assets/Ayurgreen Ecosystem/ACFHE Logo.webp" alt="ACFHE Logo" width="1563"
+                            <img src="/Assets/Ayurgreen Ecosystem/ACFHE Logo.webp" alt="ACFHE Logo" width="1563"
                                 height="648" loading="lazy" />
                         </div>
                         <h3 className="eco-card-title">ACFHE</h3>

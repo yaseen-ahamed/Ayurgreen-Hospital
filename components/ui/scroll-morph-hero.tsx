@@ -245,7 +245,7 @@ export default function DifferentNationsSection() {
                             }}
                         >
                             <img
-                                src="Assets/Logo/international_patients_transparent.webp"
+                                src="/Assets/Logo/international_patients_transparent.webp"
                                 alt="International Patients"
                                 width={1856}
                                 height={1376}

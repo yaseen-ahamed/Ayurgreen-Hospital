@@ -13,7 +13,7 @@ export default function Footer() {
                 {/*  Column 1: Brand & About  */}
                 <div className="minimal-footer-col">
                     <a href="index.html">
-                        <img src="Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital Logo" className="minimal-footer-logo"
+                        <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital Logo" className="minimal-footer-logo"
                             width="1656" height="1344" loading="lazy" />
                     </a>
                     <p className="minimal-footer-text">
@@ -25,7 +25,7 @@ export default function Footer() {
                             aria-label="Facebook" style={{ "display": "flex", "transition": "transform 0.2s ease" }}
                             onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
                             onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
-                            <img src="Assets/facebook.webp" alt="Facebook" width="28" height="28"
+                            <img src="/Assets/facebook.webp" alt="Facebook" width="28" height="28"
                                 style={{ "objectFit": "contain", "display": "block" }} />
                         </a>
                         <a href="https://www.instagram.com/ayurgreen_hospitals/" target="_blank"
@@ -33,7 +33,7 @@ export default function Footer() {
                             style={{ "display": "flex", "transition": "transform 0.2s ease" }}
                             onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
                             onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
-                            <img src="Assets/instagram.webp" alt="Instagram" width="34" height="34"
+                            <img src="/Assets/instagram.webp" alt="Instagram" width="34" height="34"
                                 style={{ "objectFit": "contain", "display": "block" }} />
                         </a>
                         <a href="https://www.linkedin.com/company/ayurgreen-hospitals/" target="_blank"
@@ -41,7 +41,7 @@ export default function Footer() {
                             style={{ "display": "flex", "transition": "transform 0.2s ease" }}
                             onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
                             onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
-                            <img src="Assets/linkedin.webp" alt="LinkedIn" width="28" height="28"
+                            <img src="/Assets/linkedin.webp" alt="LinkedIn" width="28" height="28"
                                 style={{ "objectFit": "contain", "display": "block" }} />
                         </a>
                         {/*  <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Md Tanvirul Haque - Flaticon</a>  */}
@@ -50,7 +50,7 @@ export default function Footer() {
                             style={{ "display": "flex", "transition": "transform 0.2s ease" }}
                             onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
                             onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}>
-                            <img src="Assets/youtube.webp" alt="YouTube" width="28" height="28"
+                            <img src="/Assets/youtube.webp" alt="YouTube" width="28" height="28"
                                 style={{ "objectFit": "contain", "display": "block" }}
                                 title="Youtube icons created by Md Tanvirul Haque - Flaticon" />
                         </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                             <a href="tel:+918943055555" style={{ "display": "block", "marginBottom": "4px" }}>+91 89430 55555</a>
                             <a href="https://wa.me/918943055555" target="_blank" rel="noopener noreferrer"
                                 style={{ "color": "#10b981", "fontSize": "13.5px", "display": "inline-flex", "alignItems": "center", "gap": "4px" }}>
-                                <img src="Assets/logo.webp" alt="WhatsApp" width="16" height="16"
+                                <img src="/Assets/logo.webp" alt="WhatsApp" width="16" height="16"
                                     style={{ "objectFit": "contain", "marginTop": "-2px" }} /> WhatsApp
                             </a>
                         </div>

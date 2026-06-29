@@ -18,7 +18,7 @@ export default function AdmireEcosystemSection() {
                 {/*  Section Header  */}
                 <div className="admire-header">
                     <div style={{ "display": "flex", "alignItems": "center", "justifyContent": "center", "gap": "24px" }}>
-                        <img src="Assets/Logo/ADMIRE Logo.webp"
+                        <img src="/Assets/Logo/ADMIRE Logo.webp"
                             alt="ADMIRE (Advanced Modalities in Rehabilitative Engineering) Logo" width="281"
                             height="155" loading="lazy" style={{ "height": "90px", "width": "auto", "objectFit": "contain" }} />
                         <div style={{ "textAlign": "left", "borderLeft": "2px solid #10b981", "paddingLeft": "20px" }}>
@@ -94,7 +94,7 @@ export default function AdmireEcosystemSection() {
 
                             {/*  Central image framed  */}
                             <div className="admire-center-image-frame" id="admire-centerpiece">
-                                <img src="Assets/Programs/Virtual Reality.webp"
+                                <img src="/Assets/Programs/Virtual Reality.webp"
                                     alt="Therapist guiding a patient through Virtual Reality cognitive rehabilitation session at Ayurgreen Hospital"
                                     width="1024" height="576" loading="lazy" />
                             </div>

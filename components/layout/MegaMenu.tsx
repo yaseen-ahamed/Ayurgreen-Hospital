@@ -11,7 +11,7 @@ export default function MegaMenu() {
         aria-label="Mobile Navigation Menu">
         <div className="mobile-menu-header">
             <a href="index.html" className="mobile-menu-logo-link">
-                <img src="Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital logo" className="mobile-menu-logo"
+                <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital logo" className="mobile-menu-logo"
                     width="1656" height="1344" loading="lazy" />
             </a>
             <button className="mobile-menu-close-btn" id="mobile-menu-close-btn" aria-label="Close Navigation Menu">

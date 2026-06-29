@@ -62,11 +62,11 @@ export default function Footer() {
                 <div className="minimal-footer-col">
                     <h4>Quick Links</h4>
                     <div className="minimal-footer-links" style={{ "marginBottom": "24px" }}>
-                        <a href="about.html">About Us</a>
+                        <a href="/about">About Us</a>
                         <a href="/rehab-village">Rehab Village</a>
                         <a href="javascript:void(0)"
                             style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>All Specialities</a>
-                        <a href="international-patients.html">International Patients</a>
+                        <a href="/international-patients">International Patients</a>
                     </div>
                     <h4>Contact Us</h4>
                     <div className="minimal-contact-item">

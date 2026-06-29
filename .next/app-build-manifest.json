@@ -11,6 +11,42 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/speech-therapy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/speech-therapy/page.css",
+      "static/chunks/app/speech-therapy/page.js"
+    ],
+    "/general-medicine/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/general-medicine/page.css",
+      "static/chunks/app/general-medicine/page.js"
+    ],
+    "/cerebral-palsy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/cerebral-palsy/page.css",
+      "static/chunks/app/cerebral-palsy/page.js"
+    ],
+    "/sciatica/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/sciatica/page.css",
+      "static/chunks/app/sciatica/page.js"
+    ],
+    "/psychiatry/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/psychiatry/page.css",
+      "static/chunks/app/psychiatry/page.js"
+    ],
+    "/parkinsons-disease/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/parkinsons-disease/page.css",
+      "static/chunks/app/parkinsons-disease/page.js"
+    ],
     "/rehab-village/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -23,65 +59,40 @@
       "static/css/app/rehab-village/page.css",
       "static/chunks/app/rehab-village/page.js"
     ],
+    "/acupuncture/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/acupuncture/page.css",
+      "static/chunks/app/acupuncture/page.js"
+    ],
+    "/motor-neuron-diseases/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/motor-neuron-diseases/page.css",
+      "static/chunks/app/motor-neuron-diseases/page.js"
+    ],
     "/stroke-rehab/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/stroke-rehab/page.css",
       "static/chunks/app/stroke-rehab/page.js"
     ],
-    "/hemiplegia/page": [
+    "/spinal-cord-injury/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/hemiplegia/page.css",
-      "static/chunks/app/hemiplegia/page.js"
-    ],
-    "/quadriplegia-paraplegia/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/quadriplegia-paraplegia/page.css",
-      "static/chunks/app/quadriplegia-paraplegia/page.js"
-    ],
-    "/cerebral-palsy/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/cerebral-palsy/page.css",
-      "static/chunks/app/cerebral-palsy/page.js"
-    ],
-    "/disc-spine-problems/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/disc-spine-problems/page.css",
-      "static/chunks/app/disc-spine-problems/page.js"
-    ],
-    "/developmental-delay/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/developmental-delay/page.css",
-      "static/chunks/app/developmental-delay/page.js"
-    ],
-    "/rheumatoid-arthritis/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/rheumatoid-arthritis/page.css",
-      "static/chunks/app/rheumatoid-arthritis/page.js"
-    ],
-    "/psychological-problems/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/psychological-problems/page.css",
-      "static/chunks/app/psychological-problems/page.js"
-    ],
-    "/psychiatry/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/psychiatry/page.css",
-      "static/chunks/app/psychiatry/page.js"
+      "static/css/app/spinal-cord-injury/page.css",
+      "static/chunks/app/spinal-cord-injury/page.js"
     ],
     "/post-surgical-complications/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/post-surgical-complications/page.css",
       "static/chunks/app/post-surgical-complications/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

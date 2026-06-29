@@ -8,6 +8,7 @@ import {
   Sunset, Eye, Feather, BarChart, Siren, Pill, Globe, Tablet, LucideIcon
 } from "lucide-react";
 import type { TechnologiesData } from "@/data/rehab/types";
+import { getTheme } from "@/data/rehab/themes";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   activity: Activity, bone: Bone, brain: Brain, accessibility: Accessibility,
@@ -21,20 +22,38 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 interface RehabTechnologiesProps {
   technologies: TechnologiesData;
+  slug: string;
 }
 
-export default function RehabTechnologies({ technologies }: RehabTechnologiesProps) {
+export default function RehabTechnologies({ technologies, slug }: RehabTechnologiesProps) {
+  const theme = getTheme(slug);
+
   return (
-    <section id="technologies" className="ayur-tech-outer">
-      <div className="ayur-container">
+    <section
+      id="technologies"
+      className="ayur-tech-outer ayur-dark-section"
+      style={{
+        "--theme-gradient": theme.gradient,
+        "--theme-orb1": theme.orb1,
+        "--theme-orb2": theme.orb2,
+        "--theme-orb3": theme.orb3,
+        "--theme-accent": theme.accent,
+      } as React.CSSProperties}
+    >
+      {/* Ambient glow orbs */}
+      <div className="ayur-dark-orb ayur-dark-orb-1" />
+      <div className="ayur-dark-orb ayur-dark-orb-2" />
+      <div className="ayur-dark-orb ayur-dark-orb-3" />
+
+      <div className="ayur-container" style={{ position: "relative", zIndex: 2 }}>
         <div className="ayur-section-header">
-          <span className="ayur-section-label" style={{ color: "var(--primary-green)" }}>
+          <span className="ayur-section-label ayur-dark-label">
             {technologies.sectionLabel}
           </span>
-          <h2 className="ayur-section-title" style={{ color: "#0c1938" }}>
+          <h2 className="ayur-section-title ayur-dark-title">
             {technologies.sectionTitle}
           </h2>
-          <p className="ayur-section-support" style={{ color: "rgba(12, 25, 56, 0.85)" }}>
+          <p className="ayur-section-support ayur-dark-support">
             {technologies.sectionSupport}
           </p>
         </div>
@@ -42,14 +61,14 @@ export default function RehabTechnologies({ technologies }: RehabTechnologiesPro
           {technologies.cards.map((card, i) => {
             const IconComponent = ICON_MAP[card.icon] ?? Activity;
             return (
-              <div key={i} className="ayur-tech-card">
+              <div key={i} className="ayur-tech-card ayur-glass-card">
                 <div className="ayur-tech-card-title-row">
-                  <span className="ayur-tech-card-icon">
+                  <span className="ayur-tech-card-icon ayur-dark-icon">
                     <IconComponent size={24} />
                   </span>
-                  <h3 className="ayur-tech-card-title">{card.title}</h3>
+                  <h3 className="ayur-tech-card-title ayur-dark-card-title">{card.title}</h3>
                 </div>
-                <p className="ayur-tech-card-desc">{card.description}</p>
+                <p className="ayur-tech-card-desc ayur-dark-card-desc">{card.description}</p>
               </div>
             );
           })}

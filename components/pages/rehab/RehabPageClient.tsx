@@ -73,9 +73,9 @@ export default function RehabPageClient({ data }: RehabPageClientProps) {
           {/* Content Sections */}
           <div className="ayur-content-col ayur-sidebar-content">
             <RehabOverview overview={data.overview} />
-            <RehabConditions conditions={data.conditions} />
+            <RehabConditions conditions={data.conditions} slug={data.slug} />
             <RehabTreatments treatments={data.treatments} />
-            <RehabTechnologies technologies={data.technologies} />
+            <RehabTechnologies technologies={data.technologies} slug={data.slug} />
             <RehabJourney />
             <RehabFAQ faq={data.faq} />
             <RehabCTA />

@@ -14,11 +14,6 @@
     }
 
     /* Convert row-based flex layouts to stack if they overflow or have large gaps, but mostly handled by tailwind */
-    .hero-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 16px !important;
-    }
     
     .nav-pills-container {
         flex-wrap: wrap !important;
@@ -83,10 +78,6 @@
 
 /* Tablet Specific Tweaks */
 @media (min-width: 768px) and (max-width: 1023px) {
-    .hero-header {
-        flex-direction: row !important;
-        align-items: center !important;
-    }
     .nav-pills-container {
         flex-wrap: wrap !important;
     }

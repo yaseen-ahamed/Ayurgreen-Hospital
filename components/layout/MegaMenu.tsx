@@ -5,6 +5,85 @@ import Link from "next/link";
 import { galleryImages } from "../../gallery_data.js";
 
 export default function MegaMenu() {
+  useEffect(() => {
+    const menuBtn = document.getElementById('menu-btn');
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const closeBtn = document.getElementById('mobile-menu-close-btn');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+    const triggers = document.querySelectorAll('.mobile-nav-trigger');
+
+    if (!menuBtn || !drawer || !backdrop) return;
+
+    function openMenu() {
+      drawer!.classList.add('active');
+      backdrop!.classList.add('active');
+      drawer!.setAttribute('aria-hidden', 'false');
+      backdrop!.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      drawer!.classList.remove('active');
+      backdrop!.classList.remove('active');
+      drawer!.setAttribute('aria-hidden', 'true');
+      backdrop!.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    const handleMenuClick = (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (window.innerWidth > 1024) return;
+      if (drawer!.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    };
+
+    menuBtn.addEventListener('click', handleMenuClick as any);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    const drawerLinks = drawer.querySelectorAll('a');
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    const triggerHandlers: { trigger: Element, handler: (e: Event) => void }[] = [];
+
+    triggers.forEach(trigger => {
+      const handler = function (this: HTMLElement, e: Event) {
+        e.preventDefault();
+        const parent = this.parentElement!;
+        const content = parent.querySelector('.mobile-nav-dropdown-content') as HTMLElement;
+        const icon = this.querySelector('[data-lucide="chevron-down"]') as HTMLElement;
+
+        const isActive = parent.classList.toggle('active');
+        if (isActive) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        } else {
+          content.style.maxHeight = '0px';
+          if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+      };
+      trigger.addEventListener('click', handler as any);
+      triggerHandlers.push({ trigger, handler: handler as any });
+    });
+
+    return () => {
+      menuBtn.removeEventListener('click', handleMenuClick as any);
+      if (closeBtn) closeBtn.removeEventListener('click', closeMenu);
+      backdrop.removeEventListener('click', closeMenu);
+      drawerLinks.forEach(link => {
+        link.removeEventListener('click', closeMenu);
+      });
+      triggerHandlers.forEach(({ trigger, handler }) => {
+        trigger.removeEventListener('click', handler);
+      });
+    };
+  }, []);
 
   return (
     <>

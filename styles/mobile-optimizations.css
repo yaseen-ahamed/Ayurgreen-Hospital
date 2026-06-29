@@ -46,7 +46,6 @@
     /* Hero Canvas Adjustments */
     .hero-canvas-wrapper {
         min-height: 600px !important;
-        height: auto !important;
         padding: 8px !important;
     }
 

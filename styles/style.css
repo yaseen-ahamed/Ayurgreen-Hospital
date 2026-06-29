@@ -1115,17 +1115,16 @@ body {
 .mobile-nav-link,
 .mobile-nav-trigger {
   background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-  border-radius: 0 !important;
-  padding: 14px 8px !important;
+  border: 1px solid transparent !important;
+  border-radius: 40px !important;
+  padding: 12px 20px !important;
   font-size: 15px !important;
   color: rgba(255, 255, 255, 0.95) !important;
   font-weight: 500 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  margin-bottom: 0 !important;
+  margin: 4px 0 !important;
   box-sizing: border-box !important;
   width: 100%;
   text-decoration: none;
@@ -1135,10 +1134,12 @@ body {
 }
 
 .mobile-nav-link:hover,
-.mobile-nav-trigger:hover {
-  background: rgba(255, 255, 255, 0.04) !important;
-  color: #10b981 !important; /* Premium Emerald green hover color */
-  padding-left: 12px !important;
+.mobile-nav-trigger:hover,
+.mobile-nav-group.active .mobile-nav-trigger {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  padding-left: 20px !important;
 }
 
 .mobile-nav-group {
@@ -1149,11 +1150,12 @@ body {
 
 .mobile-nav-trigger [data-lucide="chevron-down"] {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.mobile-nav-trigger:hover [data-lucide="chevron-down"] {
-  color: #10b981;
+.mobile-nav-trigger:hover [data-lucide="chevron-down"],
+.mobile-nav-group.active .mobile-nav-trigger [data-lucide="chevron-down"] {
+  color: #ffffff !important;
 }
 
 .mobile-nav-dropdown-content {

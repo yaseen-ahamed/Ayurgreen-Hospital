@@ -61,7 +61,7 @@ export default function MegaMenu() {
 
         const isActive = parent.classList.toggle('active');
         if (isActive) {
-          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.maxHeight = (content.scrollHeight + 40) + 'px';
           if (icon) icon.style.transform = 'rotate(180deg)';
         } else {
           content.style.maxHeight = '0px';

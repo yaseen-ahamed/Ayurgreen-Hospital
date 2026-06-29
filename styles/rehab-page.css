@@ -456,18 +456,14 @@
 }
 
 /* ── Edge spacing inside dark sections ──
-   Inside .ayur-sidebar-content the container padding is zeroed;
-   restore it so cards don’t bleed into the rounded corners. */
-.ayur-dark-section .ayur-container {
-    padding: 0 32px !important;
-}
-
+   Padding lives on the SECTION itself (the dark rounded box) so it
+   is immune to the .ayur-sidebar-content .ayur-container { padding: 0 } override. */
 .ayur-dark-section.ayur-tech-outer {
-    padding: 72px 0;
+    padding: 72px 36px;
 }
 
 .ayur-dark-section.ayur-section-medium {
-    padding: 56px 0;
+    padding: 56px 36px;
 }
 
 /* ── Recovery Journey ── */

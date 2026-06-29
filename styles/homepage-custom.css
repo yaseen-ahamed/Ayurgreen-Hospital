@@ -2954,6 +2954,12 @@
         }
 
         /* --- Shared Hero Banner Styles (framed layout) --- */
+        body:has(.hero-canvas-wrapper) .hero-header {
+            left: calc(clamp(16px, 4vw, 48px) + 16px) !important;
+            right: calc(clamp(16px, 4vw, 48px) + 16px) !important;
+            top: calc(clamp(16px, 2.5vw, 32px) + 16px) !important;
+        }
+
         body:has(.ayur-hero-wrapper) .hero-header {
             left: clamp(32px, 5vw, 64px) !important;
             right: clamp(32px, 5vw, 64px) !important;

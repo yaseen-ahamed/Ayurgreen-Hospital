@@ -109,6 +109,7 @@
     }
 
     /* 3. Place hamburger and search perfectly as in homepage */
+    body:has(.hero-canvas-wrapper) .hero-header,
     body:has(.ayur-page-main) .hero-header,
     body:has(.rv-main) .hero-header {
         flex-direction: row !important;

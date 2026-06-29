@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Link from "next/link";
 
 export default function Header() {
   useEffect(() => {
@@ -181,9 +182,9 @@ export default function Header() {
         </nav>
       </div>
 
-      <a href="index.html" className="header-center-link">
+      <Link href="/" className="header-center-link">
         <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital logo" width="1656" height="1344" />
-      </a>
+      </Link>
 
       <div className="header-right">
         <div className="nav-item-wrapper">

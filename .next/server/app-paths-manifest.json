@@ -1,0 +1,22 @@
+{
+  "/hemiplegia/page": "app/hemiplegia/page.js",
+  "/spinal-cord-injury/page": "app/spinal-cord-injury/page.js",
+  "/traumatic-brain-injury/page": "app/traumatic-brain-injury/page.js",
+  "/quadriplegia-paraplegia/page": "app/quadriplegia-paraplegia/page.js",
+  "/post-surgical-complications/page": "app/post-surgical-complications/page.js",
+  "/motor-neuron-diseases/page": "app/motor-neuron-diseases/page.js",
+  "/cerebral-palsy/page": "app/cerebral-palsy/page.js",
+  "/parkinsons-disease/page": "app/parkinsons-disease/page.js",
+  "/myopathy/page": "app/myopathy/page.js",
+  "/muscular-dystrophy/page": "app/muscular-dystrophy/page.js",
+  "/disc-spine-problems/page": "app/disc-spine-problems/page.js",
+  "/sciatica/page": "app/sciatica/page.js",
+  "/obesity/page": "app/obesity/page.js",
+  "/post-covid-complications/page": "app/post-covid-complications/page.js",
+  "/osteoarthritis/page": "app/osteoarthritis/page.js",
+  "/rheumatoid-arthritis/page": "app/rheumatoid-arthritis/page.js",
+  "/developmental-delay/page": "app/developmental-delay/page.js",
+  "/psychological-problems/page": "app/psychological-problems/page.js",
+  "/autism/page": "app/autism/page.js",
+  "/psychiatry/page": "app/psychiatry/page.js"
+}

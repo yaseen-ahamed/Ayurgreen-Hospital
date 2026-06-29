@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/styles/stroke-rehab.css";
+import "@/styles/rehab-page.css";
 import StrokeRehabClient from "@/components/stroke-rehab/StrokeRehabClient";
 
 export const metadata: Metadata = {

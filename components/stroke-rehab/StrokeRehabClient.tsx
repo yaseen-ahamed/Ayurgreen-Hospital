@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import StrokeHero from "./StrokeHero";
-import DepartmentSidebar from "./DepartmentSidebar";
+import DepartmentSidebar from "../pages/rehab/DepartmentSidebar";
 import StrokeOverview from "./StrokeOverview";
 import StrokeConditions from "./StrokeConditions";
 import StrokeTreatments from "./StrokeTreatments";

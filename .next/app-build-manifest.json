@@ -1,0 +1,153 @@
+{
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/stroke-rehab/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/stroke-rehab/page.css",
+      "static/chunks/app/stroke-rehab/page.js"
+    ],
+    "/rehab-village/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/rehab-village/layout.css",
+      "static/chunks/app/rehab-village/layout.js"
+    ],
+    "/rehab-village/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/rehab-village/page.css",
+      "static/chunks/app/rehab-village/page.js"
+    ],
+    "/hemiplegia/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/hemiplegia/page.css",
+      "static/chunks/app/hemiplegia/page.js"
+    ],
+    "/spinal-cord-injury/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/spinal-cord-injury/page.css",
+      "static/chunks/app/spinal-cord-injury/page.js"
+    ],
+    "/traumatic-brain-injury/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/traumatic-brain-injury/page.css",
+      "static/chunks/app/traumatic-brain-injury/page.js"
+    ],
+    "/quadriplegia-paraplegia/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/quadriplegia-paraplegia/page.css",
+      "static/chunks/app/quadriplegia-paraplegia/page.js"
+    ],
+    "/post-surgical-complications/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/post-surgical-complications/page.css",
+      "static/chunks/app/post-surgical-complications/page.js"
+    ],
+    "/motor-neuron-diseases/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/motor-neuron-diseases/page.css",
+      "static/chunks/app/motor-neuron-diseases/page.js"
+    ],
+    "/cerebral-palsy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/cerebral-palsy/page.css",
+      "static/chunks/app/cerebral-palsy/page.js"
+    ],
+    "/parkinsons-disease/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/parkinsons-disease/page.css",
+      "static/chunks/app/parkinsons-disease/page.js"
+    ],
+    "/myopathy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/myopathy/page.css",
+      "static/chunks/app/myopathy/page.js"
+    ],
+    "/muscular-dystrophy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/muscular-dystrophy/page.css",
+      "static/chunks/app/muscular-dystrophy/page.js"
+    ],
+    "/disc-spine-problems/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/disc-spine-problems/page.css",
+      "static/chunks/app/disc-spine-problems/page.js"
+    ],
+    "/sciatica/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/sciatica/page.css",
+      "static/chunks/app/sciatica/page.js"
+    ],
+    "/obesity/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/obesity/page.css",
+      "static/chunks/app/obesity/page.js"
+    ],
+    "/post-covid-complications/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/post-covid-complications/page.css",
+      "static/chunks/app/post-covid-complications/page.js"
+    ],
+    "/osteoarthritis/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/osteoarthritis/page.css",
+      "static/chunks/app/osteoarthritis/page.js"
+    ],
+    "/rheumatoid-arthritis/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/rheumatoid-arthritis/page.css",
+      "static/chunks/app/rheumatoid-arthritis/page.js"
+    ],
+    "/developmental-delay/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/developmental-delay/page.css",
+      "static/chunks/app/developmental-delay/page.js"
+    ],
+    "/psychological-problems/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/psychological-problems/page.css",
+      "static/chunks/app/psychological-problems/page.js"
+    ],
+    "/autism/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/autism/page.css",
+      "static/chunks/app/autism/page.js"
+    ],
+    "/psychiatry/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/psychiatry/page.css",
+      "static/chunks/app/psychiatry/page.js"
+    ]
+  }
+}

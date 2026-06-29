@@ -1,0 +1,141 @@
+import type { RehabPageData } from "./types";
+
+export const pageData: RehabPageData = {
+  slug: "parkinsons-disease",
+  sidebarId: "parkinsons",
+  metaTitle: "Parkinson's Disease Rehabilitation & Care | Ayurgreen Hospital",
+  metaDescription: "Delaying progression and maintaining active motor coordination through tailored Ayurvedic protocols and sensory exercises.",
+  canonicalPath: "/parkinsons-disease",
+  hero: {
+    bannerImage: "Assets/AG Sub-pages Banner/New/Parkinsons-Disease.webp",
+    label: "Rehabilitation Program",
+    breadcrumbCategory: "Specialities",
+    title: "Parkinson's Disease",
+    subtitle: "Delaying progression and maintaining active motor coordination through tailored Ayurvedic protocols and sensory exercises.",
+  },
+  overview: {
+    sectionLabel: "OVERVIEW",
+    title: "Parkinson's Disease Management: Living Well, Moving Well",
+    paragraphs: ["Parkinson's Disease (PD) is a progressive neurological disorder affecting the brain's dopamine-producing neurons, causing the characteristic features of tremor, rigidity, slowness of movement (bradykinesia), and postural instability. While PD cannot currently be cured, its symptoms can be effectively managed — and its progression slowed — with the right integrated approach.", "At Ayurgreen Hospital, our Parkinson's Disease Management Program offers the most comprehensive approach to PD care available in India. We combine expert neurological medical management with intensive physical rehabilitation, speech therapy, and the profound neuroprotective and symptom-managing benefits of Kerala Ayurveda.", "Our program is built on three pillars: optimal medical management of motor and non-motor symptoms; intensive, exercise-based rehabilitation that has been proven to slow PD progression; and authentic Ayurvedic therapies that reduce tremor, improve sleep, manage non-motor symptoms, and support overall neurological health."],
+    image: "Assets/AG%20Sub-pages%20Banner/Parkinson%27s%20Disease.webp",
+    imageAlt: "Parkinson's Disease at Ayurgreen Hospital",
+  },
+  conditions: {
+    sectionLabel: "PD MANAGEMENT FOCUS",
+    sectionTitle: "Parkinson's Stages & Symptoms We Address",
+    sectionSupport: "Comprehensive management for all stages of Parkinson's Disease and related Parkinsonian syndromes.",
+    cards: [
+    {
+        "image": "Assets/rehab/prog_parkinsons.webp",
+        "title": "Early & Mid-Stage Parkinson's Disease",
+        "description": "Intensive exercise-based rehabilitation shown to slow PD progression, combined with optimal dopaminergic medication management. Our program builds neurological reserve and maintains function for as long as possible."
+    },
+    {
+        "image": "Assets/rehab/prog_stroke.webp",
+        "title": "Advanced Parkinson's Disease",
+        "description": "Complex motor fluctuations, dyskinesia, falls, and advanced non-motor symptoms. Expert medication management, DBS candidacy assessment, intensive balance and gait rehabilitation, and comprehensive care for advanced PD."
+    },
+    {
+        "image": "Assets/rehab/prog_spinal_cord.webp",
+        "title": "Atypical Parkinsonian Syndromes",
+        "description": "Management of MSA, PSP, CBD, and LBD — atypical parkinsonian conditions requiring expert diagnosis and specialized rehabilitation programs tailored to each syndrome's unique presentations."
+    }
+],
+  },
+  treatments: {
+    sectionLabel: "TREATMENT PROGRAM",
+    sectionTitle: "Comprehensive Parkinson's Disease Care",
+    sectionSupport: "The most complete Parkinson's program in India, combining neurology, rehabilitation, speech therapy, and Ayurveda.",
+    steps: [
+    {
+        "image": "Assets/rehab/th_physiotherapy.webp",
+        "title": "LSVT BIG Physiotherapy & Balance Training",
+        "description": "LSVT BIG (Lee Silverman Voice Treatment – BIG) is the gold standard physiotherapy approach for Parkinson's, using high-amplitude movement training to overcome PD's characteristic movement smallness. Combined with intensive balance training, treadmill gait training, Nordic walking, and Huber 360 postural stability training to prevent falls — the most dangerous complication of PD."
+    },
+    {
+        "image": "Assets/rehab/th_speech.webp",
+        "title": "LSVT LOUD Speech Therapy",
+        "description": "LSVT LOUD is a specialized speech therapy approach uniquely effective for PD-related hypophonia (quiet, soft speech). An intensive program of voice exercises specifically targeting vocal loudness and clarity, LSVT LOUD has the strongest evidence base of any speech intervention for Parkinson's."
+    },
+    {
+        "image": "Assets/rehab/th_panchakarma.webp",
+        "title": "Ayurvedic Parkinson's Management",
+        "description": "Kerala Ayurveda has remarkable relevance to Parkinson's management. Mucuna pruriens (Kapikacchu) — a natural source of L-DOPA — has significant evidence in PD management and is incorporated in our Ayurvedic formulations. Shirodhara is highly effective for tremor reduction and sleep improvement. Abhyanga reduces rigidity. Basti (therapeutic enema) manages constipation. Yoga and Pranayama improve balance, flexibility, and mood."
+    },
+    {
+        "image": "Assets/rehab/th_robotic.webp",
+        "title": "Robotic Gait Rehabilitation for Parkinson's",
+        "description": "Treadmill and robotic gait training with auditory and visual cueing address PD's characteristic gait disturbances — shuffling gait, freezing of gait, and festination. External rhythmic cueing (metronome, visual floor markers) is integrated with the G-EO gait system to break freezing episodes and restore normal step length and cadence."
+    }
+],
+  },
+  technologies: {
+    sectionLabel: "PD MANAGEMENT TECHNOLOGY",
+    sectionTitle: "Technology for Parkinson's Disease Management",
+    sectionSupport: "Evidence-based technology combining robotic gait training, specialized speech therapy, and Ayurvedic neuroprotection.",
+    cards: [
+    {
+        "icon": "activity",
+        "title": "Huber 360 Balance Training",
+        "description": "Dynamic balance and postural stability training to reduce fall risk — the most dangerous complication of advancing Parkinson's Disease."
+    },
+    {
+        "icon": "bot",
+        "title": "Gait Cueing & Treadmill Training",
+        "description": "Auditory rhythmic cueing and visual cueing integrated with robotic treadmill training to address freezing of gait, shuffling, and step length impairment in Parkinson's."
+    },
+    {
+        "icon": "mic",
+        "title": "LSVT LOUD Therapy",
+        "description": "Lee Silverman Voice Treatment for hypophonia — the most evidence-based speech intervention for Parkinson's, significantly improving vocal loudness, clarity, and intelligibility."
+    },
+    {
+        "icon": "leaf",
+        "title": "Kapikacchu & Ayurvedic PD Formulations",
+        "description": "Mucuna pruriens (natural L-DOPA source), Brahmi, and Ashwagandha formulations combined with Shirodhara and Abhyanga for tremor reduction, sleep improvement, and neuroprotection."
+    },
+    {
+        "icon": "sun",
+        "title": "Yoga & Pranayama for PD",
+        "description": "Specialized yoga programs for Parkinson's improve balance, flexibility, strength, and mood — with Pranayama (breathing exercises) addressing the respiratory muscle changes of PD."
+    }
+],
+  },
+  faq: {
+    sectionSupport: "Find answers to key details about the Parkinson's Disease program.",
+    items: [
+    {
+        "question": "What is the recovery protocol for this program?",
+        "answer": "Our recovery protocol for Parkinson's Disease combines daily intensive rehabilitation therapies (robotic support and physical therapy) with personalized Ayurvedic nerve nourishment and systemic detoxification to accelerate functional gains."
+    },
+    {
+        "question": "How long is the typical inpatient stay?",
+        "answer": "Most inpatient stays range from 14 to 28 days. A comprehensive assessment is conducted on arrival to map specific milestones, timelines, and discharge pathways."
+    },
+    {
+        "question": "Is robotic therapy safe for all patients?",
+        "answer": "Yes, robotic training is safe and is adjusted based on muscle strength, joint ranges, and fatigue levels. Every session is directly supervised by certified clinical engineers and therapists."
+    },
+    {
+        "question": "Are the Ayurvedic medicines safe?",
+        "answer": "All herbal oils and medicines are sourced from GMP-certified traditional pharmacies and undergo rigorous testing. They are prescribed specifically to match the patient's biological state."
+    },
+    {
+        "question": "Can we coordinate with our existing neurologist?",
+        "answer": "Absolutely. We encourage multidisciplinary alignment and coordinate closely with the patient's referring clinicians to ensure continuity of care."
+    },
+    {
+        "question": "What is the daily therapy schedule?",
+        "answer": "A typical day includes active physical and robotic rehabilitation in the morning, followed by relaxing Ayurvedic therapies and counseling sessions in the afternoon."
+    },
+    {
+        "question": "Do you offer post-discharge support?",
+        "answer": "Yes, we provide detailed home-exercise regimens, custom orthotic consultations, and online follow-ups to ensure patients maintain their functional gains."
+    },
+    {
+        "question": "How do I book a consultation?",
+        "answer": "You can book a virtual consultation by submitting your medical records online, messaging our coordinators via WhatsApp, or calling our helpline directly."
+    }
+],
+  },
+};

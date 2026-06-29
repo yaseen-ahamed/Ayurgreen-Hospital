@@ -1096,7 +1096,7 @@ export default function Hero() {
                 alt="Front view of Ayurgreen Hospital, integrated ortho-neuro rehabilitation and Ayurveda center in Kerala, India"
                 className="hero-img active" width="2726" height="1536" loading="eager" />
             <picture>
-                <source media="(max-width: 768px)" srcSet="Assets/ag-home-banner-mobile.png" />
+                <source media="(max-width: 768px)" srcSet="/Assets/ag-home-banner-mobile.png" />
                 <img src="/Assets/Rehab_Stories_Banner.webp"
                     alt="Ayurgreen Hospital patient recovery success stories and integrated rehabilitation journey in Kerala"
                     className="hero-img" width="2612" height="1469" loading="eager" />

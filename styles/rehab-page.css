@@ -486,104 +486,215 @@
     transform: rotate(45deg);
 }
 
-/* ── CTA Section ── */
+/* ── CTA Section — Dark Liquid Glass ── */
 .ayur-cta-outer {
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 60px 0;
 }
 
 .ayur-cta-section {
-    background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(255,255,255,0.3) 100%), #FDF2F8;
-    backdrop-filter: blur(24px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 20% 50%, rgba(10, 20, 60, 0.92) 0%, rgba(2, 8, 28, 0.97) 60%, rgba(0, 5, 18, 1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 36px;
-    padding: 64px 24px;
+    padding: 72px 48px;
     text-align: center;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.ayur-cta-title {
-    font-size: 32px;
+/* Ambient glow orbs */
+.ayur-cta-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+    opacity: 0.45;
+}
+
+.ayur-cta-orb-1 {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(43, 196, 109, 0.6) 0%, transparent 70%);
+    top: -120px;
+    left: -80px;
+    animation: ayur-orb-drift 8s ease-in-out infinite alternate;
+}
+
+.ayur-cta-orb-2 {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, transparent 70%);
+    bottom: -100px;
+    right: -60px;
+    animation: ayur-orb-drift 10s ease-in-out infinite alternate-reverse;
+}
+
+.ayur-cta-orb-3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+    animation: ayur-orb-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes ayur-orb-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20px, 15px) scale(1.08); }
+}
+
+.ayur-cta-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.ayur-cta-label {
+    font-size: 11px;
     font-weight: 700;
-    color: #0c1938 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(43, 196, 109, 0.9);
+    display: block;
     margin-bottom: 16px;
 }
 
+.ayur-cta-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin-bottom: 16px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
 .ayur-cta-desc {
-    color: rgba(12, 25, 56, 0.85) !important;
+    color: rgba(255, 255, 255, 0.65) !important;
     font-size: 16px;
-    max-width: 600px;
-    margin: 0 auto 36px auto;
-    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto 40px auto;
+    line-height: 1.65;
 }
 
 .ayur-cta-btn-group {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-.ayur-btn-primary,
-.ayur-btn-glass {
+/* Primary CTA — solid white pill (matches header-cta-pill) */
+.ayur-cta-btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
-    color: #ffffff !important;
-    padding: 14px 28px;
+    gap: 0;
+    background: #ffffff;
+    color: #0c1938;
+    padding: 6px 6px 6px 20px;
     border-radius: 40px;
-    font-weight: 700;
-    font-size: 15px;
-    text-transform: capitalize;
-    letter-spacing: 0;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.3px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15), inset 0 2px 4px 0 rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(16px) saturate(120%);
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    white-space: nowrap;
 }
 
-.ayur-btn-primary:hover,
-.ayur-btn-glass:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2), inset 0 2px 6px 0 rgba(255, 255, 255, 0.4) !important;
+.ayur-cta-btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.ayur-btn-primary svg,
-.ayur-btn-glass svg {
-    background-color: transparent !important;
-    color: #ffffff !important;
-    width: 24px !important;
-    height: 24px !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    transition: transform 0.3s ease;
+.ayur-cta-btn-primary .ayur-cta-btn-icon {
+    background: #0c1938;
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
 }
 
-.ayur-btn-primary img,
-.ayur-btn-glass img {
-    background-color: transparent !important;
-    width: 24px !important;
-    height: 24px !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    margin-left: 0 !important;
-    transform: none !important;
-    object-fit: contain;
-    filter: brightness(0) invert(1) !important;
-    transition: transform 0.3s ease;
+.ayur-cta-btn-primary:hover .ayur-cta-btn-icon {
+    transform: scale(1.1);
 }
 
-.ayur-btn-primary:hover svg,
-.ayur-btn-glass:hover svg,
-.ayur-btn-primary:hover img,
-.ayur-btn-glass:hover img {
-    transform: scale(1.1) !important;
+/* Glass pills — matching individual-pill from header */
+.ayur-cta-btn-glass {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.92);
+    padding: 6px 6px 6px 20px;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.ayur-cta-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ayur-cta-btn-glass .ayur-cta-btn-icon {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    backdrop-filter: blur(8px);
+}
+
+.ayur-cta-btn-glass:hover .ayur-cta-btn-icon {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .ayur-cta-section {
+        padding: 52px 24px;
+        border-radius: 24px;
+    }
+    .ayur-cta-title {
+        font-size: 26px;
+    }
+    .ayur-cta-btn-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ayur-cta-btn-primary,
+    .ayur-cta-btn-glass {
+        width: 100%;
+        max-width: 300px;
+        justify-content: space-between;
+    }
 }
 
 /* ── Sidebar Content Overrides ── */

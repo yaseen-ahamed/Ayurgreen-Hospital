@@ -182,9 +182,9 @@ export default function Header() {
         </nav>
       </div>
 
-      <Link href="/" className="header-center-link">
+      <a href="/" className="header-center-link">
         <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital logo" width="1656" height="1344" />
-      </Link>
+      </a>
 
       <div className="header-right">
         <div className="nav-item-wrapper">

@@ -11,10 +11,10 @@ export default function MegaMenu() {
 <div className="mobile-menu-drawer" id="mobile-menu-drawer" aria-hidden="true" role="dialog" aria-modal="true"
         aria-label="Mobile Navigation Menu">
         <div className="mobile-menu-header">
-            <Link href="/" className="mobile-menu-logo-link">
+            <a href="/" className="mobile-menu-logo-link">
                 <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital logo" className="mobile-menu-logo"
                     width="1656" height="1344" loading="lazy" />
-            </Link>
+            </a>
             <button className="mobile-menu-close-btn" id="mobile-menu-close-btn" aria-label="Close Navigation Menu">
                 <i data-lucide="x" size="24"></i>
             </button>

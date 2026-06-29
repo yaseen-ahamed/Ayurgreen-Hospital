@@ -13,10 +13,10 @@ export default function Footer() {
             <div className="minimal-footer-grid">
                 {/*  Column 1: Brand & About  */}
                 <div className="minimal-footer-col">
-                    <Link href="/">
+                    <a href="/">
                         <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital Logo" className="minimal-footer-logo"
                             width="1656" height="1344" loading="lazy" />
-                    </Link>
+                    </a>
                     <p className="minimal-footer-text">
                         India's pioneer in Integrated Ortho-Neuro Rehabilitation, fusing cutting-edge robotic tech with
                         traditional Kerala Ayurveda to restore movement and dignity.

@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Specialized pediatric neurodevelopmental therapies to help reduce rigid muscle stiffness and assist milestone achievements.",
   canonicalPath: "/cerebral-palsy",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Cerebral-Palsy.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Cerebral Palsy.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Cerebral Palsy",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Cerebral Palsy Rehabilitation: Unlocking Every Child's Potential",
     paragraphs: ["Cerebral Palsy (CP) is a group of permanent movement disorders caused by damage to the developing brain — before, during, or shortly after birth. It is the most common cause of physical disability in childhood, affecting movement, muscle tone, posture, and balance in varying degrees.", "At Ayurgreen Hospital, our Cerebral Palsy Rehabilitation Program is one of the most specialized and comprehensive in India. We believe that every child with CP has the potential to reach their maximum functional independence — and we use every tool at our disposal to help them achieve it.", "Our integrated program combines robotic technology, Neurodevelopmental Therapy (NDT), Constraint-Induced Movement Therapy (CIMT), intensive physiotherapy and occupational therapy, speech therapy, and authentic Ayurvedic therapies specifically adapted for children — creating a holistic healing environment where each child thrives."],
-    image: "Assets/AG%20Sub-pages%20Banner/Cerebral%20Palsy.webp",
+    image: "Assets/rehab/prog_spinal_cord.webp",
     imageAlt: "Cerebral Palsy at Ayurgreen Hospital",
   },
   conditions: {

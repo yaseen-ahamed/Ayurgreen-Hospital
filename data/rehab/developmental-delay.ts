@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Pediatric milestone tracking and customized motor-cognitive stimulation to assist functional age achievements.",
   canonicalPath: "/developmental-delay",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Developmental-Delay.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Developmental Delay.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Developmental Delay",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Developmental Delay Rehabilitation: Every Milestone Matters",
     paragraphs: ["Developmental delay refers to a child not reaching developmental milestones (motor, speech, cognitive, social, or adaptive skills) at the expected age. It can range from specific delays in a single domain to global developmental delay affecting all areas of development.", "At Ayurgreen Hospital, we provide a comprehensive, family-centered developmental rehabilitation program that addresses each child's unique developmental needs across all domains. Our multidisciplinary team of developmental pediatricians, physiotherapists, occupational therapists, speech therapists, and Ayurvedic physicians works together to help every child reach their maximum developmental potential.", "Early intervention is critical — the earlier a developmental delay is identified and treated, the greater the opportunity to harness the extraordinary plasticity of the developing brain and close the developmental gap."],
-    image: "Assets/AG%20Sub-pages%20Banner/Developmental%20Delay.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Developmental Delay at Ayurgreen Hospital",
   },
   conditions: {

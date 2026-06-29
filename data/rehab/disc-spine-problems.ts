@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Non-surgical spinal decompression, specialized manual therapies, and herbal oil wraps to restore structural spine alignment.",
   canonicalPath: "/disc-spine-problems",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Disc-Spine-Problems.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Disc %26 Spine Problems.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Disc & Spine Problems",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Disc & Spine Problems: Expert Care for Spinal Health",
     paragraphs: ["The spine is the central pillar of the human body — a complex mechanical structure protecting the spinal cord while enabling remarkable flexibility and movement. Disc and spine problems are among the most common causes of pain and disability worldwide, affecting people of all ages and walks of life.", "At Ayurgreen Hospital, we provide a comprehensive, evidence-based, and highly integrated approach to disc and spine problems. Our spine team includes orthopedic spine surgeons, neurologists, physiotherapists, pain management specialists, and Ayurvedic physicians — all collaborating to provide the most complete spine care available.", "Our unique advantage is our ability to offer the full spectrum of spine care — from conservative management (physiotherapy, Ayurveda, injections) through to minimally invasive spine surgery — all under one roof. Most importantly, we can accurately determine which approach is right for each individual patient."],
-    image: "Assets/AG%20Sub-pages%20Banner/Disc%20%26%20Spine%20Problems.webp",
+    image: "Assets/rehab/prog_spinal_cord.webp",
     imageAlt: "Disc & Spine Problems at Ayurgreen Hospital",
   },
   conditions: {

@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Traumatic Brain Injury Rehabilitation: Rebuilding the Brain",
     paragraphs: ["Traumatic Brain Injury (TBI) occurs when a sudden physical force causes damage to the brain — from road traffic accidents, falls, assault, or sports injuries. The consequences are as varied as the brain itself: physical disabilities, cognitive impairments, behavioral changes, emotional dysregulation, and sensory deficits.", "At Ayurgreen Hospital, our TBI Rehabilitation Program is one of the most comprehensive in India. We understand that recovering from a TBI is not a single, linear process — it requires simultaneous, coordinated care from neurologists, neurosurgeons, rehabilitation physicians, physiotherapists, occupational therapists, speech therapists, neuropsychologists, and Ayurvedic physicians.", "Our program utilizes the science of neuroplasticity — the brain's extraordinary capacity to reorganize itself and form new neural pathways — through high-intensity, repetitive robotic training combined with the profound internal healing power of authentic Kerala Ayurveda, creating recovery outcomes that were previously impossible."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_tbi.webp",
     imageAlt: "Traumatic Brain Injury at Ayurgreen Hospital",
   },
   conditions: {

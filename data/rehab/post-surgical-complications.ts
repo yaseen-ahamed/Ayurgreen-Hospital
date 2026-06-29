@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Post-Surgical Complication Rehabilitation: Complete Recovery",
     paragraphs: ["Surgery — even highly successful surgery — can sometimes lead to unexpected complications that impair function and quality of life long after the procedure. Neurological complications of surgery (peripheral nerve injuries, stroke from cardiac surgery), orthopedic complications (poor wound healing, reduced range of motion, complex regional pain syndrome), and general deconditioning from prolonged hospital stays all require expert, specialized rehabilitation.", "At Ayurgreen Hospital, our Post-Surgical Complication Rehabilitation Program provides comprehensive, expert care for patients who have not recovered fully after surgery. Our team identifies the specific complication and designs a targeted, evidence-based rehabilitation program to address it.", "Our unique advantage is the combination of modern rehabilitation expertise with the extraordinary healing power of Kerala Ayurveda. Specific Ayurvedic therapies — wound-healing formulations, anti-inflammatory treatments, and tissue-regenerating therapies — act at the biological level to resolve post-surgical complications that conventional rehabilitation alone cannot fully address."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/th_physiotherapy.webp",
     imageAlt: "Post-Surgical Complications at Ayurgreen Hospital",
   },
   conditions: {

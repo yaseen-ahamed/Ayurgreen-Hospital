@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Regulating immune response, calming active joint inflammation, and maintaining coordinate joint range of motion.",
   canonicalPath: "/rheumatoid-arthritis",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Rheumatoid-Arthritis.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Rheumatoid Arthritis.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Rheumatoid Arthritis",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Rheumatoid Arthritis Care: Controlling Inflammation, Preserving Joints",
     paragraphs: ["Rheumatoid Arthritis (RA) is a chronic, progressive autoimmune disease where the immune system attacks the body's own joint linings (synovium), causing painful inflammation, joint damage, and systemic complications affecting the heart, lungs, and blood vessels.", "At Ayurgreen Hospital, we provide expert, integrated management for Rheumatoid Arthritis that targets the disease at multiple levels — controlling systemic inflammation with modern disease-modifying therapy, preserving joint function through specialized physiotherapy, and uniquely harnessing the powerful anti-inflammatory and immunomodulatory properties of Kerala Ayurveda.", "Our rheumatology team works in close collaboration with our physiotherapists, occupational therapists, and Ayurvedic physicians to create comprehensive management plans that go far beyond simple pain relief — protecting joints from damage, maintaining physical function, and supporting patients through the significant psychological burden of living with chronic inflammatory disease."],
-    image: "Assets/AG%20Sub-pages%20Banner/Rheumatoid%20Arthritis.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Rheumatoid Arthritis at Ayurgreen Hospital",
   },
   conditions: {

@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Hemiplegia Rehabilitation: Restoring One-Sided Strength",
     paragraphs: ["Hemiplegia — paralysis affecting one side of the body — is most commonly a consequence of stroke but can also result from traumatic brain injury, brain tumors, or cerebral infections. It profoundly impacts the ability to walk, use the arm, perform self-care, and live independently.", "At Ayurgreen Hospital, hemiplegia rehabilitation is a core specialty. Our integrated program combines the most advanced robotic technology, evidence-based neurological physiotherapy, and authentic Kerala Ayurvedic therapies to systematically rebuild strength, coordination, and independence on the affected side.", "The key to hemiplegia recovery is intensive, repetitive, and task-specific training that forces the brain to rewire itself — a process known as neuroplasticity. Our robotic systems deliver this training with a precision and volume impossible through manual therapy alone."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Hemiplegia at Ayurgreen Hospital",
   },
   conditions: {

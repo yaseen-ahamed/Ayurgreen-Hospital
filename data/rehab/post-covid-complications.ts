@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Post-COVID Rehabilitation: Recovering from Long COVID",
     paragraphs: ["Long COVID (Post-Acute Sequelae of SARS-CoV-2, PASC) is a complex, multi-system condition affecting millions of COVID-19 survivors worldwide. Persistent fatigue, breathlessness, cognitive fog (\"brain fog\"), neurological symptoms, muscle weakness, and psychological distress can last for months to years after the initial infection, severely impacting daily functioning and quality of life.", "At Ayurgreen Hospital, our Post-COVID Rehabilitation Program is specifically designed to address the full spectrum of Long COVID symptoms through an integrated, multidisciplinary approach. Our program was developed based on emerging research evidence and our extensive clinical experience with neurological and respiratory rehabilitation.", "Our unique approach combines expert medical management of persistent COVID complications, specialized respiratory rehabilitation, cognitive rehabilitation for brain fog, physiotherapy for fatigue and weakness, and — uniquely — authentic Ayurvedic Rasayana (rejuvenation) therapies that are ideally suited to restore the depleted vitality (Ojas) and immune competence that Long COVID strips away."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Post-Covid Complications at Ayurgreen Hospital",
   },
   conditions: {

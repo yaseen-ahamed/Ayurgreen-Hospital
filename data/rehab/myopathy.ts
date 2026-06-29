@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Myopathy Rehabilitation: Restoring Muscle Health & Function",
     paragraphs: ["Myopathies are diseases of the muscle itself — conditions where the primary problem lies in the muscle fiber rather than the nerve supplying it. They cause progressive weakness, exercise intolerance, muscle pain (myalgia), and in severe cases, respiratory muscle failure.", "At Ayurgreen Hospital, our Myopathy Program provides expert diagnosis and comprehensive management for all types of myopathies — from inflammatory myopathies (polymyositis, dermatomyositis) to metabolic and genetic myopathies. Our approach combines the most current medical therapies with carefully calibrated exercise rehabilitation and Ayurvedic muscle-healing therapies.", "The key challenge in myopathy rehabilitation is finding the precise balance of exercise — enough to maintain and build remaining muscle strength, without the overexertion that can worsen muscle damage in some types of myopathy. Our expert team navigates this delicate balance with precision."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Myopathy at Ayurgreen Hospital",
   },
   conditions: {

@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Pediatric sensory integration, motor coordination retraining, and gentle behavioral guidance protocols.",
   canonicalPath: "/autism",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Autism.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Autism.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Autism",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Autism Spectrum Disorder: Specialized Support for Every Child",
     paragraphs: ["Autism Spectrum Disorder (ASD) is a complex neurodevelopmental condition characterized by challenges in social communication and interaction, alongside restricted and repetitive behaviors and interests. It exists on a broad spectrum — from individuals who are non-speaking and require significant daily support, to those who are highly verbal and academically capable but struggle with social interaction and sensory processing.", "At Ayurgreen Hospital, our Autism Specialist Program provides expert, evidence-based, family-centered support for children and young adults with ASD. We do not offer a 'cure' for autism — autism is a neurological difference, not a disease. Our goal is to help each autistic individual develop the skills and strategies to communicate, learn, participate, and thrive in their communities.", "Our program combines the most evidence-based behavioral and developmental interventions (ABA, DIR/Floortime, ESDM) with specialized speech, occupational, and sensory therapies — and uniquely integrates Ayurvedic approaches that are emerging as supportive in managing ASD-related GI issues, sleep disorders, and anxiety."],
-    image: "Assets/AG%20Sub-pages%20Banner/Autism.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Autism at Ayurgreen Hospital",
   },
   conditions: {

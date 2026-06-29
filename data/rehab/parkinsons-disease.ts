@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Delaying progression and maintaining active motor coordination through tailored Ayurvedic protocols and sensory exercises.",
   canonicalPath: "/parkinsons-disease",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Parkinsons-Disease.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Parkinson%27s Disease.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Parkinson's Disease",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Parkinson's Disease Management: Living Well, Moving Well",
     paragraphs: ["Parkinson's Disease (PD) is a progressive neurological disorder affecting the brain's dopamine-producing neurons, causing the characteristic features of tremor, rigidity, slowness of movement (bradykinesia), and postural instability. While PD cannot currently be cured, its symptoms can be effectively managed — and its progression slowed — with the right integrated approach.", "At Ayurgreen Hospital, our Parkinson's Disease Management Program offers the most comprehensive approach to PD care available in India. We combine expert neurological medical management with intensive physical rehabilitation, speech therapy, and the profound neuroprotective and symptom-managing benefits of Kerala Ayurveda.", "Our program is built on three pillars: optimal medical management of motor and non-motor symptoms; intensive, exercise-based rehabilitation that has been proven to slow PD progression; and authentic Ayurvedic therapies that reduce tremor, improve sleep, manage non-motor symptoms, and support overall neurological health."],
-    image: "Assets/AG%20Sub-pages%20Banner/Parkinson%27s%20Disease.webp",
+    image: "Assets/rehab/prog_parkinsons.webp",
     imageAlt: "Parkinson's Disease at Ayurgreen Hospital",
   },
   conditions: {

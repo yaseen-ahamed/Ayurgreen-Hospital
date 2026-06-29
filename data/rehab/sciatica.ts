@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Relieving sciatic nerve compression, reducing radiating pain, and rebuilding core strength to prevent future flare-ups.",
   canonicalPath: "/sciatica",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Sciatica.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Sciatica.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Sciatica",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Sciatica Treatment: Lasting Relief from Nerve Pain",
     paragraphs: ["Sciatica is a symptom of nerve compression — typically involving the sciatic nerve, the largest nerve in the body — characterized by a radiating pain that travels from the lower back through the buttock and down the leg, often to the foot. It can range from a mild ache to an excruciating, disabling pain that makes sitting, standing, or walking extremely difficult.", "The most common causes of sciatica are lumbar disc herniation (slipped disc), spinal stenosis (narrowing of the spinal canal), piriformis syndrome, and degenerative lumbar spondylosis. Accurate diagnosis of the underlying cause is critical to selecting the most effective treatment.", "At Ayurgreen Hospital, we provide the most comprehensive sciatica management program available — combining accurate diagnosis, evidence-based physiotherapy, targeted interventional pain procedures, and Kerala Ayurveda's uniquely effective nerve-nourishing and anti-inflammatory therapies for complete, lasting relief."],
-    image: "Assets/AG%20Sub-pages%20Banner/Sciatica.webp",
+    image: "Assets/rehab/prog_spinal_cord.webp",
     imageAlt: "Sciatica at Ayurgreen Hospital",
   },
   conditions: {

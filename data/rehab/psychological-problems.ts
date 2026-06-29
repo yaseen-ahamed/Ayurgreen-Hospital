@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Psychological Rehabilitation: Healing Mind & Emotion in Recovery",
     paragraphs: ["A neurological or physical illness is never just a physical experience. The psychological impact of disability, loss of independence, altered identity, relationship changes, and uncertain futures can be as devastating as the physical illness itself. And critically, untreated psychological problems significantly impair physical rehabilitation outcomes.", "At Ayurgreen Hospital, psychological wellbeing is treated as a clinical priority — not an afterthought. Our clinical psychologists, neuropsychologists, and counselors are embedded within the rehabilitation team, working daily with patients and families to address the psychological dimensions of recovery.", "Our approach combines evidence-based psychological therapies (CBT, ACT, mindfulness) with the profound mind-body healing power of Ayurveda — including Shirodhara, yoga, and Medhya Rasayana formulations — creating a holistic psychological rehabilitation experience."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Psychological Problems at Ayurgreen Hospital",
   },
   conditions: {

@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Motor Neuron Disease Management: Preserving Dignity & Function",
     paragraphs: ["Motor Neuron Diseases (MND) — including Amyotrophic Lateral Sclerosis (ALS), Progressive Muscular Atrophy (PMA), and Primary Lateral Sclerosis (PLS) — are conditions where the motor neurons that control voluntary muscle movements progressively degenerate. They are among the most challenging conditions in all of medicine.", "At Ayurgreen Hospital, we provide a specialized, compassionate, and comprehensive MND management program. While no cure yet exists for most MNDs, the right multidisciplinary management can profoundly slow functional decline, extend independence, preserve communication and swallowing, maximize quality of life, and support both patient and family.", "Our integrated approach uniquely combines modern neuroprotective medicine, respiratory therapy, speech and swallowing management, physiotherapy, occupational therapy, and authentic Ayurvedic neuroprotective therapies — creating the most comprehensive MND care program available."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Motor Neuron Diseases at Ayurgreen Hospital",
   },
   conditions: {

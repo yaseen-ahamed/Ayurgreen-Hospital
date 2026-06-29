@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Aggressive physical restoration, autonomic regulation, and sensory stimulations to regain maximum lifestyle independence.",
   canonicalPath: "/quadriplegia-paraplegia",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Quadriplegia-Paraplegia.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Quadriplegia %26 Paraplegia.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Quadriplegia & Paraplegia",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Quadriplegia & Paraplegia Rehabilitation: Maximizing Independence",
     paragraphs: ["Quadriplegia (tetraplegia) and paraplegia — the partial or complete paralysis of four limbs or two limbs respectively — represent some of the most severe and life-changing disabilities a person can face. Almost always resulting from spinal cord injuries, these conditions demand the most comprehensive and compassionate rehabilitation approach possible.", "At Ayurgreen Hospital, we provide highly specialized rehabilitation for patients with quadriplegia and paraplegia, combining state-of-the-art robotic technology, intensive physiotherapy, expert neuro-urology, and authentic Ayurvedic care in one seamlessly integrated program.", "Our goals are carefully individualized: for incomplete injuries, we drive maximum motor recovery using robotic systems and neuroplasticity principles; for all patients, we focus intensively on achieving the highest possible level of functional independence, quality of life, and prevention of life-threatening secondary complications."],
-    image: "Assets/AG%20Sub-pages%20Banner/Quadriplegia%20%26%20Paraplegia.webp",
+    image: "Assets/rehab/prog_spinal_cord.webp",
     imageAlt: "Quadriplegia & Paraplegia at Ayurgreen Hospital",
   },
   conditions: {

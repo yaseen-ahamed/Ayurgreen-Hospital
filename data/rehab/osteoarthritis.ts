@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Osteoarthritis Management: Restoring Joint Function & Mobility",
     paragraphs: ["Osteoarthritis (OA) is the most common joint disease worldwide — a degenerative condition where the protective cartilage covering joint surfaces gradually wears away, leading to pain, stiffness, swelling, and loss of function. It most commonly affects the knees, hips, hands, and spine.", "At Ayurgreen Hospital, we provide the most comprehensive, integrated approach to osteoarthritis management available. Our program moves beyond simple pain relief to address the underlying joint health, muscle strength, movement quality, and systemic inflammation that drive OA.", "Our unique advantage is the combination of modern orthopedic expertise, advanced physiotherapy including our Huber 360 and hydrotherapy pool, and Kerala Ayurveda's exceptional joint-healing therapies — particularly Kizhi, Pizhichil, Janu Basti, and powerful anti-inflammatory Ayurvedic formulations that provide deep, lasting relief unavailable from conventional treatment alone."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Osteoarthritis at Ayurgreen Hospital",
   },
   conditions: {

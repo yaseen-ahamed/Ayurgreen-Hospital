@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Comprehensive clinical support, medication management, stress reduction, and integrated psychiatric guidance.",
   canonicalPath: "/psychiatry",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Psychiatry.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Psychiatry.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Psychiatry",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Psychiatry: Expert Mental Health Care & Integration",
     paragraphs: ["Psychiatry addresses serious mental health conditions — from schizophrenia and bipolar disorder to severe depression, OCD, and substance abuse. Expert psychiatric care requires both precision in diagnosis and a compassionate, holistic approach to treatment that addresses biological, psychological, and social dimensions of mental illness.", "At Ayurgreen Hospital, our Psychiatry Department provides specialist mental health care for patients with primary psychiatric conditions, and critically, for the significant psychiatric comorbidities (depression, anxiety, PTSD, psychosis) that commonly occur alongside neurological and physical illness.", "Our psychiatrists work as integral members of the rehabilitation team — managing psychiatric medications that may affect motor performance, identifying and treating depression that slows rehabilitation engagement, and providing specialized expertise in the psychiatric presentations of neurological disorders including post-stroke psychosis, TBI-related personality changes, and the neuropsychiatric aspects of Parkinson's and dementia."],
-    image: "Assets/AG%20Sub-pages%20Banner/Psychiatry.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Psychiatry at Ayurgreen Hospital",
   },
   conditions: {

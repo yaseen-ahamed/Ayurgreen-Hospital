@@ -7,7 +7,7 @@ export const pageData: RehabPageData = {
   metaDescription: "Providing muscular nutrition, maintaining joint range, and custom gentle exercises to slow functional muscle decline.",
   canonicalPath: "/muscular-dystrophy",
   hero: {
-    bannerImage: "Assets/AG Sub-pages Banner/New/Muscular-Dystrophy.webp",
+    bannerImage: "Assets/AG Sub-pages Banner/Muscular Dystrophy.webp",
     label: "Rehabilitation Program",
     breadcrumbCategory: "Specialities",
     title: "Muscular Dystrophy",
@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Muscular Dystrophy Rehabilitation: Maximizing Function & Quality of Life",
     paragraphs: ["Muscular Dystrophies are a group of inherited genetic disorders characterized by progressive weakness and degeneration of the skeletal muscles. Duchenne MD (DMD), Becker MD, Limb-Girdle MD, Facioscapulohumeral MD, and Myotonic Dystrophy are among the most common — each with distinct patterns of weakness and progression.", "At Ayurgreen Hospital, our Muscular Dystrophy Rehabilitation Program provides comprehensive, compassionate, and expert care for patients of all ages with all types of MD. While we cannot yet stop the underlying genetic disease process, the right rehabilitation program can dramatically slow functional decline, extend independent ambulation, prevent complications, and significantly improve quality of life.", "Our program uniquely integrates modern gene therapy consultation and medical management with specialized physiotherapy, respiratory management, and Ayurvedic muscle-nourishing therapies — creating the most comprehensive MD care available."],
-    image: "Assets/AG%20Sub-pages%20Banner/Muscular%20Dystrophy.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Muscular Dystrophy at Ayurgreen Hospital",
   },
   conditions: {

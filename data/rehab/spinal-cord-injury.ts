@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Spinal Cord Injury Rehabilitation: Rebuilding Life, Restoring Function",
     paragraphs: ["A spinal cord injury (SCI) is one of the most life-altering events a person can experience, often resulting in sudden, dramatic loss of motor function and sensation below the level of injury. The impact extends far beyond the physical — it touches every aspect of independence, identity, and quality of life.", "At Ayurgreen Hospital, we provide a comprehensive, compassionate, and cutting-edge Spinal Cord Injury Rehabilitation Program. As India's first robotic-integrated neuro rehabilitation center, we combine the most advanced robotic exoskeletons and functional electrical stimulation with world-class physiotherapy and authentic Kerala Ayurvedic therapies.", "Our program is built on the science of neuroplasticity — the brain and spinal cord's remarkable ability to form new neural connections. Through high-repetition, task-specific training delivered by our robotic systems, combined with the internal healing power of Ayurveda, we help patients with both complete and incomplete SCI maximize their functional recovery."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_spinal_cord.webp",
     imageAlt: "Spinal Cord Injury at Ayurgreen Hospital",
   },
   conditions: {

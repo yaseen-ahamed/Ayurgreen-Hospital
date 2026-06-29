@@ -17,7 +17,7 @@ export const pageData: RehabPageData = {
     sectionLabel: "OVERVIEW",
     title: "Obesity Management: Medical, Rehabilitative & Ayurvedic Solutions",
     paragraphs: ["Obesity is a complex, multifactorial chronic disease — not simply a lifestyle choice or a failure of willpower. It involves genetic predisposition, hormonal dysfunction, metabolic changes, psychological factors, and environmental influences. Obesity significantly increases the risk of diabetes, hypertension, heart disease, stroke, joint disease, and many cancers.", "At Ayurgreen Hospital, we provide a comprehensive, medically supervised Obesity Management Program that addresses all the dimensions of obesity — metabolic, hormonal, behavioral, psychological, and physical. Our program is particularly relevant for our rehabilitation patients, as obesity significantly impairs recovery from neurological and orthopedic conditions.", "Our unique approach combines evidence-based medical obesity treatment, a specialized exercise and rehabilitation program using our hydrotherapy pool (ideal for obese patients with joint pain), expert dietary counseling, behavioral therapy, and Kerala Ayurveda's powerful metabolic-balancing and weight management therapies."],
-    image: "Assets/Whatsapp%20Icon.webp",
+    image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Obesity at Ayurgreen Hospital",
   },
   conditions: {

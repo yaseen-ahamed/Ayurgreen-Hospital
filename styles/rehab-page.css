@@ -456,15 +456,24 @@
 }
 
 /* ── Edge spacing inside dark sections ──
-   Padding lives on the SECTION itself (the dark rounded box) so it
-   is immune to the .ayur-sidebar-content .ayur-container { padding: 0 } override. */
+   Padding lives on the SECTION itself (the dark rounded box).
+   Tech outer: no sidebar override touches it, 2 classes is enough.
+   Section-medium: .ayur-sidebar-content .ayur-section-medium { padding:30px 0 !important }
+   has specificity (0,2,0). We need (0,3,0) to beat it — hence the 3-class selector. */
 .ayur-dark-section.ayur-tech-outer {
     padding: 72px 36px;
 }
 
+/* 3 classes → specificity (0,3,0) beats the sidebar (0,2,0) !important override */
+.ayur-sidebar-content .ayur-dark-section.ayur-section-medium {
+    padding: 56px 36px !important;
+}
+
+/* Fallback when NOT in a sidebar layout */
 .ayur-dark-section.ayur-section-medium {
     padding: 56px 36px;
 }
+
 
 /* ── Recovery Journey ── */
 .ayur-journey-timeline {

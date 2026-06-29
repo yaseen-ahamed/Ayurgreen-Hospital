@@ -62,7 +62,7 @@ const MIGRATED_PAGES: Record<string, string> = {
 // Set of clean migrated routes (used to prevent redirect loops)
 const MIGRATED_ROUTES = new Set(Object.values(MIGRATED_PAGES));
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Redirect .html → clean route for all migrated pages

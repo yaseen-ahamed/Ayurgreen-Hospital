@@ -7,7 +7,7 @@ const MIGRATED_PAGES: Record<string, string> = {
   '/index.html':                      '/',
   '/rehab-village.html':              '/rehab-village',
   '/stroke-rehab.html':               '/stroke-rehab',
-  // --- Group 1: Rehabilitation Programs ---
+  // --- Group 1: Rehabilitation Programs (Specialities) ---
   '/hemiplegia.html':                 '/hemiplegia',
   '/spinal-cord-injury.html':         '/spinal-cord-injury',
   '/traumatic-brain-injury.html':     '/traumatic-brain-injury',
@@ -28,6 +28,35 @@ const MIGRATED_PAGES: Record<string, string> = {
   '/psychological-problems.html':     '/psychological-problems',
   '/autism.html':                     '/autism',
   '/psychiatry.html':                 '/psychiatry',
+  // --- Group 2: Departments ---
+  '/ayurveda.html':                   '/ayurveda',
+  '/occupational-therapy.html':       '/occupational-therapy',
+  '/yoga-meditation.html':            '/yoga-meditation',
+  '/hydro-therapy.html':              '/hydro-therapy',
+  '/pain-management.html':            '/pain-management',
+  '/dentistry.html':                  '/dentistry',
+  '/physiotherapy.html':              '/physiotherapy',
+  '/speech-therapy.html':             '/speech-therapy',
+  '/acupuncture.html':                '/acupuncture',
+  '/pediatrics.html':                 '/pediatrics',
+  '/diet-nutrition.html':             '/diet-nutrition',
+  '/modern-medicine.html':            '/modern-medicine',
+  '/robotic-rehab.html':              '/robotic-rehab',
+  '/virtual-reality.html':            '/virtual-reality',
+  '/reflexology.html':                '/reflexology',
+  '/slimming-treatment.html':         '/slimming-treatment',
+  '/counseling.html':                 '/counseling',
+  '/assistive-devices.html':          '/assistive-devices',
+  // --- Group 3: Modern Integrations ---
+  '/neurology.html':                  '/neurology',
+  '/neurosurgery.html':               '/neurosurgery',
+  '/orthopedic.html':                 '/orthopedic',
+  '/ent.html':                        '/ent',
+  '/general-medicine.html':           '/general-medicine',
+  '/urology.html':                    '/urology',
+  '/cardiology.html':                 '/cardiology',
+  '/respiratory-therapy.html':        '/respiratory-therapy',
+  '/neuro-psychology.html':           '/neuro-psychology',
 };
 
 // Set of clean migrated routes (used to prevent redirect loops)

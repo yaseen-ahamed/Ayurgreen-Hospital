@@ -1,0 +1,141 @@
+import type { RehabPageData } from "./types";
+
+export const pageData: RehabPageData = {
+  slug: "ent",
+  sidebarId: "ent",
+  metaTitle: "ENT | Ayurgreen Hospital",
+  metaDescription: "Managing speech acoustics, balance challenges, vestibular issues, and swallowing difficulties alongside rehab clinicians.",
+  canonicalPath: "/ent",
+  hero: {
+    bannerImage: "Assets/rehab/th_speech.webp",
+    label: "Modern Integrations",
+    breadcrumbCategory: "Modern Integrations",
+    title: "ENT",
+    subtitle: "Managing speech acoustics, balance challenges, vestibular issues, and swallowing difficulties alongside rehab clinicians.",
+  },
+  overview: {
+    sectionLabel: "OVERVIEW",
+    title: "ENT Excellence: Expert Care for Ear, Nose & Throat",
+    paragraphs: ["Conditions affecting the ear, nose, and throat (ENT) — medically known as Otolaryngology — can significantly impact your ability to hear, breathe, speak, eat, and sleep. These are not merely inconveniences; they are functions central to daily life, communication, and overall health.", "At Ayurgreen Hospital, our ENT Department provides specialized, compassionate care for the complete range of ear, nose, and throat conditions. Our expert ENT surgeons combine the most advanced surgical techniques with evidence-based medical management.", "A unique advantage of our integrated center is the natural synergy between ENT care and our other departments. Hearing loss from stroke, swallowing difficulties (dysphagia) managed by speech therapists, and vertigo rehabilitated by our physiotherapists — these connections are seamlessly managed in one place, providing a truly holistic recovery experience."],
+    image: "Assets/rehab/prog_stroke.webp",
+    imageAlt: "ENT at Ayurgreen Hospital",
+  },
+  conditions: {
+    sectionLabel: "CONDITIONS WE TREAT",
+    sectionTitle: "ENT Conditions We Specialize In",
+    sectionSupport: "Expert surgical and medical management for all conditions of the ear, nose, throat, head, and neck.",
+    cards: [
+    {
+        "image": "Assets/rehab/prog_stroke.webp",
+        "title": "Ear & Hearing Conditions",
+        "description": "Chronic otitis media, otosclerosis, sudden sensorineural hearing loss, tinnitus, Meniere's disease, and vertigo. Comprehensive hearing assessment and surgical correction for hearing restoration."
+    },
+    {
+        "image": "Assets/rehab/prog_spinal_cord.webp",
+        "title": "Nasal & Sinus Conditions",
+        "description": "Deviated nasal septum, chronic sinusitis, nasal polyposis, and turbinate hypertrophy. Endoscopic sinus surgery (FESS) for definitive relief from chronic nasal obstruction and recurrent infections."
+    },
+    {
+        "image": "Assets/rehab/prog_parkinsons.webp",
+        "title": "Throat & Voice Disorders",
+        "description": "Chronic tonsillitis, adenoid hypertrophy, obstructive sleep apnea, voice disorders (dysphonia), and dysphagia (swallowing difficulties) — particularly common in stroke and neurological rehabilitation patients."
+    }
+],
+  },
+  treatments: {
+    sectionLabel: "ENT SERVICES",
+    sectionTitle: "Comprehensive ENT Care",
+    sectionSupport: "Advanced ENT surgery and medical management integrated with our speech therapy and neurological rehabilitation services.",
+    steps: [
+    {
+        "image": "Assets/rehab/prog_stroke.webp",
+        "title": "Functional Endoscopic Sinus Surgery (FESS)",
+        "description": "FESS is the gold standard for surgical management of chronic sinusitis and nasal polyps. Using specialized endoscopes, our ENT surgeons restore normal sinus drainage through precise, minimally invasive surgery — with immediate improvement in breathing, reduced headaches, and elimination of recurrent infections."
+    },
+    {
+        "image": "Assets/rehab/th_speech.webp",
+        "title": "Dysphagia & Swallowing Management",
+        "description": "Our ENT specialists work in direct collaboration with our expert Speech and Language Therapists to manage swallowing disorders — a critical concern for stroke and TBI rehabilitation patients. Videofluoroscopic Swallow Studies (VFSS) are used to precisely diagnose swallowing dysfunction and guide targeted therapy."
+    },
+    {
+        "image": "Assets/rehab/prog_spinal_cord.webp",
+        "title": "Hearing Assessment & Rehabilitation",
+        "description": "Comprehensive audiological evaluation including pure tone audiometry, tympanometry, and speech audiometry. Hearing aid prescription and fitting, and cochlear implant candidacy assessment. Collaboration with speech therapists for auditory rehabilitation."
+    },
+    {
+        "image": "Assets/rehab/th_physiotherapy.webp",
+        "title": "Vestibular Rehabilitation for Vertigo",
+        "description": "Vestibular disorders causing severe vertigo are rehabilitated through specialized vestibular physiotherapy (Epley maneuver, Brandt-Daroff exercises, gaze stabilization training). Our physiotherapists work hand-in-hand with ENT specialists to restore balance and confidence in daily activities."
+    }
+],
+  },
+  technologies: {
+    sectionLabel: "ENT TECHNOLOGY",
+    sectionTitle: "Advanced ENT Diagnostics & Surgery",
+    sectionSupport: "State-of-the-art ENT diagnostic and surgical capabilities for precise, comfortable, and effective care.",
+    cards: [
+    {
+        "icon": "ear",
+        "title": "Video Endoscopy Suite",
+        "description": "High-definition video endoscopes for detailed visualization of nasal passages, sinuses, larynx, and pharynx — enabling precise diagnosis and procedure guidance."
+    },
+    {
+        "icon": "activity",
+        "title": "Comprehensive Audiometry",
+        "description": "Full audiological diagnostic suite including pure tone audiometry, impedance audiometry, and speech audiometry for complete hearing evaluation."
+    },
+    {
+        "icon": "mic",
+        "title": "Videofluoroscopic Swallow Study",
+        "description": "Gold-standard imaging assessment for swallowing dysfunction, providing real-time visualization of the entire swallowing mechanism in collaboration with speech therapy."
+    },
+    {
+        "icon": "wind",
+        "title": "Sleep Apnea Diagnostics",
+        "description": "Polysomnography (sleep study) and drug-induced sleep endoscopy (DISE) to precisely identify sites of airway obstruction for optimal surgical planning."
+    },
+    {
+        "icon": "leaf",
+        "title": "Ayurvedic ENT Integration",
+        "description": "Nasya karma (nasal administration of medicated oils) and herbal steam inhalation therapies to complement ENT treatment, reducing inflammation and improving mucosal health."
+    }
+],
+  },
+  faq: {
+    sectionSupport: "Find answers to key details about the ENT program.",
+    items: [
+    {
+        "question": "What is the recovery protocol for this program?",
+        "answer": "Our recovery protocol for ENT combines daily intensive rehabilitation therapies (robotic support and physical therapy) with personalized Ayurvedic nerve nourishment and systemic detoxification to accelerate functional gains."
+    },
+    {
+        "question": "How long is the typical inpatient stay?",
+        "answer": "Most inpatient stays range from 14 to 28 days. A comprehensive assessment is conducted on arrival to map specific milestones, timelines, and discharge pathways."
+    },
+    {
+        "question": "Is robotic therapy safe for all patients?",
+        "answer": "Yes, robotic training is safe and is adjusted based on muscle strength, joint ranges, and fatigue levels. Every session is directly supervised by certified clinical engineers and therapists."
+    },
+    {
+        "question": "Are the Ayurvedic medicines safe?",
+        "answer": "All herbal oils and medicines are sourced from GMP-certified traditional pharmacies and undergo rigorous testing. They are prescribed specifically to match the patient's biological state."
+    },
+    {
+        "question": "Can we coordinate with our existing neurologist?",
+        "answer": "Absolutely. We encourage multidisciplinary alignment and coordinate closely with the patient's referring clinicians to ensure continuity of care."
+    },
+    {
+        "question": "What is the daily therapy schedule?",
+        "answer": "A typical day includes active physical and robotic rehabilitation in the morning, followed by relaxing Ayurvedic therapies and counseling sessions in the afternoon."
+    },
+    {
+        "question": "Do you offer post-discharge support?",
+        "answer": "Yes, we provide detailed home-exercise regimens, custom orthotic consultations, and online follow-ups to ensure patients maintain their functional gains."
+    },
+    {
+        "question": "How do I book a consultation?",
+        "answer": "You can book a virtual consultation by submitting your medical records online, messaging our coordinators via WhatsApp, or calling our helpline directly."
+    }
+],
+  },
+};

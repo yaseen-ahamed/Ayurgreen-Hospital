@@ -1,26 +1,26 @@
 {
   "components/hero/Hero.tsx -> ../../main.js": {
-    "id": 3628,
+    "id": "components/hero/Hero.tsx -> ../../main.js",
     "files": [
-      "static/chunks/247.0ceb133beecd8218.js"
+      "static/chunks/_app-pages-browser_main_js.js"
     ]
   },
   "components/layout/Header.tsx -> ../../main.js": {
-    "id": 3628,
+    "id": "components/layout/Header.tsx -> ../../main.js",
     "files": [
-      "static/chunks/247.0ceb133beecd8218.js"
+      "static/chunks/_app-pages-browser_main_js.js"
     ]
   },
   "components/pages/rehab/RehabPageClient.tsx -> ../../../main.js": {
-    "id": 3628,
+    "id": "components/pages/rehab/RehabPageClient.tsx -> ../../../main.js",
     "files": [
-      "static/chunks/247.0ceb133beecd8218.js"
+      "static/chunks/_app-pages-browser_main_js.js"
     ]
   },
   "components/stroke-rehab/StrokeRehabClient.tsx -> ../../main.js": {
-    "id": 3628,
+    "id": "components/stroke-rehab/StrokeRehabClient.tsx -> ../../main.js",
     "files": [
-      "static/chunks/247.0ceb133beecd8218.js"
+      "static/chunks/_app-pages-browser_main_js.js"
     ]
   }
 }

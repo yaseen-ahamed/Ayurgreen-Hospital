@@ -1,26 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/autism/page": "app/autism/page.js",
-  "/hemiplegia/page": "app/hemiplegia/page.js",
-  "/developmental-delay/page": "app/developmental-delay/page.js",
-  "/disc-spine-problems/page": "app/disc-spine-problems/page.js",
-  "/cerebral-palsy/page": "app/cerebral-palsy/page.js",
-  "/motor-neuron-diseases/page": "app/motor-neuron-diseases/page.js",
-  "/myopathy/page": "app/myopathy/page.js",
-  "/obesity/page": "app/obesity/page.js",
-  "/muscular-dystrophy/page": "app/muscular-dystrophy/page.js",
-  "/parkinsons-disease/page": "app/parkinsons-disease/page.js",
-  "/osteoarthritis/page": "app/osteoarthritis/page.js",
-  "/psychiatry/page": "app/psychiatry/page.js",
-  "/psychological-problems/page": "app/psychological-problems/page.js",
-  "/post-covid-complications/page": "app/post-covid-complications/page.js",
-  "/quadriplegia-paraplegia/page": "app/quadriplegia-paraplegia/page.js",
-  "/stroke-rehab/page": "app/stroke-rehab/page.js",
-  "/traumatic-brain-injury/page": "app/traumatic-brain-injury/page.js",
-  "/rheumatoid-arthritis/page": "app/rheumatoid-arthritis/page.js",
-  "/post-surgical-complications/page": "app/post-surgical-complications/page.js",
-  "/sciatica/page": "app/sciatica/page.js",
-  "/spinal-cord-injury/page": "app/spinal-cord-injury/page.js",
-  "/rehab-village/page": "app/rehab-village/page.js"
+  "/ayurveda/page": "app/ayurveda/page.js"
 }

@@ -439,6 +439,37 @@
     line-height: 1.55;
 }
 
+/* ── Dark-section text colour fixes (compound selectors = higher specificity) ── */
+/* Fixes: base card rules use !important dark-navy; these compound rules beat them */
+.ayur-dark-section .ayur-tech-card-title,
+.ayur-dark-section .ayur-condition-card-title {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.ayur-dark-section .ayur-tech-card-desc,
+.ayur-dark-section .ayur-condition-card-desc {
+    color: rgba(255, 255, 255, 0.64) !important;
+}
+
+.ayur-dark-section .ayur-tech-card-icon {
+    color: var(--theme-accent, #4ADE80) !important;
+}
+
+/* ── Edge spacing inside dark sections ──
+   Inside .ayur-sidebar-content the container padding is zeroed;
+   restore it so cards don’t bleed into the rounded corners. */
+.ayur-dark-section .ayur-container {
+    padding: 0 32px !important;
+}
+
+.ayur-dark-section.ayur-tech-outer {
+    padding: 72px 0;
+}
+
+.ayur-dark-section.ayur-section-medium {
+    padding: 56px 0;
+}
+
 /* ── Recovery Journey ── */
 .ayur-journey-timeline {
     display: flex;

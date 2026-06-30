@@ -1684,6 +1684,10 @@
                 min-height: 250px;
             }
 
+            .rv-path-icon {
+                flex-shrink: 0 !important;
+            }
+
             .rv-timeline-horizontal {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1693,7 +1697,7 @@
             .rv-timeline-line {
                 top: 0;
                 bottom: 0;
-                left: 28px;
+                left: 58px;
                 width: 2px;
                 height: 100%;
             }
@@ -1707,6 +1711,7 @@
 
             .rv-timeline-dot {
                 margin: 0;
+                flex-shrink: 0 !important;
             }
 
             .rv-wheel-wrap {
@@ -1751,6 +1756,21 @@
         }
 
         @media (max-width: 768px) {
+            .rv-wheel-visual-side {
+                transform: scale(0.72) !important;
+                transform-origin: center center !important;
+                height: 400px !important;
+                margin: -40px auto !important;
+            }
+
+            @media (max-width: 400px) {
+                .rv-wheel-visual-side {
+                    transform: scale(0.64) !important;
+                    height: 350px !important;
+                    margin: -60px auto !important;
+                }
+            }
+
             .rv-bento-grid {
                 grid-template-columns: 1fr;
             }

@@ -23,7 +23,6 @@ export default function Home() {
       <StoriesSection />
       <LifeGallerySection />
       <AyurgreenEcosystemSection />
-      <OurAssociationsSection />
     </div>
   );
 }

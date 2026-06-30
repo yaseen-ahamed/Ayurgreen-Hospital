@@ -1719,19 +1719,36 @@
                 gap: 60px;
             }
 
-            .rv-stack-details {
-                width: 100%;
-            }
-
             .rv-stack-card {
-                flex-direction: column;
-                align-items: flex-start;
+                display: grid !important;
+                grid-template-columns: 1fr auto;
+                align-items: center;
                 gap: 16px;
+                padding: 24px !important;
             }
 
             .rv-stack-card-left {
-                width: 100%;
-                justify-content: space-between;
+                grid-column: 1;
+                grid-row: 1;
+                display: flex;
+                align-items: center;
+                gap: 16px !important;
+            }
+
+            .rv-stack-arrow {
+                grid-column: 2;
+                grid-row: 1;
+                justify-self: end;
+            }
+
+            .rv-stack-details {
+                grid-column: span 2;
+                grid-row: 2;
+                width: 100% !important;
+            }
+
+            .rv-stack-card.active .rv-stack-details {
+                max-height: 250px !important;
             }
 
             .rv-partner-grid {

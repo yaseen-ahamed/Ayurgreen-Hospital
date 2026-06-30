@@ -1,15 +1,20 @@
 node_modules/
 dist/
+dist-legacy/
 venv/
 .DS_Store
 *.log
 .env
 
-# Large media files
-Assets/AYURGREEN HOSPITALS FHD.MP4
-Assets/Ayurgreen Hospitals.webm
-Assets/Therapies/OT/passive training.MP4
-Assets/Logo/Ayurgreen Hospitals.webm
-Assets/Ayurgreen Hospitals.mp4
-Assets/Unconfirmed*.crdownload
+# Raw/original media files (converted to .webp equivalents — not needed in repo)
+*.HEIC
+*.ARW
+*.MP4
+*.mp4
+
+# Large original files (specific exclusions)
+public/Assets/Unconfirmed*.crdownload
+public/Assets/ag-home-banner-mobile.png
+
+# Old static site build artifacts
 .next

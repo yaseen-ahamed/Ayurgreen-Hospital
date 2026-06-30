@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, ReactNode } from 'react';
 
 interface GlowCardProps {
@@ -8,6 +10,8 @@ interface GlowCardProps {
   width?: string | number;
   height?: string | number;
   customSize?: boolean; // When true, ignores size prop and uses width/height or className
+  borderRadius?: number; // Configurable border radius
+  enableTilt?: boolean; // Toggle 3D tilt/hover animation
 }
 
 const glowColorMap = {
@@ -31,30 +35,53 @@ const GlowCard: React.FC<GlowCardProps> = ({
   size = 'md',
   width,
   height,
-  customSize = false
+  customSize = false,
+  borderRadius,
+  enableTilt = false
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
     const syncPointer = (e: PointerEvent) => {
       const { clientX: x, clientY: y } = e;
+      const rect = card.getBoundingClientRect();
+      const localX = x - rect.left;
+      const localY = y - rect.top;
       
-      if (cardRef.current) {
-        // Use local coordinates to prevent background-attachment: fixed bugs with backdrop-filter
-        const rect = cardRef.current.getBoundingClientRect();
-        const localX = x - rect.left;
-        const localY = y - rect.top;
-        cardRef.current.style.setProperty('--x', localX.toFixed(2));
-        cardRef.current.style.setProperty('--xp', (localX / rect.width).toFixed(2));
-        cardRef.current.style.setProperty('--y', localY.toFixed(2));
-        cardRef.current.style.setProperty('--yp', (localY / rect.height).toFixed(2));
+      card.style.setProperty('--x', localX.toFixed(2));
+      card.style.setProperty('--xp', (localX / rect.width).toFixed(2));
+      card.style.setProperty('--y', localY.toFixed(2));
+      card.style.setProperty('--yp', (localY / rect.height).toFixed(2));
+
+      if (enableTilt) {
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        // Max 10 degrees tilt rotation
+        const rotateX = ((localY - centerY) / centerY) * -10;
+        const rotateY = ((localX - centerX) / centerX) * 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
       }
     };
 
-    document.addEventListener('pointermove', syncPointer);
-    return () => document.removeEventListener('pointermove', syncPointer);
-  }, []);
+    const resetTransform = () => {
+      if (enableTilt) {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      }
+    };
+
+    card.addEventListener('pointermove', syncPointer);
+    card.addEventListener('pointerleave', resetTransform);
+    
+    return () => {
+      card.removeEventListener('pointermove', syncPointer);
+      card.removeEventListener('pointerleave', resetTransform);
+    };
+  }, [enableTilt]);
 
   const { base, spread } = glowColorMap[glowColor];
 
@@ -67,23 +94,24 @@ const GlowCard: React.FC<GlowCardProps> = ({
   };
 
   const getInlineStyles = () => {
+    const radiusVal = borderRadius !== undefined ? String(borderRadius) : '14';
     const baseStyles: React.CSSProperties & { [key: string]: any } = {
       '--base': base,
       '--spread': spread,
-      '--radius': '14',
-      '--border': '3',
-      '--backdrop': 'hsl(0 0% 60% / 0.12)',
-      '--backup-border': 'var(--backdrop)',
-      '--size': '200',
+      '--radius': radiusVal,
+      '--border': '1.5',
+      '--backdrop': 'rgba(255, 255, 255, 0.03)',
+      '--backup-border': 'rgba(255, 255, 255, 0.08)',
+      '--size': '250',
       '--outer': '1',
-      '--border-size': 'calc(var(--border, 2) * 1px)',
-      '--spotlight-size': 'calc(var(--size, 150) * 1px)',
+      '--border-size': 'calc(var(--border, 1.5) * 1px)',
+      '--spotlight-size': 'calc(var(--size, 250) * 1px)',
       '--hue': 'calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))',
       backgroundImage: `radial-gradient(
         var(--spotlight-size) var(--spotlight-size) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent
+        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.12)), transparent
       )`,
       backgroundColor: 'var(--backdrop, transparent)',
       backgroundSize: '100% 100%',
@@ -92,6 +120,11 @@ const GlowCard: React.FC<GlowCardProps> = ({
       border: 'var(--border-size) solid var(--backup-border)',
       position: 'relative' as const,
       touchAction: 'none' as const,
+      // Liquid glass styles
+      backdropFilter: 'blur(20px) saturate(180%)',
+      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+      boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12), inset 0 -1px 20px 0 rgba(255, 255, 255, 0.01)',
+      transition: 'transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, background-color 0.3s ease',
     };
 
     // Add width and height if provided
@@ -176,15 +209,9 @@ const GlowCard: React.FC<GlowCardProps> = ({
         style={getInlineStyles()}
         className={`
           ${getSizeClasses()}
-          ${!customSize ? 'aspect-[3/4]' : ''}
+          ${!customSize ? 'aspect-[3/4] grid grid-rows-[1fr_auto] p-4 gap-4' : ''}
           rounded-2xl 
           relative 
-          grid 
-          grid-rows-[1fr_auto] 
-          shadow-[0_1rem_2rem_-1rem_black] 
-          p-4 
-          gap-4 
-          backdrop-blur-[5px]
           ${className}
         `}
       >
@@ -195,4 +222,4 @@ const GlowCard: React.FC<GlowCardProps> = ({
   );
 };
 
-export { GlowCard }
+export { GlowCard };

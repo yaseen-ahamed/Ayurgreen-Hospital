@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import type { TechnologiesData } from "@/data/rehab/types";
 import { getTheme } from "@/data/rehab/themes";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   activity: Activity, bone: Bone, brain: Brain, accessibility: Accessibility,
@@ -25,8 +26,23 @@ interface RehabTechnologiesProps {
   slug: string;
 }
 
+// Maps slugs to closest GlowCard color hues
+function getGlowColor(slug: string): 'blue' | 'purple' | 'green' | 'red' | 'orange' {
+  const blueSlugs = ['spinal-cord-injury', 'cerebral-palsy', 'urology', 'respiratory-therapy', 'modern-medicine', 'speech-therapy', 'hydro-therapy', 'dentistry'];
+  const purpleSlugs = ['occupational-therapy', 'muscular-dystrophy', 'developmental-delay', 'autism', 'psychiatry', 'neuro-psychology', 'counseling', 'pediatrics', 'motor-neuron-diseases'];
+  const greenSlugs = ['ayurveda', 'diet-nutrition', 'slimming-treatment', 'post-surgical-complications', 'psychological-problems', 'general-medicine', 'hemiplegia'];
+  const redSlugs = ['stroke-rehab', 'sciatica', 'rheumatoid-arthritis', 'cardiology', 'pain-management'];
+  
+  if (blueSlugs.includes(slug)) return 'blue';
+  if (purpleSlugs.includes(slug)) return 'purple';
+  if (greenSlugs.includes(slug)) return 'green';
+  if (redSlugs.includes(slug)) return 'red';
+  return 'orange';
+}
+
 export default function RehabTechnologies({ technologies, slug }: RehabTechnologiesProps) {
   const theme = getTheme(slug);
+  const glowColor = getGlowColor(slug);
 
   return (
     <section
@@ -61,7 +77,14 @@ export default function RehabTechnologies({ technologies, slug }: RehabTechnolog
           {technologies.cards.map((card, i) => {
             const IconComponent = ICON_MAP[card.icon] ?? Activity;
             return (
-              <div key={i} className="ayur-tech-card ayur-glass-card">
+              <GlowCard
+                key={i}
+                customSize
+                enableTilt
+                glowColor={glowColor}
+                borderRadius={28}
+                className="ayur-tech-card ayur-glass-card overflow-hidden"
+              >
                 <div className="ayur-tech-card-title-row">
                   <span className="ayur-tech-card-icon ayur-dark-icon">
                     <IconComponent size={24} />
@@ -69,7 +92,7 @@ export default function RehabTechnologies({ technologies, slug }: RehabTechnolog
                   <h3 className="ayur-tech-card-title ayur-dark-card-title">{card.title}</h3>
                 </div>
                 <p className="ayur-tech-card-desc ayur-dark-card-desc">{card.description}</p>
-              </div>
+              </GlowCard>
             );
           })}
         </div>

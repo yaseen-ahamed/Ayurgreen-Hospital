@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from "next/script";
 import '@/styles/rehab-village.css';
 
 export const metadata: Metadata = {
@@ -117,7 +118,7 @@ export default function RehabVillageLayout({
 
     return (
       <>
-        <script
+        <Script id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

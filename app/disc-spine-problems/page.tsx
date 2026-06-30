@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/rehab-page.css";
 import { pageData } from "@/data/rehab/disc-spine-problems";
 import RehabPageClient from "@/components/pages/rehab/RehabPageClient";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Disc & Spine Problems Rehabilitation & Care | Ayurgreen Hospital",
@@ -112,7 +113,7 @@ export default function DiscSpineProblemsPage() {
 
   return (
     <>
-      <script
+      <Script id="json-ld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />

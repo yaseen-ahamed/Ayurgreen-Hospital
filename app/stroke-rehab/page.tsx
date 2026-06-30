@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/rehab-page.css";
 import StrokeRehabClient from "@/components/stroke-rehab/StrokeRehabClient";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Stroke Rehabilitation & Care | Ayurgreen Hospital",
@@ -114,7 +115,7 @@ export default function StrokeRehabPage() {
 
   return (
     <>
-      <script
+      <Script id="json-ld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />

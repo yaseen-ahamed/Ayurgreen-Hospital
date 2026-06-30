@@ -227,7 +227,7 @@ export default function Header() {
         <a href="/international-patients" className="individual-pill">
           International Patients
         </a>
-        <a href="#consultation" className="header-cta-pill">
+        <a href="/contact-us" className="header-cta-pill">
           Book an appointment{" "}
           <span className="arrow-btn">
             <i data-lucide="arrow-up-right" size="14"></i>

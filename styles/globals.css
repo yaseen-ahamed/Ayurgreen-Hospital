@@ -3,5 +3,6 @@
 @import "./style.css";
 @import "./homepage-custom.css";
 @import "./mobile-optimizations.css";
+@import "./contact-us.css";
 :root { --blur-16: blur(16px); }
 :root { --nav-bg-glass: rgba(0, 0, 0, 0.6); --glass-blur-16: blur(16px); }

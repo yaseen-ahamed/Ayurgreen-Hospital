@@ -239,7 +239,7 @@ export default function MegaMenu() {
                 <a href="/about" className="mobile-nav-link-secondary">Insights</a>
             </nav>
             <div className="mobile-menu-footer">
-                <a href="#consultation" className="mobile-menu-cta-btn">
+                <a href="/contact-us" className="mobile-menu-cta-btn">
                     <span>Book an Appointment</span>
                     <i data-lucide="arrow-up-right" size="16"></i>
                 </a>

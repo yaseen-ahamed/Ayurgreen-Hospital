@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: [
     "Neuro Rehabilitation Kerala",
     "Robotic Rehabilitation India",
-    "Ayurveda Rehabilitation Kerala",
+    "Neuro Physiotherapy Kerala",
     "Integrated Rehabilitation Hospital India",
     "Occupational Therapy",
     "Speech Therapy",

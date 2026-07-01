@@ -165,9 +165,7 @@ export default function Header() {
               <a href="/dentistry">
                 <i data-lucide="smile" size="14" style={{ "color": "#00BCD4" }}></i> Dentistry
               </a>
-              <a href="/modern-medicine">
-                <i data-lucide="pill" size="14" style={{ "color": "#9C27B0" }}></i> Modern Medicine
-              </a>
+
               <a href="/assistive-devices">
                 <i data-lucide="accessibility" size="14" style={{ "color": "#3F51B5" }}></i> Assistive Devices
               </a>

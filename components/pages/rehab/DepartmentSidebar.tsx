@@ -60,7 +60,7 @@ export const departmentsList: SpecialityItem[] = [
   { id: "diet-nutrition",       name: "Diet & Nutrition",           icon: Utensils,       href: "/diet-nutrition",        color: "#FF5722" },
   { id: "counseling",           name: "Counseling",                 icon: HeartHandshake, href: "/counseling",            color: "#E91E63" },
   { id: "dentistry",            name: "Dentistry",                  icon: Smile,          href: "/dentistry",             color: "#00BCD4" },
-  { id: "modern-medicine",      name: "Modern Medicine",            icon: Pill,           href: "/modern-medicine",       color: "#9C27B0" },
+
   { id: "assistive-devices",    name: "Assistive Devices",          icon: Accessibility,  href: "/assistive-devices",     color: "#3F51B5" },
 ];
 

@@ -80,7 +80,7 @@ export const PAGE_THEMES: Record<string, PageTheme> = {
   'ent':                         mk(249, 115,  22),   // salmon coral
   'general-medicine':            mk(16,  185, 129),   // healing jade
   'respiratory-therapy':         mk(14,  165, 233),   // cerulean sky
-  'modern-medicine':             mk(125, 211, 252),   // steel sky blue
+
   'assistive-devices':           mk(148, 163, 184),   // warm slate
 
   // ── Wellness & Rehab Support ─────────────────────────────────────────

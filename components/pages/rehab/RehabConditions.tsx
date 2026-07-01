@@ -12,7 +12,7 @@ interface RehabConditionsProps {
 
 // Maps slugs to closest GlowCard color hues
 function getGlowColor(slug: string): 'blue' | 'purple' | 'green' | 'red' | 'orange' {
-  const blueSlugs = ['spinal-cord-injury', 'cerebral-palsy', 'urology', 'respiratory-therapy', 'modern-medicine', 'speech-therapy', 'hydro-therapy', 'dentistry'];
+  const blueSlugs = ['spinal-cord-injury', 'cerebral-palsy', 'urology', 'respiratory-therapy', 'speech-therapy', 'hydro-therapy', 'dentistry'];
   const purpleSlugs = ['occupational-therapy', 'muscular-dystrophy', 'developmental-delay', 'autism', 'psychiatry', 'neuro-psychology', 'counseling', 'pediatrics', 'motor-neuron-diseases'];
   const greenSlugs = ['ayurveda', 'diet-nutrition', 'slimming-treatment', 'post-surgical-complications', 'psychological-problems', 'general-medicine', 'hemiplegia'];
   const redSlugs = ['stroke-rehab', 'sciatica', 'rheumatoid-arthritis', 'cardiology', 'pain-management'];

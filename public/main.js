@@ -22559,7 +22559,7 @@ function initSearch() {
       "diet-nutrition.html": { icon: "utensils", color: "#FF5722" },
       "counseling.html": { icon: "heart-handshake", color: "#E91E63" },
       "dentistry.html": { icon: "smile", color: "#00BCD4" },
-      "modern-medicine.html": { icon: "pill", color: "#9C27B0" },
+
       "assistive-devices.html": { icon: "accessibility", color: "#3F51B5" },
       "neurology.html": { icon: "brain-circuit", color: "#607D8B" },
       "neurosurgery.html": { icon: "microscope", color: "#009688" },

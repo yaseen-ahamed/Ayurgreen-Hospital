@@ -35,7 +35,7 @@ const CATEGORY_KEYWORDS = {
     Departments: [
         'neurology', 'neurosurgery', 'orthopedic', 'cardiology', 'pediatrics',
         'dentistry', 'ent', 'urology', 'psychiatry', 'general medicine',
-        'modern medicine', 'neuro-psychology', 'naturopathy'
+        'neuro-psychology', 'naturopathy'
     ],
     Facilities: [
         'international patient', 'swimming pool', 'mosque', 'travel desk', 'fitness centre',

@@ -51,7 +51,7 @@ export const routeMapping: RouteMapping[] = [
     { legacyUrl: 'diet-nutrition.html', newRoute: '/departments/diet-nutrition', category: 'departments', status: 'pending' },
     { legacyUrl: 'counseling.html', newRoute: '/departments/counseling', category: 'departments', status: 'pending' },
     { legacyUrl: 'dentistry.html', newRoute: '/departments/dentistry', category: 'departments', status: 'pending' },
-    { legacyUrl: 'modern-medicine.html', newRoute: '/departments/modern-medicine', category: 'departments', status: 'pending' },
+
     { legacyUrl: 'assistive-devices.html', newRoute: '/departments/assistive-devices', category: 'departments', status: 'pending' },
 
     // Modern Integrations

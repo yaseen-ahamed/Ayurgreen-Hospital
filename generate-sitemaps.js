@@ -200,8 +200,7 @@ const generateXml = () => {
     'ayurveda.html', 'physiotherapy.html', 'robotic-rehab.html', 'occupational-therapy.html',
     'speech-therapy.html', 'virtual-reality.html', 'yoga-meditation.html', 'acupuncture.html',
     'reflexology.html', 'hydro-therapy.html', 'pediatrics.html', 'slimming-treatment.html',
-    'pain-management.html', 'diet-nutrition.html', 'counseling.html', 'dentistry.html',
-    'modern-medicine.html', 'assistive-devices.html',
+    'pain-management.html', 'diet-nutrition.html', 'counseling.html', 'dentistry.html', 'assistive-devices.html',
     // Specializations
     'neurology.html', 'neurosurgery.html', 'orthopedic.html', 'ent.html', 'general-medicine.html',
     'urology.html', 'cardiology.html', 'respiratory-therapy.html', 'neuro-psychology.html'

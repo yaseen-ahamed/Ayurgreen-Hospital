@@ -10,6 +10,7 @@ import RehabVillagePreview from "@/components/sections/RehabVillagePreview";
 import StoriesSection from "@/components/sections/StoriesSection";
 import LifeGallerySection from "@/components/sections/LifeGallerySection";
 import AyurgreenEcosystemSection from "@/components/sections/AyurgreenEcosystemSection";
+import OurAssociationsSection from "@/components/sections/OurAssociationsSection";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <StoriesSection />
       <LifeGallerySection />
       <AyurgreenEcosystemSection />
+      <OurAssociationsSection />
     </div>
   );
 }

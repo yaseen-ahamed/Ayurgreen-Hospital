@@ -85,12 +85,7 @@ export default function AdmireEcosystemSection() {
                     {/*  CENTER COLUMN (Image centerpiece + floating tags + CTA)  */}
                     <div className="admire-col center-col">
                         <div className="admire-center-visual-wrapper">
-                            {/*  Floating tags orbiting central image  */}
-                            <div className="admire-tag-pill float-1" style={{ "top": "15px", "left": "-45px" }}>Robotics</div>
-                            <div className="admire-tag-pill float-2" style={{ "top": "35px", "right": "-40px" }}>Ayur Medicine</div>
-                            <div className="admire-tag-pill float-3" style={{ "bottom": "45px", "left": "-50px" }}>Physiotherapy</div>
-                            <div className="admire-tag-pill float-4" style={{ "bottom": "25px", "right": "-45px" }}>Occupational
-                                Therapy</div>
+
 
                             {/*  Central image framed  */}
                             <div className="admire-center-image-frame" id="admire-centerpiece">

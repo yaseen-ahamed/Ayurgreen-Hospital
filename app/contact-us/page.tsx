@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import "@/styles/contact-us.css";
-import { Calendar } from "@/components/ui/calendar";
+
 
 /* ─────────────────────────────────────────────
    DATA
@@ -531,14 +531,7 @@ export default function ContactUsPage() {
 
               {/* ── Sidebar ── */}
               <div className="cu-sidebar">
-                {/* Calendar widget */}
-                <div className="cu-glass-panel cu-sidebar-card">
-                  <div className="cu-sidebar-title">📅 Schedule</div>
-                  <Calendar />
-                  <a href="#appointment-form" className="cu-btn-primary-dark" style={{ marginTop: 16, justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
-                    Book Now <i data-lucide="arrow-up-right" size={14} />
-                  </a>
-                </div>
+
 
                 {/* Quick Contact */}
                 <div className="cu-glass-panel cu-sidebar-card">

@@ -27,7 +27,7 @@
     }
 
     /* Accessibility Tap Targets */
-    a, button, [role="button"], input, select, textarea {
+    a, button, [role="button"], input:not([type="radio"]):not([type="checkbox"]), select, textarea {
         min-height: 44px !important;
         min-width: 44px !important;
     }
@@ -87,11 +87,13 @@
 @media (max-width: 1023px) {
     /* 1. Banner padding matching homepage */
     .ayur-page-main .ayur-hero-wrapper,
-    .rv-main .ayur-hero-wrapper {
+    .rv-main .ayur-hero-wrapper,
+    .cu-main .ayur-hero-wrapper {
         padding: 8px !important;
     }
     .ayur-page-main .ayur-hero-banner,
-    .rv-main .rv-hero {
+    .rv-main .rv-hero,
+    .cu-main .cu-hero {
         border-radius: 24px !important;
         min-height: 600px !important;
         height: auto !important;
@@ -99,19 +101,22 @@
     
     /* 2. Banner texts aligned aesthetically */
     .ayur-page-main .ayur-hero-content,
-    .rv-main .ayur-hero-content {
+    .rv-main .ayur-hero-content,
+    .cu-main .ayur-hero-content {
         padding-left: 24px !important;
         padding-right: 24px !important;
     }
     .ayur-page-main .ayur-hero-breadcrumb,
-    .rv-main .ayur-hero-content {
+    .rv-main .ayur-hero-content,
+    .cu-main .ayur-hero-content {
         margin-top: 40px !important;
     }
 
     /* 3. Place hamburger and search perfectly as in homepage */
     body:has(.hero-canvas-wrapper) .hero-header,
     body:has(.ayur-page-main) .hero-header,
-    body:has(.rv-main) .hero-header {
+    body:has(.rv-main) .hero-header,
+    body:has(.cu-main) .hero-header {
         flex-direction: row !important;
         justify-content: flex-end !important;
         align-items: center !important;
@@ -172,7 +177,8 @@
 
     /* Prevent double padding inside the container for both condition pages and rehab-village */
     .ayur-page-main .ayur-content-col > section .ayur-container,
-    .rv-main > section .rv-container {
+    .rv-main > section .rv-container,
+    .cu-main .cu-hero .cu-container {
         padding: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -197,5 +203,13 @@
     /* Rehab Village CTA and specific adjustments */
     .rv-main .rv-contact-box {
         background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.1) 0%, transparent 60%) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cu-main .cu-hero-actions .cu-btn-primary,
+    .cu-main .cu-hero-actions .cu-btn-secondary {
+        width: 100% !important;
+        justify-content: center !important;
     }
 }

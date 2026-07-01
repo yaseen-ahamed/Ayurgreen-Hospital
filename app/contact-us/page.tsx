@@ -82,8 +82,65 @@ const trustItems = [
    PAGE COMPONENT
 ───────────────────────────────────────────── */
 export default function ContactUsPage() {
-  const [activeTime, setActiveTime] = useState("Morning");
   const [submitted, setSubmitted] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date>(() => {
+    const today = new Date();
+    // Default to tomorrow if today is Sunday
+    if (today.getDay() === 0) {
+      const tomorrow = new Date();
+      tomorrow.setDate(today.getDate() + 1);
+      return tomorrow;
+    }
+    return today;
+  });
+  const [selectedTime, setSelectedTime] = useState<string>("5:00 PM");
+  const [weekOffset, setWeekOffset] = useState<number>(0);
+
+  const weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const weekdaysFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const timeSlots = [
+    "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM",
+    "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM",
+    "10:00 PM", "10:30 PM", "11:00 PM"
+  ];
+
+  const getDaysArray = (offset: number) => {
+    const daysArr = [];
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    start.setDate(start.getDate() + offset);
+    
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + i);
+      daysArr.push(d);
+    }
+    return daysArr;
+  };
+
+  const days = getDaysArray(weekOffset);
+
+  const formatRangeHeader = (daysArray: Date[]) => {
+    if (daysArray.length === 0) return "";
+    const first = daysArray[0];
+    const last = daysArray[daysArray.length - 1];
+    if (first.getMonth() === last.getMonth()) {
+      return `${monthsShort[first.getMonth()]} ${first.getDate()} – ${last.getDate()}`;
+    } else {
+      return `${monthsShort[first.getMonth()]} ${first.getDate()} – ${monthsShort[last.getMonth()]} ${last.getDate()}`;
+    }
+  };
+
+  const handlePrevWeek = () => {
+    if (weekOffset > 0) {
+      setWeekOffset(prev => Math.max(0, prev - 7));
+    }
+  };
+
+  const handleNextWeek = () => {
+    setWeekOffset(prev => prev + 7);
+  };
 
   useEffect(() => {
     // Lucide icons
@@ -309,25 +366,105 @@ export default function ContactUsPage() {
 
                     {/* Date & Time */}
                     <div className="cu-form-group-title">Preferred Date & Time</div>
-                    <div className="cu-form-row">
-                      <div className="cu-field">
-                        <label className="cu-label">Preferred Date</label>
-                        <input className="cu-input" type="date" />
-                      </div>
-                      <div className="cu-field">
-                        <label className="cu-label">Preferred Time</label>
-                        <div className="cu-time-slots">
-                          {["Morning", "Afternoon", "Evening"].map((t) => (
-                            <button
-                              key={t}
-                              type="button"
-                              className={`cu-time-slot${activeTime === t ? " active" : ""}`}
-                              onClick={() => setActiveTime(t)}
-                            >
-                              {t === "Morning" ? "🌅" : t === "Afternoon" ? "☀️" : "🌙"} {t}
-                            </button>
-                          ))}
+                    <input type="hidden" name="preferred_date" value={selectedDate ? selectedDate.toISOString().split('T')[0] : ""} />
+                    <input type="hidden" name="preferred_time" value={selectedTime} />
+                    <div className="cu-scheduler-card">
+                      <div className="cu-scheduler-header">
+                        <div className="cu-scheduler-icon-wrap">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                          </svg>
                         </div>
+                        <div>
+                          <h3 className="cu-scheduler-title">Select a time</h3>
+                          <p className="cu-scheduler-subtitle">30-min walkthrough · meeting link sent on confirmation</p>
+                        </div>
+                      </div>
+
+                      <div className="cu-scheduler-datepicker">
+                        <button 
+                          type="button" 
+                          className="cu-date-nav-btn" 
+                          onClick={handlePrevWeek} 
+                          disabled={weekOffset === 0}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="m15 18-6-6 6-6"/>
+                          </svg>
+                        </button>
+                        <div className="cu-date-range-label">{formatRangeHeader(days)}</div>
+                        <button 
+                          type="button" 
+                          className="cu-date-nav-btn" 
+                          onClick={handleNextWeek}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="m9 18 6-6-6-6"/>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div className="cu-days-row">
+                        {days.map((day, idx) => {
+                          const isSelected = selectedDate.toDateString() === day.toDateString();
+                          const isSun = day.getDay() === 0;
+                          return (
+                            <button
+                              key={idx}
+                              type="button"
+                              className={`cu-day-item${isSelected ? " active" : ""}${isSun ? " disabled" : ""}`}
+                              onClick={() => !isSun && setSelectedDate(day)}
+                              disabled={isSun}
+                            >
+                              <span className="cu-day-name">{weekdays[day.getDay()]}</span>
+                              <span className="cu-day-number">{day.getDate()}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      <div className="cu-available-times-section">
+                        <div className="cu-available-times-header">
+                          AVAILABLE TIMES · {weekdaysFull[selectedDate.getDay()].toUpperCase()}, {monthsShort[selectedDate.getMonth()].toUpperCase()} {selectedDate.getDate()}
+                        </div>
+                        
+                        <div className="cu-time-grid">
+                          {timeSlots.map((time) => {
+                            const isSelected = selectedTime === time;
+                            return (
+                              <button
+                                key={time}
+                                type="button"
+                                className={`cu-time-slot-pill${isSelected ? " active" : ""}`}
+                                onClick={() => setSelectedTime(time)}
+                              >
+                                {time}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        <div className="cu-timezone-info">
+                          Times shown in Asia/Calcutta
+                        </div>
+                      </div>
+
+                      <div className="cu-scheduler-divider">
+                        <span>OR</span>
+                      </div>
+
+                      <div className="cu-whatsapp-booking">
+                        <a 
+                          href="https://wa.me/918943055555?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment." 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="cu-whatsapp-btn"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style={{ display: "inline-block", verticalAlign: "middle", marginRight: "8px" }}>
+                            <path d="M12.012 2c-5.506 0-9.978 4.471-9.978 9.978 0 1.764.459 3.49 1.33 5.025l-1.416 5.187 5.308-1.392c1.479.808 3.14 1.233 4.819 1.233 5.506 0 9.978-4.471 9.978-9.978 0-2.659-1.035-5.159-2.915-7.04-1.88-1.88-4.38-2.913-7.039-2.913zm0 1.583c2.233 0 4.333.87 5.912 2.45 1.58 1.58 2.45 3.68 2.45 5.912s-.87 4.333-2.45 5.912c-1.58 1.58-3.68 2.45-5.912 2.45-1.458 0-2.887-.367-4.148-1.062l-.297-.174-3.082.808.822-3.012-.191-.304c-.752-1.205-1.15-2.607-1.15-4.047 0-4.63 3.766-8.397 8.398-8.397z"/>
+                          </svg>
+                          Prefer to chat? Book over WhatsApp
+                        </a>
                       </div>
                     </div>
 

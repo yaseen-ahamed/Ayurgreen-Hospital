@@ -1793,7 +1793,9 @@
         @media (max-width: 768px) {
             .rv-wheel-container {
                 max-width: 100% !important;
-                height: 300px !important;
+                height: 340px !important;
+                overflow-x: hidden !important;
+                overflow-y: visible !important;
             }
 
             .rv-wheel-visual-side {
@@ -1804,7 +1806,7 @@
 
             @media (max-width: 400px) {
                 .rv-wheel-container {
-                    height: 260px !important;
+                    height: 290px !important;
                 }
                 .rv-wheel-visual-side {
                     transform: scale(0.62) !important;

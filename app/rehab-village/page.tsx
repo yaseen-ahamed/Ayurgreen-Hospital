@@ -435,28 +435,38 @@ export default function RehabVillagePage() {
                 
                 <div className="rv-timeline-step" data-step="1">
                     <div className="rv-timeline-dot path-vibrant color-theme-0">1</div>
-                    <h4 className="rv-title-small" style={{"fontSize":"16px"}}>Admission</h4>
-                    <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Clinical consultation &amp; onboarding</p>
+                    <div className="rv-timeline-content" style={{"textAlign":"left"}}>
+                        <h4 className="rv-title-small" style={{"fontSize":"16px","margin":"0 0 4px 0"}}>Admission</h4>
+                        <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Clinical consultation &amp; onboarding</p>
+                    </div>
                 </div>
                 <div className="rv-timeline-step" data-step="2">
                     <div className="rv-timeline-dot path-vibrant color-theme-1">2</div>
-                    <h4 className="rv-title-small" style={{"fontSize":"16px"}}>Accommodation</h4>
-                    <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Allocating specialized village stay</p>
+                    <div className="rv-timeline-content" style={{"textAlign":"left"}}>
+                        <h4 className="rv-title-small" style={{"fontSize":"16px","margin":"0 0 4px 0"}}>Accommodation</h4>
+                        <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Allocating specialized village stay</p>
+                    </div>
                 </div>
                 <div className="rv-timeline-step" data-step="3">
                     <div className="rv-timeline-dot path-vibrant color-theme-2">3</div>
-                    <h4 className="rv-title-small" style={{"fontSize":"16px"}}>Therapy</h4>
-                    <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Integrated clinic-based treatments</p>
+                    <div className="rv-timeline-content" style={{"textAlign":"left"}}>
+                        <h4 className="rv-title-small" style={{"fontSize":"16px","margin":"0 0 4px 0"}}>Therapy</h4>
+                        <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Integrated clinic-based treatments</p>
+                    </div>
                 </div>
                 <div className="rv-timeline-step" data-step="4">
                     <div className="rv-timeline-dot path-vibrant color-theme-3">4</div>
-                    <h4 className="rv-title-small" style={{"fontSize":"16px"}}>Recovery</h4>
-                    <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Adapting to daily residential living</p>
+                    <div className="rv-timeline-content" style={{"textAlign":"left"}}>
+                        <h4 className="rv-title-small" style={{"fontSize":"16px","margin":"0 0 4px 0"}}>Recovery</h4>
+                        <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Adapting to daily residential living</p>
+                    </div>
                 </div>
                 <div className="rv-timeline-step" data-step="5">
                     <div className="rv-timeline-dot path-vibrant color-theme-4">5</div>
-                    <h4 className="rv-title-small" style={{"fontSize":"16px"}}>Independence</h4>
-                    <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Returning to life with full confidence</p>
+                    <div className="rv-timeline-content" style={{"textAlign":"left"}}>
+                        <h4 className="rv-title-small" style={{"fontSize":"16px","margin":"0 0 4px 0"}}>Independence</h4>
+                        <p style={{"fontSize":"12px","color":"var(--text-muted, #6B7280)"}}>Returning to life with full confidence</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -62,6 +62,8 @@ export const departmentsList: SpecialityItem[] = [
   { id: "dentistry",            name: "Dentistry",                  icon: Smile,          href: "/dentistry",             color: "#00BCD4" },
 
   { id: "assistive-devices",    name: "Assistive Devices",          icon: Accessibility,  href: "/assistive-devices",     color: "#3F51B5" },
+  { id: "respiratory-therapy", name: "Respiratory Therapy", icon: Wind,         href: "/respiratory-therapy", color: "#00BCD4" },
+  { id: "neuro-psychology",    name: "Neuro Psychology",    icon: Brain,        href: "/neuro-psychology",    color: "#9C27B0" },
 ];
 
 // 3. Modern Integrations List
@@ -73,8 +75,6 @@ export const integrationsList: SpecialityItem[] = [
   { id: "general-medicine",    name: "General Medicine",    icon: Syringe,      href: "/general-medicine",    color: "#F44336" },
   { id: "urology",             name: "Urology",             icon: Droplet,      href: "/urology",             color: "#03A9F4" },
   { id: "cardiology",          name: "Cardiology",          icon: Heart,        href: "/cardiology",          color: "#E91E63" },
-  { id: "respiratory-therapy", name: "Respiratory Therapy", icon: Wind,         href: "/respiratory-therapy", color: "#00BCD4" },
-  { id: "neuro-psychology",    name: "Neuro Psychology",    icon: Brain,        href: "/neuro-psychology",    color: "#9C27B0" },
 ];
 
 interface DepartmentSidebarProps {

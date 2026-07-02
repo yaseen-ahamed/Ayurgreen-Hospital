@@ -9,8 +9,8 @@ export const pageData: RehabPageData = {
   hero: {
     bannerImage: "Assets/rehab/th_physiotherapy.webp",
     bannerType: "photo",
-    label: "Modern Integrations",
-    breadcrumbCategory: "Modern Integrations",
+    label: "Departments",
+    breadcrumbCategory: "Departments",
     title: "Respiratory Therapy",
     subtitle: "Restoring lung volumes, diaphragmatic training, clearing airways, and supporting recovery post-respiratory distress.",
   },

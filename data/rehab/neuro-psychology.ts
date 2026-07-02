@@ -9,8 +9,8 @@ export const pageData: RehabPageData = {
   hero: {
     bannerImage: "Assets/rehab/th_vr.webp",
     bannerType: "photo",
-    label: "Modern Integrations",
-    breadcrumbCategory: "Modern Integrations",
+    label: "Departments",
+    breadcrumbCategory: "Departments",
     title: "Neuro Psychology",
     subtitle: "Cognitive retraining, sensory stimulation, emotional support, and clinical guidance to rebuild cerebral pathways and coordinate focus.",
   },

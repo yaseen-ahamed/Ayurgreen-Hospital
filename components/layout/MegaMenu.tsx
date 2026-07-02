@@ -236,6 +236,8 @@ export default function MegaMenu() {
                 <a href="/about" className="mobile-nav-link-secondary">Careers</a>
                 <a href="/about" className="mobile-nav-link-secondary">News &amp; Events</a>
                 <a href="/about" className="mobile-nav-link-secondary">Insights</a>
+                <a href="#" className="mobile-nav-link-secondary" style={{ pointerEvents: 'none' }}>Insurance</a>
+                <a href="#" className="mobile-nav-link-secondary" style={{ pointerEvents: 'none' }}>CSR Initiatives</a>
             </nav>
             <div className="mobile-menu-footer">
                 <a href="/contact-us" className="mobile-menu-cta-btn">

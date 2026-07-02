@@ -241,8 +241,8 @@ export default function Header() {
             <a href="/about">Careers</a>
             <a href="/about">News &amp; Events</a>
             <a href="/about">Insights</a>
-            <a href="#">Insurance</a>
-            <a href="#">CSR Policy</a>
+            <a href="#" style={{ pointerEvents: 'none' }}>Insurance</a>
+            <a href="#" style={{ pointerEvents: 'none' }}>CSR Initiatives</a>
           </div>
         </div>
       </div>

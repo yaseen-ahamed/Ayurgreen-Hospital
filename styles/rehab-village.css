@@ -1793,23 +1793,22 @@
         @media (max-width: 768px) {
             .rv-wheel-container {
                 max-width: 100% !important;
-                height: 340px !important;
-                overflow-x: hidden !important;
-                overflow-y: visible !important;
+                height: 415px !important;
+                overflow: hidden !important;
             }
 
             .rv-wheel-visual-side {
-                transform: scale(0.72) !important;
+                transform: scale(0.65) !important;
                 transform-origin: center center !important;
                 margin: 0 auto !important;
             }
 
             @media (max-width: 400px) {
                 .rv-wheel-container {
-                    height: 290px !important;
+                    height: 350px !important;
                 }
                 .rv-wheel-visual-side {
-                    transform: scale(0.62) !important;
+                    transform: scale(0.55) !important;
                 }
             }
 

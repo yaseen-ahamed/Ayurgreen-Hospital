@@ -652,6 +652,14 @@
             align-items: center;
         }
 
+        .rv-wheel-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+        }
+
         .rv-wheel-visual-side {
             position: relative;
             height: 500px;
@@ -1783,18 +1791,23 @@
         }
 
         @media (max-width: 768px) {
+            .rv-wheel-container {
+                max-width: 100% !important;
+                height: 300px !important;
+            }
+
             .rv-wheel-visual-side {
                 transform: scale(0.72) !important;
                 transform-origin: center center !important;
-                height: 400px !important;
-                margin: -40px auto !important;
+                margin: 0 auto !important;
             }
 
             @media (max-width: 400px) {
+                .rv-wheel-container {
+                    height: 260px !important;
+                }
                 .rv-wheel-visual-side {
-                    transform: scale(0.64) !important;
-                    height: 350px !important;
-                    margin: -60px auto !important;
+                    transform: scale(0.62) !important;
                 }
             }
 

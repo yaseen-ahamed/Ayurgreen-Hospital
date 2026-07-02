@@ -714,38 +714,39 @@ export default function RehabVillagePage() {
     <section className="rv-section" style={{"background":"var(--bg-main)","borderTop":"1px solid var(--border)","borderBottom":"1px solid var(--border)"}}>
         <div className="rv-container">
             <div className="rv-wheel-wrap">
-                
-                <div className="rv-wheel-visual-side">
-                    <div className="rv-wheel-center">
-                        Rehab Village<br />Ecosystem
-                    </div>
-                    <div className="rv-wheel-orbit">
+                <div className="rv-wheel-container">
+                    <div className="rv-wheel-visual-side">
+                        <div className="rv-wheel-center">
+                            Rehab Village<br />Ecosystem
+                        </div>
+                        <div className="rv-wheel-orbit">
+                            
+                        </div>
                         
-                    </div>
-                    
-                    <div className="rv-wheel-node active node-1 wheel-vibrant color-theme-0" data-node="patients">
-                        <i data-lucide="user" size="28"></i>
-                        <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Patients</span>
-                    </div>
-                    <div className="rv-wheel-node node-2 wheel-vibrant color-theme-1" data-node="families">
-                        <i data-lucide="users" size="28"></i>
-                        <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Families</span>
-                    </div>
-                    <div className="rv-wheel-node node-3 wheel-vibrant color-theme-2" data-node="healthcare">
-                        <i data-lucide="stethoscope" size="28"></i>
-                        <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Professionals</span>
-                    </div>
-                    <div className="rv-wheel-node node-4 wheel-vibrant color-theme-3" data-node="accommodation">
-                        <i data-lucide="home" size="28"></i>
-                        <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Partners</span>
-                    </div>
-                    <div className="rv-wheel-node node-5 wheel-vibrant color-theme-4" data-node="community">
-                        <i data-lucide="building" size="28"></i>
-                        <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Community</span>
-                    </div>
-                    <div className="rv-wheel-node node-6 wheel-vibrant color-theme-5" data-node="volunteers">
-                        <i data-lucide="heart" size="28"></i>
-                        <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Volunteers</span>
+                        <div className="rv-wheel-node active node-1 wheel-vibrant color-theme-0" data-node="patients">
+                            <i data-lucide="user" size="28"></i>
+                            <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Patients</span>
+                        </div>
+                        <div className="rv-wheel-node node-2 wheel-vibrant color-theme-1" data-node="families">
+                            <i data-lucide="users" size="28"></i>
+                            <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Families</span>
+                        </div>
+                        <div className="rv-wheel-node node-3 wheel-vibrant color-theme-2" data-node="healthcare">
+                            <i data-lucide="stethoscope" size="28"></i>
+                            <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Professionals</span>
+                        </div>
+                        <div className="rv-wheel-node node-4 wheel-vibrant color-theme-3" data-node="accommodation">
+                            <i data-lucide="home" size="28"></i>
+                            <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Partners</span>
+                        </div>
+                        <div className="rv-wheel-node node-5 wheel-vibrant color-theme-4" data-node="community">
+                            <i data-lucide="building" size="28"></i>
+                            <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Community</span>
+                        </div>
+                        <div className="rv-wheel-node node-6 wheel-vibrant color-theme-5" data-node="volunteers">
+                            <i data-lucide="heart" size="28"></i>
+                            <span className="rv-map-label" style={{"position":"absolute","bottom":"-30px"}}>Volunteers</span>
+                        </div>
                     </div>
                 </div>
 

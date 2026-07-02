@@ -198,6 +198,10 @@ export default function MegaMenu() {
 
                         <a href="/assistive-devices"><i data-lucide="accessibility" size="16"
                                 style={{ "color": "#3F51B5" }}></i> Assistive Devices</a>
+                        <a href="/respiratory-therapy"><i data-lucide="wind" size="16" style={{ "color": "#00BCD4" }}></i>
+                            Respiratory Therapy</a>
+                        <a href="/neuro-psychology"><i data-lucide="brain" size="16" style={{ "color": "#9C27B0" }}></i>
+                            Neuro Psychology</a>
                     </div>
                 </div>
 
@@ -220,10 +224,6 @@ export default function MegaMenu() {
                             Urology</a>
                         <a href="/cardiology"><i data-lucide="heart" size="16" style={{ "color": "#E91E63" }}></i>
                             Cardiology</a>
-                        <a href="/respiratory-therapy"><i data-lucide="wind" size="16" style={{ "color": "#00BCD4" }}></i>
-                            Respiratory Therapy</a>
-                        <a href="/neuro-psychology"><i data-lucide="brain" size="16" style={{ "color": "#9C27B0" }}></i>
-                            Neuro Psychology</a>
                     </div>
                 </div>
 

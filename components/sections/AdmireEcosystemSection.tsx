@@ -17,13 +17,13 @@ export default function AdmireEcosystemSection() {
 
                 {/*  Section Header  */}
                 <div className="admire-header">
-                    <div style={{ "display": "flex", "alignItems": "center", "justifyContent": "center", "gap": "24px" }}>
+                    <div className="section-brand-header">
                         <img src="/Assets/Logo/ADMIRE Logo.webp"
                             alt="ADMIRE (Advanced Modalities in Rehabilitative Engineering) Logo" width="281"
-                            height="155" loading="lazy" style={{ "height": "90px", "width": "auto", "objectFit": "contain" }} />
-                        <div style={{ "textAlign": "left", "borderLeft": "2px solid #10b981", "paddingLeft": "20px" }}>
-                            <h2 className="premium-title" style={{ "margin": "0" }}>
-                                Advanced Modalities in<br />Rehabilitative Engineering</h2>
+                            height="155" loading="lazy" className="section-brand-logo" />
+                        <div className="section-brand-title-wrap">
+                            <h2 className="premium-title">
+                                Advanced Modalities in<br className="desktop-only" /> Rehabilitative Engineering</h2>
                         </div>
                     </div>
                     <p className="admire-intro-text">

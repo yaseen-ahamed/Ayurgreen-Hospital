@@ -368,14 +368,14 @@ export default function RehabVillagePreview() {
                 <div className="rv-hero-banner">
                     {/*  Top Content  */}
                     <div className="rv-hero-top">
-                        <div
-                            style={{ "display": "flex", "alignItems": "center", "justifyContent": "center", "gap": "24px", "marginBottom": "24px" }}>
+                        <div className="section-brand-header" style={{ "marginBottom": "24px" }}>
                             <img src="/Assets/Logo/Rehab Village.webp"
                                 alt="Rehab Village logo – Community-based long term rehabilitation accommodation at Ayurgreen Hospital"
                                 width="1600" height="1600" loading="lazy"
-                                style={{ "height": "90px", "width": "auto", "objectFit": "contain", "borderRadius": "50%" }} />
-                            <div style={{ "textAlign": "left", "borderLeft": "2px solid #10b981", "paddingLeft": "20px" }}>
-                                <h2 className="rv-title premium-title" style={{ "margin": "0" }}>
+                                className="section-brand-logo"
+                                style={{ "borderRadius": "50%" }} />
+                            <div className="section-brand-title-wrap">
+                                <h2 className="rv-title premium-title">
                                     Rehab Village
                                 </h2>
                             </div>

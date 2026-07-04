@@ -22,8 +22,9 @@
 
     /* Fix any massive text */
     h1, h2, h3, h4, h5, h6 {
-        word-break: break-word !important;
-        hyphens: auto !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+        hyphens: none !important;
     }
 
     /* Accessibility Tap Targets */
@@ -204,6 +205,17 @@
     .rv-main .rv-contact-box {
         background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.1) 0%, transparent 60%) !important;
     }
+
+    /* Section Brand Header Mobile Optimizations */
+    .section-brand-header {
+        gap: 20px;
+    }
+    .section-brand-logo {
+        height: 75px;
+    }
+    .section-brand-title-wrap {
+        padding-left: 16px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -211,5 +223,25 @@
     .cu-main .cu-hero-actions .cu-btn-secondary {
         width: 100% !important;
         justify-content: center !important;
+    }
+
+    /* Section Brand Header Mobile (Phone) Optimizations */
+    .section-brand-header {
+        gap: 14px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .section-brand-logo {
+        height: 55px;
+        flex-shrink: 0;
+    }
+    .section-brand-title-wrap {
+        padding-left: 12px;
+    }
+    .section-brand-title-wrap h2 {
+        line-height: 1.2 !important;
+    }
+    .desktop-only {
+        display: none !important;
     }
 }

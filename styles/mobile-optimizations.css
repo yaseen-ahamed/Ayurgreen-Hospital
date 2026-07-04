@@ -231,6 +231,9 @@
         justify-content: flex-start;
         width: 100%;
     }
+    .section-brand-header.center-aligned {
+        justify-content: center;
+    }
     .section-brand-logo {
         height: 55px;
         flex-shrink: 0;

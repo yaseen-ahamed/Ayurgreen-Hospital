@@ -2040,3 +2040,352 @@
 .wheel-vibrant:hover {
     transform: scale(1.08) !important;
 }
+
+/* Custom Youtube Video Embed and Controls */
+.rv-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.rv-hero-video-column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    z-index: 10;
+}
+
+.rv-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(43, 196, 109, 0.2);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.rv-video-wrapper:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(43, 196, 109, 0.35);
+}
+
+.rv-video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+.rv-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, opacity 0.5s ease;
+}
+
+.rv-video-overlay:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.rv-video-play-btn {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0c2917;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: pulse-green-glow 2s infinite;
+}
+
+.rv-video-play-btn:hover {
+    transform: scale(1.12);
+    background: #ffffff;
+    color: #2bc46d;
+}
+
+.rv-video-play-btn i, .rv-video-play-btn svg {
+    margin-left: 4px; /* offset slightly for visual centering of triangle play */
+    transition: transform 0.2s ease;
+}
+
+.rv-video-play-btn:hover i, .rv-video-play-btn:hover svg {
+    transform: scale(1.1);
+}
+
+@keyframes pulse-green-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(43, 196, 109, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(43, 196, 109, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(43, 196, 109, 0);
+    }
+}
+
+.rv-video-iframe-container {
+    width: 100%;
+    height: 100%;
+}
+
+.rv-video-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Custom Bottom Controls */
+.rv-video-bottom-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+}
+
+/* Liquid Glass Button styling */
+.liquid-glass-btn {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.liquid-glass-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(43, 196, 109, 0.5) 0%, rgba(43, 196, 109, 0.2) 50%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), height 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 0;
+}
+
+.liquid-glass-btn:hover::before {
+    width: 320px;
+    height: 320px;
+}
+
+.liquid-glass-btn:hover {
+    border-color: rgba(43, 196, 109, 0.4);
+    box-shadow: 0 12px 40px 0 rgba(43, 196, 109, 0.3);
+    transform: translateY(-3px);
+}
+
+.liquid-glass-btn span, .liquid-glass-btn i, .liquid-glass-btn svg {
+    position: relative;
+    z-index: 2;
+}
+
+/* Glass Buttons & Dropdowns */
+.glass-dropdown-btn {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.glass-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.glass-dropdown-btn.active {
+    border-color: #2bc46d;
+    background: rgba(43, 196, 109, 0.15);
+}
+
+.glass-dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 0;
+    background: rgba(8, 14, 11, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: 8px 0;
+    min-width: 130px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(43, 196, 109, 0.1);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    animation: dropdown-fade-up 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes dropdown-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glass-dropdown-item {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.glass-dropdown-item:hover {
+    background: rgba(43, 196, 109, 0.25);
+    color: #ffffff;
+}
+
+.glass-dropdown-item.active {
+    color: #2bc46d;
+    font-weight: 600;
+    background: rgba(43, 196, 109, 0.1);
+}
+
+/* Tooltip and notification styling */
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip-copied {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2bc46d;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    pointer-events: none;
+    animation: tooltip-bounce 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tooltip-copied::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2bc46d transparent transparent transparent;
+}
+
+@keyframes tooltip-bounce {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 8px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Media Query Adaptations */
+@media (max-width: 1024px) {
+    .rv-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .rv-hero {
+        height: auto;
+        padding: 100px 0 60px 0;
+    }
+    
+    .rv-hero-video-column {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .rv-video-bottom-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .liquid-glass-btn, .glass-dropdown-btn {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .glass-dropdown-menu {
+        width: 100%;
+        bottom: unset;
+        top: calc(100% + 8px);
+    }
+}

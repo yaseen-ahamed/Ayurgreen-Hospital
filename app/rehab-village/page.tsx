@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Play } from "lucide-react";
 import "@/styles/rehab-village.css";
 
 export default function RehabVillagePage() {
+  const [loadVideo, setLoadVideo] = useState(false);
+
   useEffect(() => {
     // Render Lucide icons
     if (typeof window !== "undefined") {
@@ -359,24 +362,55 @@ export default function RehabVillagePage() {
     <div className="w-full relative">
       <main className="rv-main">
         <div className="ayur-hero-wrapper">
-        <section className="rv-hero">
-            <div className="ayur-hero-overlay" style={{"background":"linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%)"}}></div>
-            <div className="ayur-container">
-                <div className="ayur-hero-content">
-                    <h1 className="rv-title-large">Rehab Village</h1>
-                    <p className="rv-para-large">A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.</p>
-                    <div className="rv-hero-actions">
-                        <a href="#about" className="rv-btn-primary">
-                            Explore Rehab Village <span className="icon-circle"><i data-lucide="arrow-up-right" size="14"></i></span>
-                        </a>
-                        <a href="#stakeholder-registration" className="rv-btn-secondary">
-                            Become a Partner <span className="icon-circle"><i data-lucide="message-circle" size="14"></i></span>
-                        </a>
-                    </div>
+          <section className="rv-hero">
+            <div className="ayur-hero-overlay" style={{ "background": "linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.3) 100%)" }}></div>
+            <div className="ayur-container" style={{ position: "relative", zIndex: 2 }}>
+              <div className="rv-hero-grid">
+                <div className="ayur-hero-content" style={{ paddingLeft: 0 }}>
+                  <h1 className="rv-title-large">Rehab Village</h1>
+                  <p className="rv-para-large">A transformative rehabilitation ecosystem where advanced healthcare, comfortable living, and community support come together to help patients regain independence and rebuild life with confidence.</p>
+                  <div className="rv-hero-actions">
+                    <a href="#about" className="rv-btn-primary">
+                      Explore Rehab Village <span className="icon-circle"><Play size={12} fill="currentColor" /></span>
+                    </a>
+                    <a href="#stakeholder-registration" className="rv-btn-secondary">
+                      Become a Partner <span className="icon-circle"><i data-lucide="message-circle" size="14"></i></span>
+                    </a>
+                  </div>
                 </div>
+
+                <div className="rv-hero-video-column">
+                  <div className="rv-video-wrapper">
+                    {!loadVideo ? (
+                      <>
+                        <img 
+                          src="https://img.youtube.com/vi/2olvFRcleew/maxresdefault.jpg" 
+                          alt="Rehab Village Video Thumbnail" 
+                          className="rv-video-thumbnail"
+                        />
+                        <div className="rv-video-overlay" onClick={() => setLoadVideo(true)}>
+                          <button className="rv-video-play-btn" aria-label="Play Video">
+                            <Play size={28} fill="currentColor" />
+                          </button>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="rv-video-iframe-container">
+                        <iframe
+                          className="rv-video-iframe"
+                          src="https://www.youtube.com/embed/2olvFRcleew?autoplay=1&rel=0&controls=1"
+                          title="Rehab Village Video"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
-    </div>
+          </section>
+        </div>
 
     
     <section id="about" className="rv-section" style={{"borderTop":"1px solid var(--border)","background":"radial-gradient(circle at 10% 20%, rgba(38, 38, 38, 0.03) 0%, transparent 40%)"}}>

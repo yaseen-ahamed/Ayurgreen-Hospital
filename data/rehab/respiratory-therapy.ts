@@ -17,7 +17,12 @@ export const pageData: RehabPageData = {
   overview: {
     sectionLabel: "OVERVIEW",
     title: "Respiratory Therapy: Restoring Breathing & Pulmonary Health",
-    paragraphs: ["Normal breathing is effortless — until it isn't. Respiratory conditions and the pulmonary complications of neurological disease can severely limit a patient's ability to breathe comfortably, participate in rehabilitation, and maintain overall health.", "At Ayurgreen Hospital, our Respiratory Therapy Department plays a crucial role in the overall rehabilitation ecosystem. Respiratory complications are extremely common in our neurological patient population — stroke patients may have reduced respiratory muscle strength, spinal cord injury patients may have ventilatory compromise, and post-Covid patients frequently suffer from persistent breathlessness and pulmonary fibrosis.", "Our respiratory therapists work alongside pulmonologists, physiotherapists, and speech therapists to manage all aspects of pulmonary health, ensuring that our patients can breathe safely and effectively throughout their rehabilitation journey. Authentic Ayurvedic respiratory therapies complement modern pulmonary care, providing a truly comprehensive approach to lung health."],
+    paragraphs: [
+      "Normal breathing is effortless — until it isn't. Respiratory conditions and the pulmonary complications of neurological disease can severely limit a patient's ability to breathe comfortably, participate in rehabilitation, and maintain overall health.",
+      "At Ayurgreen Hospital, our Respiratory Therapy Department plays a crucial role in the overall rehabilitation ecosystem, collaborating closely within a multidisciplinary team. Respiratory complications are common across various neurological and post-infectious conditions, where we work to optimize ventilation and improve airway patency.",
+      "Our specialists perform detailed assessments of breathing patterns, chest expansion, and oxygenation status. These diagnostic findings are used to tailor individualized interventions that address both underlying lung involvement and neuromuscular compromise.",
+      "By integrating modern clinical modalities with authentic Ayurvedic treatments, we support functional recovery, build physical endurance, and prevent secondary respiratory complications, helping patients regain their independence and quality of life."
+    ],
     image: "Assets/rehab/prog_stroke.webp",
     imageAlt: "Respiratory Therapy at Ayurgreen Hospital",
   },
@@ -26,81 +31,96 @@ export const pageData: RehabPageData = {
     sectionTitle: "Conditions We Manage",
     sectionSupport: "Expert pulmonary care for both primary respiratory conditions and the complex breathing challenges of neurological rehabilitation patients.",
     cards: [
-    {
+      {
         "image": "Assets/rehab/prog_stroke.webp",
         "title": "Neuro-Respiratory Complications",
-        "description": "Respiratory muscle weakness and ventilatory failure in spinal cord injury, neuromuscular diseases (GBS, MND), and severe TBI. Aspiration pneumonia in post-stroke and TBI patients with dysphagia — requiring immediate coordinated ENT, speech therapy, and respiratory management."
-    },
-    {
+        "description": "Impaired muscle strength, reduced cough efficiency, and altered breathing patterns in patients with Stroke, Spinal Cord Injury, Parkinson's Disease, Guillain-Barré Syndrome (GBS), motor neuron disease (MND), and severe traumatic brain injury (TBI)."
+      },
+      {
         "image": "Assets/rehab/prog_spinal_cord.webp",
-        "title": "Chronic Obstructive & Restrictive Conditions",
-        "description": "COPD, bronchial asthma, interstitial lung disease, post-tuberculosis lung complications, and pulmonary fibrosis. Comprehensive pulmonary rehabilitation to improve exercise capacity and quality of life."
-    },
-    {
+        "title": "Chronic & Restrictive Lung Conditions",
+        "description": "COPD, Bronchial Asthma, Bronchiectasis, Interstitial Lung Disease, post-tuberculosis lung complications, and pulmonary fibrosis. Comprehensive pulmonary rehabilitation to optimize ventilation and improve exercise tolerance."
+      },
+      {
         "image": "Assets/rehab/prog_parkinsons.webp",
-        "title": "Post-COVID Respiratory Complications",
-        "description": "Persistent breathlessness, chronic cough, post-COVID pulmonary fibrosis, and reduced exercise tolerance following COVID-19 infection. A specialized post-COVID rehabilitation program addresses both the respiratory and neurological sequelae of Long COVID."
-    }
-],
+        "title": "Post-COVID-19 Respiratory Symptoms",
+        "description": "Persistent breathlessness, chronic cough, fatigue, reduced lung capacity, and impaired exercise tolerance following COVID-19 infection. A specialized program focuses on gradual reconditioning and improving ventilatory efficiency."
+      },
+      {
+        "image": "Assets/rehab/prog_stroke.webp",
+        "title": "Secondary Pulmonary Complications",
+        "description": "Aspiration pneumonia in stroke and TBI patients with dysphagia, secretion retention, airway compromise, and recurring respiratory infections requiring integrated multidisciplinary care."
+      }
+    ],
   },
   treatments: {
     sectionLabel: "RESPIRATORY SERVICES",
     sectionTitle: "Comprehensive Respiratory Therapy",
     sectionSupport: "Modern pulmonary therapies integrated with Ayurvedic respiratory care for complete lung healing and rehabilitation.",
     steps: [
-    {
+      {
         "image": "Assets/rehab/prog_stroke.webp",
-        "title": "Pulmonary Rehabilitation Program",
-        "description": "A structured, supervised exercise and education program for patients with chronic lung conditions. Combines inspiratory muscle training, aerobic conditioning (using our hydrotherapy pool and specialist exercise equipment), breathing retraining, and energy conservation techniques to significantly improve exercise capacity, reduce breathlessness, and improve quality of life."
-    },
-    {
+        "title": "Pulmonary Rehabilitation & Guided Exercise",
+        "description": "A structured, supervised exercise and education program combining aerobic conditioning and guided exercise training (including hydrotherapy) to improve endurance, reduce breathlessness, and restore functional capacity."
+      },
+      {
         "image": "Assets/rehab/th_physiotherapy.webp",
         "title": "Chest Physiotherapy & Airway Clearance",
-        "description": "Specialized chest physiotherapy techniques including percussion, vibration, postural drainage, and active cycle of breathing techniques (ACBT) to mobilize and clear retained secretions — essential for preventing aspiration pneumonia in neurological patients and managing COPD exacerbations."
-    },
-    {
+        "description": "Percussion, vibration, postural drainage, and active cycle of breathing techniques (ACBT) to mobilize and clear retained secretions, preventing secretion retention and secondary respiratory infections."
+      },
+      {
+        "image": "Assets/rehab/prog_stroke.webp",
+        "title": "Breathing Retraining & Mechanics",
+        "description": "Targeted breathing retraining and therapeutic exercises to improve respiratory mechanics, optimize ventilation, and enhance coordination between the diaphragm and abdomen (thoracoabdominal coordination)."
+      },
+      {
         "image": "Assets/rehab/th_panchakarma.webp",
         "title": "Ayurvedic Respiratory Therapies",
-        "description": "Kerala Ayurveda offers powerful therapies for chronic respiratory conditions. Vamana (therapeutic emesis) and Virechana (therapeutic purgation) are part of Panchakarma Respiratory Detox. Herbal steam inhalation with Eucalyptus, Ajwain, and Tulsi — and powerful formulations like Vasavaleha and Talisapatradi Churna — provide natural bronchodilation, mucolytic action, and anti-inflammatory benefits alongside modern respiratory care."
-    },
-    {
+        "description": "Panchakarma respiratory detox (Vamana & Virechana), herbal steam inhalation (Eucalyptus, Ajwain, Tulsi), and traditional formulations like Vasavaleha and Talisapatradi Churna to provide natural bronchodilation, anti-inflammatory, and mucolytic benefits."
+      },
+      {
         "image": "Assets/rehab/th_robotic.webp",
-        "title": "Ventilator Management & Weaning",
-        "description": "Expert management of ventilator-dependent patients from our ICU and step-down unit. Our respiratory therapists develop structured, progressive weaning protocols to reduce ventilator dependence and eventually restore spontaneous breathing, closely monitored by our pulmonology team."
-    }
-],
+        "title": "Ventilator Weaning & Management",
+        "description": "Structured, progressive weaning protocols designed by respiratory therapists and pulmonologists to reduce ventilator dependence, restore spontaneous breathing, and ensure airway safety."
+      },
+      {
+        "image": "Assets/rehab/prog_stroke.webp",
+        "title": "Continuous Monitoring & Care Adaptation",
+        "description": "Ongoing assessment of respiratory function to continuously adapt treatment parameters, ensuring respiratory care remains fully aligned with the patient's evolving neurological recovery goals."
+      }
+    ],
   },
   technologies: {
     sectionLabel: "RESPIRATORY TECHNOLOGY",
     sectionTitle: "Advanced Respiratory Capabilities",
     sectionSupport: "State-of-the-art pulmonary diagnostics and therapy equipment for precise, effective respiratory rehabilitation.",
     cards: [
-    {
+      {
         "icon": "wind",
         "title": "Spirometry & PFT",
-        "description": "Comprehensive pulmonary function testing (PFT) including spirometry, lung volumes (plethysmography), and diffusion capacity (DLCO) for accurate assessment of respiratory function and disease severity."
-    },
-    {
+        "description": "Pulmonary function testing (PFT) including spirometry, lung volumes (plethysmography), and diffusion capacity (DLCO) along with detailed assessments of breathing patterns, chest expansion, and lung capacity."
+      },
+      {
         "icon": "activity",
         "title": "6-Minute Walk Test",
         "description": "Standardized functional exercise capacity assessment used to monitor respiratory and cardiac rehabilitation progress and guide program intensity."
-    },
-    {
+      },
+      {
         "icon": "shield-plus",
         "title": "Non-Invasive Ventilation (NIV)",
         "description": "BiPAP and CPAP therapy for respiratory failure, severe COPD, and sleep apnea — both in the acute hospital setting and as home NIV prescription and monitoring."
-    },
-    {
+      },
+      {
         "icon": "leaf",
         "title": "Ayurvedic Broncho-Respiratory Therapies",
         "description": "Vasavaleha, Talisapatradi Churna, and medicated steam inhalations providing natural anti-inflammatory and mucolytic action to complement modern bronchodilator therapy."
-    },
-    {
+      },
+      {
         "icon": "heart",
-        "title": "Hypoxia Monitoring",
-        "description": "Continuous pulse oximetry monitoring for all rehabilitation patients with respiratory compromise, ensuring safe participation in intensive physical therapy sessions."
-    }
-],
+        "title": "Oxygenation & Hypoxia Monitoring",
+        "description": "Continuous oxygenation status and pulse oximetry monitoring for all rehabilitation patients with respiratory compromise, ensuring safe participation in intensive physical therapy sessions."
+      }
+    ],
   },
   faq: {
     sectionSupport: "Find answers to key details about the Respiratory Therapy program.",

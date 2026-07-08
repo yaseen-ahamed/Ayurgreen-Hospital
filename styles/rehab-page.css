@@ -1374,23 +1374,76 @@
 .rehab-cta-btn-primary:hover .arrow-btn {
     transform: scale(1.05) !important;
 }
+/* ── macOS Liquid Glass Button ── */
 .rehab-cta-btn-glass {
-    background: rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    color: #ffffff !important;
+    /* Frosted glass base */
+    background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.14) 0%,
+        rgba(255, 255, 255, 0.06) 50%,
+        rgba(255, 255, 255, 0.03) 100%
+    ) !important;
+    /* Asymmetric border: brighter on top-left (light source from above-left) */
+    border-top: 1px solid rgba(255, 255, 255, 0.45) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.30) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
     font-size: 15px !important;
-    font-weight: 700 !important;
-    padding: 12px 28px !important;
-    border-radius: 40px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2px !important;
+    padding: 13px 30px !important;
+    border-radius: 44px !important;
     text-decoration: none !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 10px !important;
-    transition: all 0.2s !important;
     white-space: nowrap !important;
+    /* Heavy blur + saturation for the frosted depth */
+    backdrop-filter: blur(28px) saturate(200%) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.05) !important;
+    /* Multi-layer shadow: outer depth + inner specular highlight at top + inner shadow at bottom */
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.35),
+        0 6px 24px rgba(0, 0, 0, 0.20),
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.30),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+        inset 1px 0 0 rgba(255, 255, 255, 0.10) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
-.rehab-cta-btn-glass:hover { background: rgba(255,255,255,0.18) !important; }
+/* Subtle sheen overlay at the very top of the button */
+.rehab-cta-btn-glass::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important; left: 0 !important; right: 0 !important;
+    height: 50% !important;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.00) 100%
+    ) !important;
+    pointer-events: none !important;
+    border-radius: 44px 44px 0 0 !important;
+}
+.rehab-cta-btn-glass:hover {
+    background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.20) 0%,
+        rgba(255, 255, 255, 0.10) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    ) !important;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.40),
+        0 10px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.40),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+        inset 1px 0 0 rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-2px) !important;
+    border-top-color: rgba(255, 255, 255, 0.55) !important;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {

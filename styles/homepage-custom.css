@@ -3068,22 +3068,52 @@
             justify-content: center !important;
             gap: 10px !important;
             height: auto !important;
-            border-radius: 999px !important;
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            color: #ffffff !important;
-            font-weight: 700 !important;
+            border-radius: 44px !important;
+            /* macOS Liquid Glass */
+            background: linear-gradient(
+                160deg,
+                rgba(255, 255, 255, 0.14) 0%,
+                rgba(255, 255, 255, 0.06) 50%,
+                rgba(255, 255, 255, 0.03) 100%
+            ) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.45) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.30) !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-weight: 600 !important;
             font-size: 15px !important;
-            padding: 12px 28px !important;
+            letter-spacing: 0.2px !important;
+            padding: 13px 30px !important;
             text-decoration: none !important;
-            backdrop-filter: blur(12px) !important;
-            transition: all 0.3s ease !important;
+            backdrop-filter: blur(28px) saturate(200%) brightness(1.05) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.05) !important;
+            box-shadow:
+                0 2px 12px rgba(0, 0, 0, 0.35),
+                0 6px 24px rgba(0, 0, 0, 0.20),
+                inset 0 1.5px 0 rgba(255, 255, 255, 0.30),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+                inset 1px 0 0 rgba(255, 255, 255, 0.10) !important;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
             cursor: pointer !important;
+            position: relative !important;
+            overflow: hidden !important;
         }
 
         .ayur-btn-glass:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: linear-gradient(
+                160deg,
+                rgba(255, 255, 255, 0.20) 0%,
+                rgba(255, 255, 255, 0.10) 50%,
+                rgba(255, 255, 255, 0.05) 100%
+            ) !important;
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.40),
+                0 10px 32px rgba(0, 0, 0, 0.25),
+                inset 0 1.5px 0 rgba(255, 255, 255, 0.40),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.18) !important;
+            transform: translateY(-2px) !important;
+            border-top-color: rgba(255, 255, 255, 0.55) !important;
         }
 
         /* --- Sidebar Navigation Styles --- */

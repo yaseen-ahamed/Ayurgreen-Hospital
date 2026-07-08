@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { Play } from "lucide-react";
 import "@/styles/rehab-village.css";
 
@@ -1635,7 +1636,15 @@ export default function RehabVillagePage() {
 
             <div style={{"display":"flex","gap":"16px","justifyContent":"center","flexWrap":"wrap"}}>
                 <a href="#stakeholder-registration" className="rv-btn-primary">Become a Partner <i data-lucide="arrow-right" size="16"></i></a>
-                <a href="index.html#consultation" className="rv-btn-secondary">Book Consultation</a>
+                <Link href="/contact-us" className="rehab-cta-btn-primary">
+                    <span>Book Consultation</span>
+                    <span className="arrow-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </span>
+                </Link>
             </div>
         </div>
     </section>

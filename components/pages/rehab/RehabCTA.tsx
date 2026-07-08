@@ -18,7 +18,13 @@ export default function RehabCTA() {
         </div>
         <div className="rehab-cta-btns" style={{ position: "relative", zIndex: 1 }}>
           <Link href="/contact-us" className="rehab-cta-btn-primary">
-            <Calendar size={16} /> Book Consultation
+            <span>Book Consultation</span>
+            <span className="arrow-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
           </Link>
           <a
             href="https://wa.me/918943055555?text=Hi%2C%20I%20would%20like%20to%20book%20a%20rehab%20consultation."

@@ -160,38 +160,41 @@
 }
 
 .cu-hero .cu-btn-primary {
-    background: #ffffff;
-    color: #000000;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 6px 6px 6px 24px !important;
+    border-radius: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.8px !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    white-space: nowrap !important;
 }
-
-.cu-hero .cu-btn-primary .icon-circle {
-    background: #000000;
-    color: #ffffff;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .cu-hero .cu-btn-primary:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-1px);
+    background: #f8fafc !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+}
+.cu-hero .cu-btn-primary .icon-circle {
+    background: #000000 !important;
+    color: #ffffff !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.cu-hero .cu-btn-primary:hover .icon-circle {
+    transform: scale(1.05) !important;
 }
 
 .cu-hero .cu-btn-secondary {

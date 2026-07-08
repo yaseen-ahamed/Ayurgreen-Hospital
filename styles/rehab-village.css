@@ -2389,3 +2389,42 @@
         top: calc(100% + 8px);
     }
 }
+
+/* Shared Book Consultation button styling */
+.rehab-cta-btn-primary {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 6px 6px 6px 24px !important;
+    border-radius: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.8px !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    white-space: nowrap !important;
+}
+.rehab-cta-btn-primary:hover {
+    background: #f8fafc !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+}
+.rehab-cta-btn-primary .arrow-btn {
+    background: #000000 !important;
+    color: #ffffff !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.rehab-cta-btn-primary:hover .arrow-btn {
+    transform: scale(1.05) !important;
+}

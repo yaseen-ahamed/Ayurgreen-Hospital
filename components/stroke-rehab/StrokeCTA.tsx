@@ -12,8 +12,14 @@ export default function StrokeCTA() {
             Let the integrated rehabilitation team at Ayurgreen Hospital guide you every step of the way to reclaiming your independence and dignity.
           </p>
           <div className="ayur-cta-btn-group">
-            <Link href="/#consultation" className="ayur-btn-primary">
-              Book Consultation <Calendar size={22} />
+            <Link href="/contact-us" className="rehab-cta-btn-primary">
+              <span>Book Consultation</span>
+              <span className="arrow-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
             </Link>
             <a 
               href="https://wa.me/918943055555" 

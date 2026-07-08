@@ -460,7 +460,7 @@ export default function ContactUsPage() {
                           rel="noopener noreferrer" 
                           className="cu-whatsapp-btn"
                         >
-                          <img src="/Assets/logo.webp" alt="WhatsApp" width="16" height="16" style={{ objectFit: "contain", marginRight: "8px", display: "inline-block", verticalAlign: "middle", marginTop: "-2px" }} />
+                          <img src="/Assets/logo.webp" alt="WhatsApp" width="22" height="22" style={{ objectFit: "contain", marginRight: "6px", display: "inline-block", verticalAlign: "middle" }} />
                           Prefer to chat? Book over WhatsApp
                         </a>
                       </div>
@@ -543,7 +543,7 @@ export default function ContactUsPage() {
                   </a>
                   <a href="https://wa.me/918943055555" target="_blank" rel="noopener noreferrer" className="cu-contact-item">
                     <div className="cu-contact-icon" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <img src="/Assets/logo.webp" alt="WhatsApp" width="18" height="18" style={{ objectFit: "contain" }} />
+                      <img src="/Assets/logo.webp" alt="WhatsApp" width="22" height="22" style={{ objectFit: "contain" }} />
                     </div>
                     <div>
                       <div className="cu-contact-label">WhatsApp</div>

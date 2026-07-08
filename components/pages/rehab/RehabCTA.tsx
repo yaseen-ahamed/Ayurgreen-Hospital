@@ -32,11 +32,11 @@ export default function RehabCTA() {
             rel="noopener noreferrer"
             className="rehab-cta-btn-glass"
           >
-            <img src="/Assets/logo.webp" alt="WhatsApp" width="16" height="16" style={{ objectFit: "contain", marginRight: "8px", display: "inline-block", verticalAlign: "middle" }} />
+            <img src="/Assets/logo.webp" alt="WhatsApp" width="22" height="22" style={{ objectFit: "contain", marginRight: "6px", display: "inline-block", verticalAlign: "middle" }} />
             WhatsApp
           </a>
           <a href="tel:+918943055555" className="rehab-cta-btn-glass">
-            <Phone size={15} /> Call Now
+            <Phone size={20} /> Call Now
           </a>
         </div>
       </div>

@@ -1375,12 +1375,22 @@
     transform: scale(1.05) !important;
 }
 .rehab-cta-btn-glass {
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #ffffff !important;
-    font-size: 13px; font-weight: 600; padding: 13px 28px; border-radius: 30px;
-    text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
-    gap: 8px; transition: all 0.2s; white-space: nowrap;
+    background: rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    padding: 12px 28px !important;
+    border-radius: 40px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    transition: all 0.2s !important;
+    white-space: nowrap !important;
 }
-.rehab-cta-btn-glass:hover { background: rgba(255,255,255,0.18); }
+.rehab-cta-btn-glass:hover { background: rgba(255,255,255,0.18) !important; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {

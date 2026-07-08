@@ -724,3 +724,11 @@
     gap: 0;
     padding-top: 24px;
 }
+
+/* WhatsApp logo color preserve override */
+.ayur-btn-primary img[alt="WhatsApp"],
+.ayur-btn-glass img[alt="WhatsApp"],
+.rehab-cta-btn-glass img[alt="WhatsApp"] {
+    filter: none !important;
+}
+

@@ -995,3 +995,47 @@
         left: 0 !important;
     }
 }
+
+/* Floated layout helper for wrapping sidebar */
+.ayur-sidebar-float {
+    float: left;
+    width: 280px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+    .ayur-sidebar-float {
+        width: 240px;
+        margin-right: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ayur-sidebar-float {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        height: 0;
+    }
+}
+
+/* Floated image for overview content wrapping */
+.ayur-overview-img-float {
+    float: right;
+    width: 48%;
+    max-width: 420px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .ayur-overview-img-float {
+        float: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 32px !important;
+    }
+}
+

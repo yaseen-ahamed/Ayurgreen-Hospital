@@ -60,19 +60,25 @@ export default function RehabPageClient({ data }: RehabPageClientProps) {
       {/* Page Body: Sidebar + Content */}
       <div
         className="ayur-sidebar-container"
-        style={{ padding: "40px 24px 80px 24px", boxSizing: "border-box", width: "100%" }}
+        style={{ padding: "40px 0 80px 0", boxSizing: "border-box", width: "90%", maxWidth: "1200px", margin: "0 auto" }}
       >
-        <div className="ayur-page-body">
+        <div className="ayur-page-body" style={{ width: "100%", display: "block" }}>
           {/* Sidebar */}
-          <DepartmentSidebar
-            activeSpecialityId={data.sidebarId}
-            isOpenMobile={sidebarOpen}
-            onItemClick={() => setSidebarOpen(false)}
-          />
+          <div className="ayur-sidebar-float">
+            <DepartmentSidebar
+              activeSpecialityId={data.sidebarId}
+              isOpenMobile={sidebarOpen}
+              onItemClick={() => setSidebarOpen(false)}
+            />
+          </div>
 
           {/* Content Sections */}
-          <div className="ayur-content-col ayur-sidebar-content">
+          <div className="ayur-sidebar-content" style={{ display: "block" }}>
             <RehabOverview overview={data.overview} />
+          </div>
+
+          {/* Clear floats and let the rest of the sections span the full width underneath */}
+          <div className="ayur-sidebar-content" style={{ display: "block", clear: "both", width: "100%" }}>
             <RehabConditions conditions={data.conditions} slug={data.slug} />
             <RehabTreatments treatments={data.treatments} />
             <RehabTechnologies technologies={data.technologies} slug={data.slug} />

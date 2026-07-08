@@ -3283,4 +3283,101 @@
                 right: 16px;
             }
         }
+
+        /* --- Liquid Theme Switcher (Tab Switcher) Styles --- */
+        .switcher {
+            display: inline-flex;
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 6px;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin: 0;
+            border-inline: none;
+            border-block: none;
+            align-items: center;
+        }
+
+        .switcher__legend {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .switcher__option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 15px;
+            color: #4b5563; /* Gray-600 */
+            user-select: none;
+        }
+
+        .switcher__option:has(input:checked) {
+            color: #ffffff;
+        }
+
+        .switcher__input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .switcher__icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+            color: currentColor;
+            display: inline-block;
+        }
+
+        .switcher__option:hover .switcher__icon {
+            transform: scale(1.1);
+        }
+
+        .switcher__filter {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            bottom: 6px;
+            right: 6px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .switcher__filter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: calc(50% - 4px);
+            background: #111827; /* Dark active background */
+            border-radius: 9999px;
+            transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            filter: url(#switcher);
+        }
+
+        .switcher[data-previous="1"] .switcher__filter::before {
+            transform: translateX(0);
+        }
+
+        .switcher[data-previous="2"] .switcher__filter::before {
+            transform: translateX(100%) translateX(8px);
+        }
     

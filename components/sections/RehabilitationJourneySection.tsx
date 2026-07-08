@@ -1,9 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { galleryImages } from "../../gallery_data.js";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 
 export default function RehabilitationJourneySection() {
+  const [activeTab, setActiveTab] = useState<"programs" | "therapies">("programs");
+
+  const handleTabChange = (val: "programs" | "therapies") => {
+    setActiveTab(val);
+    (window as any).switchRehabTab?.(val);
+  };
 
   return (
     <>
@@ -18,18 +25,7 @@ export default function RehabilitationJourneySection() {
 
                 {/*  Tab List  */}
                 <div style={{ "display": "flex", "justifyContent": "center", "marginBottom": "36px" }}>
-                    <div role="tablist" aria-label="Rehabilitation Options"
-                        style={{ "display": "inline-flex", "background": "#fff", "border": "1px solid #e5e7eb", "borderRadius": "9999px", "padding": "4px", "gap": "4px", "boxShadow": "0 1px 4px rgba(0,0,0,0.06)" }}>
-                        <button id="tab-btn-programs" className="rehab-tab-btn active-tab"
-                            onClick={() => (window as any).switchRehabTab?.('programs')} role="tab" aria-selected="true"
-                            aria-controls="tab-content-programs">
-                            <i data-lucide="activity" aria-hidden="true"></i> Specialities
-                        </button>
-                        <button id="tab-btn-therapies" className="rehab-tab-btn" onClick={() => (window as any).switchRehabTab?.('therapies')}
-                            role="tab" aria-selected="false" aria-controls="tab-content-therapies">
-                            <i data-lucide="leaf" aria-hidden="true"></i> Departments
-                        </button>
-                    </div>
+                    <ThemeSwitcher value={activeTab} onValueChange={handleTabChange} />
                 </div>
 
                 {/*  Programs Tab  */}

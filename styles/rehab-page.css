@@ -1096,7 +1096,30 @@
     color: #ffffff !important;
     flex-shrink: 0;
     margin-bottom: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.rehab-icon-wrap svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon hover effects on card hover */
+.rehab-card-vibrant:hover .rehab-icon-wrap {
+    background: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+.rehab-card-vibrant:hover .rehab-icon-wrap svg {
+    transform: scale(1.1);
+}
+
+/* Match icon hover color with parent card theme */
+.rehab-card-vibrant.rehab-color-0:hover .rehab-icon-wrap { color: #d35400 !important; }
+.rehab-card-vibrant.rehab-color-1:hover .rehab-icon-wrap { color: #097969 !important; }
+.rehab-card-vibrant.rehab-color-2:hover .rehab-icon-wrap { color: #5b2c6f !important; }
+.rehab-card-vibrant.rehab-color-3:hover .rehab-icon-wrap { color: #922b21 !important; }
+.rehab-card-vibrant.rehab-color-4:hover .rehab-icon-wrap { color: #1b4f72 !important; }
+.rehab-card-vibrant.rehab-color-5:hover .rehab-icon-wrap { color: #a04000 !important; }
+
 
 /* ── Ripple BG ── */
 .rehab-ripple {

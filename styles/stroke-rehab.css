@@ -513,64 +513,32 @@
 
 .ayur-btn-primary,
 .ayur-btn-glass {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    /* Full-body glass: radial lens glow layered over visible translucent base */
-    background:
-        radial-gradient(ellipse 80% 55% at 50% 20%,
-            rgba(255, 255, 255, 0.28) 0%,
-            rgba(255, 255, 255, 0.00) 72%),
-        linear-gradient(180deg,
-            rgba(255, 255, 255, 0.20) 0%,
-            rgba(255, 255, 255, 0.08) 100%) !important;
-    border-top: 1.5px solid rgba(255, 255, 255, 0.70) !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.30) !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-    padding: 14px 32px !important;
-    border-radius: 44px !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-    letter-spacing: 0.2px !important;
-    text-transform: none !important;
-    text-decoration: none !important;
-    backdrop-filter: blur(32px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
-    box-shadow:
-        0 4px 24px rgba(0, 0, 0, 0.60),
-        0 1px 6px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.22),
-        inset 0 -2px 12px rgba(0, 0, 0, 0.35) !important;
-    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-    position: relative !important;
-    overflow: hidden !important;
-    cursor: pointer !important;
-}
-
-.ayur-btn-primary::before,
-.ayur-btn-glass::before {
-    display: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15), inset 0 2px 4px 0 rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(16px) saturate(120%);
 }
 
 .ayur-btn-primary:hover,
 .ayur-btn-glass:hover {
-    background:
-        radial-gradient(ellipse 80% 55% at 50% 20%,
-            rgba(255, 255, 255, 0.36) 0%,
-            rgba(255, 255, 255, 0.00) 72%),
-        linear-gradient(180deg,
-            rgba(255, 255, 255, 0.26) 0%,
-            rgba(255, 255, 255, 0.12) 100%) !important;
-    border-top-color: rgba(255, 255, 255, 0.85) !important;
-    box-shadow:
-        0 6px 30px rgba(0, 0, 0, 0.70),
-        0 2px 8px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.28),
-        inset 0 -2px 12px rgba(0, 0, 0, 0.40) !important;
-    transform: translateY(-1.5px) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2), inset 0 2px 6px 0 rgba(255, 255, 255, 0.4) !important;
 }
 
 .ayur-btn-primary svg,

@@ -3068,52 +3068,22 @@
             justify-content: center !important;
             gap: 10px !important;
             height: auto !important;
-            border-radius: 44px !important;
-            background:
-                radial-gradient(ellipse 80% 55% at 50% 20%,
-                    rgba(255, 255, 255, 0.28) 0%,
-                    rgba(255, 255, 255, 0.00) 72%),
-                linear-gradient(180deg,
-                    rgba(255, 255, 255, 0.20) 0%,
-                    rgba(255, 255, 255, 0.08) 100%) !important;
-            border-top: 1.5px solid rgba(255, 255, 255, 0.70) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
-            border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.30) !important;
-            color: rgba(255, 255, 255, 0.95) !important;
-            font-weight: 600 !important;
+            border-radius: 999px !important;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
             font-size: 15px !important;
-            letter-spacing: 0.2px !important;
-            padding: 14px 32px !important;
+            padding: 12px 28px !important;
             text-decoration: none !important;
-            backdrop-filter: blur(32px) saturate(200%) !important;
-            -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
-            box-shadow:
-                0 4px 24px rgba(0, 0, 0, 0.60),
-                0 1px 6px rgba(0, 0, 0, 0.45),
-                inset 0 1px 0 rgba(255, 255, 255, 0.22),
-                inset 0 -2px 12px rgba(0, 0, 0, 0.35) !important;
-            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+            backdrop-filter: blur(12px) !important;
+            transition: all 0.3s ease !important;
             cursor: pointer !important;
-            position: relative !important;
-            overflow: hidden !important;
         }
 
         .ayur-btn-glass:hover {
-            background:
-                radial-gradient(ellipse 80% 55% at 50% 20%,
-                    rgba(255, 255, 255, 0.36) 0%,
-                    rgba(255, 255, 255, 0.00) 72%),
-                linear-gradient(180deg,
-                    rgba(255, 255, 255, 0.26) 0%,
-                    rgba(255, 255, 255, 0.12) 100%) !important;
-            border-top-color: rgba(255, 255, 255, 0.85) !important;
-            box-shadow:
-                0 6px 30px rgba(0, 0, 0, 0.70),
-                0 2px 8px rgba(0, 0, 0, 0.55),
-                inset 0 1px 0 rgba(255, 255, 255, 0.28),
-                inset 0 -2px 12px rgba(0, 0, 0, 0.40) !important;
-            transform: translateY(-1.5px) !important;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         /* --- Sidebar Navigation Styles --- */
@@ -3272,53 +3242,24 @@
             }
         }
 
+        /* Weather Widget */
         .weather-widget {
             position: absolute;
             bottom: 110px;
             /* Above the bottom-left-badge */
             left: 48px;
             z-index: 10;
-            
-            /* Apple macOS dark translucent fluid glass fill */
-            background: 
-                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 70%),
-                linear-gradient(180deg, rgba(30, 32, 38, 0.45) 0%, rgba(15, 17, 21, 0.55) 100%) !important;
-            
-            /* High-precision backdrop refraction */
-            backdrop-filter: blur(35px) saturate(190%) brightness(0.95) !important;
-            -webkit-backdrop-filter: blur(35px) saturate(190%) brightness(0.95) !important;
-            
-            /* Sharp glossy outline & light catchers */
-            border: 1px solid rgba(255, 255, 255, 0.18) !important;
-            border-top: 1.5px solid rgba(255, 255, 255, 0.45) !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.35) !important;
-            
-            padding: 10px 22px !important;
-            border-radius: 999px !important;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: #fff;
-            
-            /* 3D shadow depths */
-            box-shadow: 
-                0 6px 20px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                inset 0 -1px 3px rgba(0, 0, 0, 0.25) !important;
-                
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             font-family: var(--font-body), sans-serif;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .weather-widget:hover {
-            background: 
-                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 70%),
-                linear-gradient(180deg, rgba(40, 42, 50, 0.55) 0%, rgba(20, 22, 28, 0.65) 100%) !important;
-            box-shadow: 
-                0 8px 28px rgba(0, 0, 0, 0.55),
-                inset 0 1px 0 rgba(255, 255, 255, 0.25),
-                inset 0 -1px 3px rgba(0, 0, 0, 0.3) !important;
-            transform: translateY(-1px);
         }
 
         .weather-icon {

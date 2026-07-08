@@ -1001,7 +1001,7 @@ export default function Hero() {
                 if (el) el.innerText = `${temp}°C`;
             }
         } catch (error) {
-            console.error("Failed to fetch weather data", error);
+            console.warn("Failed to fetch weather data: " + (error instanceof Error ? error.message : String(error)));
         }
     }
     fetchWeather();

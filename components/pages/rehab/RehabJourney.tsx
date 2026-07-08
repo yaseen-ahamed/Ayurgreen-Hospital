@@ -1,34 +1,47 @@
 import React from "react";
-import { ClipboardList, Activity, FileText, HeartHandshake, TrendingUp, Award } from "lucide-react";
+import { ClipboardList, Activity, FileText, HeartHandshake, TrendingUp, Award, LucideIcon } from "lucide-react";
 
-const JOURNEY_STEPS = [
+interface JourneyStep {
+  n: string;
+  Icon: LucideIcon;
+  title: string;
+  desc: string;
+}
+
+const JOURNEY_STEPS: JourneyStep[] = [
   {
-    icon: <ClipboardList size={24} />,
+    n: "01",
+    Icon: ClipboardList,
     title: "1. Assessment",
     desc: "Comprehensive medical assessment by our multi-disciplinary panel.",
   },
   {
-    icon: <Activity size={24} />,
+    n: "02",
+    Icon: Activity,
     title: "2. Diagnosis",
     desc: "Pinpointing motor, sensory, and biological imbalance vectors.",
   },
   {
-    icon: <FileText size={24} />,
+    n: "03",
+    Icon: FileText,
     title: "3. Personalized Plan",
     desc: "Scheduling custom robotic runs and targeted Ayurvedic protocols.",
   },
   {
-    icon: <HeartHandshake size={24} />,
+    n: "04",
+    Icon: HeartHandshake,
     title: "4. Therapy",
     desc: "Intensive, daily physical training and cellular purification treatments.",
   },
   {
-    icon: <TrendingUp size={24} />,
+    n: "05",
+    Icon: TrendingUp,
     title: "5. Monitoring",
     desc: "Strict weekly tracking of physical and sensory progress data.",
   },
   {
-    icon: <Award size={24} />,
+    n: "06",
+    Icon: Award,
     title: "6. Recovery",
     desc: "Achieving optimal independence and preparing a home transition plan.",
   },
@@ -36,22 +49,26 @@ const JOURNEY_STEPS = [
 
 export default function RehabJourney() {
   return (
-    <section id="journey" className="ayur-section-large">
-      <div className="ayur-container">
-        <div className="ayur-section-header">
+    <section id="journey" style={{ padding: "0 0 40px 0" }}>
+      <div className="rehab-section-subtle">
+        <div className="rehab-section-header" style={{ marginBottom: "40px" }}>
           <span className="ayur-section-label">RECOVERY TIMELINE</span>
-          <h2 className="ayur-section-title">Your Recovery Journey</h2>
-          <p className="ayur-section-support">
+          <h2 className="ayur-section-title" style={{ marginBottom: "14px" }}>Your Recovery Journey</h2>
+          <p className="rehab-section-support">
             Our recovery path is a carefully structured, multi-phase clinical progression that guides patients
             smoothly from intake to dynamic independence.
           </p>
         </div>
-        <div className="ayur-journey-timeline">
+        <div className="rehab-journey-grid">
           {JOURNEY_STEPS.map((step, i) => (
-            <div key={i} className="ayur-journey-step">
-              <div className="ayur-journey-icon-circle">{step.icon}</div>
-              <h4 className="ayur-journey-step-title">{step.title}</h4>
-              <p className="ayur-journey-step-desc">{step.desc}</p>
+            <div key={i} className={`rehab-card-vibrant rehab-color-${i % 6}`}>
+              <div className="rehab-ripple" />
+              <span className="rehab-step-pill">Step {step.n}</span>
+              <div className="rehab-icon-wrap">
+                <step.Icon size={22} />
+              </div>
+              <h3 className="rehab-card-title">{step.title}</h3>
+              <p className="rehab-card-desc">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -59,3 +76,4 @@ export default function RehabJourney() {
     </section>
   );
 }
+

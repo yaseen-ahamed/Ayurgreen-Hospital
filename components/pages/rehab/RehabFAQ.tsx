@@ -14,38 +14,40 @@ export default function RehabFAQ({ faq }: RehabFAQProps) {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section id="faq" className="ayur-section-large" style={{ borderTop: "1px solid var(--border)" }}>
-      <div className="ayur-container">
-        <div className="ayur-section-header">
-          <span className="ayur-section-label">COMMON QUERIES</span>
-          <h2 className="ayur-section-title">Frequently Asked Questions</h2>
-          <p className="ayur-section-support">{faq.sectionSupport}</p>
-        </div>
-        <div className="ayur-faq-container">
-          {faq.items.map((item, i) => (
-            <div
-              key={i}
-              className={`ayur-faq-item${openIndex === i ? " active" : ""}`}
+    <section id="faq" style={{ padding: "0 0 64px 0", borderTop: "1px solid var(--border)" }}>
+      <div className="rehab-section-header" style={{ paddingTop: "64px" }}>
+        <span className="ayur-section-label">COMMON QUERIES</span>
+        <h2 className="ayur-section-title" style={{ marginBottom: "14px" }}>Frequently Asked Questions</h2>
+        <p className="rehab-section-support">{faq.sectionSupport}</p>
+      </div>
+      <div className="rehab-faq-list">
+        {faq.items.map((item, i) => (
+          <div
+            key={i}
+            className={`rehab-faq-item${openIndex === i ? " rehab-open" : ""}`}
+          >
+            <button
+              className="rehab-faq-trigger"
+              onClick={() => toggle(i)}
+              aria-expanded={openIndex === i}
             >
-              <button
-                className="ayur-faq-trigger"
-                onClick={() => toggle(i)}
-                aria-expanded={openIndex === i}
-              >
-                <span>{item.question}</span>
-                <span className="faq-icon">
-                  <Plus size={18} />
-                </span>
-              </button>
-              <div className="ayur-faq-content">
-                <div className="ayur-faq-content-inner">
-                  <p>{item.answer}</p>
-                </div>
+              <span>{item.question}</span>
+              <span className="rehab-faq-icon">
+                <Plus size={15} />
+              </span>
+            </button>
+            <div
+              className="rehab-faq-content"
+              style={{ maxHeight: openIndex === i ? "400px" : "0px" }}
+            >
+              <div className="rehab-faq-content-inner">
+                <p>{item.answer}</p>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
+

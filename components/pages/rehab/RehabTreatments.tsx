@@ -7,26 +7,20 @@ interface RehabTreatmentsProps {
 
 export default function RehabTreatments({ treatments }: RehabTreatmentsProps) {
   return (
-    <section id="treatments" className="ayur-section-large">
-      <div className="ayur-container">
-        <div className="ayur-section-header">
+    <section id="treatments" style={{ padding: "0 0 40px 0" }}>
+      <div className="rehab-section-subtle">
+        <div className="rehab-section-header" style={{ marginBottom: "40px" }}>
           <span className="ayur-section-label">{treatments.sectionLabel}</span>
-          <h2 className="ayur-section-title">{treatments.sectionTitle}</h2>
-          <p className="ayur-section-support">{treatments.sectionSupport}</p>
+          <h2 className="ayur-section-title" style={{ marginBottom: "14px" }}>{treatments.sectionTitle}</h2>
+          <p className="rehab-section-support">{treatments.sectionSupport}</p>
         </div>
-        <div className="ayur-treatments-timeline" style={{ position: "relative" }}>
+        <div className="rehab-treatments-grid">
           {treatments.steps.map((step, i) => (
-            <div key={i} className="ayur-timeline-item">
-              <div className="ayur-timeline-col-img">
-                <img src={`/${step.image}`} alt={step.alt ?? step.title} />
-              </div>
-              <div className="ayur-timeline-col-content">
-                <div className="ayur-timeline-badge">{i + 1}</div>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "12px" }}>
-                  {step.title}
-                </h3>
-                <p style={{ fontSize: "14.5px", lineHeight: "1.6" }}>{step.description}</p>
-              </div>
+            <div key={i} className={`rehab-card-vibrant rehab-color-${i % 6}`}>
+              <div className="rehab-ripple" />
+              <span className="rehab-step-pill">Step 0{i + 1}</span>
+              <h3 className="rehab-card-title">{step.title}</h3>
+              <p className="rehab-card-desc">{step.description}</p>
             </div>
           ))}
         </div>
@@ -34,3 +28,4 @@ export default function RehabTreatments({ treatments }: RehabTreatmentsProps) {
     </section>
   );
 }
+

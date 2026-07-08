@@ -3248,9 +3248,12 @@
             /* Above the bottom-left-badge */
             left: 48px;
             z-index: 10;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            padding: 8px 16px !important;
+            height: auto !important;
+            border-radius: 30px !important;
             color: #fff;
             font-family: var(--font-body), sans-serif;
         }

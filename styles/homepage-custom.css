@@ -3069,32 +3069,29 @@
             gap: 10px !important;
             height: auto !important;
             border-radius: 44px !important;
-            /* macOS Liquid Glass */
             background: linear-gradient(
-                160deg,
-                rgba(255, 255, 255, 0.14) 0%,
-                rgba(255, 255, 255, 0.06) 50%,
-                rgba(255, 255, 255, 0.03) 100%
+                180deg,
+                rgba(255, 255, 255, 0.11) 0%,
+                rgba(255, 255, 255, 0.05) 100%
             ) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.45) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.30) !important;
-            border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-top: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.18) !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.22) !important;
             color: rgba(255, 255, 255, 0.95) !important;
             font-weight: 600 !important;
             font-size: 15px !important;
             letter-spacing: 0.2px !important;
-            padding: 13px 30px !important;
+            padding: 14px 32px !important;
             text-decoration: none !important;
-            backdrop-filter: blur(28px) saturate(200%) brightness(1.05) !important;
-            -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.05) !important;
+            backdrop-filter: blur(32px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
             box-shadow:
-                0 2px 12px rgba(0, 0, 0, 0.35),
-                0 6px 24px rgba(0, 0, 0, 0.20),
-                inset 0 1.5px 0 rgba(255, 255, 255, 0.30),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-                inset 1px 0 0 rgba(255, 255, 255, 0.10) !important;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                0 4px 24px rgba(0, 0, 0, 0.60),
+                0 1px 6px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.30) !important;
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
             cursor: pointer !important;
             position: relative !important;
             overflow: hidden !important;
@@ -3102,18 +3099,18 @@
 
         .ayur-btn-glass:hover {
             background: linear-gradient(
-                160deg,
-                rgba(255, 255, 255, 0.20) 0%,
-                rgba(255, 255, 255, 0.10) 50%,
-                rgba(255, 255, 255, 0.05) 100%
+                180deg,
+                rgba(255, 255, 255, 0.16) 0%,
+                rgba(255, 255, 255, 0.08) 100%
             ) !important;
+            border-top-color: rgba(255, 255, 255, 0.80) !important;
             box-shadow:
-                0 4px 16px rgba(0, 0, 0, 0.40),
-                0 10px 32px rgba(0, 0, 0, 0.25),
-                inset 0 1.5px 0 rgba(255, 255, 255, 0.40),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.18) !important;
-            transform: translateY(-2px) !important;
-            border-top-color: rgba(255, 255, 255, 0.55) !important;
+                0 6px 30px rgba(0, 0, 0, 0.70),
+                0 2px 8px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.20),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.35) !important;
+            transform: translateY(-1.5px) !important;
+            border-top-color: rgba(255, 255, 255, 0.80) !important;
         }
 
         /* --- Sidebar Navigation Styles --- */

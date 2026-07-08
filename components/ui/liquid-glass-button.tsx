@@ -63,7 +63,7 @@ const liquidbuttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-transparent hover:scale-105 duration-300 transition text-primary",
+        default: "bg-transparent text-primary transition-all duration-300",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
@@ -107,17 +107,19 @@ function LiquidButton({
       <Comp
         data-slot="button"
         className={cn(
-          "relative",
+          "relative group",
           liquidbuttonVariants({ variant, size, className })
         )}
         {...props}
       >
         <div className="absolute inset-0 z-0 rounded-[inherit] 
             shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] 
-        transition-all 
-        dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]" />
+        transition-all duration-300
+        group-hover:shadow-[0_0_8px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.12),inset_3.5px_3.5px_0.5px_-3px_rgba(0,0,0,0.95),inset_-3.5px_-3.5px_0.5px_-3px_rgba(0,0,0,0.9),inset_1.5px_1.5px_1.5px_-0.5px_rgba(255,255,255,0.6),inset_-1.5px_-1.5px_1.5px_-0.5px_rgba(0,0,0,0.7),inset_0_0_8px_8px_rgba(0,0,0,0.15),inset_0_0_3px_3px_rgba(0,0,0,0.08),0_0_16px_rgba(255,255,255,0.22)]
+        dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]
+        dark:group-hover:shadow-[0_0_10px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.12),inset_3.5px_3.5px_0.5px_-3.5px_rgba(255,255,255,0.15),inset_-3.5px_-3.5px_0.5px_-3.5px_rgba(255,255,255,0.95),inset_1.5px_1.5px_1.5px_-0.5px_rgba(255,255,255,0.8),inset_-1.5px_-1.5px_1.5px_-0.5px_rgba(255,255,255,0.8),inset_0_0_8px_8px_rgba(255,255,255,0.16),inset_0_0_3px_3px_rgba(255,255,255,0.08),0_0_16px_rgba(0,0,0,0.25)]" />
         <div
-          className="absolute inset-0 isolate -z-10 overflow-hidden rounded-[inherit]"
+          className="absolute inset-0 isolate -z-10 overflow-hidden rounded-[inherit] transition-all duration-300 group-hover:brightness-[1.08] group-hover:contrast-[1.05]"
           style={{ backdropFilter: 'url("#container-glass")' }}
         />
 

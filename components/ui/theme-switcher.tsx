@@ -114,7 +114,7 @@ export function ThemeSwitcher({
       ))}
 
       <div className="switcher__filter">
-        <svg className="hidden">
+        <svg style={{ position: "absolute", width: 0, height: 0, overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
           <filter id="switcher" primitiveUnits="objectBoundingBox">
             <feImage
               result="map"

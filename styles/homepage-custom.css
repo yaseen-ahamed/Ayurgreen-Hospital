@@ -3278,39 +3278,46 @@
             /* Above the bottom-left-badge */
             left: 48px;
             z-index: 10;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.10) 0%,
-                rgba(255, 255, 255, 0.03) 100%
-            ) !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.20) !important;
+            
+            /* Apple macOS dark translucent fluid glass fill */
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 70%),
+                linear-gradient(180deg, rgba(30, 32, 38, 0.45) 0%, rgba(15, 17, 21, 0.55) 100%) !important;
+            
+            /* High-precision backdrop refraction */
+            backdrop-filter: blur(35px) saturate(190%) brightness(0.95) !important;
+            -webkit-backdrop-filter: blur(35px) saturate(190%) brightness(0.95) !important;
+            
+            /* Sharp glossy outline & light catchers */
+            border: 1px solid rgba(255, 255, 255, 0.18) !important;
             border-top: 1.5px solid rgba(255, 255, 255, 0.45) !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.35) !important;
+            
             padding: 10px 22px !important;
             border-radius: 999px !important;
             display: flex;
             align-items: center;
             gap: 12px;
             color: #fff;
+            
+            /* 3D shadow depths */
             box-shadow: 
-                0 4px 20px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.25),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.15) !important;
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 3px rgba(0, 0, 0, 0.25) !important;
+                
             font-family: var(--font-body), sans-serif;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .weather-widget:hover {
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.06) 100%
-            ) !important;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 70%),
+                linear-gradient(180deg, rgba(40, 42, 50, 0.55) 0%, rgba(20, 22, 28, 0.65) 100%) !important;
             box-shadow: 
-                0 6px 24px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+                0 8px 28px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                inset 0 -1px 3px rgba(0, 0, 0, 0.3) !important;
             transform: translateY(-1px);
         }
 

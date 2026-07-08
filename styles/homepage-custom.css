@@ -3288,16 +3288,15 @@
         .switcher {
             display: inline-flex;
             position: relative;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(243, 244, 246, 0.6);
+            border: 1px solid rgba(229, 231, 235, 0.5);
             border-radius: 9999px;
-            padding: 6px;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 4px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
             margin: 0;
-            border-inline: none;
-            border-block: none;
             align-items: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .switcher__legend {
@@ -3312,6 +3311,8 @@
         }
 
         .switcher__option {
+            flex: 1;
+            min-width: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -3324,12 +3325,12 @@
             transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 600;
             font-size: 15px;
-            color: #4b5563; /* Gray-600 */
+            color: #6b7280; /* Gray-500 */
             user-select: none;
         }
 
         .switcher__option:has(input:checked) {
-            color: #ffffff;
+            color: #1f5a44; /* Primary Green */
         }
 
         .switcher__input {
@@ -3353,12 +3354,14 @@
 
         .switcher__filter {
             position: absolute;
-            top: 6px;
-            left: 6px;
-            bottom: 6px;
-            right: 6px;
+            top: 4px;
+            left: 4px;
+            bottom: 4px;
+            right: 4px;
             z-index: 1;
             pointer-events: none;
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
         }
 
         .switcher__filter::before {
@@ -3366,11 +3369,16 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: calc(50% - 4px);
-            background: #111827; /* Dark active background */
+            left: 0;
+            width: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.08), 
+                inset 1px 1px 1px rgba(255, 255, 255, 0.7), 
+                inset -1px -1px 1px rgba(0, 0, 0, 0.05);
             border-radius: 9999px;
-            transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-            filter: url(#switcher);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .switcher[data-previous="1"] .switcher__filter::before {
@@ -3378,6 +3386,6 @@
         }
 
         .switcher[data-previous="2"] .switcher__filter::before {
-            transform: translateX(100%) translateX(8px);
+            transform: translateX(100%);
         }
     

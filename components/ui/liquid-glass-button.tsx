@@ -135,7 +135,7 @@ function LiquidButton({
 
 function GlassFilter() {
   return (
-    <svg className="hidden">
+    <svg style={{ position: "absolute", width: 0, height: 0, overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
       <defs>
         <filter
           id="container-glass"

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { galleryImages } from "../../gallery_data.js";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 export default function Hero() {
   useEffect(() => {
@@ -1049,13 +1050,17 @@ export default function Hero() {
             </div>
 
 
-            <div className="weather-widget fade-up" style={{ "transitionDelay": "0.15s" }} id="weather-widget">
-                <div className="weather-icon"><i data-lucide="cloud-sun" size="20"></i></div>
-                <div>
-                    <div className="weather-temp" id="weather-temp">--°C</div>
-                    <div className="weather-loc">Ayurgreen, Kerala</div>
-                </div>
-            </div>
+            <LiquidButton
+              className="weather-widget fade-up"
+              style={{ "transitionDelay": "0.15s" }}
+              id="weather-widget"
+            >
+              <div className="weather-icon"><i data-lucide="cloud-sun" size="20"></i></div>
+              <div>
+                  <div className="weather-temp" id="weather-temp">--°C</div>
+                  <div className="weather-loc">Ayurgreen, Kerala</div>
+              </div>
+            </LiquidButton>
             <div className="bottom-left-badge fade-up" style={{ "transitionDelay": "0.2s" }}>
                 <div className="badge-avatars">
                     <img src="https://flagcdn.com/w80/ae.webp" alt="United Arab Emirates flag" width="32" height="32" />

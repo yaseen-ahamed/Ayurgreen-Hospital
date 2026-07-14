@@ -3326,6 +3326,7 @@
             font-weight: 600;
             font-size: 15px;
             color: #6b7280; /* Gray-500 */
+            white-space: nowrap;
             user-select: none;
         }
 
@@ -3370,7 +3371,7 @@
             top: 0;
             bottom: 0;
             left: 0;
-            width: 50%;
+            width: 33.333%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
             border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 
@@ -3387,5 +3388,9 @@
 
         .switcher[data-previous="2"] .switcher__filter::before {
             transform: translateX(100%);
+        }
+
+        .switcher[data-previous="3"] .switcher__filter::before {
+            transform: translateX(200%);
         }
     

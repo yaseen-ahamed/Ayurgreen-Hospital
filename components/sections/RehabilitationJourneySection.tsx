@@ -5,9 +5,9 @@ import { galleryImages } from "../../gallery_data.js";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 
 export default function RehabilitationJourneySection() {
-  const [activeTab, setActiveTab] = useState<"programs" | "therapies">("programs");
+  const [activeTab, setActiveTab] = useState<"programs" | "therapies" | "integrations">("programs");
 
-  const handleTabChange = (val: "programs" | "therapies") => {
+  const handleTabChange = (val: "programs" | "therapies" | "integrations") => {
     setActiveTab(val);
     (window as any).switchRehabTab?.(val);
   };
@@ -481,6 +481,109 @@ export default function RehabilitationJourneySection() {
                                 size="20" aria-hidden="true"></i></button>
                         <button className="rehab-slider-btn" onClick={() => (window as any).slideCards?.('scroll-therapies',  1)}
                             id="btn-next-therapies" aria-label="Next Therapies"><i data-lucide="chevron-right" size="20"
+                                aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                {/*  Integrations Tab  */}
+                <div id="tab-content-integrations" className="rehab-tab-content" role="tabpanel"
+                    aria-labelledby="tab-btn-integrations" aria-hidden="true">
+                    <div className="rehab-slider-clip" id="clip-integrations">
+                        <div className="rehab-cards-scroll" id="scroll-integrations">
+
+                            <a href="/neurology" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">Neurology</h3>
+                                    <p className="rehab-card-desc">Advanced neurological diagnostics and coordinated recovery paths for brain lesions.</p>
+                                </div>
+                            </a>
+
+                            <a href="/neurosurgery" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">Neurosurgery</h3>
+                                    <p className="rehab-card-desc">Expert neurosurgical interventions and post-operative rehabilitation pathways.</p>
+                                </div>
+                            </a>
+
+                            <a href="/orthopedic" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">Orthopedic</h3>
+                                    <p className="rehab-card-desc">Comprehensive care for musculoskeletal conditions, joint replacements, and bone injuries.</p>
+                                </div>
+                            </a>
+
+                            <a href="/ent" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">ENT</h3>
+                                    <p className="rehab-card-desc">Specialized treatment for ear, nose, and throat conditions affecting balance and speech.</p>
+                                </div>
+                            </a>
+
+                            <a href="/general-medicine" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">General Medicine</h3>
+                                    <p className="rehab-card-desc">Holistic medical management supporting overall health during rehabilitation.</p>
+                                </div>
+                            </a>
+
+                            <a href="/urology" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">Urology</h3>
+                                    <p className="rehab-card-desc">Advanced urological care addressing neurogenic bladder and related complications.</p>
+                                </div>
+                            </a>
+
+                            <a href="/cardiology" className="rehab-card">
+                                <div className="rehab-card-gradient"></div>
+                                <div className="rehab-card-arrow"><i data-lucide="arrow-up-right" size="16"
+                                        style={{ "color": "#111" }} aria-hidden="true"></i></div>
+                                <div className="rehab-card-know-more"><i data-lucide="arrow-up-right" size="14"
+                                        aria-hidden="true"></i> Know more</div>
+                                <div className="rehab-card-body">
+                                    <h3 className="rehab-card-title">Cardiology</h3>
+                                    <p className="rehab-card-desc">Cardiac monitoring and rehabilitation to ensure safe recovery and cardiovascular health.</p>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>{/*  /clip-integrations  */}
+                    {/*  Slide nav  */}
+                    <div className="rehab-slider-nav">
+                        <button className="rehab-slider-btn" onClick={() => (window as any).slideCards?.('scroll-integrations', -1)}
+                            id="btn-prev-integrations" aria-label="Previous Integrations"><i data-lucide="chevron-left"
+                                size="20" aria-hidden="true"></i></button>
+                        <button className="rehab-slider-btn" onClick={() => (window as any).slideCards?.('scroll-integrations',  1)}
+                            id="btn-next-integrations" aria-label="Next Integrations"><i data-lucide="chevron-right" size="20"
                                 aria-hidden="true"></i></button>
                     </div>
                 </div>

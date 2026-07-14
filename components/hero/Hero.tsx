@@ -280,9 +280,10 @@ export default function Hero() {
 
     initSliderWidth('scroll-programs');
     initSliderWidth('scroll-therapies');
+    initSliderWidth('scroll-integrations');
 
     handleRehabResize = () => {
-        ['programs', 'therapies'].forEach(t => initSliderWidth('scroll-' + t));
+        ['programs', 'therapies', 'integrations'].forEach(t => initSliderWidth('scroll-' + t));
     };
     window.addEventListener('resize', handleRehabResize);
 

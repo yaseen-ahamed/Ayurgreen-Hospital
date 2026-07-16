@@ -407,7 +407,7 @@ export default function RehabilitationJourneySection() {
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" className="rehab-card"
+                            <a href="#" onClick={(e) => e.preventDefault()} className="rehab-card"
                                 style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>Know
                                 more
 
@@ -432,7 +432,7 @@ export default function RehabilitationJourneySection() {
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" className="rehab-card"
+                            <a href="#" onClick={(e) => e.preventDefault()} className="rehab-card"
                                 style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>Know
                                 more
 
@@ -440,7 +440,7 @@ export default function RehabilitationJourneySection() {
                                 Restoring independence in daily living activities and
                                 work skills.</a>
 
-                            <a href="javascript:void(0)" className="rehab-card"
+                            <a href="#" onClick={(e) => e.preventDefault()} className="rehab-card"
                                 style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>Know
                                 more
 
@@ -448,7 +448,7 @@ export default function RehabilitationJourneySection() {
                                 Communication and swallowing rehabilitation by certified
                                 specialists.</a>
 
-                            <a href="javascript:void(0)" className="rehab-card"
+                            <a href="#" onClick={(e) => e.preventDefault()} className="rehab-card"
                                 style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>Know
                                 more
 
@@ -456,7 +456,7 @@ export default function RehabilitationJourneySection() {
                                 Immersive VR environments for engaging, gamified
                                 neurological recovery.</a>
 
-                            <a href="javascript:void(0)" className="rehab-card"
+                            <a href="#" onClick={(e) => e.preventDefault()} className="rehab-card"
                                 style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>Know
                                 more
 
@@ -464,7 +464,7 @@ export default function RehabilitationJourneySection() {
                                 Water-based therapy easing pain and rebuilding strength
                                 with minimal stress.</a>
 
-                            <a href="javascript:void(0)" className="rehab-card"
+                            <a href="#" onClick={(e) => e.preventDefault()} className="rehab-card"
                                 style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>Know
                                 more
 

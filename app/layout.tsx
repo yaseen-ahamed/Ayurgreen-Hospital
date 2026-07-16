@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../styles/globals.css';
+import '../styles/search.css';
 
 export const metadata: Metadata = {
   title: "Ayurgreen Hospital | Integrated Ortho-Neuro Rehabilitation & Ayurveda Hospital in Kerala",
@@ -39,6 +40,7 @@ export const metadata: Metadata = {
 import Header from '@/components/layout/Header';
 import MegaMenu from '@/components/layout/MegaMenu';
 import Footer from '@/components/layout/Footer';
+import SearchHighlightProvider from '@/components/search/SearchHighlightProvider';
 
 export default function RootLayout({
   children,
@@ -59,6 +61,7 @@ export default function RootLayout({
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="beforeInteractive" />
       </head>
       <body suppressHydrationWarning>
+        <SearchHighlightProvider />
         <Header />
         <MegaMenu />
         <main>{children}</main>

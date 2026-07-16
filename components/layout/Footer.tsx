@@ -64,7 +64,7 @@ export default function Footer() {
                     <div className="minimal-footer-links" style={{ "marginBottom": "24px" }}>
                         <a href="/about">About Us</a>
                         <a href="/rehab-village">Rehab Village</a>
-                        <a href="javascript:void(0)"
+                        <a href="#" onClick={(e) => e.preventDefault()}
                             style={{ "cursor": "default", "pointerEvents": "none", "textDecoration": "none" }}>All Specialities</a>
                         <a href="/international-patients">International Patients</a>
                     </div>

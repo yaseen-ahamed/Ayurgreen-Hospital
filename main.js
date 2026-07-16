@@ -162,6 +162,9 @@ function init() {
 
 // --- Liquid Glass Search Feature ---
 function initSearch() {
+    // Skip if the new React search system is present
+    if (document.getElementById('search-trigger-desktop') || document.getElementById('search-trigger-mobile')) return;
+
     // 1. Inject trigger buttons
     const nav = document.querySelector('.nav-pills-container');
     if (nav && !document.getElementById('search-trigger-desktop')) {

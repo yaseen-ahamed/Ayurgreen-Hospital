@@ -91,7 +91,7 @@
             flex-grow: 1;
             border-radius: 36px;
             background: #fff;
-            overflow: hidden;
+            clip-path: inset(0 round 36px);
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
@@ -3245,17 +3245,24 @@
         .weather-widget {
             position: absolute;
             bottom: 110px;
-            /* Above the bottom-left-badge */
             left: 48px;
             z-index: 10;
             display: flex !important;
             align-items: center !important;
             gap: 10px !important;
-            padding: 8px 16px !important;
+            padding: 10px 24px !important;
             height: auto !important;
-            border-radius: 30px !important;
-            color: #fff;
+            border-radius: 9999px !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.25),
+                inset 1px 1px 0 rgba(255, 255, 255, 0.3) !important;
+            color: #ffffff !important;
             font-family: var(--font-body), sans-serif;
+            font-weight: 600;
         }
 
         .weather-icon {

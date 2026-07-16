@@ -1051,7 +1051,7 @@ export default function Hero() {
             </div>
 
 
-            <LiquidButton
+            <div
               className="weather-widget fade-up"
               style={{ "transitionDelay": "0.15s" }}
               id="weather-widget"
@@ -1061,7 +1061,7 @@ export default function Hero() {
                   <div className="weather-temp" id="weather-temp">--°C</div>
                   <div className="weather-loc">Ayurgreen, Kerala</div>
               </div>
-            </LiquidButton>
+            </div>
             <div className="bottom-left-badge fade-up" style={{ "transitionDelay": "0.2s" }}>
                 <div className="badge-avatars">
                     <img src="https://flagcdn.com/w80/ae.webp" alt="United Arab Emirates flag" width="32" height="32" />

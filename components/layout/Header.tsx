@@ -1,9 +1,26 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { Search } from "lucide-react";
+
+const SearchOverlay = dynamic(() => import("@/components/search/SearchOverlay"), { ssr: false });
 
 export default function Header() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   useEffect(() => {
     import('../../main.js')
       .then(() => {
@@ -42,7 +59,7 @@ export default function Header() {
           </div>
 
           <div className="nav-item-wrapper">
-            <a href="javascript:void(0)" className="individual-pill">
+            <a href="#" className="individual-pill" onClick={(e) => e.preventDefault()}>
               Specialities <i data-lucide="chevron-down" size="14"></i>
             </a>
             <div className="nav-dropdown mega-menu-3-col">
@@ -113,7 +130,7 @@ export default function Header() {
           </div>
 
           <div className="nav-item-wrapper">
-            <a href="javascript:void(0)" className="individual-pill">
+            <a href="#" className="individual-pill" onClick={(e) => e.preventDefault()}>
               Departments <i data-lucide="chevron-down" size="14"></i>
             </a>
             <div className="nav-dropdown mega-menu-3-col">
@@ -183,6 +200,23 @@ export default function Header() {
               Rehab Village
             </a>
           </div>
+
+          <div className="nav-item-wrapper search-wrapper desktop-only-search">
+            <button
+              id="search-trigger-desktop"
+              className="individual-pill search-trigger-btn"
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Search website"
+              type="button"
+              style={{
+                padding: "clamp(6px, 1vw, 10px) clamp(10px, 1.2vw, 12px)",
+                justifyContent: "center",
+                outline: "none"
+              }}
+            >
+              <Search size={14} />
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -192,7 +226,7 @@ export default function Header() {
 
       <div className="header-right">
         <div className="nav-item-wrapper">
-          <a href="javascript:void(0)" className="individual-pill specializations-pill">
+          <a href="#" className="individual-pill specializations-pill" onClick={(e) => e.preventDefault()}>
             <span className="pill-text-wrapper">
               Modern Int<span className="pill-text-expandable">egrations</span>
             </span>
@@ -222,6 +256,18 @@ export default function Header() {
             </a>
           </div>
         </div>
+        <div className="nav-item-wrapper search-wrapper mobile-only-search" style={{ marginRight: '8px' }}>
+          <button
+            id="search-trigger-mobile"
+            className="menu-btn search-trigger-btn"
+            onClick={() => setIsSearchOpen(true)}
+            aria-label="Search website"
+            type="button"
+            style={{ outline: "none" }}
+          >
+            <Search size={18} />
+          </button>
+        </div>
         <a href="/international-patients" className="individual-pill">
           International Patients
         </a>
@@ -246,6 +292,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   );
 }

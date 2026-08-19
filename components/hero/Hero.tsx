@@ -1,11 +1,18 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { galleryImages } from "../../gallery_data.js";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { CloudSun } from "lucide-react";
 
 export default function Hero() {
+  const [weather, setWeather] = useState<{ temp: number; condition: string } | null>(null);
+
   useEffect(() => {
+    // Mock weather fetch
+    setWeather({ temp: 28, condition: "Sunny" });
+
     let active = true;
     let videoSliderInterval: any;
 
@@ -1050,18 +1057,6 @@ export default function Hero() {
                 </div>
             </div>
 
-
-            <div
-              className="weather-widget fade-up"
-              style={{ "transitionDelay": "0.15s" }}
-              id="weather-widget"
-            >
-              <div className="weather-icon"><i data-lucide="cloud-sun" size="20"></i></div>
-              <div>
-                  <div className="weather-temp" id="weather-temp">--°C</div>
-                  <div className="weather-loc">Ayurgreen, Kerala</div>
-              </div>
-            </div>
             <div className="bottom-left-badge fade-up" style={{ "transitionDelay": "0.2s" }}>
                 <div className="badge-avatars">
                     <img src="https://flagcdn.com/w80/ae.webp" alt="United Arab Emirates flag" width="32" height="32" />
@@ -1084,6 +1079,15 @@ export default function Hero() {
                         size="18"></i></button>
                 <button className="slider-nav-btn" id="hero-next" aria-label="Next Slide"><i data-lucide="arrow-right"
                         size="18"></i></button>
+            </div>
+            
+            {/* Weather widget */}
+            <div className="weather-widget fade-up" id="weather-widget" style={{ transitionDelay: "0.15s" }}>
+                <CloudSun size={16} />
+                <div>
+                    <div className="weather-temp" id="weather-temp">--°C</div>
+                    <div className="weather-loc">Ayurgreen, Kerala</div>
+                </div>
             </div>
         </div>
     </section>

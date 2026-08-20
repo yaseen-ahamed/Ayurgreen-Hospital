@@ -13,14 +13,16 @@ export default function Footer() {
             <div className="minimal-footer-grid">
                 {/*  Column 1: Brand & About  */}
                 <div className="minimal-footer-col">
-                    <a href="/">
-                        <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital Logo" className="minimal-footer-logo"
-                            width="1656" height="1344" loading="lazy" />
-                    </a>
-                    <p className="minimal-footer-text">
-                        India's pioneer in Integrated Ortho-Neuro Rehabilitation, fusing cutting-edge robotic tech with
-                        traditional Kerala Ayurveda to restore movement and dignity.
-                    </p>
+                    <div className="minimal-footer-brand-wrap">
+                        <a href="/" className="minimal-footer-logo-link">
+                            <img src="/Assets/Ayurgreen_Logo.webp" alt="Ayurgreen Hospital Logo" className="minimal-footer-logo"
+                                width="1656" height="1344" loading="lazy" />
+                        </a>
+                        <p className="minimal-footer-text">
+                            India's pioneer in Integrated Ortho-Neuro Rehabilitation, fusing cutting-edge robotic tech with
+                            traditional Kerala Ayurveda to restore movement and dignity.
+                        </p>
+                    </div>
                     <div className="minimal-social-row" style={{ "alignItems": "center", "gap": "16px" }}>
                         <a href="https://www.facebook.com/ayurvedahealthcare" target="_blank" rel="noopener noreferrer"
                             aria-label="Facebook" style={{ "display": "flex", "transition": "transform 0.2s ease" }}
